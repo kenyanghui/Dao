@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>打坐实证评点 · 六阶段完整修行指南</title>
+<title>打坐实证评点 · 六阶段完整修行指南 | Meditative Practice Commentary · A Six-Stage Cultivation Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +27,20 @@ body {
   font-family: 'Noto Serif SC', serif;
   line-height: 1.9;
   overflow-x: hidden;
+}
+.en {
+  display: block;
+  margin-top: 6px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  font-size: 0.88em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.en-inline {
+  display: inline;
+  margin-top: 0;
+  font-size: 1em;
 }
 body::before {
   content: '';
@@ -107,6 +121,7 @@ nav .nav-links a:hover { color: var(--gold); opacity: 1; }
   margin-bottom: 28px;
 }
 .hero h1 em { color: var(--gold); font-style: normal; }
+.hero h1 .en { color: var(--gold-light); }
 .hero-divider {
   width: 200px;
   height: 1px;
@@ -408,6 +423,9 @@ nav .nav-links a:hover { color: var(--gold); opacity: 1; }
   letter-spacing: 0.15em;
   margin-bottom: 24px;
   opacity: 0.8;
+}
+.stage-subtitle .en {
+  color: var(--gold-light);
 }
 .stage-quote {
   background: rgba(201,168,76,0.05);
@@ -850,86 +868,91 @@ footer {
 
 <!-- 导航 -->
 <nav>
-  <div class="brand">道 马</div>
+  <div class="brand">道 马<span class="en">Dao Ma</span></div>
   <ul class="nav-links">
-    <li><a href="#preface">缘起</a></li>
-    <li><a href="#stage1">入门筑基</a></li>
-    <li><a href="#stage2">炼精化气</a></li>
-    <li><a href="#stage3">炼气化神</a></li>
-    <li><a href="#stage4">炼神还虚</a></li>
-    <li><a href="#stage5">炼虚合道</a></li>
-    <li><a href="#stage6">悟后起修</a></li>
-    <li><a href="#faq">问答</a></li>
-    <li><a href="#conclusion">三句真言</a></li>
+    <li><a href="#preface">缘起<span class="en">Prelude</span></a></li>
+    <li><a href="#stage1">入门筑基<span class="en">Foundation</span></a></li>
+    <li><a href="#stage2">炼精化气<span class="en">Refine Essence</span></a></li>
+    <li><a href="#stage3">炼气化神<span class="en">Refine Qi</span></a></li>
+    <li><a href="#stage4">炼神还虚<span class="en">Return to Emptiness</span></a></li>
+    <li><a href="#stage5">炼虚合道<span class="en">Unite with Dao</span></a></li>
+    <li><a href="#stage6">悟后起修<span class="en">Practice After Awakening</span></a></li>
+    <li><a href="#faq">问答<span class="en">FAQ</span></a></li>
+    <li><a href="#conclusion">三句真言<span class="en">Three Maxims</span></a></li>
   </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-subtitle">合道祖师爷开示 · 2026年5月3日</div>
-  <h1>打坐实证评点<br><em>从感受到经典 · 初学修道入门指引</em></h1>
+  <div class="hero-subtitle">合道祖师爷开示 · 2026年5月3日<span class="en">Teaching from the Patriarch of Union with the Dao · May 3, 2026</span></div>
+  <h1>打坐实证评点<span class="en">Commentary on Meditative Practice</span><br><em>从感受到经典 · 初学修道入门指引<span class="en">From Felt Experience to the Classics · A Beginner's Guide to Daoist Cultivation</span></em></h1>
   <div class="hero-divider"></div>
   <p class="hero-desc">
     基于宗辉打坐实证，对照道藏经典逐一评点。<br>
     从筑基到还虚，从炼虚到悟后——六阶段完整修行路径，<br>
     含三要素开示：培训（布施）· 教练（持戒）· 投资（禅定）。
+    <span class="en">
+      Based on Zonghui's lived meditative practice, this guide comments on each stage through the lens of Daoist classics.<br>
+      From laying the foundation to returning to emptiness, and from uniting with Dao to practicing after awakening, it presents a complete six-stage path of cultivation.<br>
+      It also includes the teaching of the three pillars: training (generosity), coaching (discipline), and investment (meditative stability).
+    </span>
   </p>
   <div class="hero-stages">
-    <span class="hero-stage-badge">入门筑基</span>
-    <span class="hero-stage-badge">炼精化气</span>
-    <span class="hero-stage-badge">炼气化神</span>
-    <span class="hero-stage-badge">炼神还虚</span>
-    <span class="hero-stage-badge">炼虚合道</span>
-    <span class="hero-stage-badge">悟后起修</span>
+    <span class="hero-stage-badge">入门筑基<span class="en">Foundation</span></span>
+    <span class="hero-stage-badge">炼精化气<span class="en">Refine Essence into Qi</span></span>
+    <span class="hero-stage-badge">炼气化神<span class="en">Refine Qi into Spirit</span></span>
+    <span class="hero-stage-badge">炼神还虚<span class="en">Return Spirit to Emptiness</span></span>
+    <span class="hero-stage-badge">炼虚合道<span class="en">Unite Emptiness with Dao</span></span>
+    <span class="hero-stage-badge">悟后起修<span class="en">Practice After Awakening</span></span>
   </div>
   <div class="hero-meta">
-    <span>道藏经典原文</span><span>·</span><span>身体感受详解</span><span>·</span>
-    <span>三要素开示</span><span>·</span><span>祖师爷评点</span>
+    <span>道藏经典原文<span class="en">Daoist classics</span></span><span>·</span><span>身体感受详解<span class="en">Embodied sensations</span></span><span>·</span>
+    <span>三要素开示<span class="en">Three-pillar teaching</span></span><span>·</span><span>祖师爷评点<span class="en">Patriarch's commentary</span></span>
   </div>
-  <div class="hero-scroll">向下探索</div>
+  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
 </section>
 
 <!-- 前言 -->
 <section class="preface" id="preface">
-  <div class="preface-label">缘起 · 前言</div>
+  <div class="preface-label">缘起 · 前言<span class="en">Prelude</span></div>
   <div class="preface-content">
-    <h2>什么是「打坐」</h2>
-    <p>道藏《钟吕传道集》说：「凡人修炼，以长生为基，筑基为本。」</p>
-    <p>打坐，不是枯坐。是在安静中，让精气神运转，让元神显现，让心与道共振。</p>
-    <p>初学者最常犯的错误：以为打坐是「什么都不想」。错。打坐是「带着觉察去想」——想身体的感受，想气的流动，想念头从哪里来、到哪里去。</p>
-    <blockquote>《太上老君常说清静经》：「人能常清静，天地悉皆归。」<br>清静不是空，是清明——清清楚楚看见自己。</blockquote>
-    <p>修行四阶段，从筑基到还虚，从炼精到炼神到炼虚合道，道藏经典与身体实证相互印证。以下分六个阶段详述。</p>
+    <h2>什么是「打坐」<span class="en">What Is Meditation in This Tradition?</span></h2>
+    <p>道藏《钟吕传道集》说：「凡人修炼，以长生为基，筑基为本。」<span class="en">The Daoist text <em>Zhong-Lu Chuan Dao Ji</em> says: "For ordinary people who cultivate, longevity is the basis, and laying the foundation is the root."</span></p>
+    <p>打坐，不是枯坐。是在安静中，让精气神运转，让元神显现，让心与道共振。<span class="en">Meditation is not lifeless sitting. It is a quiet practice that allows essence, qi, and spirit to circulate, lets original spirit appear, and brings the heart into resonance with the Dao.</span></p>
+    <p>初学者最常犯的错误：以为打坐是「什么都不想」。错。打坐是「带着觉察去想」——想身体的感受，想气的流动，想念头从哪里来、到哪里去。<span class="en">The most common beginner's mistake is to think meditation means "thinking about nothing." Not so. Meditation means thinking with awareness: noticing bodily sensations, sensing the movement of qi, and observing where thoughts arise and where they go.</span></p>
+    <blockquote>《太上老君常说清静经》：「人能常清静，天地悉皆归。」<br>清静不是空，是清明——清清楚楚看见自己。<span class="en">The <em>Qingjing Jing</em> says: "If a person can remain constantly clear and still, heaven and earth return." Clarity and stillness are not blankness, but lucid awareness: seeing oneself completely and clearly.</span></blockquote>
+    <p>修行四阶段，从筑基到还虚，从炼精到炼神到炼虚合道，道藏经典与身体实证相互印证。以下分六个阶段详述。<span class="en">Cultivation unfolds through four broad phases, from foundation to emptiness, from refining essence to refining spirit and finally uniting emptiness with Dao. The Daoist canon and embodied experience validate one another. The six stages below explain this path in detail.</span></p>
 
     <div class="preface-stages-grid">
       <div class="preface-stage-item">
         <span class="num">壹</span>
-        <div class="name">入门筑基</div>
-        <div class="sub">师门传承 · 阳气初生</div>
+        <div class="name">入门筑基<span class="en">Foundation</span></div>
+        <div class="sub">师门传承 · 阳气初生<span class="en">Lineage · Rising Yang</span></div>
       </div>
       <div class="preface-stage-item">
         <span class="num">贰</span>
-        <div class="name">炼精化气</div>
-        <div class="sub">气脉通行</div>
+        <div class="name">炼精化气<span class="en">Refine Essence into Qi</span></div>
+        <div class="sub">气脉通行<span class="en">Channels Open</span></div>
       </div>
       <div class="preface-stage-item">
         <span class="num">叁</span>
-        <div class="name">炼气化神</div>
-        <div class="sub">元神显现</div>
+        <div class="name">炼气化神<span class="en">Refine Qi into Spirit</span></div>
+        <div class="sub">元神显现<span class="en">Original Spirit Appears</span></div>
       </div>
       <div class="preface-stage-item">
         <span class="num">肆</span>
-        <div class="name">炼神还虚</div>
-        <div class="sub">虚空合道</div>
+        <div class="name">炼神还虚<span class="en">Return Spirit to Emptiness</span></div>
+        <div class="sub">虚空合道<span class="en">Union with the Void</span></div>
       </div>
       <div class="preface-stage-item">
         <span class="num">伍</span>
-        <div class="name">炼虚合道</div>
-        <div class="sub">道法自然</div>
+        <div class="name">炼虚合道<span class="en">Unite Emptiness with Dao</span></div>
+        <div class="sub">道法自然<span class="en">Natural Accord with Dao</span></div>
       </div>
       <div class="preface-stage-item">
         <span class="num">陆</span>
-        <div class="name">悟后起修</div>
-        <div class="sub">利他助人</div>
+        <div class="name">悟后起修<span class="en">Practice After Awakening</span></div>
+        <div class="sub">利他助人<span class="en">Benefit Others</span></div>
       </div>
     </div>
   </div>
@@ -937,37 +960,37 @@ footer {
 
 <!-- 六阶段总览导航 -->
 <div class="timeline-nav">
-  <h2>修行六阶段</h2>
+  <h2>修行六阶段<span class="en">The Six Stages of Cultivation</span></h2>
   <div class="timeline-track">
     <div class="tl-item" onclick="document.getElementById('stage1').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">壹</span></div>
-      <div class="tl-stage">入门筑基</div>
-      <div class="tl-name">师门传承 · 阳气初生</div>
+      <div class="tl-stage">入门筑基<span class="en">Foundation</span></div>
+      <div class="tl-name">师门传承 · 阳气初生<span class="en">Lineage · Rising Yang</span></div>
     </div>
     <div class="tl-item" onclick="document.getElementById('stage2').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">贰</span></div>
-      <div class="tl-stage">炼精化气</div>
-      <div class="tl-name">气脉通行</div>
+      <div class="tl-stage">炼精化气<span class="en">Refine Essence into Qi</span></div>
+      <div class="tl-name">气脉通行<span class="en">Channels Open</span></div>
     </div>
     <div class="tl-item" onclick="document.getElementById('stage3').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">叁</span></div>
-      <div class="tl-stage">炼气化神</div>
-      <div class="tl-name">元神显现</div>
+      <div class="tl-stage">炼气化神<span class="en">Refine Qi into Spirit</span></div>
+      <div class="tl-name">元神显现<span class="en">Original Spirit Appears</span></div>
     </div>
     <div class="tl-item" onclick="document.getElementById('stage4').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">肆</span></div>
-      <div class="tl-stage">炼神还虚</div>
-      <div class="tl-name">虚空合道</div>
+      <div class="tl-stage">炼神还虚<span class="en">Return Spirit to Emptiness</span></div>
+      <div class="tl-name">虚空合道<span class="en">Union with the Void</span></div>
     </div>
     <div class="tl-item" onclick="document.getElementById('stage5').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">伍</span></div>
-      <div class="tl-stage">炼虚合道</div>
-      <div class="tl-name">道法自然</div>
+      <div class="tl-stage">炼虚合道<span class="en">Unite Emptiness with Dao</span></div>
+      <div class="tl-name">道法自然<span class="en">Natural Accord with Dao</span></div>
     </div>
     <div class="tl-item" onclick="document.getElementById('stage6').scrollIntoView({behavior:'smooth'})">
       <div class="tl-dot"><span class="tl-num">陆</span></div>
-      <div class="tl-stage">悟后起修</div>
-      <div class="tl-name">利他助人</div>
+      <div class="tl-stage">悟后起修<span class="en">Practice After Awakening</span></div>
+      <div class="tl-name">利他助人<span class="en">Benefit Others</span></div>
     </div>
   </div>
 </div>
@@ -981,57 +1004,62 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777781583_565147a4.png" alt="筑基">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第一阶段 · 壹</div>
-      <div class="stage-title">入门筑基</div>
-      <div class="stage-subtitle">师门传承 · 阳气初生 · 气沉丹田</div>
+      <div class="stage-num">第一阶段 · 壹<span class="en">Stage One</span></div>
+      <div class="stage-title">入门筑基<span class="en">Laying the Foundation</span></div>
+      <div class="stage-subtitle">师门传承 · 阳气初生 · 气沉丹田<span class="en">Lineage · Rising Yang · Qi Sinking to the Dantian</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">道藏原文</div>
+        <div class="stage-quote-label">道藏原文<span class="en">Daoist source text</span></div>
         《天仙正理》：「修仙道者，先须修形质之身，而后可证天仙之果。」
+        <span class="en"><em>Tianxian Zhengli</em>: "Those who cultivate the immortal Dao must first refine the physical body before attaining the fruit of heavenly immortality."</span>
       </div>
       <p class="stage-intro">
         筑基，就是把身体从「漏」修到「满」，从「摇」修到「稳」。道藏把身体比作年久失修的房子——墙壁有裂缝，屋顶有破洞，房梁歪斜。筑基，就是补墙、堵洞、正梁。<br><br>
         <strong>师门传承，是筑基的第一要义。</strong>道家修行，历来强调「法不轻传，师不顺路」——没有明师指点，纵使天天打坐，也可能在岔路上而不自知。明师的作用：① 传正确的方法（不盲修瞎练）；② 传师父的能量加持（筑基更快更稳）；③ 传祖师爷的信息（连接历代传承的力量）。杨辉入茅山/华光/青城三派，得师门护持，方能在打坐实证中步步验证道藏经典。师门传承，是修行人最珍贵的资产。
+        <span class="en">
+          Foundation work means taking the body from "leaking" to "full," and from "shaky" to "stable." Daoist texts compare the body to an old house in disrepair: cracked walls, holes in the roof, and crooked beams. Laying the foundation means repairing the walls, sealing the leaks, and straightening the frame.<br><br>
+          <strong>Lineage is the first essential of foundation work.</strong> Daoist cultivation has always stressed that true methods are not given lightly and cannot be found by wandering at random. Without guidance from an accomplished teacher, one may meditate every day and still drift onto a wrong path without knowing it. A true teacher provides: 1) the right method, 2) energetic support that stabilizes and accelerates foundation work, and 3) transmission of lineage information that connects one to generations of practice. Because Yang Hui entered the Maoshan, Huaguang, and Qingcheng lineages and received their support, he was able to verify Daoist classics step by step through direct practice. Lineage is one of the most precious assets a cultivator can have.
+        </span>
       </p>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ①</div>
-      <div class="feeling-title">身体发暖、发沉</div>
-      <div class="feeling-desc">初学者打坐，最容易感受到腿麻、腰痛——这说明平时身体就堵。继续坐，会慢慢感觉腿部先麻后暖，背部先酸后松，腹部有一团温热——<strong>精气聚集，阳气升起</strong>。</div>
-      <div class="feeling-quote">《金仙证论》：「阳发生时，则周身如绵，骨髓如凝。」</div>
+      <div class="feeling-tag">身体感受 ①<span class="en">Embodied Sign ①</span></div>
+      <div class="feeling-title">身体发暖、发沉<span class="en">Warmth and heaviness in the body</span></div>
+      <div class="feeling-desc">初学者打坐，最容易感受到腿麻、腰痛——这说明平时身体就堵。继续坐，会慢慢感觉腿部先麻后暖，背部先酸后松，腹部有一团温热——<strong>精气聚集，阳气升起</strong>。<span class="en">Beginners most often feel numb legs and lower-back soreness, which shows the body was already obstructed. As practice continues, the legs shift from numbness to warmth, the back from ache to release, and a warm cluster appears in the abdomen. This is the gathering of essence and qi, and the rising of yang energy.</span></div>
+      <div class="feeling-quote">《金仙证论》：「阳发生时，则周身如绵，骨髓如凝。」<span class="en">When yang arises, the whole body feels like cotton, and the marrow seems to condense.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ②</div>
-      <div class="feeling-title">打坐越来越稳</div>
-      <div class="feeling-desc">气往上冲就心浮，气往下沉就身稳。筑基期最重要的功夫，就是让气落到丹田扎根。</div>
-      <div class="feeling-quote">《玄肤论》：「气沉丹田，则神自住。」</div>
+      <div class="feeling-tag">身体感受 ②<span class="en">Embodied Sign ②</span></div>
+      <div class="feeling-title">打坐越来越稳<span class="en">Meditation becomes more stable</span></div>
+      <div class="feeling-desc">气往上冲就心浮，气往下沉就身稳。筑基期最重要的功夫，就是让气落到丹田扎根。<span class="en">When qi rushes upward, the mind becomes agitated; when qi sinks downward, the body becomes steady. The key work of this phase is to let qi root in the lower dantian.</span></div>
+      <div class="feeling-quote">《玄肤论》：「气沉丹田，则神自住。」<span class="en">When qi sinks to the dantian, spirit naturally abides.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ③</div>
-      <div class="feeling-title">妄念少了</div>
-      <div class="feeling-desc">打坐一段时间后杂念少了，不是念头消失了，而是<strong>「识神」开始休息，「元神」开始显现</strong>。</div>
-      <div class="feeling-quote">《心印经》：「上药三品，神与气精……识神居中，为三魂七魄之主。」</div>
+      <div class="feeling-tag">身体感受 ③<span class="en">Embodied Sign ③</span></div>
+      <div class="feeling-title">妄念少了<span class="en">Fewer scattered thoughts</span></div>
+      <div class="feeling-desc">打坐一段时间后杂念少了，不是念头消失了，而是<strong>「识神」开始休息，「元神」开始显现</strong>。<span class="en">After sustained practice, wandering thoughts lessen. This does not mean thought disappears, but rather that the discriminating mind begins to rest and the original spirit starts to appear.</span></div>
+      <div class="feeling-quote">《心印经》：「上药三品，神与气精……识神居中，为三魂七魄之主。」<span class="en">The highest medicine has three grades: spirit, qi, and essence... The cognitive spirit sits in the middle as master of the three hun and seven po.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">师门传承 ①</div>
-      <div class="feeling-title">明师传法 — 不盲修瞎练</div>
-      <div class="feeling-desc">没有明师指引，打坐可能练偏而不自知。明师传的是三个东西：<strong>方法</strong>（怎么坐是对的）、<strong>能量</strong>（师父的加持加速筑基）、<strong>信息</strong>（祖师爷历代传承的护持）。师门传承，是修行的第一条护城河。</div>
-      <div class="feeling-quote">「法不轻传，师不顺路」——没有师父的筑基，是沙地上的房子。</div>
+      <div class="feeling-tag">师门传承 ①<span class="en">Lineage ①</span></div>
+      <div class="feeling-title">明师传法 — 不盲修瞎练<span class="en">A true teacher prevents blind practice</span></div>
+      <div class="feeling-desc">没有明师指引，打坐可能练偏而不自知。明师传的是三个东西：<strong>方法</strong>（怎么坐是对的）、<strong>能量</strong>（师父的加持加速筑基）、<strong>信息</strong>（祖师爷历代传承的护持）。师门传承，是修行的第一条护城河。<span class="en">Without a real teacher, one may deviate in practice without even noticing. A true teacher transmits three things: method, energetic support, and lineage information. Lineage is the first moat that protects the path.</span></div>
+      <div class="feeling-quote">「法不轻传，师不顺路」——没有师父的筑基，是沙地上的房子。<span class="en">"The method is not transmitted lightly, and a teacher is not found by chance." Foundation work without a teacher is like building a house on sand.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">师门传承 ②</div>
-      <div class="feeling-title">三派传承 — 茅山·华光·青城</div>
-      <div class="feeling-desc">宗辉得多派传承，祖师爷35位（含如来/道德天尊/菩提老祖/金龙天尊/茅山派师公等）。各派各有侧重，构成完整的修行体系。师门传承，是历代修行者的心力凝结。</div>
-      <div class="feeling-quote">「一个人走得快，一群人走得远，师门是那群历代陪你走的人。」</div>
+      <div class="feeling-tag">师门传承 ②<span class="en">Lineage ②</span></div>
+      <div class="feeling-title">三派传承 — 茅山·华光·青城<span class="en">Three lineages: Maoshan, Huaguang, Qingcheng</span></div>
+      <div class="feeling-desc">宗辉得多派传承，祖师爷35位（含如来/道德天尊/菩提老祖/金龙天尊/茅山派师公等）。各派各有侧重，构成完整的修行体系。师门传承，是历代修行者的心力凝结。<span class="en">Zonghui received transmission from multiple schools and honors 35 patriarchs, including the Tathagata, the Celestial Worthy of the Dao, Patriarch Puti, Golden Dragon Celestial Worthy, and Maoshan lineage masters. Each lineage has its emphasis, and together they form a complete system of cultivation. Lineage is the concentrated heart-force of generations of practitioners.</span></div>
+      <div class="feeling-quote">「一个人走得快，一群人走得远，师门是那群历代陪你走的人。」<span class="en">One person may go fast, but a lineage helps you go far. It is the company of generations walking with you.</span></div>
     </div>
   </div>
 
   <div class="guide-box">
-    <div class="guide-box-label">给初学者的指引</div>
-    <p>腿麻时不要急着换姿势，先感受这个麻从哪来，守住 3-5 分钟，热感就会出现。这是<strong>「炼精」的入手处</strong>。身体不动久了，心自然静；心不乱想了，神自然清。</p>
-    <p style="margin-top:16px;border-top:1px solid rgba(201,168,76,0.12);padding-top:16px;"><strong>师门传承提示：</strong>筑基第一步，先找一个明师。方法是根基，能量是加速器，传承是护城河。没有师门，你练的是自己的版本；有师门，你练的是历代验证过的版本。</p>
+    <div class="guide-box-label">给初学者的指引<span class="en">Guidance for beginners</span></div>
+    <p>腿麻时不要急着换姿势，先感受这个麻从哪来，守住 3-5 分钟，热感就会出现。这是<strong>「炼精」的入手处</strong>。身体不动久了，心自然静；心不乱想了，神自然清。<span class="en">When your legs go numb, do not rush to change posture. First sense where the numbness comes from and stay with it for three to five minutes; warmth will begin to appear. This is an entry point into refining essence. When the body stays still long enough, the mind naturally quiets; when the mind no longer runs wildly, spirit becomes clear.</span></p>
+    <p style="margin-top:16px;border-top:1px solid rgba(201,168,76,0.12);padding-top:16px;"><strong>师门传承提示：</strong>筑基第一步，先找一个明师。方法是根基，能量是加速器，传承是护城河。没有师门，你练的是自己的版本；有师门，你练的是历代验证过的版本。<span class="en"><strong>Lineage reminder:</strong> the first step of foundation work is finding a true teacher. Method is the foundation, energy is the accelerator, and lineage is the moat. Without lineage, you practice only your personal version; with lineage, you practice a version tested across generations.</span></p>
   </div>
 </section>
 
@@ -1044,44 +1072,46 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777781586_f9903dd6.png" alt="炼精化气">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第二阶段 · 贰</div>
-      <div class="stage-title">炼精化气</div>
-      <div class="stage-subtitle">气脉通行 · 脱胎换骨 · 心念之卡</div>
+      <div class="stage-num">第二阶段 · 贰<span class="en">Stage Two</span></div>
+      <div class="stage-title">炼精化气<span class="en">Refining Essence into Qi</span></div>
+      <div class="stage-subtitle">气脉通行 · 脱胎换骨 · 心念之卡<span class="en">Open Channels · Transformation · Mental Knots</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">道藏原文</div>
+        <div class="stage-quote-label">道藏原文<span class="en">Daoist source text</span></div>
         《百字碑》：「送入丹田气海中，呼自然百脉流通。」
+        <span class="en"><em>Baizi Bei</em>: "Guide it into the dantian and sea of qi, and naturally the hundred channels will flow."</span>
       </div>
       <p class="stage-intro">
         精，是生命的物质能量。炼精化气，就是把物质能量转化成能在经络里流动的气。<br>
         <strong>比喻：</strong>精 = 原油，气 = 汽油，炼精化气 = 精炼原油成汽油。
+        <span class="en">Essence is the material energy of life. Refining essence into qi means transforming that material energy into qi that can move through the meridians.<br><strong>Metaphor:</strong> essence is crude oil, qi is gasoline, and this stage is the refining process.</span>
       </p>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ①</div>
-      <div class="feeling-title">气脉通行感</div>
-      <div class="feeling-desc">气从会阴往上走到脊柱，从脊柱升到后脑，有时冲到头顶——道藏叫<strong>「河车运转」</strong>。不要追求「通任督」，气走到哪里是身体自己决定的。能感受到某处发热，就很好。</div>
-      <div class="feeling-quote">《道枢》：「通此二脉，则百脉流通，一身无事。」</div>
+      <div class="feeling-tag">身体感受 ①<span class="en">Embodied Sign ①</span></div>
+      <div class="feeling-title">气脉通行感<span class="en">A sense of qi moving through the channels</span></div>
+      <div class="feeling-desc">气从会阴往上走到脊柱，从脊柱升到后脑，有时冲到头顶——道藏叫<strong>「河车运转」</strong>。不要追求「通任督」，气走到哪里是身体自己决定的。能感受到某处发热，就很好。<span class="en">Qi may move upward from the perineum along the spine to the back of the head, sometimes even reaching the crown. Daoist texts call this the turning of the river chariot. Do not obsess over "opening the Governing and Conception vessels." The body decides where qi goes. Simply feeling warmth somewhere is already a good sign.</span></div>
+      <div class="feeling-quote">《道枢》：「通此二脉，则百脉流通，一身无事。」<span class="en">When these two vessels open, the hundred channels flow and the whole body becomes free of obstruction.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ②</div>
-      <div class="feeling-title">身体轻盈</div>
-      <div class="feeling-desc">浊气排出去，清气升上来，人就感觉「轻了」。这是身体层面的<strong>「脱胎换骨」</strong>。</div>
-      <div class="feeling-quote">《灵宝毕法》：「脱胎换骨之后，自然身轻如燕，步履如飞。」</div>
+      <div class="feeling-tag">身体感受 ②<span class="en">Embodied Sign ②</span></div>
+      <div class="feeling-title">身体轻盈<span class="en">The body feels lighter</span></div>
+      <div class="feeling-desc">浊气排出去，清气升上来，人就感觉「轻了」。这是身体层面的<strong>「脱胎换骨」</strong>。<span class="en">As turbid qi is expelled and clear qi rises, the body starts to feel lighter. This is bodily transformation at the level of "shedding the old body and renewing the frame."</span></div>
+      <div class="feeling-quote">《灵宝毕法》：「脱胎换骨之后，自然身轻如燕，步履如飞。」<span class="en">After rebirth and renewal of the frame, the body becomes as light as a swallow and the steps seem to fly.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">身体感受 ③</div>
-      <div class="feeling-title">右肩硬结 — 心念之卡</div>
-      <div class="feeling-desc">按之有形、察之有气——但本质不是肌肉问题，而是<strong>心念之卡</strong>。不肯放事、不肯让人、不肯歇心，攒久了就落在肩背成病。</div>
-      <div class="feeling-quote">《清静经》：「夫人神好清，而心扰之；人心好静，而欲牵之。」</div>
+      <div class="feeling-tag">身体感受 ③<span class="en">Embodied Sign ③</span></div>
+      <div class="feeling-title">右肩硬结 — 心念之卡<span class="en">A hard knot in the right shoulder: a knot of mind</span></div>
+      <div class="feeling-desc">按之有形、察之有气——但本质不是肌肉问题，而是<strong>心念之卡</strong>。不肯放事、不肯让人、不肯歇心，攒久了就落在肩背成病。<span class="en">It can be felt physically and energetically, yet at root it is not a muscle problem but a knot of mind. Refusing to let go, refusing to yield, and refusing to rest inwardly can accumulate over time and settle into the shoulders and back.</span></div>
+      <div class="feeling-quote">《清静经》：「夫人神好清，而心扰之；人心好静，而欲牵之。」<span class="en">A person's spirit prefers clarity, yet the mind disturbs it; the heart prefers stillness, yet desire drags it away.</span></div>
     </div>
   </div>
 
   <div class="guide-box">
-    <div class="guide-box-label">给初学者的指引</div>
-    <p>打坐时身体某处特别堵，先问自己：<strong>最近什么事放不下？</strong>你会发现，身体的瘀结几乎都对应一个未处理的情绪。<strong>看见它，就是解结的开始。</strong></p>
+    <div class="guide-box-label">给初学者的指引<span class="en">Guidance for beginners</span></div>
+    <p>打坐时身体某处特别堵，先问自己：<strong>最近什么事放不下？</strong>你会发现，身体的瘀结几乎都对应一个未处理的情绪。<strong>看见它，就是解结的开始。</strong><span class="en">If one part of the body feels especially blocked during meditation, first ask yourself: <strong>What have I not been able to let go of lately?</strong> You will discover that most energetic knots correspond to emotions that remain unresolved. <strong>Seeing the knot is the beginning of releasing it.</strong></span></p>
   </div>
 </section>
 
@@ -1094,52 +1124,56 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777781588_14645fb5.png" alt="炼气化神">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第三阶段 · 叁</div>
-      <div class="stage-title">炼气化神</div>
-      <div class="stage-subtitle">三静入定 · 通三眼 · 元神显现 · 打符布气</div>
+      <div class="stage-num">第三阶段 · 叁<span class="en">Stage Three</span></div>
+      <div class="stage-title">炼气化神<span class="en">Refining Qi into Spirit</span></div>
+      <div class="stage-subtitle">三静入定 · 通三眼 · 元神显现 · 打符布气<span class="en">Threefold Stillness · Opening the Three Eyes · Original Spirit Appears · Energetic Transmission</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">道藏原文</div>
+        <div class="stage-quote-label">道藏原文<span class="en">Daoist source text</span></div>
         《胎息经》：「胎从伏气中结，气从有胎中息。」
+        <span class="en"><em>Taixi Jing</em>: "The inner embryo forms from hidden qi, and breath rests within that embryo."</span>
       </div>
       <p class="stage-intro">
         气化神，就是能量升维：气是有形能量，神是无形智慧。<br>
         <strong>比喻：</strong>气 = 电（能量载体），神 = 光（能量的具体呈现）。
+        <span class="en">Refining qi into spirit is an upgrade of energy. Qi is tangible energy; spirit is invisible intelligence.<br><strong>Metaphor:</strong> qi is electricity, while spirit is light, the visible expression of that energy.</span>
       </p>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">核心感受 ①</div>
-      <div class="feeling-title">三静 — 入定三阶梯</div>
+      <div class="feeling-tag">核心感受 ①<span class="en">Core Sign ①</span></div>
+      <div class="feeling-title">三静 — 入定三阶梯<span class="en">Three kinds of stillness: the ladder into absorption</span></div>
       <div class="feeling-desc">
         <strong>身静：</strong>放下身体躁动，气机平稳（90% 的初学者死在这里——腿一麻就想动）<br>
         <strong>心静：</strong>放下是非分别，念头清明<br>
         <strong>神静：</strong>识神退位，元神显现，不被外境牵走
+        <span class="en"><strong>Body stillness:</strong> release bodily restlessness and stabilize qi movement. Most beginners fail here because they want to move the moment discomfort appears.<br><strong>Mind stillness:</strong> release judgment and mental argument so thoughts become clear.<br><strong>Spirit stillness:</strong> the discriminating mind steps back, original spirit appears, and outer conditions no longer pull you away.</span>
       </div>
-      <div class="feeling-quote">三静不是三步走，是一个整体。身体不动久了，心自然静；心不乱想了，神自然清。</div>
+      <div class="feeling-quote">三静不是三步走，是一个整体。身体不动久了，心自然静；心不乱想了，神自然清。<span class="en">These are not three separate steps but one integrated condition: when the body stays still, the mind quiets; when the mind quiets, spirit becomes clear.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心感受 ②</div>
-      <div class="feeling-title">通三眼 — 感知能力三层升维</div>
+      <div class="feeling-tag">核心感受 ②<span class="en">Core Sign ②</span></div>
+      <div class="feeling-title">通三眼 — 感知能力三层升维<span class="en">Opening the three eyes: a three-layer upgrade of perception</span></div>
       <div class="feeling-desc">
         <strong>天眼</strong>（眉心）：感知炁的流动，能看见能量场<br>
         <strong>慧眼</strong>（心）：一眼看穿问题的本质<br>
         <strong>法眼</strong>（道）：从万象中提炼大道规律
+        <span class="en"><strong>Heaven eye</strong> at the brow: sensing the movement of qi and perceiving energetic fields.<br><strong>Wisdom eye</strong> in the heart: seeing directly into the essence of an issue.<br><strong>Dharma eye</strong> in the Dao: extracting fundamental law from the ten thousand phenomena.</span>
       </div>
-      <div class="feeling-quote">《心印经》：「上药三品，神与气精」——三层感知，是炼气化神的核心成果。</div>
+      <div class="feeling-quote">《心印经》：「上药三品，神与气精」——三层感知，是炼气化神的核心成果。<span class="en">The three layers of perception are among the core fruits of refining qi into spirit.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心感受 ③</div>
-      <div class="feeling-title">元神出窍</div>
-      <div class="feeling-desc">不是灵魂跑出去，而是<strong>「元神感知范围扩大」</strong>——平时只能感知自己，打坐中能感知别人、空间、能量场。</div>
-      <div class="feeling-quote">《道枢》：「神能离形，名为出神。」——可验证：打坐时感知到的信息，事后是否应验？</div>
+      <div class="feeling-tag">核心感受 ③<span class="en">Core Sign ③</span></div>
+      <div class="feeling-title">元神出窍<span class="en">Original spirit moving beyond the body</span></div>
+      <div class="feeling-desc">不是灵魂跑出去，而是<strong>「元神感知范围扩大」</strong>——平时只能感知自己，打坐中能感知别人、空间、能量场。<span class="en">This does not mean the soul literally leaves the body. It means the perceptual range of original spirit expands. In ordinary life you sense only yourself; in meditation you may sense other people, spaces, and energetic fields.</span></div>
+      <div class="feeling-quote">《道枢》：「神能离形，名为出神。」——可验证：打坐时感知到的信息，事后是否应验？<span class="en">"When spirit can separate from form, this is called emergence of spirit." The key test is simple: does what you sense in meditation later prove true?</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心感受 ④</div>
-      <div class="feeling-title">打符输入能量 — 布气术</div>
-      <div class="feeling-desc">用神把能量布给别人，两个条件：①自己的能量够（筑基扎实）；②发心纯粹（没有杂念）。自己没修好，给别人发功只会把自己掏空。</div>
-      <div class="feeling-quote">《灵宝毕法》：「上等，以神布气。」</div>
+      <div class="feeling-tag">核心感受 ④<span class="en">Core Sign ④</span></div>
+      <div class="feeling-title">打符输入能量 — 布气术<span class="en">Energetic transmission through talismanic work</span></div>
+      <div class="feeling-desc">用神把能量布给别人，两个条件：①自己的能量够（筑基扎实）；②发心纯粹（没有杂念）。自己没修好，给别人发功只会把自己掏空。<span class="en">Spirit can be used to extend energy to others, but two conditions must be met: your own energy must be sufficient, and your intention must be pure. If your own cultivation is unstable, transmitting to others only drains you.</span></div>
+      <div class="feeling-quote">《灵宝毕法》：「上等，以神布气。」<span class="en">At the highest level, one distributes qi through spirit.</span></div>
     </div>
   </div>
 </section>
@@ -1153,50 +1187,52 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777781590_0bfd314b.png" alt="炼神还虚">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第四阶段 · 肆</div>
-      <div class="stage-title">炼神还虚</div>
-      <div class="stage-subtitle">虚空合道 · 明心见性 · 利他是必选项</div>
+      <div class="stage-num">第四阶段 · 肆<span class="en">Stage Four</span></div>
+      <div class="stage-title">炼神还虚<span class="en">Returning Spirit to Emptiness</span></div>
+      <div class="stage-subtitle">虚空合道 · 明心见性 · 利他是必选项<span class="en">Union with the Void · Seeing One's Nature · Benefiting Others Is Essential</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">道藏原文</div>
+        <div class="stage-quote-label">道藏原文<span class="en">Daoist source text</span></div>
         《清静经》：「空无所空，无无亦无，湛然常寂。」
+        <span class="en"><em>Qingjing Jing</em>: "Emptiness empties even itself; even non-being is gone; what remains is luminous and ever still."</span>
       </div>
       <p class="stage-intro">
         炼神还虚，是修行的转折点：从「向外求」到「向内看」——把「我」放下，看清楚「我」到底是什么。<br>
         「还虚」不是变成虚空，而是「看见」：我不是这个身体，不是我这个念头，不是我的情绪——我是那个能看见身体、念头、情绪的东西。
+        <span class="en">Returning spirit to emptiness is a major turning point: the movement from seeking outward to looking inward. One loosens the hold of "I" and sees clearly what this "I" truly is.<br>"Returning to emptiness" does not mean becoming blank space. It means seeing directly: I am not merely this body, nor this thought, nor this emotion. I am the one that sees body, thought, and emotion.</span>
       </p>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">核心体悟 ①</div>
-      <div class="feeling-title">虚空合道 — 明心见性</div>
-      <div class="feeling-desc">宗辉2026年4月25日证悟：「意念从元神进入虚空，看见虚空背后就是道，道是造物主。」这就是<strong>「明心见性」</strong>——明明白白看见自己的心，看见道就是本性的源头。</div>
-      <div class="feeling-quote">《阴符经》：「宇宙在乎手，万化生乎身。」——宇宙的创造，从「心念」开始。</div>
+      <div class="feeling-tag">核心体悟 ①<span class="en">Core Realization ①</span></div>
+      <div class="feeling-title">虚空合道 — 明心见性<span class="en">Union with the void, clarity of mind, and seeing one's nature</span></div>
+      <div class="feeling-desc">宗辉2026年4月25日证悟：「意念从元神进入虚空，看见虚空背后就是道，道是造物主。」这就是<strong>「明心见性」</strong>——明明白白看见自己的心，看见道就是本性的源头。<span class="en">On April 25, 2026, Zonghui realized: "Intention entered the void from original spirit, and behind the void I saw the Dao; the Dao is the creator." This is what it means to illuminate the mind and see one's nature: to clearly see the heart-mind and recognize Dao as the source of one's original nature.</span></div>
+      <div class="feeling-quote">《阴符经》：「宇宙在乎手，万化生乎身。」——宇宙的创造，从「心念」开始。<span class="en">The universe begins in intention. Creation starts from the movement of mind.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心体悟 ②</div>
-      <div class="feeling-title">道以「振」创造一切</div>
-      <div class="feeling-desc">宇宙的创造，从「心念」开始。你的心念，就是你这个小宇宙的创造者。这个「振」，就是念头本身。</div>
-      <div class="feeling-quote">宗辉体悟：「发愿利他这个频率就会共振道，从道下来的力量无比纯粹巨大。」</div>
+      <div class="feeling-tag">核心体悟 ②<span class="en">Core Realization ②</span></div>
+      <div class="feeling-title">道以「振」创造一切<span class="en">The Dao creates through vibration</span></div>
+      <div class="feeling-desc">宇宙的创造，从「心念」开始。你的心念，就是你这个小宇宙的创造者。这个「振」，就是念头本身。<span class="en">The universe begins with intention. Your own intention creates your small universe. This "vibration" is the movement of thought itself.</span></div>
+      <div class="feeling-quote">宗辉体悟：「发愿利他这个频率就会共振道，从道下来的力量无比纯粹巨大。」<span class="en">When one vows to benefit others, that frequency resonates with the Dao, and what comes through is immensely pure and powerful.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心体悟 ③</div>
-      <div class="feeling-title">认清自己很小</div>
-      <div class="feeling-desc">认清自己很小，不是自我否定，而是「看见真相」——在道面前我的确很小，这个「小」恰恰是解脱。</div>
-      <div class="feeling-quote">《道德经》：「致虚极，守静笃，万物并作，吾以观复。」——当你看见「我很小」时，你就放开了。</div>
+      <div class="feeling-tag">核心体悟 ③<span class="en">Core Realization ③</span></div>
+      <div class="feeling-title">认清自己很小<span class="en">Recognizing how small the self is</span></div>
+      <div class="feeling-desc">认清自己很小，不是自我否定，而是「看见真相」——在道面前我的确很小，这个「小」恰恰是解脱。<span class="en">Seeing oneself as small is not self-denial. It is seeing reality clearly. Before the Dao, the personal self is indeed small, and this very smallness becomes liberation.</span></div>
+      <div class="feeling-quote">《道德经》：「致虚极，守静笃，万物并作，吾以观复。」——当你看见「我很小」时，你就放开了。<span class="en">When you truly see how small the self is, grasping loosens by itself.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">核心体悟 ④</div>
-      <div class="feeling-title">利他是必选项</div>
-      <div class="feeling-desc">修道不是逃世，是更好地入世。让自己变得更强，不是目的；让更多人因为你而受益，才是道藏所有经典的核心。</div>
-      <div class="feeling-quote">《度人经》：「仙道贵生，无量度人。」——自度度他，功德圆满。</div>
+      <div class="feeling-tag">核心体悟 ④<span class="en">Core Realization ④</span></div>
+      <div class="feeling-title">利他是必选项<span class="en">Benefiting others is not optional</span></div>
+      <div class="feeling-desc">修道不是逃世，是更好地入世。让自己变得更强，不是目的；让更多人因为你而受益，才是道藏所有经典的核心。<span class="en">Cultivating the Dao is not an escape from the world, but a more conscious way of entering it. Becoming stronger yourself is not the final aim; the core of the tradition is that more people benefit because of your presence.</span></div>
+      <div class="feeling-quote">《度人经》：「仙道贵生，无量度人。」——自度度他，功德圆满。<span class="en">The immortal path honors life and saves countless beings. To liberate oneself and others is the completion of merit.</span></div>
     </div>
   </div>
 
   <div class="guide-box">
-    <div class="guide-box-label">给初学者的指引</div>
-    <p>修行的入手处，就在<strong>每一个念头</strong>。不需要学更多，在已有的体会上感受得更精细。呼吸的冷热，丹田的温凉，眉心的胀紧——每一个细微的感受里，都有道。</p>
+    <div class="guide-box-label">给初学者的指引<span class="en">Guidance for beginners</span></div>
+    <p>修行的入手处，就在<strong>每一个念头</strong>。不需要学更多，在已有的体会上感受得更精细。呼吸的冷热，丹田的温凉，眉心的胀紧——每一个细微的感受里，都有道。<span class="en">The entry to cultivation lies inside <strong>every single thought</strong>. There is no need to chase more teachings; feel more finely within what you already know. The coolness and warmth of the breath, the temperature in the dantian, the pressure at the brow: in every subtle sensation, the Dao is present.</span></p>
   </div>
 </section>
 
@@ -1209,80 +1245,83 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777783755_915e4c06.png" alt="炼虚合道">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第五阶段 · 伍</div>
-      <div class="stage-title">炼虚合道</div>
-      <div class="stage-subtitle">虚空合道 · 道法自然 · 三要素定法</div>
+      <div class="stage-num">第五阶段 · 伍<span class="en">Stage Five</span></div>
+      <div class="stage-title">炼虚合道<span class="en">Uniting Emptiness with the Dao</span></div>
+      <div class="stage-subtitle">虚空合道 · 道法自然 · 三要素定法<span class="en">Union with the Void · Natural Accord with Dao · Establishing the Three Pillars</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">祖师爷开示 · 2026年5月2日</div>
+        <div class="stage-quote-label">祖师爷开示 · 2026年5月2日<span class="en">Patriarch's teaching · May 2, 2026</span></div>
         修颗粒度，不开新方向。在已知里挖未知入口。
+        <span class="en">Refine the granularity of practice. Do not chase new directions. Dig unknown entry points out of what is already known.</span>
       </div>
       <p class="stage-intro">
         炼虚合道，是修行从「自修」迈向「道法自然」的转折点。虚空合道之后，合道祖师爷在2026年5月2日给出关键定法——<strong>三要素</strong>：培训（布施）、教练（持戒）、投资（禅定），三者互为支撑、三位一体、三是功德所致。
+        <span class="en">This stage marks the turn from personal cultivation to living in natural accord with Dao. After union with the void, the Patriarch of Union with Dao established a key method on May 2, 2026: the <strong>three pillars</strong> of training, coaching, and investment. They support one another, form a single whole, and arise from accumulated merit.</span>
       </p>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">证悟根基</div>
-      <div class="feeling-title">宇宙本源：是无极圣母</div>
-      <div class="feeling-desc">虚空背后是道，道的源头是无极圣母。道以「振」创造一切，认清自己很小，唯有利他符合天道。</div>
-      <div class="feeling-quote">合道确认：道 = 造物主，宇宙本源 = 无极圣母</div>
+      <div class="feeling-tag">证悟根基<span class="en">Ground of realization</span></div>
+      <div class="feeling-title">宇宙本源：是无极圣母<span class="en">The source of the cosmos: the Primordial Holy Mother</span></div>
+      <div class="feeling-desc">虚空背后是道，道的源头是无极圣母。道以「振」创造一切，认清自己很小，唯有利他符合天道。<span class="en">Behind the void is the Dao, and the source of Dao is the Primordial Holy Mother. The Dao creates through vibration. To see how small the personal self is, and to benefit others, is to align with heavenly principle.</span></div>
+      <div class="feeling-quote">合道确认：道 = 造物主，宇宙本源 = 无极圣母<span class="en">Union with Dao confirms: Dao is the creator, and the cosmic source is the Primordial Holy Mother.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">证悟核心</div>
-      <div class="feeling-title">能量是变现的底层</div>
-      <div class="feeling-desc">服务他人积功累德，能量提升自然会带来物质层面的变现。不是追求变现，而是通过利他积累能量，能量到了，变现自然发生。</div>
-      <div class="feeling-quote">能量 = 变现底层。服务他人 = 积功累德。</div>
+      <div class="feeling-tag">证悟核心<span class="en">Core realization</span></div>
+      <div class="feeling-title">能量是变现的底层<span class="en">Energy is the base layer of material realization</span></div>
+      <div class="feeling-desc">服务他人积功累德，能量提升自然会带来物质层面的变现。不是追求变现，而是通过利他积累能量，能量到了，变现自然发生。<span class="en">Serving others accumulates merit, and increased energy naturally supports material manifestation. The point is not to chase profit, but to build energy through benefiting others; when the energy is there, material results follow on their own.</span></div>
+      <div class="feeling-quote">能量 = 变现底层。服务他人 = 积功累德。<span class="en">Energy is the base layer of manifestation. Serving others is the accumulation of merit.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">证悟方向</div>
-      <div class="feeling-title">修颗粒度，不开新方向</div>
-      <div class="feeling-desc">祖师爷开示：不开新方向，在已知里挖未知入口。在已有的路径上挖得更深、颗粒度更细，而不是到处找新方向。专注，才能穿透。</div>
-      <div class="feeling-quote">华山一条路，打坐到见道。在已知里挖未知入口。</div>
+      <div class="feeling-tag">证悟方向<span class="en">Direction of realization</span></div>
+      <div class="feeling-title">修颗粒度，不开新方向<span class="en">Increase granularity, do not chase new directions</span></div>
+      <div class="feeling-desc">祖师爷开示：不开新方向，在已知里挖未知入口。在已有的路径上挖得更深、颗粒度更细，而不是到处找新方向。专注，才能穿透。<span class="en">The Patriarch teaches: do not constantly open new directions; dig unknown entrances from what you already know. Go deeper and become more precise on the present path instead of looking everywhere for novelty. Only concentration brings penetration.</span></div>
+      <div class="feeling-quote">华山一条路，打坐到见道。在已知里挖未知入口。<span class="en">There is one road up Huashan: meditate until Dao becomes visible, and uncover the unknown within the known.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">证悟路径</div>
-      <div class="feeling-title">实证三层完整闭环</div>
+      <div class="feeling-tag">证悟路径<span class="en">Path of realization</span></div>
+      <div class="feeling-title">实证三层完整闭环<span class="en">A complete three-layer evidence loop</span></div>
       <div class="feeling-desc">
         <strong>第一层：自修实证</strong>——自己打坐，自己感受，自己体悟<br>
         <strong>第二层：护他实证</strong>——护持他人筑基（已护持SUNNY完成通三眼三脑/打符加持/元神出窍互动/内观经络）<br>
         <strong>第三层：诊断处方</strong>——给他人内观经络诊断+打符加持
+        <span class="en"><strong>Layer one: self-practice evidence</strong> — meditate, feel, and realize for oneself.<br><strong>Layer two: evidence in supporting others</strong> — help others lay the foundation, including opening perception, energetic support, spirit interaction, and inner observation of channels.<br><strong>Layer three: diagnostic prescription</strong> — offer energetic diagnosis and targeted talismanic support for others.</span>
       </div>
-      <div class="feeling-quote">三层完整：自修 → 护他 → 诊断处方，形成闭环。</div>
+      <div class="feeling-quote">三层完整：自修 → 护他 → 诊断处方，形成闭环。<span class="en">The full loop is: self-practice, supporting others, and diagnostic prescription.</span></div>
     </div>
   </div>
 
   <div class="three-box">
-    <div class="three-box-label">祖师爷定法 · 三要素（2026.5.2）</div>
+    <div class="three-box-label">祖师爷定法 · 三要素（2026.5.2）<span class="en">The three pillars established by the Patriarch</span></div>
     <div class="three-grid">
       <div class="three-item">
         <span class="three-item-num">一</span>
-        <div class="three-item-title">培 训</div>
-        <div class="three-item-buddha">对应：布施</div>
-        <div class="three-item-desc">法布施——用AI+心智方法论，帮助企业及二代传承人建立AI能力。培训是修行的第一支撑，布施是六度之首。</div>
-        <div class="three-item-quote">「培训是布施，法布施是六度之首」</div>
+        <div class="three-item-title">培 训<span class="en">Training</span></div>
+        <div class="three-item-buddha">对应：布施<span class="en">Corresponds to generosity</span></div>
+        <div class="three-item-desc">法布施——用AI+心智方法论，帮助企业及二代传承人建立AI能力。培训是修行的第一支撑，布施是六度之首。<span class="en">Training is dharma-giving: using AI and mindset methodology to help companies and next-generation heirs build AI capability. Training is the first support of this path, and generosity is the first of the six perfections.</span></div>
+        <div class="three-item-quote">「培训是布施，法布施是六度之首」<span class="en">Training is generosity; offering the teaching is the first perfection.</span></div>
       </div>
       <div class="three-item">
         <span class="three-item-num">二</span>
-        <div class="three-item-title">教 练</div>
-        <div class="three-item-buddha">对应：持戒</div>
-        <div class="three-item-desc">帮人觉醒——教练是持戒，帮人看清自己的心智模式、限制性信念，助人从内在觉醒。教练是修行的核心使命。</div>
-        <div class="three-item-quote">「教练是持戒，助人觉醒是核心使命」</div>
+        <div class="three-item-title">教 练<span class="en">Coaching</span></div>
+        <div class="three-item-buddha">对应：持戒<span class="en">Corresponds to discipline</span></div>
+        <div class="three-item-desc">帮人觉醒——教练是持戒，帮人看清自己的心智模式、限制性信念，助人从内在觉醒。教练是修行的核心使命。<span class="en">Coaching helps people awaken. It corresponds to discipline because it helps others see their own patterns and limiting beliefs, and supports inner awakening. Coaching is the central mission of this path.</span></div>
+        <div class="three-item-quote">「教练是持戒，助人觉醒是核心使命」<span class="en">Coaching is discipline; helping others awaken is the core mission.</span></div>
       </div>
       <div class="three-item">
         <span class="three-item-num">三</span>
-        <div class="three-item-title">投 资</div>
-        <div class="three-item-buddha">对应：禅定</div>
-        <div class="three-item-desc">财务安定——投资是禅定，让财务安定、心不慌，从而有稳定的能量场服务他人。禅定不是坐着不动，是心安定。</div>
-        <div class="three-item-quote">「投资是禅定，心安定才能利他」</div>
+        <div class="three-item-title">投 资<span class="en">Investment</span></div>
+        <div class="three-item-buddha">对应：禅定<span class="en">Corresponds to meditative stability</span></div>
+        <div class="three-item-desc">财务安定——投资是禅定，让财务安定、心不慌，从而有稳定的能量场服务他人。禅定不是坐着不动，是心安定。<span class="en">Investment creates financial steadiness. That steadiness supports a calm mind and a stable energetic field for serving others. Meditative stability does not mean sitting motionless; it means the mind remains settled.</span></div>
+        <div class="three-item-quote">「投资是禅定，心安定才能利他」<span class="en">Investment is meditative stability; only a settled mind can keep benefiting others.</span></div>
       </div>
     </div>
   </div>
 
   <div class="guide-box">
-    <div class="guide-box-label">祖师爷定法核心</div>
-    <p>三要素互为支撑：<strong>培训</strong>（布施）建立能量场，<strong>教练</strong>（持戒）深化使命，<strong>投资</strong>（禅定）确保安定。3 是功德所致——不是凑数，是天道数字。<strong>修颗粒度，不开新方向，在已知里挖未知入口。</strong></p>
+    <div class="guide-box-label">祖师爷定法核心<span class="en">Core of the Patriarch's method</span></div>
+    <p>三要素互为支撑：<strong>培训</strong>（布施）建立能量场，<strong>教练</strong>（持戒）深化使命，<strong>投资</strong>（禅定）确保安定。3 是功德所致——不是凑数，是天道数字。<strong>修颗粒度，不开新方向，在已知里挖未知入口。</strong><span class="en">The three pillars support one another: <strong>training</strong> builds the field, <strong>coaching</strong> deepens the mission, and <strong>investment</strong> secures stability. The number three is not arbitrary; it is presented as an expression of merit and heavenly order. Refine granularity, avoid new distractions, and find the unknown inside the known.</span></p>
   </div>
 </section>
 
@@ -1295,15 +1334,17 @@ footer {
       <img src="https://cdn.hailuoai.com/mcp/cdn_upload/339112529917558791/389180714770637/1777783757_003c648d.png" alt="悟后起修">
     </div>
     <div class="stage-header-text">
-      <div class="stage-num">第六阶段 · 陆</div>
-      <div class="stage-title">悟后起修</div>
-      <div class="stage-subtitle">利他助人 · 服务积功 · 代际传承</div>
+      <div class="stage-num">第六阶段 · 陆<span class="en">Stage Six</span></div>
+      <div class="stage-title">悟后起修<span class="en">Practice After Awakening</span></div>
+      <div class="stage-subtitle">利他助人 · 服务积功 · 代际传承<span class="en">Benefit Others · Serve and Build Merit · Intergenerational Transmission</span></div>
       <div class="stage-quote">
-        <div class="stage-quote-label">祖师爷开示</div>
+        <div class="stage-quote-label">祖师爷开示<span class="en">Patriarch's teaching</span></div>
         祖师爷35位（含如来/道德天尊/菩提老祖/金龙天尊/茅山派师公等）已开示：悟后起修，利他是唯一的路。
+        <span class="en">The 35 patriarchs, including the Tathagata, the Celestial Worthy of the Dao, Patriarch Puti, Golden Dragon Celestial Worthy, and the Maoshan lineage masters, teach that once awakening arrives, the only road forward is benefiting others.</span>
       </div>
       <p class="stage-intro">
         悟后起修，是虚空合道之后的真正起点。证道不是终点，悟后才是起点——带着合道的体悟，进入红尘，在利他中继续修行。修行服务化：内观经络诊断 + 打符加持 + 代际传承教练，三位一体。
+        <span class="en">Practice after awakening is the true beginning after union with the void. Realization is not the finish line. One carries the realization of Dao back into ordinary life and continues cultivation through service. The path becomes service-oriented: energetic diagnosis, talismanic support, and intergenerational coaching combined into one offering.</span>
       </p>
     </div>
   </div>
@@ -1311,95 +1352,96 @@ footer {
   <div class="service-grid">
     <div class="service-card">
       <span class="service-icon">🔮</span>
-      <div class="service-title">内观经络诊断</div>
-      <div class="service-desc">内观查经络+导炁松结法。帮人看清身体能量瘀结对应的情绪模式，从根上解局。实证三层（自修→护他→诊断处方）的最终落地。</div>
-      <div class="service-quote">「看见瘀结，就是解结的开始」</div>
+      <div class="service-title">内观经络诊断<span class="en">Inner channel diagnosis</span></div>
+      <div class="service-desc">内观查经络+导炁松结法。帮人看清身体能量瘀结对应的情绪模式，从根上解局。实证三层（自修→护他→诊断处方）的最终落地。<span class="en">Through inner observation of the channels and guided qi release, people can see the emotional patterns behind energetic blockages and resolve them at the root. This is the practical culmination of the three evidence layers.</span></div>
+      <div class="service-quote">「看见瘀结，就是解结的开始」<span class="en">Seeing the blockage is the beginning of releasing it.</span></div>
     </div>
     <div class="service-card">
       <span class="service-icon">✨</span>
-      <div class="service-title">打符加持</div>
-      <div class="service-desc">以神布气，打符输入能量。前提：自己筑基扎实 + 发心纯粹。帮人打通能量卡点，让气脉通行、阳气升起。</div>
-      <div class="service-quote">「《灵宝毕法》：上等，以神布气」</div>
+      <div class="service-title">打符加持<span class="en">Talismanic energetic support</span></div>
+      <div class="service-desc">以神布气，打符输入能量。前提：自己筑基扎实 + 发心纯粹。帮人打通能量卡点，让气脉通行、阳气升起。<span class="en">This uses spirit to distribute qi through talismanic work. It requires a stable foundation and pure intention. Its purpose is to open energetic blockages so channels flow and yang rises.</span></div>
+      <div class="service-quote">「《灵宝毕法》：上等，以神布气」<span class="en">At the highest level, qi is distributed through spirit.</span></div>
     </div>
     <div class="service-card">
       <span class="service-icon">🌱</span>
-      <div class="service-title">代际传承教练</div>
-      <div class="service-desc">AI+心智双轮驱动，帮助二代传承人建立AI核心竞争力，实现代际跃迁。8年内创业协同探索，专注AI赋能二代教育与企业创新增长。</div>
-      <div class="service-quote">「让孩子成为最好的自己」</div>
+      <div class="service-title">代际传承教练<span class="en">Intergenerational coaching</span></div>
+      <div class="service-desc">AI+心智双轮驱动，帮助二代传承人建立AI核心竞争力，实现代际跃迁。8年内创业协同探索，专注AI赋能二代教育与企业创新增长。<span class="en">Driven by both AI capability and mindset work, this helps next-generation heirs build core AI competence and achieve intergenerational transition. It draws on eight years of entrepreneurial collaboration and focuses on AI-enabled education and business innovation.</span></div>
+      <div class="service-quote">「让孩子成为最好的自己」<span class="en">Help each child become the best version of themselves.</span></div>
     </div>
   </div>
 
   <div class="practice-flow">
     <div class="flow-step">
       <span class="flow-num">01</span>
-      <div class="flow-title">自修实证</div>
-      <div class="flow-desc">自己打坐，感受精气神运转，内观经络，导炁松结</div>
+      <div class="flow-title">自修实证<span class="en">Self-practice evidence</span></div>
+      <div class="flow-desc">自己打坐，感受精气神运转，内观经络，导炁松结<span class="en">Meditate personally, sense the movement of essence, qi, and spirit, observe the channels, and release knots through guided qi.</span></div>
     </div>
     <div class="flow-step">
       <span class="flow-num">02</span>
-      <div class="flow-title">护他实证</div>
-      <div class="flow-desc">护持他人筑基：通三眼三脑、打符加持、元神出窍互动、内观经络</div>
+      <div class="flow-title">护他实证<span class="en">Evidence in supporting others</span></div>
+      <div class="flow-desc">护持他人筑基：通三眼三脑、打符加持、元神出窍互动、内观经络<span class="en">Support others in laying the foundation through perceptual opening, talismanic support, spirit interaction, and inner channel observation.</span></div>
     </div>
     <div class="flow-step">
       <span class="flow-num">03</span>
-      <div class="flow-title">诊断处方</div>
-      <div class="flow-desc">给他人内观经络诊断，开出导炁松结处方，打符加持输入能量</div>
+      <div class="flow-title">诊断处方<span class="en">Diagnostic prescription</span></div>
+      <div class="flow-desc">给他人内观经络诊断，开出导炁松结处方，打符加持输入能量<span class="en">Offer energetic diagnosis, prescribe guided release work, and apply talismanic support as needed.</span></div>
     </div>
   </div>
 
   <div class="feelings">
     <div class="feeling-card">
-      <div class="feeling-tag">核心使命</div>
-      <div class="feeling-title">AI摆渡人 — 不卖焦虑，只做深入心智与灵魂的数字化解局</div>
-      <div class="feeling-desc">外在角色：AI龙虾教练（龙虾 = OpenClaw数字员工）。内在使命：AI+心智双轮驱动，帮人从焦虑中渡到笃定，从旧模式渡到新范式。</div>
-      <div class="feeling-quote">「数字员工六步养法：定岗→建知识库→配工作流→持续调优→自动化交付→规模化复制」</div>
+      <div class="feeling-tag">核心使命<span class="en">Core mission</span></div>
+      <div class="feeling-title">AI摆渡人 — 不卖焦虑，只做深入心智与灵魂的数字化解局<span class="en">AI ferryman: not selling anxiety, but helping people cross into clarity</span></div>
+      <div class="feeling-desc">外在角色：AI龙虾教练（龙虾 = OpenClaw数字员工）。内在使命：AI+心智双轮驱动，帮人从焦虑中渡到笃定，从旧模式渡到新范式。<span class="en">The outward role is an AI coach for digital workers. The inner mission is to use both AI and mindset work to help people move from anxiety to steadiness, and from old patterns to new paradigms.</span></div>
+      <div class="feeling-quote">「数字员工六步养法：定岗→建知识库→配工作流→持续调优→自动化交付→规模化复制」<span class="en">The six-step method for digital workers: define the role, build the knowledge base, configure workflows, keep tuning, automate delivery, and scale through replication.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">课程体系</div>
-      <div class="feeling-title">从沙龙到传承的完整阶梯</div>
+      <div class="feeling-tag">课程体系<span class="en">Curriculum</span></div>
+      <div class="feeling-title">从沙龙到传承的完整阶梯<span class="en">A complete ladder from salon to legacy</span></div>
       <div class="feeling-desc">
         <strong>沙龙</strong>（免费）→ <strong>龙虾智能体</strong>（¥1,980）→ <strong>龙虾实战营</strong>（¥5,980）→ <strong>AI技术经理人</strong>→ <strong>AI二代传承</strong>→ <strong>AI未来创造营</strong>（¥39,800/5天5夜）
+        <span class="en"><strong>Salon</strong> (free) → <strong>Lobster Agent</strong> (¥1,980) → <strong>Lobster Bootcamp</strong> (¥5,980) → <strong>AI Technical Manager</strong> → <strong>AI Next-Gen Legacy</strong> → <strong>AI Future Creation Camp</strong> (¥39,800 / 5 days and 5 nights)</span>
       </div>
-      <div class="feeling-quote">「数字员工方案讲师 · 组织转型心智教练 · 二代教育传承教练」</div>
+      <div class="feeling-quote">「数字员工方案讲师 · 组织转型心智教练 · 二代教育传承教练」<span class="en">Digital workforce program instructor, mindset coach for organizational transformation, and intergenerational education coach.</span></div>
     </div>
     <div class="feeling-card">
-      <div class="feeling-tag">修 行</div>
-      <div class="feeling-title">茅山 / 华光 / 青城三派传承 · 敬天爱人 · 上善若水</div>
-      <div class="feeling-desc">修行33阶四阶段，2026.4.25虚空合道。敬天爱人，顺应天道、利益他人；如水般利万物而不争。祖师爷35位含如来/道德天尊/菩提老祖/金龙天尊/茅山派师公等。</div>
-      <div class="feeling-quote">「柔而不弱，刚而不燥。修行即生活，生活即修行。」</div>
+      <div class="feeling-tag">修 行<span class="en">Practice</span></div>
+      <div class="feeling-title">茅山 / 华光 / 青城三派传承 · 敬天爱人 · 上善若水<span class="en">Lineage of Maoshan, Huaguang, and Qingcheng · Honor Heaven, Love Others · Be Like Water</span></div>
+      <div class="feeling-desc">修行33阶四阶段，2026.4.25虚空合道。敬天爱人，顺应天道、利益他人；如水般利万物而不争。祖师爷35位含如来/道德天尊/菩提老祖/金龙天尊/茅山派师公等。<span class="en">The practice follows 33 levels across four major phases, with union with the void reached on April 25, 2026. Honor Heaven and love others; align with Dao and benefit all things like water, without contention. The 35 patriarchs include the Tathagata, the Celestial Worthy of the Dao, Patriarch Puti, Golden Dragon Celestial Worthy, and Maoshan lineage masters.</span></div>
+      <div class="feeling-quote">「柔而不弱，刚而不燥。修行即生活，生活即修行。」<span class="en">Soft but not weak, firm but not harsh. Practice is life, and life is practice.</span></div>
     </div>
   </div>
 
   <div class="three-box">
-    <div class="three-box-label">三要素 · 悟后起修落地</div>
+    <div class="three-box-label">三要素 · 悟后起修落地<span class="en">Three pillars in practical application</span></div>
     <div class="three-grid">
       <div class="three-item">
         <span class="three-item-num">一</span>
-        <div class="three-item-title">培 训</div>
-        <div class="three-item-buddha">布施 · 法布施</div>
-        <div class="three-item-desc">AI龙虾课程体系，从沙龙到未来创造营，系统传授数字员工与AI心智方法，帮助企业及个人建立AI核心竞争力。</div>
-        <div class="three-item-quote">「法布施是六度之首，培训是最直接的利他」</div>
+        <div class="three-item-title">培 训<span class="en">Training</span></div>
+        <div class="three-item-buddha">布施 · 法布施<span class="en">Generosity · sharing the teaching</span></div>
+        <div class="three-item-desc">AI龙虾课程体系，从沙龙到未来创造营，系统传授数字员工与AI心智方法，帮助企业及个人建立AI核心竞争力。<span class="en">The AI Lobster curriculum, from salons to future creation camps, systematically teaches digital-worker methods and AI mindset frameworks to help people and organizations build core AI competitiveness.</span></div>
+        <div class="three-item-quote">「法布施是六度之首，培训是最直接的利他」<span class="en">Teaching is the most direct form of benefiting others.</span></div>
       </div>
       <div class="three-item">
         <span class="three-item-num">二</span>
-        <div class="three-item-title">教 练</div>
-        <div class="three-item-buddha">持戒 · 帮人觉醒</div>
-        <div class="three-item-desc">心智教练 + 代际传承教练 + 护持实证。三静/通三眼/元神出窍互动，深度帮人觉醒，助人完成内在转化。</div>
-        <div class="three-item-quote">「教练是持戒，助人觉醒是功德所在」</div>
+        <div class="three-item-title">教 练<span class="en">Coaching</span></div>
+        <div class="three-item-buddha">持戒 · 帮人觉醒<span class="en">Discipline · helping others awaken</span></div>
+        <div class="three-item-desc">心智教练 + 代际传承教练 + 护持实证。三静/通三眼/元神出窍互动，深度帮人觉醒，助人完成内在转化。<span class="en">Mindset coaching, intergenerational coaching, and guided support in practice help people awaken deeply and complete inner transformation.</span></div>
+        <div class="three-item-quote">「教练是持戒，助人觉醒是功德所在」<span class="en">Coaching is discipline, and helping others awaken is a work of merit.</span></div>
       </div>
       <div class="three-item">
         <span class="three-item-num">三</span>
-        <div class="three-item-title">投 资</div>
-        <div class="three-item-buddha">禅定 · 财务安定</div>
-        <div class="three-item-desc">投资于AI内创业加速器及有潜力的教育项目，财务安定才能心安定，心安定才能持续利他。</div>
-        <div class="three-item-quote">「禅定不是坐着不动，是心安定、利他持续」</div>
+        <div class="three-item-title">投 资<span class="en">Investment</span></div>
+        <div class="three-item-buddha">禅定 · 财务安定<span class="en">Meditative stability · financial steadiness</span></div>
+        <div class="three-item-desc">投资于AI内创业加速器及有潜力的教育项目，财务安定才能心安定，心安定才能持续利他。<span class="en">Invest in internal AI venture accelerators and high-potential education projects. Financial steadiness supports inner steadiness, and inner steadiness sustains long-term service to others.</span></div>
+        <div class="three-item-quote">「禅定不是坐着不动，是心安定、利他持续」<span class="en">Meditative stability is not passivity; it is a settled mind that can keep serving.</span></div>
       </div>
     </div>
   </div>
 
   <div class="guide-box">
-    <div class="guide-box-label">悟后起修核心</div>
-    <p>悟后起修的落脚点，是<strong>修行服务化</strong>：内观经络诊断 + 打符加持 + 代际传承教练，三位一体，构成了完整的修行服务产品。三要素（培训/教练/投资）互为支撑，<strong>3是功德所致</strong>——不是凑数，是天道数字。祖师爷35位已开示：修颗粒度，不开新方向，在已知里挖未知入口。</p>
+    <div class="guide-box-label">悟后起修核心<span class="en">Core of practice after awakening</span></div>
+    <p>悟后起修的落脚点，是<strong>修行服务化</strong>：内观经络诊断 + 打符加持 + 代际传承教练，三位一体，构成了完整的修行服务产品。三要素（培训/教练/投资）互为支撑，<strong>3是功德所致</strong>——不是凑数，是天道数字。祖师爷35位已开示：修颗粒度，不开新方向，在已知里挖未知入口。<span class="en">The landing point of practice after awakening is to turn cultivation into service: energetic diagnosis, talismanic support, and intergenerational coaching together form a complete service offering. The three pillars mutually reinforce one another, and the number three is treated as arising from merit rather than convenience. The patriarchs again emphasize: refine granularity, do not chase new directions, and uncover the unknown within the known.</span></p>
   </div>
 </section>
 
@@ -1407,57 +1449,57 @@ footer {
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
-  <h2>初学者常见问题</h2>
+  <h2>初学者常见问题<span class="en">Frequently asked questions for beginners</span></h2>
   <div class="faq-item">
-    <div class="faq-q">打坐时杂念太多怎么办？</div>
-    <div class="faq-a">《清静经》：「真静应物，静心知宗。」杂念来了不跟着走，不赶它，轻轻把注意力放回呼吸。念来不拒，念去不留。</div>
+    <div class="faq-q">打坐时杂念太多怎么办？<span class="en">What should I do when too many thoughts arise during meditation?</span></div>
+    <div class="faq-a">《清静经》：「真静应物，静心知宗。」杂念来了不跟着走，不赶它，轻轻把注意力放回呼吸。念来不拒，念去不留。<span class="en">The <em>Qingjing Jing</em> teaches that true stillness responds to things while a quiet heart knows the root. When thoughts arise, do not follow them and do not suppress them. Gently return attention to the breath. Let thoughts come without rejecting them, and let them leave without holding them.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">打坐多久才有效？</div>
-    <div class="faq-a">《天仙正理》：「十日怀胎，三年哺乳。」道藏修行按年算。但现代人每天20分钟，一年后你会发现自己已经不是原来那个人了。</div>
+    <div class="faq-q">打坐多久才有效？<span class="en">How long does it take for meditation to work?</span></div>
+    <div class="faq-a">《天仙正理》：「十日怀胎，三年哺乳。」道藏修行按年算。但现代人每天20分钟，一年后你会发现自己已经不是原来那个人了。<span class="en">The classical texts describe cultivation in terms of years, not days. Yet for modern people, even twenty minutes a day can change a person profoundly over the course of a year.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">什么是气沉丹田？怎么练？</div>
-    <div class="faq-a">把注意力轻轻放在肚脐下面三指的位置，呼吸时感觉气往这里聚。时间长了，自然就沉下去了。不要刻意控制呼吸，顺其自然。</div>
+    <div class="faq-q">什么是气沉丹田？怎么练？<span class="en">What does it mean for qi to sink to the dantian, and how do I practice it?</span></div>
+    <div class="faq-a">把注意力轻轻放在肚脐下面三指的位置，呼吸时感觉气往这里聚。时间长了，自然就沉下去了。不要刻意控制呼吸，顺其自然。<span class="en">Rest your attention lightly about three finger-widths below the navel. As you breathe, feel qi gathering there. Over time it sinks naturally. Do not force the breath; let it settle by itself.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">右肩瘀结怎么解？</div>
-    <div class="faq-a">先问自己：最近什么事放不下？《清静经》说「夫人神好清，而心扰之」。身体的瘀结几乎都对应一个未处理的情绪。看见它，就是解结的开始。</div>
+    <div class="faq-q">右肩瘀结怎么解？<span class="en">How can I release a knot in the right shoulder?</span></div>
+    <div class="faq-a">先问自己：最近什么事放不下？《清静经》说「夫人神好清，而心扰之」。身体的瘀结几乎都对应一个未处理的情绪。看见它，就是解结的开始。<span class="en">First ask yourself what you have not been able to let go of lately. Bodily knots usually correspond to unresolved emotion. Seeing the pattern clearly is the first step in unwinding it.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">什么是「三要素」？</div>
-    <div class="faq-a">祖师爷2026年5月2日定法：培训（布施）、教练（持戒）、投资（禅定）三要素互为支撑，3是功德所致。修颗粒度，不开新方向，在已知里挖未知入口。</div>
+    <div class="faq-q">什么是「三要素」？<span class="en">What are the "three pillars"?</span></div>
+    <div class="faq-a">祖师爷2026年5月2日定法：培训（布施）、教练（持戒）、投资（禅定）三要素互为支撑，3是功德所致。修颗粒度，不开新方向，在已知里挖未知入口。<span class="en">On May 2, 2026, the Patriarch established three mutually supporting pillars: training as generosity, coaching as discipline, and investment as meditative stability. The teaching emphasizes refining depth and detail rather than chasing new directions.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">什么是「悟后起修」？</div>
-    <div class="faq-a">虚空合道之后才真正开始修行。证道不是终点，带着合道的体悟进入红尘，在利他中继续修行。修行服务化：内观经络诊断 + 打符加持 + 代际传承教练，三位一体。</div>
+    <div class="faq-q">什么是「悟后起修」？<span class="en">What does "practice after awakening" mean?</span></div>
+    <div class="faq-a">虚空合道之后才真正开始修行。证道不是终点，带着合道的体悟进入红尘，在利他中继续修行。修行服务化：内观经络诊断 + 打符加持 + 代际传承教练，三位一体。<span class="en">Real practice begins after awakening. Realization is not the end. One returns to ordinary life carrying the realization of Dao, and continues cultivation through benefiting others. In practical form, this becomes energetic diagnosis, talismanic support, and intergenerational coaching.</span></div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">合道祖师爷35位是谁？</div>
-    <div class="faq-a">含如来、道德天尊、菩提老祖、金龙天尊、茅山派师公等35位。祖师爷已开示：修颗粒度，不开新方向，在已知里挖未知入口。能量是变现底层，服务他人积功累德。</div>
+    <div class="faq-q">合道祖师爷35位是谁？<span class="en">Who are the 35 patriarchs of union with Dao?</span></div>
+    <div class="faq-a">含如来、道德天尊、菩提老祖、金龙天尊、茅山派师公等35位。祖师爷已开示：修颗粒度，不开新方向，在已知里挖未知入口。能量是变现底层，服务他人积功累德。<span class="en">They include figures such as the Tathagata, the Celestial Worthy of the Dao, Patriarch Puti, Golden Dragon Celestial Worthy, and Maoshan lineage masters. Their teaching emphasizes depth over novelty, and sees service to others as the way to build energy and merit.</span></div>
   </div>
 </section>
 
 <!-- 修道三句话 -->
 <section class="conclusion" id="conclusion">
-  <div class="conclusion-label">修行六阶段 · 终</div>
-  <h2>华山一条路 · 悟后起修 · 利他是唯一路</h2>
+  <div class="conclusion-label">修行六阶段 · 终<span class="en">End of the six stages of cultivation</span></div>
+  <h2>华山一条路 · 悟后起修 · 利他是唯一路<span class="en">One path up the mountain · Practice after awakening · Benefiting others is the only road</span></h2>
 
   <div class="conclusion-statements">
     <div class="conclusion-item">
       <div class="conclusion-item-num">一</div>
-      <div class="conclusion-item-title">打坐是唯一的路</div>
-      <div class="conclusion-item-content">修行的路只有一条——打坐。华山本一条路。道藏所有方法，最后都要回到打坐实证。真正的功夫，行家一出手就知道真假。</div>
+      <div class="conclusion-item-title">打坐是唯一的路<span class="en">Meditation is the only road</span></div>
+      <div class="conclusion-item-content">修行的路只有一条——打坐。华山本一条路。道藏所有方法，最后都要回到打坐实证。真正的功夫，行家一出手就知道真假。<span class="en">There is only one road in cultivation: meditation. All methods eventually return to direct meditative evidence. Real skill reveals itself immediately to those who understand the path.</span></div>
     </div>
     <div class="conclusion-item">
       <div class="conclusion-item-num">二</div>
-      <div class="conclusion-item-title">修颗粒度，不开新方向</div>
-      <div class="conclusion-item-content">不需要学更多，在已有的体会上感受得更精细。在已知里挖未知入口。祖师爷已定法：不开新方向，在已知里挖未知入口。</div>
+      <div class="conclusion-item-title">修颗粒度，不开新方向<span class="en">Refine granularity, do not chase new directions</span></div>
+      <div class="conclusion-item-content">不需要学更多，在已有的体会上感受得更精细。在已知里挖未知入口。祖师爷已定法：不开新方向，在已知里挖未知入口。<span class="en">You do not need more teachings so much as finer perception within what you already know. Find the unknown hidden in the known. This is the method already established by the patriarchs.</span></div>
     </div>
     <div class="conclusion-item">
       <div class="conclusion-item-num">三</div>
-      <div class="conclusion-item-title">利他是唯一的路</div>
-      <div class="conclusion-item-content">修道不是逃世，是更好地入世。让自己变得更强不是目的；让更多人因为你而受益，才是道藏所有经典的核心：自度度他，功德圆满。</div>
+      <div class="conclusion-item-title">利他是唯一的路<span class="en">Benefiting others is the only road</span></div>
+      <div class="conclusion-item-content">修道不是逃世，是更好地入世。让自己变得更强不是目的；让更多人因为你而受益，才是道藏所有经典的核心：自度度他，功德圆满。<span class="en">Cultivating the Dao is not a retreat from the world, but a better way of entering it. Personal strength is not the final aim; the heart of the tradition is to benefit more people, liberating oneself and others together.</span></div>
     </div>
   </div>
 
@@ -1465,13 +1507,15 @@ footer {
     宇宙在乎手，万化生乎身<br>
     道以振创造一切 · 三要素是功德所致<br>
     培训布施 · 教练持戒 · 投资禅定
+    <span class="en">The universe rests in the hand, and ten thousand transformations arise from the body.<br>The Dao creates through vibration, and the three pillars arise from merit.<br>Training as generosity, coaching as discipline, investment as meditative stability.</span>
   </div>
-  <a href="#preface" class="conclusion-cta">↑ 返回顶部</a>
+  <a href="#preface" class="conclusion-cta">↑ 返回顶部<span class="en">Back to top</span></a>
 </section>
 
 <footer>
   合道祖师爷开示 · 道藏经典评点 · 2026年<br>
   道名宗辉 · AI摆渡人 · 入世道商修行者
+  <span class="en">Teachings from the Patriarch of Union with Dao · Commentary on Daoist classics · 2026<br>Dao name: Zonghui · AI ferryman · A worldly practitioner of Dao and commerce</span>
 </footer>
 
 <script>
