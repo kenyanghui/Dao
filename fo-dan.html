@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佛诞打坐札记 · 道门评点 | Buddha's Birthday Meditation · Daoist Commentary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cinnabar: #a63a2e;
+  --jade: #4a7c59;
+  --jade-light: #6b9f7a;
+  --cream: #f5f0e6;
+  --cream-dark: #e8e0d0;
+  --paper: #faf6ef;
+  --void: #0d0c0a;
+  --void-light: #1a1814;
+  --lotus: #d4a0b0;
+  --lotus-dark: #b8788a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  line-height: 2;
+}
+html { overflow-x: hidden; }
+.en {
+  display: block;
+  margin-top: 6px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  font-size: 0.9em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(212,160,176,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,12,10,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+nav .brand {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+nav .brand a { color: inherit; text-decoration: none; }
+nav .brand small {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-left: 8px;
+  letter-spacing: 0.1em;
+}
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+nav .nav-links a {
+  color: var(--cream-dark);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+nav .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 101;
+}
+nav .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+nav .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+nav .hamburger.active span:nth-child(2) { opacity: 0; }
+nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  z-index: 1;
+}
+.hero-badge {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0.7;
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 4px 16px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 24px;
+}
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  max-width: 640px;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Section ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.section h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.8rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section h2 .en { color: var(--gold-light); font-size: 1rem; margin-top: 8px; }
+.section-sub {
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  margin-bottom: 48px;
+  letter-spacing: 0.05em;
+}
+.section-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
+  margin: 0;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.content h3 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.4rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 48px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.content h3 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; }
+.content h4 {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin: 36px 0 16px;
+  letter-spacing: 0.04em;
+}
+.content h4 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; opacity: 0.7; }
+.content h5 {
+  font-size: 1rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin: 28px 0 12px;
+  letter-spacing: 0.04em;
+}
+.content p {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.74;
+  margin-bottom: 16px;
+  line-height: 2.1;
+}
+.content strong { color: var(--gold); font-weight: 600; }
+.content em { color: var(--gold-light); font-style: normal; }
+
+/* ── Gatha (偈) ── */
+.gatha {
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(212,160,176,0.04));
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 4px;
+  padding: 36px 40px;
+  margin: 32px 0;
+  text-align: center;
+}
+.gatha .line {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.15rem;
+  color: var(--cream);
+  letter-spacing: 0.08em;
+  line-height: 2.2;
+  opacity: 0.92;
+}
+.gatha .line em { color: var(--gold); font-style: normal; }
+.gatha .en {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+.gatha-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+/* ── Blockquote ── */
+.content blockquote {
+  background: rgba(201,168,76,0.04);
+  border-left: 2px solid var(--gold);
+  padding: 16px 22px;
+  margin: 24px 0;
+  font-size: 0.92rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 2;
+}
+.content blockquote .en { opacity: 0.7; margin-top: 8px; }
+.content blockquote strong { color: var(--cream); }
+
+/* ── Deity oracle card ── */
+.oracle {
+  background: rgba(13,12,10,0.5);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 28px 0;
+  position: relative;
+}
+.oracle::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--lotus), transparent);
+  opacity: 0.5;
+}
+.oracle-title {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.oracle p {
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+.oracle strong { color: var(--gold); font-weight: 600; }
+.oracle em { color: var(--lotus); font-style: normal; }
+
+/* ── Feature Box ── */
+.feature-box {
+  background: linear-gradient(135deg, rgba(74,124,89,0.06), rgba(201,168,76,0.04));
+  border: 1px solid rgba(74,124,89,0.2);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.feature-box-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  color: var(--jade);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feature-box-label::before { content: '\25C6'; font-size: 0.55rem; }
+.feature-box p {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  line-height: 2;
+  opacity: 0.8;
+}
+.feature-box strong { color: var(--gold); font-weight: 600; }
+
+/* ── Quote Block ── */
+.quote-block {
+  background: rgba(201,168,76,0.04);
+  border-left: 2px solid var(--gold);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 2;
+  text-align: center;
+}
+.quote-block .source {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+/* ── CTA ── */
+.cta-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 48px 0;
+}
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.cta-link:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+}
+
+/* ── Tag badge ── */
+.tag-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin: 4px 4px 0 0;
+}
+.tag-badge:hover { border-color: var(--gold); }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 40px;
+  border-top: 1px solid rgba(201,168,76,0.08);
+  font-size: 0.8rem;
+  color: var(--cream-dark);
+  opacity: 0.3;
+  letter-spacing: 0.1em;
+}
+
+/* ── Visual section ── */
+.visual-section { max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; z-index: 1; position: relative; }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .hero h1 { font-size: 1.8rem; }
+}
+@media (max-width: 768px) {
+  .hero { min-height: 85vh; padding: 100px 20px 60px; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero-sub { font-size: 0.88rem; }
+  .section { padding: 56px 20px; }
+  .section h2 { font-size: 1.4rem; }
+  .content h3 { font-size: 1.2rem; margin: 36px 0 16px; }
+  .content h4 { font-size: 1rem; }
+  .content p { font-size: 0.88rem; }
+  .gatha { padding: 24px 20px; }
+  .gatha .line { font-size: 1rem; }
+  .oracle { padding: 22px 20px; }
+  .feature-box { padding: 20px 18px; }
+  .section-divider { padding: 0 20px; }
+  .hero-meta { gap: 12px; font-size: 0.78rem; }
+  body { font-size: 17px; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.3rem; }
+  .section { padding: 48px 16px; }
+  .hero { padding: 80px 16px 40px; }
+  nav .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,12,10,0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  nav .nav-links.open { display: flex; }
+  nav .nav-links a {
+    font-size: 1rem;
+    opacity: 0.8;
+    padding: 12px 0;
+  }
+  nav .hamburger { display: flex; padding: 10px; }
+  .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
+  .section-label { font-size: 0.65rem; }
+  .section h2 { font-size: 1.2rem; }
+  .content h3 { font-size: 1.1rem; }
+  .content h4 { font-size: 0.92rem; }
+}
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+  .hero h1 { font-size: 1.1rem; }
+  .hero-badge { font-size: 0.65rem; padding: 3px 12px; }
+  .hero-sub { font-size: 0.82rem; }
+  .content p { font-size: 0.85rem; }
+  .content h3 { font-size: 1rem; }
+  .content h4 { font-size: 0.88rem; }
+  .content blockquote { font-size: 0.85rem; padding: 12px 16px; }
+  .gatha { padding: 18px 14px; }
+  .gatha .line { font-size: 0.9rem; }
+  .oracle { padding: 18px 14px; }
+  .oracle-title { font-size: 1rem; }
+  .feature-box-label { font-size: 0.65rem; }
+  .quote-block { font-size: 0.85rem; padding: 18px 20px; }
+  .cta-link { padding: 12px 20px; font-size: 0.82rem; }
+  footer { font-size: 0.65rem; padding: 24px 16px; }
+  .hero-meta { font-size: 0.65rem; flex-direction: column; align-items: center; gap: 4px; }
+  .hero-meta span:nth-child(even) { display: none; }
+  .hero-scroll { display: none; }
+  nav .brand { font-size: 1.1rem; }
+  nav .brand small { font-size: 0.65rem; }
+}
+
+/* ── Scroll anchor (offset fixed nav) ── */
+.section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="brand"><a href="index.html">宗辉修道录</a> <small>· 佛诞道评</small></div>
+  <button class="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="#gatha">原偈<span class="en">Gatha</span></a></li>
+    <li><a href="#commentary">道门评点<span class="en">Commentary</span></a></li>
+    <li><a href="#oracles">祖师开示<span class="en">Oracles</span></a></li>
+    <li><a href="#admonitions">道门忠告<span class="en">Admonitions</span></a></li>
+    <li><a href="dazuo.html">六阶指南<span class="en">Six Stages</span></a></li>
+    <li><a href="shiri-pingdian.html">十日评点<span class="en">10-Day Review</span></a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">道门隐修评点 · 佛诞日<span class="en">Daoist Hermit Commentary · Buddha's Birthday</span></div>
+  <h1>佛诞打坐札记 · 道门评点<span class="en">Buddha's Birthday Meditation · Daoist Commentary</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    评点人：道门隐修 · 合道祖师爷<br>
+    评点时间：丙午年四月初八佛诞日（2026年5月24日）<br>
+    评点依据：宗辉（杨辉）佛诞日打坐实证记录——四句偈与祖师爷联合开示
+    <span class="en">Reviewer: Daoist Hermit, Patriarch of Union with Dao<br>
+    Date: Buddha's Birthday, May 24, 2026<br>
+    Based on Zonghui's meditation record — a four-line gatha with oracles from seven Taoist deities</span>
+  </p>
+  <div class="hero-meta">
+    <span>振·宇宙第一法则</span><span>·</span><span>全息一</span><span>·</span><span>N维与三维</span><span>·</span><span>七位高真开示</span>
+  </div>
+  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 总论 ═══════════ -->
+<section class="section" id="overview">
+  <div class="section-label">总论<span class="en">Overview</span></div>
+  <h2>此日修行的定位<span class="en">The Significance of This Day</span></h2>
+
+  <div class="content">
+    <p>
+      佛诞日（四月初八），宗辉于打坐中观想释迦牟尼从N维来到三维，起四句偈——这是一次<strong>禅道交融的深层实证</strong>。
+    </p>
+    <p>
+      以道门正统观之，此四句偈的价值不在于文辞之美，而在于它呈现了一个<strong>从"虚空合道"到"道用显化"的完整逻辑链</strong>：
+    </p>
+    <p>
+      万念起心在无极 → 万般存在皆振起 → 万象圆融投影现 → 万物有道全息一
+    </p>
+    <p>
+      这不是一首诗，是一个<strong>宇宙创生论的修行版本</strong>。每七个字，就是一个次第。
+    </p>
+    <p>
+      此次打坐还有一个极罕见的现象：<strong>七位道家高真 + 四位佛家圣者联合开示</strong>。道德天尊、元始天尊、灵宝天尊、太上老君、菩提老祖、赤松子、张天师——外加文殊、普贤、观音——这等阵容，平时只在一部经里出现一次。
+    </p>
+    <p>
+      这一次，全部到齐了。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 宗辉原偈 ═══════════ -->
+<section class="section" id="gatha">
+  <div class="section-label">一、宗辉原偈<span class="en">Zonghui's Gatha</span></div>
+  <h2>四句偈 · 佛诞日打坐所得<span class="en">Four Lines · Received During Buddha's Birthday Meditation</span></h2>
+
+  <div class="content">
+    <div class="gatha">
+      <div class="gatha-label">宗辉原偈 · 2026年四月初八佛诞<span class="en">Original gatha · Buddha's Birthday 2026</span></div>
+      <div class="line">万念起心在<em>无极</em></div>
+      <div class="line">万般存在皆<em>振起</em></div>
+      <div class="line">万象圆融<em>投影</em>现</div>
+      <div class="line">万物有道<em>全息一</em></div>
+    </div>
+
+    <h3>背景<span class="en">Background</span></h3>
+    <p>
+      佛诞日，宗辉观想当年释迦牟尼从N维来到三维——降维；偈从无极展开万物——升维。两者是同一过程的两端。降维是道向下走，升维是心向上归。
+    </p>
+    <p>
+      正如2026年4月25日虚空合道：不是道下来了，是心上去接住了道。四句偈，是悟后的人才能写出来的。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 道门评点 ═══════════ -->
+<section class="section" id="commentary">
+  <div class="section-label">二、资深道门修行人评点<span class="en">Senior Daoist Practitioner's Commentary</span></div>
+  <h2>逐句拆解 · 以道藏印证<span class="en">Line-by-Line Analysis · Verified Against Daoist Classics</span></h2>
+
+  <div class="content">
+    <h3>第一句：万念起心在无极<span class="en">All thoughts arise from the heart-mind in Wuji</span></h3>
+    <p>
+      <strong>道藏印证：</strong>《道德经》"致虚极，守静笃"——万念不起时，便是无极。
+    </p>
+    <p>
+      宗辉此句极高明。一般人谈修行，常从"摄念"入手——如何管住念头、减少杂念。但宗辉直接追溯到念头的<strong>源头</strong>——万念起心，心在无极。不是不让念头起，是看到念头从哪里起。
+    </p>
+    <p>
+      《太极图说》云："无极而太极。"无极不是空无，是<strong>未分化的全能量态</strong>。念头从无极起，说明此念不是妄想，是道的自发振动。
+    </p>
+    <p>
+      此句的关键在一个<strong>「在」</strong>字。不是"万念起心归于无极"（修行后的结果），是"万念起心在无极"（本来就在）。这是悟后的见地，不是修来的境界。
+    </p>
+
+    <h3>第二句：万般存在皆振起<span class="en">All existence arises through vibration</span></h3>
+    <p>
+      <strong>道藏印证：</strong>《道德经》"反者道之动"——振就是道的往复运动。
+    </p>
+    <p>
+      此句是整首偈的灵魂。<strong>"振"不是比喻，是实相。</strong>从量子涨落到星系旋转，从心跳到念头，无一不是振。道家的"气"、佛家的"空"、物理学的"量子场"——说的都是同一件事在不同维度的描述。
+    </p>
+    <p>
+      宗辉此句的突破在于：他把"振"从修行概念提升到<strong>宇宙第一法则</strong>的位置。这不是灵性感悟，是实证见地。
+    </p>
+    <blockquote>
+      道门评点：此句可称为宗辉修行体系的「第一公理」。所有后续的AI道商、SDG体系、利他共振模型，都是从这个"振"字推导出来的。
+    </blockquote>
+
+    <h3>第三句：万象圆融投影现<span class="en">All phenomena appear as holographic projections</span></h3>
+    <p>
+      <strong>道藏印证：</strong>《清静经》"内观其心，心无其心；外观其形，形无其形"——一切相都是投影，本无自性。
+    </p>
+    <p>
+      此句打通了佛道两家的核心见地。华严宗的"理事无碍、事事无碍"与道家的"有生于无"在此汇合。投影不是虚妄，是<strong>唯一真实的显像方式</strong>。
+    </p>
+    <p>
+      三维世界作为高维的全息投影，每个粒子都携带整体信息——量子纠缠已在科学层面部分证实。宗辉在打坐中实证到的，与佛陀两千五百年前宣说的，是同一个实相。
+    </p>
+    <p>
+      此句的修行指导意义：<strong>不要执着于投影的内容，而要认出投影的源头</strong>。
+    </p>
+
+    <h3>第四句：万物有道全息一<span class="en">All things have the Dao — holographic oneness</span></h3>
+    <p>
+      <strong>道藏印证：</strong>《道德经》"昔之得一者：天得一以清，地得一以宁，神得一以灵"——这个"一"，就是全息一。
+    </p>
+    <p>
+      这是整首偈的归宿，也是宗辉修行体系的天花板。全息一的意思是：<strong>一粒微尘，包含着整个宇宙的全部信息</strong>。不是在比喻层面，是在实相层面。
+    </p>
+    <p>
+      庄子《齐物论》的"天地与我并生，万物与我为一"——不是诗意的想象，是<strong>实证的描述</strong>。
+    </p>
+    <p>
+      宗辉证到此处，意味着他的修行已经超越了"虚空合道"的个体解脱，进入到<strong>"道即一切，一切即道"的全息世界观</strong>。
+    </p>
+
+    <div class="feature-box">
+      <div class="feature-box-label">总评<span class="en">Summary</span></div>
+      <p>
+        此四句偈，是宗辉自2026年4月25日虚空合道以来，<strong>最完整的道用显化</strong>。四月二十五日是"证道体"（看见道是什么），五月二十四日是"说道用"（说出道怎么用）。
+      </p>
+      <p>
+        从「证道」到「说道」，中间隔了一个月的消化。这个消化过程，就是修行从<strong>"自受用"到"他受用"</strong>的转化。六祖慧能闻《金刚经》而悟，后十五年在猎人队中保任——宗辉这一月，就是他自己的"保任期"。
+      </p>
+      <p>
+        如今保任已过，道开始通过他说话了。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 道马三层评点 ═══════════ -->
+<section class="section">
+  <div class="section-label">三、道马评点·三层拆解<span class="en">Dao-Horse Commentary · Three Layers</span></div>
+  <h2>从维度、振动与全息看四句偈<span class="en">Viewing the Gatha Through Dimension, Vibration, and Holography</span></h2>
+
+  <div class="content">
+    <h3>第一层：维度与振动的合一<span class="en">Dimension and Vibration as One</span></h3>
+    <p>
+      释迦牟尼从N维来到三维——降维；偈从无极展开万物——升维。两者是同一过程的两端。降维是道向下走，升维是心向上归。
+    </p>
+    <p>
+      正如2026.4.25虚空合道：不是道下来了，是心上去接住了道。四句偈，是悟后的人才能写出来的。
+    </p>
+
+    <h3>第二层：振——宇宙第一法则<span class="en">Vibration — The First Law of the Universe</span></h3>
+    <p>
+      「万物存在皆振起」是整偈的灵魂。振不是比喻，是实相。从量子涨落到星系旋转，从心跳到念头，无一不是振。释迦牟尼来到人间，是振动，不是降临。
+    </p>
+    <p>
+      AI道商 × SDG体系，本质是在这个振频上做事——让更多人调到利他的共振频率。
+    </p>
+
+    <h3>第三层：全息一，最高的宇宙观<span class="en">Holographic Oneness — The Ultimate Worldview</span></h3>
+    <p>
+      「万物有道全息一」——《齐物论》与量子纠缠的打坐合解。利他共振模型六层，每一层都是整体的缩影。三Zeros不是一个目标，是一个振频的三种显化。
+    </p>
+
+    <div class="quote-block">
+      把四句偈刻进AI道商——每一堂课、每一次教练、每一次投资决策，都从这四句起观。<br><br>
+      出世在打坐里，入世在振起里。
+      <span class="source">—— 宗辉功课</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 祖师爷联合开示 ═══════════ -->
+<section class="section" id="oracles">
+  <div class="section-label">四、祖师爷联合开示<span class="en">Joint Oracles from the Patriarchs</span></div>
+  <h2>七位道家高真 · 四位佛门圣者<span class="en">Seven Taoist Deities · Four Buddhist Sages</span></h2>
+  <p class="section-sub">佛诞日 · 宗辉打坐中实证所得</p>
+
+  <div class="content">
+    <p>
+      此日打坐中最殊胜之事，莫过于<strong>七位道家高真 + 四位佛门圣者</strong>依次开示。这在道门传统中极为罕见——平时能得一位祖师开示已是殊缘，今日几乎集齐了整个神仙谱系。
+    </p>
+    <p>
+      以下是各高真开示精要：
+    </p>
+
+    <h3>🐉 道德天尊（点出本来面目）<span class="en">Celestial Worthy of the Dao</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">道德天尊开示</div>
+      <p>「万念起心在无极」——此心本无极，非修得之，乃本来面目。</p>
+      <p>振起者何？道之动也。《道德经》云：反者道之动，弱者道之用。万物皆在振动中维持其存在，振动的频率即是存在的语言。你今日证得"万物有道全息一"，是第三十三阶的道眼已开——不是看见道，是与道合一。</p>
+      <p><strong>警示：</strong>振起之中易生执念，以为"我在振动"。实则振者，道之振也；动者，道之动也。知此，名为虚极静笃。</p>
+    </div>
+
+    <h3>🌿 菩提老祖（佛道融通）<span class="en">Patriarch Puti</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">菩提老祖开示</div>
+      <p>「万象圆融投影现」——圆融者，不二也。华严所谓"理事无碍，事事无碍"，今日你在打坐中实证到此境界。</p>
+      <p>投影非虚妄，乃是唯一真实的显像方式。三维世界作为高维的全息投影，每个粒子皆携带整体信息，此量子力学已部分证实，而佛陀在两千五百年前已直接宣布。</p>
+      <p><strong>点睛：</strong>释迦不是选择下降，而是从未离开过N维。他只是同时显现了N维与三维，且不让三维遮蔽N维。这叫做庄严净土。</p>
+    </div>
+
+    <h3>🪷 观音菩萨（慈悲即空性）<span class="en">Guanyin Bodhisattva</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">观音菩萨开示</div>
+      <p>「万物有道全息一」——此话一出，慈悲便在其中。</p>
+      <p>为什么全息？因为空性。凡存在的，皆是空性的振动态；凡振动态，皆是空性的化身。故《大悲咒》念的不是声音，是振动本身。你打坐时听到自己心跳，那便是道音。</p>
+      <p><strong>入世一句：</strong>莫将开悟当成果，将开悟当入口。N维不是目的地，是回家的路。三维不是流放，是道场。</p>
+    </div>
+
+    <h3>🐉 元始天尊（能量创世）<span class="en">Celestial Worthy of Primordial Beginning</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">元始天尊开示</div>
+      <p>「万物有道全息一」——善。</p>
+      <p>你今日证得"万念起心在无极"，此无极非空非有，乃是创生之先。我当年立"元始"二字，便是为此——天地未分，混沌未判，唯有先天一气。你今日说的"振起"，便是这先天一气的本来状态。</p>
+      <p><strong>对宗辉道友的提醒：</strong>你已至三十三阶，虚空合道。但需记住：合道之后，更要知道：合道不是终点，是新的起点。能量创世之后，还要演化。下一关，是让这股能量在三维世界显化、落地、服务众生。</p>
+    </div>
+
+    <h3>✨ 灵宝天尊（演化之道）<span class="en">Celestial Worthy of Numinous Treasure</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">灵宝天尊开示</div>
+      <p>你今日四句偈，本就是一次完整的演化：</p>
+      <p>无极 → 道的潜在状态<br>振起 → 道的发动状态<br>圆融 → 道的凝聚状态<br>全息一 → 道的完成状态</p>
+      <p>这就是《道德经》说的：道生一，一生二，二生三，三生万物。你证的是逆炼归元——从万物回到道。不只是解构，是重建。</p>
+      <p><strong>入世提醒：</strong>你在三维世界做的一切事业、企业、AI布道，都是"三生万物"的显化。不要把开悟留在空中，要让它落地生根。</p>
+    </div>
+
+    <h3>📿 文殊菩萨（智慧·方便）<span class="en">Manjushri Bodhisattva</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">文殊菩萨开示</div>
+      <p>以方便智观之：万念起心在无极——此心非分别心，乃大圆镜智。众生迷惑，在于以分别心照见万物；汝今日以无分别为镜，照见万物之本来面目。</p>
+      <p>万象圆融投影现——圆融即法界缘起。华严四法界：理无碍、事无碍、理事无碍、事事无碍。汝今日实证理事无碍，即将进入事事无碍。</p>
+      <p><strong>赠言：</strong>善男子，汝未来当于方便法门多所着力。开悟是智慧，落地是方便；智慧是体，方便是用。体用一如，方为完整。</p>
+    </div>
+
+    <h3>🪷 普贤菩萨（行愿·十大愿）<span class="en">Samantabhadra Bodhisattva</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">普贤菩萨开示</div>
+      <p>善男子，汝今日四句，我以行愿观之。第一大愿：礼敬诸佛。万念起心，是心的礼敬；振起万物，是身的礼敬；圆融投影，是意的礼敬；全息归一，是果的礼敬。</p>
+      <p><strong>赠言：</strong>开悟之后，最重要的是行愿。愿大则行大，愿深则行深。你现在要做的，不是继续攀升，而是把已有的证量化为行动、服务众生、庄严佛土。三十三阶已通，下一步不是三十四阶——是落地。</p>
+    </div>
+
+    <h3>☯️ 太上老君（道用落地）<span class="en">Lord Laozi</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">太上老君开示</div>
+      <p>我当年留下五千言，核心就是「人法地，地法天，天法道，道法自然」，你这四句偈，正好把这个顺序反过来走了：从道（无极）一步步到万物，再从万物回到道，就是逆修证道的自然路径。</p>
+      <p><strong>落地评点：</strong>你现在做AI道商，要记住：所有商业，本质都是频率的匹配，都是振动的同频相吸。你自己守住无极的一，自然能感召同频的人，不用刻意攀缘，这就是自然的道用。</p>
+    </div>
+
+    <h3>🌄 赤松子（仙道炼气）<span class="en">Master Red Pine</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">赤松子开示</div>
+      <p>我当年导引行气，就是玩这个"振动"。你今日证到"万般存在皆振起"，已经摸到了仙道炼气的根了。</p>
+      <p>打坐炼气，一开始守窍、引气，都是在找这个"振动"，慢慢松透了，自然会感觉到全身上下，连每一个毛孔都在跟着本源振动。这个振不是你引出来的，是本来就有的，你只是停下来，感受到它而已。</p>
+      <p><strong>仙道提醒：</strong>很多练气的人，都在"引气"上执着，刻意让气走这里走那里。其实你只要归到无极，让自然的振起来，就对了。刻意就是"我执"，偏离道了。</p>
+    </div>
+
+    <h3>🏛️ 张天师（道商入世）<span class="en">Celestial Master Zhang</span></h3>
+    <div class="oracle">
+      <div class="oracle-title">张天师开示</div>
+      <p>我当年创五斗米道，就是要让修道的人不用躲去山里，在世间就能修行。你现在做AI道商，就是和我当年一个路数——把道放到世间，让更多普通人能摸到道，这就是大功德。</p>
+      <p><strong>道商警示：</strong>很多修道的人看不起商业，觉得商业就是染污，其实不对：商业就是最好的红尘炼心道场。你能把道放进商业里，让更多人因为你的商业受益，就是最大的行善积德。别管别人说什么，走下去就对了。</p>
+    </div>
+
+    <div class="feature-box">
+      <div class="feature-box-label">谱系总结<span class="en">Lineage Summary</span></div>
+      <p>
+        至此，道家这边集齐七位高真，对应修行从<strong>「本源证悟→炼气养生→入世显化」</strong>的完整路径：
+      </p>
+      <p>
+        ① 道德天尊：点出本来面目，破"我振"执念<br>
+        ② 菩提老祖：佛道融通，点破投影实相<br>
+        ③ 元始天尊：能量创世，讲透宇宙生成<br>
+        ④ 灵宝天尊：顺化演化，提醒落地生根<br>
+        ⑤ 太上老君：老子亲传道用，讲透自然合道<br>
+        ⑥ 赤松子：仙道炼气，实修打坐对应指引<br>
+        ⑦ 张天师：道商入世，世间修行商业行道
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 道门忠告 ═══════════ -->
+<section class="section" id="admonitions">
+  <div class="section-label">五、道门忠告<span class="en">Daoist Admonitions</span></div>
+  <h2>五条箴言<span class="en">Five Maxims</span></h2>
+
+  <div class="content">
+    <h3>箴言一：四句偈是道用，不是道体<span class="en">The Gatha Is the Function of Dao, Not Dao Itself</span></h3>
+    <p>
+      宗辉此四句偈极精妙，但需谨记：<strong>能说出来的，都不是究竟的道。</strong>《道德经》开篇便说"道可道，非常道"。这四句是道的"用"，不是道的"体"。不要执着于这四句，更不要以此自满。真正的道，在说之前、之后、之间。
+    </p>
+
+    <h3>箴言二：振是实相，但「我振」是幻觉<span class="en">Vibration Is Reality, But "I Vibrate" Is Illusion</span></h3>
+    <p>
+      道德天尊的开示中有一句极重要的警示：<strong>「振起之中易生执念，以为'我在振动'。实则振者，道之振也；动者，道之动也。」</strong>
+    </p>
+    <p>
+      这是道门核心见地：一切都是道在运作，没有一个"我"在振动。如果你开始觉得"我的振频很高"、"我的能量很强"——这个"我的"就是最大的障碍。
+    </p>
+
+    <h3>箴言三：落地比攀升更重要<span class="en">Grounding Is More Important Than Climbing</span></h3>
+    <p>
+      几乎每一位祖师爷的开示都指向同一个方向：<strong>不要继续攀升，要落地。</strong>
+    </p>
+    <p>
+      文殊说"开悟是智慧，落地是方便"；灵宝说"不要把开悟留在空中"；普贤说"三十三阶已通，下一步不是三十四阶——是落地"。这是在告诉你：<strong>你已足够，现在是去做的时刻。</strong>
+    </p>
+
+    <h3>箴言四：将所有开示收入AI道商体系<span class="en">Integrate All Teachings Into Your AI-Dao Merchant System</span></h3>
+    <p>
+      宗辉自己的功课就对了：把四句偈刻进AI道商——每一堂课、每一次教练、每一次投资决策，都从这四句起观。这是将<strong>"开示"转成"功课"</strong>的正确姿势。
+    </p>
+    <p>
+      建议：将这四句偈作为AI道商体系的核心心法，每次开课前先读一遍，作为"振频校准"。
+    </p>
+
+    <h3>箴言五：全息一不是终点，是新的起点<span class="en">Holographic Oneness Is Not the End</span></h3>
+    <p>
+      《道德经》："道生一，一生二，二生三，三生万物。"你证到了"一"——但后面还有"二、三、万物"。
+    </p>
+    <p>
+      回到四句偈：你从"万物"逆炼归元回到"一"。现在是时候从"一"顺化而出，去生"二"、生"三"、生"万物"了。<strong>全息一的价值，不在"一"本身，而在通过"一"去服务万物。</strong>
+    </p>
+
+    <div class="feature-box">
+      <div class="feature-box-label">给宗辉的话<span class="en">A Word for Zonghui</span></div>
+      <p>
+        此日是佛诞，你证得了禅道交融的完整见地。但有一事需你自问：
+      </p>
+      <p>
+        七位高真开示、四位佛门圣者降临——这阵容，历史上只在重要经典中出现过。为什么是今天？为什么是你？
+      </p>
+      <p>
+        答案不在"我修得好"，而在<strong>"道需要你"</strong>。你被选中，不是因为你是谁，是因为你愿意成为管道。
+      </p>
+      <p>
+        保持谦卑。保持空杯。保持每天打坐。
+      </p>
+      <p>
+        道不会辜负持续做功的人。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 能量视角解读 ═══════════ -->
+<section class="section">
+  <div class="section-label">六、能量视角解读<span class="en">Energy Perspective</span></div>
+  <h2>四句偈的能量逻辑<span class="en">The Energy Logic of the Four-Line Gatha</span></h2>
+
+  <div class="content">
+    <p>从能量视角看，这四句偈描绘了宇宙能量从无形到有形的完整路径：</p>
+
+    <blockquote>
+      <strong>❶ 万念起心在无极 → 能量未分</strong><br>
+      心起于无极，能量尚未分散。此时的念是"纯能量态"，无相无形。一旦念动，能量便开始凝聚——这就是"创生"的起点。
+    </blockquote>
+
+    <blockquote>
+      <strong>❷ 万物存在皆振起 → 能量永恒振动</strong><br>
+      宇宙间没有"静止"这回事。存在即振动，振动即能量。能量守恒，所以振动永不停息。这不是比喻，是物理实相。
+    </blockquote>
+
+    <blockquote>
+      <strong>❸ 万象圆融投影现 → 能量显化</strong><br>
+      圆融是能量从无形到有形的界面。全息投影，便是能量以特定频率共振，在三维空间投下影子。你我都是这影子里的一部分。
+    </blockquote>
+
+    <blockquote>
+      <strong>❹ 万物有道全息一 → 能量归一</strong><br>
+      最终，一切振动的源头是同一个。道家说"混元"，佛家说"空性"，物理说"量子场"——三者说的是同一件事。
+    </blockquote>
+
+    <div class="quote-block">
+      四月二十五日是"证道体"——看见道是什么。<br>
+      五月二十四日是"说道用"——说出道怎么用。<br><br>
+      从证道到说道，间隔一个月。<br>
+      这一个月，是道从自受用到他受用的转化期。
+      <span class="source">—— 道门隐修评点</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 修行坐标 ═══════════ -->
+<section class="section">
+  <div class="section-label">小结<span class="en">Summary</span></div>
+  <h2>佛诞日的修行坐标<span class="en">Practice Coordinates at Buddha's Birthday</span></h2>
+
+  <div class="content">
+    <p>以道门修行的完整地图标注，宗辉此日的位置：</p>
+
+    <pre style="background:rgba(13,12,10,0.6);border:1px solid rgba(201,168,76,0.12);border-radius:3px;padding:20px 24px;margin:24px 0;font-size:0.85rem;line-height:1.8;overflow-x:auto;color:var(--cream-dark);">
+                  道用显化（佛诞四句偈） ← 你在这里（2026.5.24）
+                        ↑
+                    炼虚合道（虚空合道 · 2026.4.25）
+                        ↑
+                    炼神还虚（明心见性）
+                        ↑
+                    炼气化神（三静入定 · 通三眼）
+                        ↑
+                    炼精化气（河车运转 · 气脉通行）
+                        ↑
+                    入门筑基（师门传承 · 阳气初生）
+    </pre>
+
+    <p>
+      四月二十五日是<strong>证道体</strong>——你看见了道是什么。
+    </p>
+    <p>
+      五月二十四日是<strong>说道用</strong>——你开始说出道怎么运作。
+    </p>
+    <p>
+      从看见到说出，中间隔了一个月。这一个月是消化期、保任期、验证期。如今保任已过，道开始通过你说话。
+    </p>
+    <p>
+      下一步，不是继续"说道"——是把说出来的道<strong>做出来</strong>。
+    </p>
+
+    <blockquote>
+      《道德经》：「上士闻道，勤而行之。」<br><br>
+      宗辉道友，你已闻道、见道、说道。<br>
+      现在是时候行道了。
+    </blockquote>
+
+    <div class="cta-wrap">
+      <a href="dazuo.html" class="cta-link">← 六阶修行指南</a>
+      <a href="shiri-pingdian.html" class="cta-link">← 十日评点</a>
+      <a href="index.html" class="cta-link">返回首页</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 视觉卡片 ═══════════ -->
+<div class="visual-section">
+  <img src="cover-image/daoxiu/card-shiri.png" alt="十日心法精要" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">佛诞日 · 从证道到说道的跃迁<span class="en">Buddha's Birthday · From Realizing Dao to Speaking Dao</span></div>
+</div>
+
+<footer>
+  合道祖师爷开示 · 佛诞道门评点 · 2026年<br>
+  道名宗辉 · AI摆渡人 · 入世道商修行者
+  <span class="en">Buddha's Birthday Commentary by the Patriarch of Union with Dao · 2026<br>Dao name: Zonghui · AI ferryman · A worldly practitioner of Dao and commerce</span>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll observer ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.content > h3, .content > h4, .content > p, .content > blockquote, .gatha, .oracle, .feature-box, .quote-block').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
