@@ -61,6 +61,7 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 0 40px;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
   height: 64px;
   display: flex;
   align-items: center;
@@ -865,6 +866,18 @@ footer {
 }
 
 /* ── 响应式 ── */
+
+/* ── Content overflow for mobile ── */
+.stage-content table,
+.stage-content pre,
+.feeling-content table,
+.feeling-content pre,
+.timeline-track { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.timeline-track { scrollbar-width: thin; scrollbar-color: rgba(201,168,76,0.3) transparent; }
+.stage-content table::-webkit-scrollbar,
+.stage-content pre::-webkit-scrollbar { height: 4px; }
+.stage-content table::-webkit-scrollbar-thumb,
+.stage-content pre::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
 @media (max-width: 960px) {
   .stage-header { flex-direction: column; }
   .stage-image-wrap { width: 100%; max-width: 380px; margin: 0 auto; }
@@ -924,9 +937,9 @@ footer {
   nav .nav-links a {
     font-size: 1rem;
     opacity: 0.8;
-    padding: 8px 0;
+    padding: 12px 0;  /* 48px touch target */
   }
-  nav .hamburger { display: flex; }
+  nav .hamburger { display: flex; padding: 10px; }  /* larger touch target */
   .hero-stage-badge { font-size: 0.65rem; padding: 3px 10px; }
   .hero-stages { gap: 8px; }
   .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
@@ -956,6 +969,7 @@ footer {
   .preface p { font-size: 0.88rem; }
   .preface-stages-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .hero-meta { font-size: 0.65rem; flex-direction: column; align-items: center; gap: 4px; }
+  .hero { padding: 80px 16px 40px; }
   .hero-meta span:nth-child(even) { display: none; }
   .hero-scroll { display: none; }
   .timeline-nav h2 { font-size: 1rem; }
@@ -968,7 +982,14 @@ footer {
   .stage-quote { font-size: 0.85rem; padding: 12px 16px; }
   .cta-link { padding: 12px 20px; font-size: 0.82rem; }
 }
-</style>
+
+
+/* ── Scroll anchor (offset fixed nav) ── */
+.stage,
+.preface,
+.faq-section,
+.conclusion,
+.section { scroll-margin-top: 80px; }</style>
 </head>
 <body>
 
@@ -1110,7 +1131,7 @@ footer {
 
 <!-- ═══════════ 视觉总览：六阶实证 ═══════════ -->
 <div class="visual-section">
-  <img src="cover-image/daoxiu/card-daoxiu.jpg" alt="宗辉修道录 · 六阶实证" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <img src="cover-image/daoxiu/card-liujie.png" alt="宗辉修道录 · 六阶实证" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
   <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">修行六阶 · 从筑基到合道的完整路径<span class="en">Six Stages · The Complete Path from Foundation to Union</span></div>
 </div>
 
@@ -1643,6 +1664,13 @@ footer {
   </div>
 </section>
 
+
+<!-- ═══════════ 三要素 · 红尘道场 ═══════════ -->
+<div class="section-divider"><hr><div class="section-divider-label">▼</div></div>
+<div class="visual-section">
+  <img src="cover-image/daoxiu/card-sanyao.png" alt="三要素 · 红尘道场" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">三要素 · 培训·教练·投资 = 布施·持戒·禅定<span class="en">Three Pillars · Training, Coaching, Investment</span></div>
+</div>
 <footer>
   合道祖师爷开示 · 道藏经典评点 · 2026年<br>
   道名宗辉 · AI摆渡人 · 入世道商修行者

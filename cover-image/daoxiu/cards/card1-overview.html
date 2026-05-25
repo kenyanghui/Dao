@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: #FAF8F4;
+    font-family: 'Noto Serif SC', 'PingFang SC', serif;
+  }
+
+  .card {
+    width: 1080px;
+    background: #FAF8F4;
+    padding: 56px 68px 44px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  /* ── Title Block ── */
+  .subtitle {
+    font: 400 18px/2 'Noto Serif SC', serif;
+    color: #7C6853;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .title-area {
+    flex-shrink: 0;
+    margin-bottom: 36px;
+  }
+
+  .title-area h1 {
+    font: 700 72px/1.2 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #1D1D1F;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .title-area .title-sub {
+    font: 300 22px/1.6 'Noto Serif SC', serif;
+    color: #6E6E73;
+    letter-spacing: 0.08em;
+  }
+
+  .title-area::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: #7C6853;
+    margin-top: 20px;
+  }
+
+  /* ── Content ── */
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content p {
+    font: 400 32px/1.75 'Noto Serif SC', serif;
+    color: #333;
+    margin-bottom: 24px;
+  }
+
+  .content .dropcap::first-letter {
+    font: 700 100px/0.8 'Ma Shan Zheng', 'Noto Serif SC', serif;
+    float: left;
+    margin: 6px 14px 0 -2px;
+    color: #7C6853;
+  }
+
+  .content h2 {
+    font: 600 36px/1.5 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #1D1D1F;
+    margin: 36px 0 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .content h2:first-child {
+    margin-top: 0;
+  }
+
+  .content .highlight {
+    font: 500 34px/1.6 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #1D1D1F;
+    padding: 12px 0 12px 24px;
+    border-left: 3px solid #7C6853;
+    margin: 28px 0;
+  }
+
+  .content blockquote {
+    margin: 0 0 24px;
+    padding: 18px 24px;
+    background: #F3EFE7;
+    border-left: 2px solid #7C6853;
+  }
+
+  .content blockquote p {
+    font: 300 30px/1.7 'Noto Serif SC', serif;
+    color: #4A4A4A;
+    margin-bottom: 4px;
+  }
+
+  .content blockquote .source {
+    display: block;
+    margin-top: 8px;
+    font-size: 20px;
+    color: #7C6853;
+    letter-spacing: 0.1em;
+    opacity: 0.75;
+  }
+
+  .content strong {
+    font-weight: 600;
+    color: #1D1D1F;
+  }
+
+  .content .item {
+    margin-bottom: 28px;
+    padding: 20px 24px;
+    background: #F5F2EC;
+    border-radius: 2px;
+  }
+
+  .content .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .content .item .label {
+    font: 500 28px/1.5 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #1D1D1F;
+    margin-bottom: 6px;
+  }
+
+  .content .item p {
+    font: 400 26px/1.7 'Noto Serif SC', serif;
+    color: #4A4A4A;
+    margin-bottom: 0;
+  }
+
+  .content .item .item-quote {
+    font: 300 24px/1.6 'Noto Serif SC', serif;
+    color: #7C6853;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .content .item .item-tag {
+    display: inline-block;
+    font-size: 18px;
+    color: #7C6853;
+    border: 1px solid rgba(124,104,83,0.25);
+    padding: 2px 10px;
+    margin-bottom: 8px;
+    letter-spacing: 0.15em;
+  }
+
+  .divider {
+    height: 1px;
+    background: #E0DCD4;
+    margin: 28px 0;
+  }
+
+  .content .end-mark {
+    font-size: 14px;
+    color: #7C6853;
+    opacity: 0.35;
+    text-align: right;
+    margin-top: 32px;
+  }
+
+  .content ul {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .content ul li {
+    font: 400 28px/1.7 'Noto Serif SC', serif;
+    color: #333;
+    padding: 4px 0 4px 24px;
+    position: relative;
+  }
+
+  .content ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #7C6853;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid #E0DCD4;
+  }
+
+  .footer .author-name {
+    font: 400 20px/1.5 'Noto Serif SC', serif;
+    color: #6E6E73;
+    letter-spacing: 0.05em;
+  }
+
+  .footer .info-source {
+    font: 400 18px/1.5 'Noto Serif SC', serif;
+    color: #ACACB0;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="subtitle">道家修行实证记录</div>
+    <div class="title-area">
+      <h1>宗辉修道录</h1>
+      <div class="title-sub">茅山 · 华光 · 青城 三派传承 · 以打坐实证为根基</div>
+    </div>
+    <div class="content">
+      <p class="dropcap">宗辉，2026年4月25日虚空合道，证悟「道是造物主，宇宙本源是无极圣母」。以道藏经典为印证，以利他发心为频率，记录从筑基到合道、自修到传灯的完整修行路径。</p>
+
+      <h2>一、修行体系 · 精气神道四阶段</h2>
+      <p>33阶四阶段自修实证完成，当前悟后起修。四阶段不是找新方向，而是修颗粒度——在已知里挖未知入口。</p>
+
+      <div class="item">
+        <div class="item-tag">壹 · 炼精化气</div>
+        <div class="label">筑基 · 阳气初生</div>
+        <p>精是生命的物质能量。炼精化气，就是把物质能量转化成能在经络里流动的气。</p>
+        <div class="item-quote">精=原油，气=汽油 ——《天仙正理》</div>
+      </div>
+
+      <div class="item">
+        <div class="item-tag">贰 · 炼气化神</div>
+        <div class="label">气脉通行 · 三静入定</div>
+        <p>气是有形能量，神是无形智慧。身静→心静→神静，通三眼。</p>
+        <div class="item-quote">气=电，神=光 ——《胎息经》</div>
+      </div>
+
+      <div class="item">
+        <div class="item-tag">叁 · 炼神还虚</div>
+        <div class="label">虚空合道 · 明心见性</div>
+        <p>我不是这个身体，不是这个念头——我是那个能看见身体、念头的东西。</p>
+        <div class="item-quote">《清静经》：「空无所空，无无亦无，湛然常寂」</div>
+      </div>
+
+      <div class="item">
+        <div class="item-tag">肆 · 炼虚合道</div>
+        <div class="label">道法自然 · 利他必选</div>
+        <p>道以「振」创造一切。利他的频率共振道——让自己变强不是目的，让更多人因你受益才是。</p>
+        <div class="item-quote">宗辉证悟：「发愿利他这个频率就会共振道」</div>
+      </div>
+
+      <h2>二、三要素 · 修行道场落地框架</h2>
+      <p>培训（布施）· 教练（持戒）· 投资（禅定）—— 三是功德所致。三者互为支撑，闭环回流。</p>
+
+      <div class="highlight">修颗粒度，不开新方向。在已知里挖未知入口。</div>
+
+      <blockquote>
+        <p>道，顺势而下；德，当仁不让。</p>
+      </blockquote>
+    </div>
+    <div class="footer">
+      <span class="author-name">宗辉修道录</span>
+      <span class="info-source">合道祖师爷开示 · 2026年5月2日</span>
+    </div>
+  </div>
+</body>
+</html>

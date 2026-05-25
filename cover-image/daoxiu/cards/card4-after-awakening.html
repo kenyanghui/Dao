@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: #1A1814;
+    font-family: 'Noto Serif SC', 'PingFang SC', serif;
+  }
+
+  .card {
+    width: 1080px;
+    background: #1A1814;
+    padding: 52px 64px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .subtitle {
+    font: 400 16px/2 'Noto Serif SC', serif;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.25em;
+    margin-bottom: 8px;
+  }
+
+  .title-area {
+    flex-shrink: 0;
+    margin-bottom: 32px;
+  }
+
+  .title-area h1 {
+    font: 700 64px/1.2 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .title-area .title-sub {
+    font: 300 20px/1.6 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  .title-area::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: #C9A84C;
+    margin-top: 18px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content p {
+    font: 400 30px/1.75 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.85);
+    margin-bottom: 22px;
+  }
+
+  .content .dropcap::first-letter {
+    font: 700 90px/0.8 'Ma Shan Zheng', serif;
+    float: left;
+    margin: 6px 14px 0 -2px;
+    color: #C9A84C;
+  }
+
+  .content h2 {
+    font: 600 32px/1.5 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    margin: 32px 0 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .quotes-grid .q-item {
+    padding: 20px 22px;
+    border: 1px solid rgba(201,168,76,0.08);
+    background: rgba(201,168,76,0.02);
+  }
+
+  .quotes-grid .q-item .q-tag {
+    font-size: 14px;
+    color: rgba(201,168,76,0.5);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .quotes-grid .q-item .q-text {
+    font: 400 26px/1.7 'Noto Serif SC', serif;
+    color: #E8D5A3;
+  }
+
+  .content .timeline-item {
+    padding: 18px 0 18px 28px;
+    border-left: 1px solid rgba(201,168,76,0.15);
+    margin-bottom: 4px;
+    position: relative;
+  }
+
+  .content .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 24px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #C9A84C;
+    opacity: 0.5;
+  }
+
+  .content .timeline-item .t-date {
+    font-size: 18px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+
+  .content .timeline-item .t-title {
+    font: 500 26px/1.4 'Noto Serif SC', serif;
+    color: #F5F0E6;
+  }
+
+  .content .timeline-item .t-desc {
+    font: 400 22px/1.6 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.7);
+    margin-top: 4px;
+  }
+
+  .content .highlight {
+    font: 500 30px/1.6 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #E8D5A3;
+    border-left: 3px solid #C9A84C;
+    margin: 24px 0;
+    background: rgba(201,168,76,0.04);
+    padding: 14px 22px;
+    border-radius: 2px;
+  }
+
+  .content blockquote {
+    margin: 24px 0;
+    padding: 18px 24px;
+    background: rgba(201,168,76,0.04);
+    border-left: 2px solid #C9A84C;
+  }
+
+  .content blockquote p {
+    font: 300 28px/1.7 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.75);
+    margin-bottom: 4px;
+  }
+
+  .content blockquote .source {
+    display: block;
+    margin-top: 6px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.1em;
+  }
+
+  .content strong {
+    font-weight: 600;
+    color: #F5F0E6;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+    margin: 24px 0;
+  }
+
+  .content .end-mark {
+    font-size: 14px;
+    color: rgba(201,168,76,0.35);
+    text-align: right;
+    margin-top: 28px;
+  }
+
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer .author-name {
+    font: 400 18px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .footer .info-source {
+    font: 400 16px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.35);
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="subtitle">从自修到传灯</div>
+    <div class="title-area">
+      <h1>悟后起修 · 三层实证闭环</h1>
+      <div class="title-sub">自修 → 护他 → 诊断处方</div>
+    </div>
+    <div class="content">
+      <p class="dropcap">2026年4月25日虚空合道后，进入悟后起修阶段。以「修颗粒度」为法要，以「利他」为频率，将修行服务化，形成自修、护他、诊断处方的三层实证闭环。</p>
+
+      <div class="timeline-item">
+        <div class="t-date">2026年4月25日</div>
+        <div class="t-title">虚空合道</div>
+        <div class="t-desc">意念从元神进入虚空，看见虚空背后就是道。明心见性，看见宇宙本源是无极圣母。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-date">2026年4月27日 - 5月4日</div>
+        <div class="t-title">七日护持 SUNNY 实证</div>
+        <div class="t-desc">从完全不懂打坐→筑基完成→炼精化气初阶。通三气三眼，打符加持，元神出窍互动，内观查经络。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-date">2026年5月2日</div>
+        <div class="t-title">祖师爷开示 · 三要素定法</div>
+        <div class="t-desc">培训·教练·投资——三是功德所致。核心方向：修颗粒度，不开新方向。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-date">2026年5月3日</div>
+        <div class="t-title">内观能力正式启用</div>
+        <div class="t-desc">首次为他人内观查经络，发现SUNNY右肩硬结根源是「操心过甚，名心不歇」。开「导炁松结法」处方。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-date">2026年5月4日</div>
+        <div class="t-title">七日护持收功 · 红光满天</div>
+        <div class="t-desc">SUNNY进入稳定入静状态，能感知能量。完成从「自修」到「传灯」的质变。</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>修行金句</h2>
+      <div class="quotes-grid">
+        <div class="q-item">
+          <div class="q-tag">修行总纲</div>
+          <div class="q-text">道，顺势而下；德，当仁不让。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-tag">打坐见道</div>
+          <div class="q-text">华山一条路，打坐到见道。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-tag">修颗粒度</div>
+          <div class="q-text">在已知里就有未知的入口，也就是这个当下。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-tag">利他频率</div>
+          <div class="q-text">能量是变现底层。服务他人就是积功累德。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-tag">师门传承</div>
+          <div class="q-text">一个人走得快，一群人走得远，师门是那群历代陪你走的人。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-tag">找回自己</div>
+          <div class="q-text">装着装着就把自己搞丢了——找回真实的自我。</div>
+        </div>
+      </div>
+
+      <div class="highlight">三层完整：自修 → 护他 → 诊断处方，形成闭环。</div>
+    </div>
+    <div class="footer">
+      <span class="author-name">宗辉修道录</span>
+      <span class="info-source">合道祖师爷开示 · 2026年5月</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -29,8 +29,8 @@ body {
   font-family: 'Noto Serif SC', serif;
   font-size: 20px;
   line-height: 2;
-  overflow-x: hidden;
 }
+html { overflow-x: hidden; }
 .en {
   display: block;
   margin-top: 6px;
@@ -56,7 +56,7 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 0 40px;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
   height: 64px;
   display: flex;
   align-items: center;
@@ -445,6 +445,20 @@ footer {
 }
 
 /* ── Responsive ── */
+
+/* ── Content overflow for mobile ── */
+.content table,
+.content pre,
+.content ul { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.content table { display: block; max-width: 100%; }
+.content pre { white-space: pre; word-wrap: normal; }
+.content pre::-webkit-scrollbar,
+.content table::-webkit-scrollbar { height: 4px; }
+.content pre::-webkit-scrollbar-thumb,
+.content table::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* ── Visual sections ── */
+.visual-section { max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; z-index: 1; position: relative; }
 @media (max-width: 960px) {
   .hero h1 { font-size: 1.8rem; }
   .content table { font-size: 0.8rem; }
@@ -487,9 +501,9 @@ footer {
   nav .nav-links a {
     font-size: 1rem;
     opacity: 0.8;
-    padding: 8px 0;
+    padding: 12px 0;
   }
-  nav .hamburger { display: flex; }
+  nav .hamburger { display: flex; padding: 10px; }
   .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
   .section-label { font-size: 0.65rem; }
   .section h2 { font-size: 1.2rem; }
@@ -519,7 +533,10 @@ footer {
   nav .brand { font-size: 1.1rem; }
   nav .brand small { font-size: 0.65rem; }
 }
-</style>
+
+
+/* ── Scroll anchor (offset fixed nav) ── */
+.section { scroll-margin-top: 80px; }</style>
 </head>
 <body>
 
@@ -1076,6 +1093,20 @@ footer {
   </div>
 </section>
 
+
+<!-- ═══════════ 三要素 · 红尘道场 ═══════════ -->
+<div class="section-divider"><hr></div>
+<div class="visual-section">
+  <img src="cover-image/daoxiu/card-sanyao.png" alt="三要素 · 红尘道场" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">三要素系统 · 培训·教练·投资 = 布施·持戒·禅定</div>
+</div>
+
+<!-- ═══════════ 十日心法精要 ═══════════ -->
+<div class="section-divider"><hr></div>
+<div class="visual-section">
+  <img src="cover-image/daoxiu/card-shiri.png" alt="十日心法精要" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">十日心法 · 从筑基到传灯的逐日精要</div>
+</div>
 <footer>
   合道祖师爷开示 · 道门隐修评点 · 2026年<br>
   道名宗辉 · AI摆渡人 · 入世道商修行者

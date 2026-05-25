@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: #1A1814;
+    font-family: 'Noto Serif SC', 'PingFang SC', serif;
+  }
+
+  .card {
+    width: 1080px;
+    background: #1A1814;
+    padding: 52px 64px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .subtitle {
+    font: 400 16px/2 'Noto Serif SC', serif;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.25em;
+    margin-bottom: 8px;
+  }
+
+  .title-area {
+    flex-shrink: 0;
+    margin-bottom: 32px;
+  }
+
+  .title-area h1 {
+    font: 700 64px/1.2 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .title-area .title-sub {
+    font: 300 20px/1.6 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  .title-area::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: #C9A84C;
+    margin-top: 18px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content p {
+    font: 400 30px/1.75 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.85);
+    margin-bottom: 22px;
+  }
+
+  .content .dropcap::first-letter {
+    font: 700 90px/0.8 'Ma Shan Zheng', serif;
+    float: left;
+    margin: 6px 14px 0 -2px;
+    color: #C9A84C;
+  }
+
+  .content h2 {
+    font: 600 32px/1.5 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    margin: 32px 0 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .content .highlight {
+    font: 500 30px/1.6 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #E8D5A3;
+    border-left: 3px solid #C9A84C;
+    margin: 24px 0;
+    background: rgba(201,168,76,0.04);
+    padding: 14px 22px;
+    border-radius: 2px;
+  }
+
+  .pillar-block {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 22px 24px;
+    border: 1px solid rgba(201,168,76,0.10);
+    background: rgba(201,168,76,0.02);
+  }
+
+  .pillar-block .p-num {
+    font: 400 36px/1 'Ma Shan Zheng', serif;
+    color: rgba(201,168,76,0.35);
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+
+  .pillar-block .p-body { flex: 1; }
+
+  .pillar-block .p-name {
+    font: 600 28px/1.4 'Noto Serif SC', serif;
+    color: #C9A84C;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+
+  .pillar-block .p-name small {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(166,58,46,0.8);
+    margin-left: 6px;
+  }
+
+  .pillar-block .p-en {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(245,240,230,0.4);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .pillar-block .p-desc {
+    font: 400 24px/1.7 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.8);
+  }
+
+  .pillar-block .p-quote {
+    font: 300 22px/1.6 'Noto Serif SC', serif;
+    color: rgba(232,213,163,0.55);
+    font-style: italic;
+    margin-top: 6px;
+    border-left: 1px solid rgba(201,168,76,0.15);
+    padding-left: 12px;
+  }
+
+  .content blockquote {
+    margin: 24px 0;
+    padding: 18px 24px;
+    background: rgba(201,168,76,0.04);
+    border-left: 2px solid #C9A84C;
+  }
+
+  .content blockquote p {
+    font: 300 28px/1.7 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.75);
+    margin-bottom: 4px;
+  }
+
+  .content blockquote .source {
+    display: block;
+    margin-top: 6px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.1em;
+  }
+
+  .content strong {
+    font-weight: 600;
+    color: #F5F0E6;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+    margin: 24px 0;
+  }
+
+  .content .end-mark {
+    font-size: 14px;
+    color: rgba(201,168,76,0.35);
+    text-align: right;
+    margin-top: 28px;
+  }
+
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer .author-name {
+    font: 400 18px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .footer .info-source {
+    font: 400 16px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.35);
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="subtitle">祖师爷定法 · 2026年5月2日</div>
+    <div class="title-area">
+      <h1>三要素 · 修行道场落地框架</h1>
+      <div class="title-sub">培训 · 教练 · 投资 —— 三是功德所致</div>
+    </div>
+    <div class="content">
+      <p class="dropcap">三要素互为支撑，闭环回流。培训（布施）建立能量场，教练（持戒）深化使命，投资（禅定）确保安定。3是功德所致——不是凑数，是天道数字。</p>
+
+      <div class="pillar-block">
+        <div class="p-num">一</div>
+        <div class="p-body">
+          <div class="p-name">培 训 <small>布施</small><span class="p-en">Training · Generosity</span></div>
+          <div class="p-desc"><strong>AI+心智方法论</strong>，帮助企业及二代传承人建立AI能力。培训是修行的第一支撑，布施是六度之首。以更好的利他作为标准——传灯唤醒更多人。</div>
+          <div class="p-quote">「后其身而身先——不盯着得失，反在交付中磨通透」</div>
+        </div>
+      </div>
+
+      <div class="pillar-block">
+        <div class="p-num">二</div>
+        <div class="p-body">
+          <div class="p-name">教 练 <small>持戒</small><span class="p-en">Coaching · Discipline</span></div>
+          <div class="p-desc"><strong>帮人觉醒</strong>，帮人看清自己的心智模式、限制性信念。聚焦混沌二代教育传承+心智家族能量，建立教练系统，让更多人帮助更多人。</div>
+          <div class="p-quote">「蒙以养正——把自己摸到的道理传下去，带着大家往上走」</div>
+        </div>
+      </div>
+
+      <div class="pillar-block">
+        <div class="p-num">三</div>
+        <div class="p-body">
+          <div class="p-name">投 资 <small>禅定</small><span class="p-en">Investment · Meditative Stability</span></div>
+          <div class="p-desc"><strong>易经量化交易</strong>，夯实家庭财务基础。投资是禅定——让财务安定、心不慌，从而有稳定的能量场服务他人。</div>
+          <div class="p-quote">「资生进道——先稳住安身立命的根，不用为五斗米折腰」</div>
+        </div>
+      </div>
+
+      <div class="highlight">三要素互为支撑，闭环回流。三者形成完整修行道场。</div>
+
+      <blockquote>
+        <p>三业闭环：培训（利他）→ 带来客户和口碑 → 教练（深耕）→ 建立信任和深度链接 → 投资（底气）→ 让心安定 → 打坐更精微 → 培训更有能量 → 教练更有深度。</p>
+        <span class="source">—— 合道祖师爷 · 三要素定法</span>
+      </blockquote>
+    </div>
+    <div class="footer">
+      <span class="author-name">宗辉修道录</span>
+      <span class="info-source">合道祖师爷 · 2026年5月2日定法</span>
+    </div>
+  </div>
+</body>
+</html>

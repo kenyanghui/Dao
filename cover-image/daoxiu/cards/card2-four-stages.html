@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: #1A1814;
+    font-family: 'Noto Serif SC', 'PingFang SC', serif;
+  }
+
+  .card {
+    width: 1080px;
+    background: #1A1814;
+    padding: 52px 64px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .subtitle {
+    font: 400 16px/2 'Noto Serif SC', serif;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.25em;
+    margin-bottom: 8px;
+  }
+
+  .title-area {
+    flex-shrink: 0;
+    margin-bottom: 32px;
+  }
+
+  .title-area h1 {
+    font: 700 64px/1.2 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .title-area .title-sub {
+    font: 300 20px/1.6 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  .title-area::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: #C9A84C;
+    margin-top: 18px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .content p {
+    font: 400 30px/1.75 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.85);
+    margin-bottom: 22px;
+  }
+
+  .content .dropcap::first-letter {
+    font: 700 90px/0.8 'Ma Shan Zheng', serif;
+    float: left;
+    margin: 6px 14px 0 -2px;
+    color: #C9A84C;
+  }
+
+  .content h2 {
+    font: 600 34px/1.5 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #F5F0E6;
+    margin: 32px 0 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .content .highlight {
+    font: 500 30px/1.6 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    color: #E8D5A3;
+    padding: 12px 0 12px 22px;
+    border-left: 3px solid #C9A84C;
+    margin: 24px 0;
+    background: rgba(201,168,76,0.04);
+    padding: 14px 22px;
+    border-radius: 2px;
+  }
+
+  .content .stage-block {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 22px 24px;
+    border: 1px solid rgba(201,168,76,0.12);
+    background: rgba(201,168,76,0.03);
+  }
+
+  .content .stage-block .s-num {
+    font: 400 40px/1 'Ma Shan Zheng', serif;
+    color: rgba(201,168,76,0.4);
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+  }
+
+  .content .stage-block .s-body { flex: 1; }
+
+  .content .stage-block .s-name {
+    font: 600 28px/1.4 'Noto Serif SC', serif;
+    color: #C9A84C;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .content .stage-block .s-name small {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.6);
+    margin-left: 8px;
+  }
+
+  .content .stage-block .s-desc {
+    font: 400 24px/1.7 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.8);
+  }
+
+  .content .stage-block .s-quote {
+    font: 300 22px/1.6 'Noto Serif SC', serif;
+    color: rgba(232,213,163,0.6);
+    font-style: italic;
+    margin-top: 6px;
+    border-left: 1px solid rgba(201,168,76,0.2);
+    padding-left: 12px;
+  }
+
+  .content blockquote {
+    margin: 24px 0;
+    padding: 18px 24px;
+    background: rgba(201,168,76,0.04);
+    border-left: 2px solid #C9A84C;
+  }
+
+  .content blockquote p {
+    font: 300 28px/1.7 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.75);
+    margin-bottom: 4px;
+  }
+
+  .content blockquote .source {
+    display: block;
+    margin-top: 6px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 0.1em;
+  }
+
+  .content strong {
+    font-weight: 600;
+    color: #F5F0E6;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+    margin: 24px 0;
+  }
+
+  .content .end-mark {
+    font-size: 14px;
+    color: rgba(201,168,76,0.35);
+    text-align: right;
+    margin-top: 28px;
+  }
+
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer .author-name {
+    font: 400 18px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .footer .info-source {
+    font: 400 16px/1.5 'Noto Serif SC', serif;
+    color: rgba(245,240,230,0.35);
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="subtitle">33阶四阶段 · 从筑基到合道</div>
+    <div class="title-area">
+      <h1>精气神道 · 四阶段完整路径</h1>
+      <div class="title-sub">以道藏经典为印证，以实修体验为根基</div>
+    </div>
+    <div class="content">
+      <p class="dropcap">四阶段不是找新的方向，而是在原有基础上修颗粒度，往更清晰的细节上感受和深入。修行之路，不在于不断在未知找未知，而是在已知里就有未知的入口。</p>
+
+      <div class="stage-block">
+        <div class="s-num">壹</div>
+        <div class="s-body">
+          <div class="s-name">炼精化气 <small>Refine Essence into Qi</small></div>
+          <div class="s-desc"><strong>筑基 · 阳气初生</strong> — 精是生命的物质能量。炼精化气，就是把物质能量转化成能在经络里流动的气。精=原油，气=汽油。身体发暖发沉、打坐越来越稳、妄念减少。</div>
+          <div class="s-quote">《天仙正理》：「修仙道者，先须修形质之身。」</div>
+        </div>
+      </div>
+
+      <div class="stage-block">
+        <div class="s-num">贰</div>
+        <div class="s-body">
+          <div class="s-name">炼气化神 <small>Refine Qi into Spirit</small></div>
+          <div class="s-desc"><strong>气脉通行 · 三静入定</strong> — 气是有形能量，神是无形智慧。气=电，神=光。身静（放下躁动）→ 心静（放下分别）→ 神静（元神显现）。通三眼：天眼→慧眼→法眼。</div>
+          <div class="s-quote">《胎息经》：「胎从伏气中结，气从有胎中息。」</div>
+        </div>
+      </div>
+
+      <div class="stage-block">
+        <div class="s-num">叁</div>
+        <div class="s-body">
+          <div class="s-name">炼神还虚 <small>Spirit Returns to Emptiness</small></div>
+          <div class="s-desc"><strong>虚空合道 · 明心见性</strong> — 从「向外求」到「向内看」，放下「我」。我不是这个身体，不是这个念头——我是那个能看见身体、念头的东西。认清自己很小，不是自我否定，而是解脱。</div>
+          <div class="s-quote">《清静经》：「空无所空，无无亦无，湛然常寂。」</div>
+        </div>
+      </div>
+
+      <div class="stage-block">
+        <div class="s-num">肆</div>
+        <div class="s-body">
+          <div class="s-name">炼虚合道 <small>Unite Emptiness with Dao</small></div>
+          <div class="s-desc"><strong>道法自然 · 利他必选</strong> — 虚空背后是道，道的源头是无极圣母。道以「振」创造一切——念头是频率，频率创造现实。修道不是逃世，是更好地入世：让自己变强不是目的，让更多人因你受益才是。</div>
+          <div class="s-quote">宗辉证悟：「发愿利他这个频率就会共振道。」</div>
+        </div>
+      </div>
+
+      <div class="highlight">修颗粒度，不开新方向。在已知里挖未知入口，也就是这个当下。</div>
+
+      <blockquote>
+        <p>炼精化气颗粒度：感知呼吸从"一吸一呼"拆成鼻尖凉意范围、小腹隆起顺序、呼气肌肉放松速度</p>
+        <p>炼气化神颗粒度：督脉每一节脊椎的酸胀酥麻感、气过夹脊关的细微区别</p>
+        <p>炼神还虚颗粒度：虚空感从身体边缘还是手脚开始消失？念头冒出的觉察力度？</p>
+        <p>炼虚合道颗粒度：日常行住坐卧——走路落脚力度、吃饭咀嚼匹配、情绪起来0.1秒能否感知</p>
+        <span class="source">—— 合道祖师爷开示 · 修颗粒度法要</span>
+      </blockquote>
+    </div>
+    <div class="footer">
+      <span class="author-name">宗辉修道录</span>
+      <span class="info-source">合道祖师爷开示 · 2026年5月2日</span>
+    </div>
+  </div>
+</body>
+</html>
