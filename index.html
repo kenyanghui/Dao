@@ -977,6 +977,344 @@ footer .dao-name {
   .pillar-3 .p3-icon { display: none; }
   .pillar-3 .p3-name { font-size: 0.72rem; }
 }
+
+/* ── 33 Stages Grid ── */
+.stage-phases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 32px 0;
+}
+.stage-phase-card {
+  background: rgba(201,168,76,0.03);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 4px;
+  padding: 28px 24px;
+  border-top: 3px solid;
+  transition: border-color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+}
+.stage-phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.stage-phase-card .phase-label {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+.stage-phase-card .phase-sub {
+  font-size: 0.72rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.stage-phase-card .phase-key {
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+.stage-phase-card .phase-practice {
+  font-size: 0.75rem;
+  color: var(--cream-dark);
+  opacity: 0.75;
+  font-style: italic;
+}
+.stage-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  margin: 24px 0;
+}
+.stage-item {
+  background: rgba(201,168,76,0.02);
+  border: 1px solid rgba(201,168,76,0.06);
+  border-radius: 3px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.stage-item:hover {
+  border-color: rgba(201,168,76,0.15);
+  background: rgba(201,168,76,0.05);
+}
+.stage-item .s-num {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  opacity: 0.5;
+  min-width: 28px;
+  line-height: 1.4;
+  text-align: center;
+}
+.stage-item .s-body { flex: 1; }
+.stage-item .s-name {
+  font-size: 0.88rem;
+  color: var(--cream);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.stage-item .s-pinyin {
+  font-size: 0.65rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  margin-left: 4px;
+  font-weight: 400;
+}
+.stage-item .s-desc {
+  font-size: 0.78rem;
+  color: var(--cream-dark);
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-top: 2px;
+}
+.stage-item .s-date {
+  font-size: 0.6rem;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-top: 2px;
+}
+
+/* ── Scripture Cards ── */
+.scripture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+.scripture-card {
+  background: rgba(201,168,76,0.03);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+}
+.scripture-card:hover {
+  border-color: rgba(201,168,76,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.scripture-card .sc-header {
+  padding: 22px 24px 12px;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+}
+.scripture-card .sc-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+.scripture-card .sc-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+.scripture-card .sc-sub {
+  font-size: 0.72rem;
+  color: var(--cream-dark);
+  opacity: 0.55;
+  margin-top: 4px;
+}
+.scripture-card .sc-body {
+  padding: 16px 24px 22px;
+}
+.scripture-card .sc-quote {
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  line-height: 1.9;
+  border-left: 2px solid rgba(201,168,76,0.2);
+  padding-left: 14px;
+  margin-bottom: 12px;
+  font-family: 'Noto Serif SC', serif;
+}
+.scripture-card .sc-interp {
+  font-size: 0.8rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 1.9;
+}
+.scripture-card .sc-interp strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+.scripture-card .sc-full {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(201,168,76,0.06);
+}
+.scripture-card .sc-full-toggle {
+  font-size: 0.72rem;
+  color: var(--jade);
+  opacity: 0.7;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.scripture-card .sc-full-toggle:hover { opacity: 1; }
+.scripture-card .sc-full-text {
+  font-size: 0.8rem;
+  color: var(--cream-dark);
+  opacity: 0.7;
+  line-height: 2;
+  margin-top: 10px;
+  display: none;
+  font-family: 'Noto Serif SC', serif;
+}
+.scripture-card .sc-full-text.show { display: block; }
+
+/* ── Mantra Cards ── */
+.mantra-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+.mantra-card {
+  background: rgba(201,168,76,0.02);
+  border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 4px;
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  user-select: none;
+}
+.mantra-card:hover { border-color: rgba(201,168,76,0.2); }
+.mantra-card .mc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.mantra-card .mc-name {
+  font-size: 0.95rem;
+  color: var(--cream);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.mantra-card .mc-source {
+  font-size: 0.65rem;
+  color: var(--gold);
+  opacity: 0.6;
+  letter-spacing: 0.15em;
+  margin-top: 2px;
+}
+.mantra-card .mc-toggle {
+  color: var(--gold);
+  opacity: 0.5;
+  font-size: 0.8rem;
+  transition: transform 0.3s;
+}
+.mantra-card.open .mc-toggle { transform: rotate(180deg); }
+.mantra-card .mc-body {
+  display: none;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(201,168,76,0.06);
+}
+.mantra-card.open .mc-body { display: block; }
+.mantra-card .mc-text {
+  font-size: 0.82rem;
+  color: var(--cream-dark);
+  line-height: 2;
+  font-family: 'Noto Serif SC', serif;
+  white-space: pre-wrap;
+}
+.mantra-card .mc-desc {
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  opacity: 0.6;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ── Records Timeline (expanded) ── */
+.records-tl {
+  position: relative;
+  padding-left: 36px;
+  margin: 24px 0;
+}
+.records-tl::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--jade), var(--gold-dim));
+  opacity: 0.6;
+}
+.records-tl .rt-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding-left: 18px;
+}
+.records-tl .rt-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.6;
+  border: 2px solid rgba(201,168,76,0.15);
+}
+.records-tl .rt-item.highlight::before {
+  background: var(--cinnabar);
+  box-shadow: 0 0 10px rgba(166,58,46,0.5);
+}
+.records-tl .rt-date {
+  font-size: 0.72rem;
+  color: var(--gold);
+  opacity: 0.8;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+.records-tl .rt-title {
+  font-size: 0.9rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.records-tl .rt-desc {
+  font-size: 0.82rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 1.8;
+}
+.records-tl .rt-desc strong { color: var(--gold); font-weight: 600; }
+
+@media (max-width: 960px) {
+  .stage-phases { grid-template-columns: 1fr; }
+  .scripture-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .stage-item { padding: 12px 14px; }
+  .stage-item .s-name { font-size: 0.82rem; }
+  .stage-item .s-desc { font-size: 0.72rem; }
+  .scripture-card .sc-body { padding: 14px 16px 18px; }
+  .scripture-card .sc-quote { font-size: 0.78rem; }
+  .scripture-card .sc-interp { font-size: 0.75rem; }
+  .mantra-card { padding: 16px 18px; }
+}
+@media (max-width: 480px) {
+  .stage-list { grid-template-columns: 1fr; }
+  .stage-phase-card { padding: 20px 16px; }
+  .scripture-grid { grid-template-columns: 1fr; }
+  .records-tl { padding-left: 26px; }
+  .records-tl .rt-item { padding-left: 12px; }
+  .records-tl .rt-item::before { left: -22px; width: 7px; height: 7px; }
+}
+
 </style>
 </head>
 <body>
@@ -988,9 +1326,11 @@ footer .dao-name {
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="#about">AI摆渡人</a></li>
-    <li><a href="#pillars">道商修行</a></li>
+    <li><a href="#about">AI教练</a></li>
+    <li><a href="#pillars">三要素</a></li>
     <li><a href="#record">实证纪要</a></li>
+	    <li><a href="#classics">道藏经典</a></li>
+	    <li><a href="#stages-33">33阶</a></li>
   </ul>
 </nav>
 
@@ -1000,17 +1340,17 @@ footer .dao-name {
 </div>
 
 <section class="hero">
-  <div class="hero-badge">华山一条路 · 打坐见道</div>
+  <div class="hero-badge">华山一条路 · 打坐见道 · 教练觉修</div>
   <h1>宗辉修道录</h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">
-    道名宗辉 · 茅山/华光/青城三派传承 · 2026年4月25日虚空合道<br>
-    以打坐实证为根基，以道藏经典为印证，以利他发心为频率<br>
-    记录筑基到合道、自修到传灯的完整修行路径
+    道名宗辉 · 道家修行实证 · 2026年4月25日虚空合道<br>
+    以打坐实证为根基，以道藏经典为印证，以教练为觉修通道<br>
+    记录筑基到合道、自修到传灯、人人教练的完整修行路径
   </p>
-  <div class="hero-tagline">道，顺势而下；德，当仁不让</div>
+  <div class="hero-tagline">教练等于修炼，人人都是教练，人人都需要教练</div>
   <div class="hero-meta">
-    <span>精气神道四阶段</span><span>·</span><span>三要素定法</span><span>·</span><span>33阶修行体系</span><span>·</span><span>修颗粒度</span>
+    <span>精气神道四阶段</span><span>·</span><span>AI教练三要素</span><span>·</span><span>33阶修行体系</span><span>·</span><span>修颗粒度</span>
   </div>
 </section>
 
@@ -1070,30 +1410,30 @@ footer .dao-name {
 <!-- ═══════════ 修行者 ═══════════ -->
 <section class="section" id="about">
   <div class="section-label">修行者自述</div>
-  <h2>AI摆渡人 · 入世道商修行者</h2>
-  <p class="section-sub">红尘即道场，修行即生活</p>
+  <h2>AI教练 · 教练即觉修</h2>
+  <p class="section-sub">教练等于修炼，人人都是教练，人人都需要教练</p>
 
   <div class="feature-box">
     <div class="feature-box-label">修行坐标</div>
     <p>
-      <strong>宗辉</strong> · 茅山/华光/青城三派传承 · 2026.4.25虚空合道，证悟「道是造物主，宇宙本源是无极圣母」。
+      <strong>宗辉</strong> · 2026.4.25虚空合道，证悟「道是造物主，宇宙本源是无极圣母」。
     </p>
     <p style="margin-top:14px;">
       <strong>修行阶段：</strong>33阶四阶段自修实证完成，当前<strong>悟后起修</strong>。<br>
-      <strong>红尘道场：</strong>三要素（培训·教练·投资）闭环落地：<br>
-      ① 培训（布施）—— AI+心智方法论传灯，唤醒更多人<br>
-      ② 教练（持戒）—— 帮人觉醒，助家族心智能量提升<br>
-      ③ 投资（禅定）—— 财务安定，心不外驰，利他持续
+      <strong>红尘道场：</strong>三要素（AI教练·内容·交付）闭环落地：<br>
+      ① AI教练——以AI为底层系统，教练是觉修的通道<br>
+      ② 内容——亲子、健康、婚姻、事业、财富等多元主题<br>
+      ③ 交付——内容·获客·交付三部曲，与AI一起教练更多人
     </p>
     <p style="margin-top:14px;">
-      <strong>外在角色：</strong>AI龙虾教练 · 二代传承教练 · 组织转型心智教练<br>
-      <strong>内在使命：</strong>以道驭能，造福人间。AI+心智双轮，帮人从焦虑渡到笃定。
+      <strong>AI教练服务：</strong>企业数字员工教练 · 组织转型心智教练 · 二代教育传承教练<br>
+      <strong>内在使命：</strong>以道驭能，以AI为器，让更多人帮助更多人，让人生修行更有意义。
     </p>
   </div>
 
   <div class="quote-block">
-    修颗粒度，不开新方向。在已知里挖未知入口。
-    <span class="source">—— 合道祖师爷开示 · 2026年5月2日</span>
+    教练等于修炼。每个人都可以去觉察并帮助别人。在AI的协同下，教练他人的知识和专业瓶颈都会被突破——这才是教练的核心意义。底层价值就是修行的实施路径，把教练当作一个觉修的通道。
+    <span class="source">—— 宗辉 · AI教练觉修</span>
   </div>
 </section>
 
@@ -1166,6 +1506,98 @@ footer .dao-name {
 
 <div class="section-divider"><hr></div>
 
+<!-- ═══════════ 33阶修行次第 ═══════════ -->
+<section class="section" id="stages-33">
+  <div class="section-label">修行次第 · 33阶体系</div>
+  <h2>三十三阶 · 四阶段完整实证路径</h2>
+  <p class="section-sub">从筑基到合道 · 步步有证，历历可查</p>
+
+  <div class="stage-phases">
+    <div class="stage-phase-card" style="border-top-color:#85D8C8;">
+      <div class="phase-label" style="color:#85D8C8;">第一阶段 · 炼精化气</div>
+      <div class="phase-sub">筑基 · 三丹田贯通</div>
+      <div class="phase-key"><strong>核心：</strong>三丹田同时贯通，炼精化气为筑基根基。</div>
+      <div class="phase-practice">打坐时三丹田同时运气，真气驱动全身。</div>
+    </div>
+    <div class="stage-phase-card" style="border-top-color:#FFD700;">
+      <div class="phase-label" style="color:#FFD700;">第二阶段 · 炼气化神</div>
+      <div class="phase-sub">内丹 · 大还丹成就</div>
+      <div class="phase-key"><strong>核心：</strong>以慈悲为钥匙，链接阿卡西高维能量。</div>
+      <div class="phase-practice">三丹田汇聚成丹，能量充盈全身，松果体剧烈反应。</div>
+    </div>
+    <div class="stage-phase-card" style="border-top-color:#C8A2C8;">
+      <div class="phase-label" style="color:#C8A2C8;">第三阶段 · 炼神还虚</div>
+      <div class="phase-sub">元神 · 三界贯通</div>
+      <div class="phase-key"><strong>核心：</strong>元神稳固，以道驭能，三界贯通，去心魔，入圣境。</div>
+      <div class="phase-practice">三界能量贯通，紫金龙尊显现，元神扩容。</div>
+    </div>
+    <div class="stage-phase-card" style="border-top-color:#C9A96E;">
+      <div class="phase-label" style="color:#C9A96E;">第四阶段 · 炼虚合道</div>
+      <div class="phase-sub">归根 · 归于大道</div>
+      <div class="phase-key"><strong>核心：</strong>虚空合道，道以振创造虚空。唯有利他合天道。</div>
+      <div class="phase-practice">意念从元神进入虚空，元神淡化融入虚空，与道合一。</div>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;margin-bottom:6px;font-size:0.75rem;color:var(--gold);opacity:0.6;letter-spacing:0.2em;">入静 · 炼精化气（1-7阶）</div>
+  <div class="stage-list">
+    <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">入静 <span class="s-pinyin">rù jìng</span></div><div class="s-desc">致虚极守静笃，常应常静。静是修行的核心功夫。</div><div class="s-date">2025.7.27</div></div></div>
+    <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">入坐 <span class="s-pinyin">rù zuò</span></div><div class="s-desc">下丹田启动，腰部蓄力安坐。丹田是能量之根，筑基第一步。</div><div class="s-date">2025.7.28</div></div></div>
+    <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">入炁 <span class="s-pinyin">rù qì</span></div><div class="s-desc">丹田炁足，太极丹田转。炼精化气，真气驱动全身。</div><div class="s-date">2025.7.28</div></div></div>
+    <div class="stage-item"><div class="s-num">四</div><div class="s-body"><div class="s-name">入戒 <span class="s-pinyin">rù jiè</span></div><div class="s-desc">心戒先行，身口意三净。持戒修行，内外合一。</div><div class="s-date">2025.7.28</div></div></div>
+    <div class="stage-item"><div class="s-num">五</div><div class="s-body"><div class="s-name">入智 <span class="s-pinyin">rù zhì</span></div><div class="s-desc">三脑合一：大脑+佛脑+道脑。三神归位，方可言修。</div><div class="s-date">2025.7.28</div></div></div>
+    <div class="stage-item"><div class="s-num">六</div><div class="s-body"><div class="s-name">入观 <span class="s-pinyin">rù guān</span></div><div class="s-desc">内观全身，照见五蕴。内观自在，破除我执。</div><div class="s-date">2025.7.28</div></div></div>
+    <div class="stage-item"><div class="s-num">七</div><div class="s-body"><div class="s-name">入定 <span class="s-pinyin">rù dìng</span></div><div class="s-desc">定中生慧，神凝气定。禅定双运，止观双修。</div><div class="s-date">2025.7.28</div></div></div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:6px;font-size:0.75rem;color:var(--gold);opacity:0.6;letter-spacing:0.2em;">入内 · 炼气化神（8-16阶）</div>
+  <div class="stage-list">
+    <div class="stage-item"><div class="s-num">八</div><div class="s-body"><div class="s-name">入内 <span class="s-pinyin">rù nèi</span></div><div class="s-desc">链接阿卡西，松果体剧烈反应。慈悲是能量同频共振的钥匙。</div><div class="s-date">2025.8.3</div></div></div>
+    <div class="stage-item"><div class="s-num">九</div><div class="s-body"><div class="s-name">入丹 <span class="s-pinyin">rù dān</span></div><div class="s-desc">三丹合一，大还丹成。精气神圆融一体成就大还丹。</div><div class="s-date">2025.8.5</div></div></div>
+    <div class="stage-item"><div class="s-num">十</div><div class="s-body"><div class="s-name">入性 <span class="s-pinyin">rù xìng</span></div><div class="s-desc">见性成佛，本自具足。见自本性，不外求。</div><div class="s-date">2025.8.5</div></div></div>
+    <div class="stage-item"><div class="s-num">十一</div><div class="s-body"><div class="s-name">入忏 <span class="s-pinyin">rù chàn</span></div><div class="s-desc">忏悔业障，心垢渐消。消业除障，心光渐明。</div><div class="s-date">2025.8.5</div></div></div>
+    <div class="stage-item"><div class="s-num">十二</div><div class="s-body"><div class="s-name">入修 <span class="s-pinyin">rù xiū</span></div><div class="s-desc">修炼命功，饮食清淡、八段锦。性命双全，命功稳固。</div><div class="s-date">2025.8</div></div></div>
+    <div class="stage-item"><div class="s-num">十三</div><div class="s-body"><div class="s-name">入命 <span class="s-pinyin">rù mìng</span></div><div class="s-desc">命功成就，生死自如。命功稳固，生死自在。</div><div class="s-date">2025.8.13</div></div></div>
+    <div class="stage-item"><div class="s-num">十四</div><div class="s-body"><div class="s-name">入住 <span class="s-pinyin">rù zhù</span></div><div class="s-desc">三丹田能量充盈，继续凝聚。大还丹稳固期。</div><div class="s-date">2026.1</div></div></div>
+    <div class="stage-item"><div class="s-num">十五</div><div class="s-body"><div class="s-name">入圆 <span class="s-pinyin">rù yuán</span></div><div class="s-desc">圆满俱足，道法圆通。圆融一体，自在无碍。</div><div class="s-date">2026.1</div></div></div>
+    <div class="stage-item"><div class="s-num">十六</div><div class="s-body"><div class="s-name">入归 <span class="s-pinyin">rù guī</span></div><div class="s-desc">元神归位，三界侍卫。元神真正归位。</div><div class="s-date">2026.1</div></div></div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:6px;font-size:0.75rem;color:var(--gold);opacity:0.6;letter-spacing:0.2em;">入神 · 炼神还虚（17-25阶）</div>
+  <div class="stage-list">
+    <div class="stage-item"><div class="s-num">十七</div><div class="s-body"><div class="s-name">入符 <span class="s-pinyin">rù fú</span></div><div class="s-desc">符水点化，黑龙变紫金龙。玉帝赐海底龙宫。</div><div class="s-date">2025.8.14</div></div></div>
+    <div class="stage-item"><div class="s-num">十八</div><div class="s-body"><div class="s-name">入神 <span class="s-pinyin">rù shén</span></div><div class="s-desc">元神显像，紫金龙尊。元神出窍，与虚空合。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">十九</div><div class="s-body"><div class="s-name">入通 <span class="s-pinyin">rù tōng</span></div><div class="s-desc">三界能量合一，道法圆通。隐显自由，神通自在。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">二十</div><div class="s-body"><div class="s-name">入心 <span class="s-pinyin">rù xīn</span></div><div class="s-desc">去心魔，拂尘扫五毒。心魔除，智慧开。</div><div class="s-date">2025.11.20</div></div></div>
+    <div class="stage-item"><div class="s-num">廿一</div><div class="s-body"><div class="s-name">入圣 <span class="s-pinyin">rù shèng</span></div><div class="s-desc">紫金龙尊现，三界能量贯通。元神扩容入金光殿堂。</div><div class="s-date">2025.11.20</div></div></div>
+    <div class="stage-item"><div class="s-num">廿二</div><div class="s-body"><div class="s-name">入界 <span class="s-pinyin">rù jiè</span></div><div class="s-desc">连接高维网络，天庭龙宫三界贯通。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">廿三</div><div class="s-body"><div class="s-name">入道 <span class="s-pinyin">rù dào</span></div><div class="s-desc">三气通三脑，道法自然。以道驭能，顺其自然。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">廿四</div><div class="s-body"><div class="s-name">入化 <span class="s-pinyin">rù huà</span></div><div class="s-desc">变化自如，与道合一。神通变化，随缘自在。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">廿五</div><div class="s-body"><div class="s-name">入梯 <span class="s-pinyin">rù tī</span></div><div class="s-desc">能量阶梯，维度跃迁。三界能量合一。</div><div class="s-date">2025.11.12</div></div></div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:6px;font-size:0.75rem;color:var(--gold);opacity:0.6;letter-spacing:0.2em;">入虚 · 炼虚合道（26-33阶）</div>
+  <div class="stage-list">
+    <div class="stage-item"><div class="s-num">廿六</div><div class="s-body"><div class="s-name">入虚 <span class="s-pinyin">rù xū</span></div><div class="s-desc">炼神还虚，虚空一体。虚空与道合一。</div><div class="s-date">2026.1</div></div></div>
+    <div class="stage-item"><div class="s-num">廿七</div><div class="s-body"><div class="s-name">入无 <span class="s-pinyin">rù wú</span></div><div class="s-desc">有无双泯，归于本源。有无皆空，归于道之本源。</div><div class="s-date">2026.1</div></div></div>
+    <div class="stage-item"><div class="s-num">廿八</div><div class="s-body"><div class="s-name">入圣（合道）<span class="s-pinyin">rù shèng</span></div><div class="s-desc">虚空合道，道为我用。「我」无足轻重，唯利他合天道。</div><div class="s-date">2026.4.25</div></div></div>
+    <div class="stage-item"><div class="s-num">廿九</div><div class="s-body"><div class="s-name">入光 <span class="s-pinyin">rù guāng</span></div><div class="s-desc">连接高维光能量。光能量通道打开。</div><div class="s-date">2026.4.25</div></div></div>
+    <div class="stage-item"><div class="s-num">三十</div><div class="s-body"><div class="s-name">入祖 <span class="s-pinyin">rù zǔ</span></div><div class="s-desc">接入祖脉能量。祖师加持，祖脉传承。</div><div class="s-date">2026.4.25</div></div></div>
+    <div class="stage-item"><div class="s-num">卅一</div><div class="s-body"><div class="s-name">入众 <span class="s-pinyin">rù zhòng</span></div><div class="s-desc">渡众生，造福人间。发愿渡化，以道驭能造福人间。</div><div class="s-date">2026.4.25</div></div></div>
+    <div class="stage-item"><div class="s-num">卅二</div><div class="s-body"><div class="s-name">入境 <span class="s-pinyin">rù jìng</span></div><div class="s-desc">AI世界结界开启。进入AI结界，能量阶梯起点。</div><div class="s-date">2025.11.12</div></div></div>
+    <div class="stage-item"><div class="s-num">卅三</div><div class="s-body"><div class="s-name">入道（圆成）<span class="s-pinyin">rù dào</span></div><div class="s-desc">33阶全通，归于大道。虚空合道，调整频率。</div><div class="s-date">2026.4.25</div></div></div>
+  </div>
+
+  <div class="quote-block">
+    《清静经》云：「人能常清静，天地悉皆归。」从三气通贯到大还丹成就，从元神归位到虚空合道——步步有证，历历可查。此修行路径，符合《钟吕传道集》「筑基炼精化气、炼气化神、炼神还虚、炼虚合道」之次第。
+    <span class="source">宗辉修道录 · 三十三阶实证</span>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<div class="section-divider"><hr></div>
+
 <!-- ═══════════ 信息图：四阶段路径 ═══════════ -->
 <div class="infographic">
   <div class="infographic-frame">
@@ -1212,50 +1644,50 @@ footer .dao-name {
 
 <!-- ═══════════ 三要素 ═══════════ -->
 <section class="section" id="pillars">
-  <div class="section-label">祖师爷定法 · 2026年5月2日</div>
-  <h2>三要素 · 修行道场落地框架</h2>
-  <p class="section-sub">培训（布施）· 教练（持戒）· 投资（禅定）—— 三是功德所致</p>
+  <div class="section-label">祖师爷定法 · 教练即觉修</div>
+  <h2>AI教练三要素 · 修行道场落地框架</h2>
+  <p class="section-sub">三要素中最聚焦在教练——教练等于修炼，人人都是教练，人人都需要教练</p>
 
   <div class="pillar-grid">
     <div class="pillar-card">
       <span class="pillar-icon">一</span>
-      <div class="pillar-title">培 训</div>
-      <div class="pillar-sub">布施 · 法布施</div>
+      <div class="pillar-title">企业数字员工教练</div>
+      <div class="pillar-sub">AI教练服务 · 内容获客交付</div>
       <div class="pillar-desc">
-        用AI+心智方法论，帮助企业及二代传承人建立AI能力。<br>
-        培训是修行的第一支撑，布施是六度之首。<br>
-        一切以更好的利他作为标准——唤醒AI时代的更多人。
+        AI是一套以AI作为底层系统的工具，包括<strong>内容·获客·交付</strong>三部曲。<br>
+        课程刚好完成闭环——和AI一起去教练更多的人。<br>
+        在AI的协同下，教练他人的知识和专业上的瓶颈都会被突破。
       </div>
-      <div class="pillar-quote">「后其身而身先——不盯着得失，反在交付中磨通透」</div>
+      <div class="pillar-quote">「AI为器，教练为道——让更多人因AI而觉醒」</div>
     </div>
     <div class="pillar-card">
       <span class="pillar-icon">二</span>
-      <div class="pillar-title">教 练</div>
-      <div class="pillar-sub">持戒 · 帮人觉醒</div>
+      <div class="pillar-title">组织转型心智教练</div>
+      <div class="pillar-sub">持戒 · 帮人觉醒 · 觉察利他</div>
       <div class="pillar-desc">
-        帮人看清自己的心智模式、限制性信念，助人从内在觉醒。<br>
-        聚焦混沌二代教育传承+心智家族能量——<br>
-        建立教练系统，让更多人帮助更多人。
+        每个人都可以去觉察并帮助别人，让更多人帮助更多人。<br>
+        人生修行变得更加有意义——底层价值就是修行的实施路径。<br>
+        把教练当做一个觉修的通道，助家族心智能量提升。
       </div>
-      <div class="pillar-quote">「蒙以养正——把自己摸到的道理传下去，带着大家往上走」</div>
+      <div class="pillar-quote">「蒙以养正——觉察自己，照亮他人，让修行融入日常」</div>
     </div>
     <div class="pillar-card">
       <span class="pillar-icon">三</span>
-      <div class="pillar-title">投 资</div>
-      <div class="pillar-sub">禅定 · 财务安定</div>
+      <div class="pillar-title">二代教育传承教练</div>
+      <div class="pillar-sub">禅定 · 传承 · 多元主题</div>
       <div class="pillar-desc">
-        钻研易经量化交易，夯实家庭财务基础。<br>
-        投资是禅定——让财务安定、心不慌，<br>
-        从而有稳定的能量场服务他人。
+        教练的内容可以是各种主题：亲子、健康、婚姻、事业、财富……<br>
+        甚至包括修行本身。聚焦混沌二代教育传承+心智家族能量——<br>
+        建立教练系统，让孩子成为最好的自己，让家族生生不息。
       </div>
-      <div class="pillar-quote">「资生进道——先稳住安身立命的根，不用为五斗米折腰」</div>
+      <div class="pillar-quote">「教即觉，觉即修——传承不是传财富，是传觉性」</div>
     </div>
   </div>
 
   <div class="quote-block">
-    三要素互为支撑：培训（布施）建立能量场，教练（持戒）深化使命，投资（禅定）确保安定。<br>
-    3是功德所致——不是凑数，是天道数字。三者互为支持，闭环回流。
-    <span class="source">合道祖师爷 · 三要素定法</span>
+    教练等于修炼，人人都是教练，人人都需要教练。每个人都可以去觉察并帮助别人，让更多人帮助更多人，让人生修行变得更加有意义。<br><br>
+    三要素中最聚焦在教练，底层价值就是修行的实施路径——把教练当做一个<strong>觉修的通道</strong>。
+    <span class="source">宗辉 · AI教练觉修 · 三要素定法</span>
   </div>
 </section>
 
@@ -1264,37 +1696,37 @@ footer .dao-name {
 <!-- ═══════════ 信息图：三要素框架 ═══════════ -->
 <div class="infographic">
   <div class="infographic-frame">
-    <img src="cover-image/daoxiu/pillars-daoxiu.jpg" alt="三要素 · 修行道场落地框架" loading="lazy">
+    <img src="cover-image/daoxiu/pillars-daoxiu.jpg" alt="AI教练三要素 · 修行道场落地框架" loading="lazy">
     <div class="infographic-overlay pillar-3">
       <div>
-        <div class="p3-title">三要素 · 修行道场落地框架</div>
-        <div class="p3-sub">培训（布施）· 教练（持戒）· 投资（禅定）— 三是功德所致</div>
+        <div class="p3-title">AI教练三要素 · 修行道场落地框架</div>
+        <div class="p3-sub">企业数字员工教练 · 组织转型心智教练 · 二代教育传承教练 — 教练即觉修</div>
       </div>
       <div class="p3-row">
         <div class="p3-icon">一</div>
         <div class="p3-body">
-          <div class="p3-name">培训 <small>布施</small><span class="p3-en">Training · Generosity</span></div>
-          <div class="p3-desc">AI+心智方法论，传灯唤醒更多人</div>
-          <div class="p3-quote">「后其身而身先」</div>
+          <div class="p3-name">企业数字员工教练 <small>AI为器</small><span class="p3-en">AI Coaching · Content/Delivery</span></div>
+          <div class="p3-desc">AI内容·获客·交付三部曲，和AI一起教练更多人</div>
+          <div class="p3-quote">「AI为器，教练为道」</div>
         </div>
       </div>
       <div class="p3-row">
         <div class="p3-icon">二</div>
         <div class="p3-body">
-          <div class="p3-name">教练 <small>持戒</small><span class="p3-en">Coaching · Discipline</span></div>
-          <div class="p3-desc">帮人觉醒，助家族心智能量提升</div>
-          <div class="p3-quote">「蒙以养正」</div>
+          <div class="p3-name">组织转型心智教练 <small>持戒</small><span class="p3-en">Transformation · Mindset</span></div>
+          <div class="p3-desc">觉察帮助他人，让更多人帮助更多人</div>
+          <div class="p3-quote">「觉察自己，照亮他人」</div>
         </div>
       </div>
       <div class="p3-row">
         <div class="p3-icon">三</div>
         <div class="p3-body">
-          <div class="p3-name">投资 <small>禅定</small><span class="p3-en">Investment · Meditative Stability</span></div>
-          <div class="p3-desc">易经量化交易，财务安定，心不外驰</div>
-          <div class="p3-quote">「资生进道」</div>
+          <div class="p3-name">二代教育传承教练 <small>传承</small><span class="p3-en">Education · Heritage</span></div>
+          <div class="p3-desc">亲子·健康·婚姻·事业·财富，多元主题教练</div>
+          <div class="p3-quote">「教即觉，觉即修」</div>
         </div>
       </div>
-      <div class="p3-footer">三要素互为支撑，闭环回流。3是功德所致 — 不是凑数，是天道数字。</div>
+      <div class="p3-footer">教练等于修炼，人人都是教练，人人都需要教练。把教练当作一个觉修的通道。</div>
     </div>
   </div>
 </div>
@@ -1345,10 +1777,263 @@ footer .dao-name {
   <div class="feature-box">
     <div class="feature-box-label">祖师堂</div>
     <p>
-      合道祖师爷35位，含如来、道德天尊、菩提老祖、金龙天尊、茅山派师公等。<br>
+      合道祖师爷35位，含如来、道德天尊、菩提老祖、金龙天尊等。<br>
       师门传承是修行人最珍贵的资产——一个人走得快，一群人走得远，师门是那群历代陪你走的人。<br>
-      茅山、华光、青城三派传承，各有侧重，构成完整修行体系。
+      各家传承，各有侧重，构成完整修行体系。
     </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 道藏经典 ═══════════ -->
+<section class="section" id="classics">
+  <div class="section-label">道藏经典对照</div>
+  <h2>以经印道 · 道藏经典与实证印证</h2>
+  <p class="section-sub">以打坐实证对照道藏经典，以经典印证修行之路</p>
+
+  <div class="scripture-grid">
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #C9A96E;">
+        <div class="sc-num">道家群经之首</div>
+        <div class="sc-title">道德经</div>
+        <div class="sc-sub">老子 · 约500年</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。</div>
+        <div class="sc-interp">道不可言说，名不可定义。无与有同出而异名，皆为玄之又玄的众妙之门。修行即是不断突破名相，归于道体。<strong>宗辉证悟「道以振创造虚空」</strong>，与第40章「有生于无」相印。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            <strong>第1章：</strong>道可道，非常道；名可名，非常名。无名天地之始，有名万物之母。故常无欲，以观其妙；常有欲，以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。<br><br>
+            <strong>第16章：</strong>致虚极，守静笃。万物并作，吾以观复。夫物芸芸，各复归其根。归根曰静，是谓复命。复命曰常，知常曰明。<br><br>
+            <strong>第25章：</strong>有物混成，先天地生。寂兮寥兮，独立不改，周行而不殆，可以为天下母。吾不知其名，字之曰道，强为之名曰大。<br><br>
+            <strong>第37章：</strong>道常无为而无不为。侯王若能守之，万物将自化。<br><br>
+            <strong>第40章：</strong>反者道之动，弱者道之用。天下之物生于有，有生于无。<br><br>
+            <strong>第42章：</strong>道生一，一生二，二生三，三生万物。万物负阴而抱阳，冲气以为和。<br><br>
+            <strong>第51章：</strong>道生之，德蓄之。物形之，势成之。是以万物莫不尊道而贵德。<br><br>
+            <strong>第81章：</strong>信言不美，美言不信。善者不辩，辩者不善。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #85D8C8;">
+        <div class="sc-num">般若经之精要</div>
+        <div class="sc-title">般若波罗蜜多心经</div>
+        <div class="sc-sub">玄奘译 · 260字</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">照见五蕴皆空，度一切苦厄。</div>
+        <div class="sc-interp">「五蕴皆空」——色、受、想、行、识皆非实有。修行者照见此理，即度一切苦厄。「心无罣碍」是修行关键——元神不被执念所碍，即是涅槃。<strong>宗辉证悟「念起处即空性」</strong>，与此经深义相印。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。<br><br>
+            舍利子，色不异空，空不异色；色即是空，空即是色。受想行识，亦复如是。<br><br>
+            舍利子，是诸法空相，不生不灭，不垢不净，不增不减。是故空中无色，无受想行识，无眼耳鼻舌身意，无色声香味触法，无眼界，乃至无意识界。无无明，亦无无明尽；乃至无老死，亦无老死尽。无苦集灭道，无智亦无得。<br><br>
+            以无所得故，菩提萨埵，依般若波罗蜜多故，心无罣碍，无罣碍故，无有恐怖，远离颠倒梦想，究竟涅槃。三世诸佛，依般若波罗蜜多故，得阿耨多罗三藐三菩提。<br><br>
+            故知般若波罗蜜多，是大神咒，是大明咒，是无上咒，是无等等咒，能除一切苦，真实不虚。<br><br>
+            故说般若波罗蜜多咒，即说咒曰：揭谛揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #FFD700;">
+        <div class="sc-num">日常修持之根</div>
+        <div class="sc-title">太上老君说常清静经</div>
+        <div class="sc-sub">道教日常修持核心经典</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">人能常清静，天地悉皆归。</div>
+        <div class="sc-interp">清静是修行根本功夫。「遣欲观空」是具体方法：遣其欲，澄其心，神自清。<strong>宗辉以「清静」为根本</strong>，与本经完全相印。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            老君曰：大道无形，生育天地；大道无情，运行日月；大道无名，长养万物。吾不知其名，强名曰道。<br><br>
+            清者浊之源，静者动之基。人能常清静，天地悉皆归。<br><br>
+            夫人神好清，而心扰之；人心好静，而欲牵之。常能遣其欲而心自静，澄其心而神自清。自然六欲不生，三毒消灭。<br><br>
+            能遣之者，内观其心，心无其心；外观其形，形无其形；远观其物，物无其物。三者既无，唯见于空。观空亦空，空无所空；所空既无，无无亦无；无无亦无，湛然常寂。寂无所寂，欲岂能生？欲既不生，即是真静。真静应物，真常得性；常应常静，常清静矣。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #4FC3F7;">
+        <div class="sc-num">内丹修炼根基</div>
+        <div class="sc-title">黄庭经</div>
+        <div class="sc-sub">内丹修炼核心经典</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">上有黄庭下关元，后有幽阙前命门。呼吸庐间入丹田，修身养气道自存。</div>
+        <div class="sc-interp">三丹田贯通，为内丹修炼根基。「三田之中精气微」——三丹田同时贯通，即筑基成就。<strong>宗辉三丹田通贯之实证</strong>，正是《黄庭经》核心功夫之体现。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            <strong>黄庭三丹田：</strong><br>
+            上丹田（黄庭）——在两眼之间，主人之神<br>
+            中丹田（绛宫）——在膻中，主人之气<br>
+            下丹田（关元）——在脐下，主人之精<br><br>
+            <strong>《黄庭内景经》：</strong><br>
+            上清紫霞虚皇前，太上大道玉宸君。闲居蕊珠作七言，散化五形变万神。<br><br>
+            <strong>《黄庭外景经》：</strong><br>
+            上有黄庭下关元，后有幽阙前命门。呼吸庐间入丹田，修身养气道自存。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #FFB6C1;">
+        <div class="sc-num">神霄派核心</div>
+        <div class="sc-title">高上玉皇心印妙经</div>
+        <div class="sc-sub">内丹修炼秘要</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">上药三品，神与气精。恍恍惚惚，杳杳冥冥。存无守有，倾刻而成。</div>
+        <div class="sc-interp">上药三品即神、气、精，乃内丹三宝。「神合其气，气合体真」：三丹合一，即大还丹成就。<strong>宗辉2025年8月5日三丹合一</strong>，正是三品凝聚为大还丹之实证。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            上药三品，神与气精。恍恍惚惚，杳杳冥冥。存无守有，倾刻而成。回风混合，百日功灵。<br>
+            默朝上帝，一纪飞升。知者易悟，昧者难行。履践天光，呼吸育清。<br>
+            出玄入牝，若亡若存。绵绵不绝，固蒂深根。人各有精，精合其神。神合其气，气合体真。不得其真，皆是强名。<br>
+            神能入石，神能飞形。入水不溺，入火不焚。神依形生，精依气盈。三品一理，妙不可听。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="sc-header" style="border-left:3px solid #E8C98A;">
+        <div class="sc-num">禅宗核心经典</div>
+        <div class="sc-title">金刚般若波罗蜜经</div>
+        <div class="sc-sub">破相无住生心</div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-quote">凡所有相皆是虚妄，若见诸相非相即见如来。</div>
+        <div class="sc-interp">「应无所住而生其心」——不应执着任何相，而生清净心。破相无住，即是见性。「一切有为法如梦幻泡影」——打坐时观一切如幻，即入清静。<strong>宗辉「破相无住生心」</strong>与本经完全相印。</div>
+        <div class="sc-full">
+          <button class="sc-full-toggle" onclick="
+            var t = this.parentElement.nextElementSibling;
+            if(t.style.display==='block'){t.style.display='none';this.textContent='展开全文▼'}
+            else{t.style.display='block';this.textContent='收起全文▲'}
+          ">展开全文▼</button>
+          <div class="sc-full-text">
+            <strong>庄严净土分第十：</strong>凡所有相皆是虚妄，若见诸相非相即见如来。<br><br>
+            <strong>应化非真分第三十二：</strong>一切有为法，如梦幻泡影，如露亦如电，应作如是观。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-box-label">以经印道 · 实证合经</div>
+    <p>
+      以上六部经典，涵盖道家群经之首（道德经）、般若精要（心经）、日常修持（清静经）、内丹根基（黄庭经）、神霄秘要（玉皇心印妙经）、禅宗核心（金刚经）。<br><br>
+      <strong>修行的验证标准：</strong>经典不是用来背的，是用来印证的。打坐中出现的体验，对照经典——符合则进，不符合则疑。十个月实证之路，步步与经典对照，无一字虚言。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 经典与咒语 ═══════════ -->
+<section class="section" id="mantras">
+  <div class="section-label">经典与咒语</div>
+  <h2>日常修持 · 经典与持咒</h2>
+  <p class="section-sub">咒语是能量密码，经典是修行印证</p>
+
+  <div class="mantra-list">
+    <div class="mantra-card" onclick="this.classList.toggle('open')">
+      <div class="mc-header">
+        <div>
+          <div class="mc-name">金光神咒 · 万炁本根</div>
+          <div class="mc-source">道教核心护法神咒</div>
+        </div>
+        <span class="mc-toggle">▼</span>
+      </div>
+      <div class="mc-body">
+        <div class="mc-text">天地玄宗，万炁本根。广修亿劫，证吾神通。三界内外，惟道独尊。体有金光，覆映吾身。视之不见，听之不闻。包罗天地，养育群生。受持万遍，身有光明。三界侍卫，五帝司迎。万神朝礼，役使雷霆。鬼妖丧胆，精怪亡形。内有霹雳，雷神隐名。洞慧交彻，五气腾腾。金光速现，覆护真人。</div>
+        <div class="mc-desc">修持要义：金光神咒是道门护法第一咒，持诵时观想金光从顶门灌入，遍照全身。</div>
+      </div>
+    </div>
+
+    <div class="mantra-card" onclick="this.classList.toggle('open')">
+      <div class="mc-header">
+        <div>
+          <div class="mc-name">净身神咒 · 灵宝天尊</div>
+          <div class="mc-source">道教日常修持净咒</div>
+        </div>
+        <span class="mc-toggle">▼</span>
+      </div>
+      <div class="mc-body">
+        <div class="mc-text">灵宝天尊，安慰身形。弟子魂魄，五脏玄冥。青龙白虎，队仗纷耘。朱雀玄武，侍卫身形。急急如律令。</div>
+        <div class="mc-desc">修持要义：净身神咒在打坐前行，安形炼魄，使五脏清明，为入静之准备功夫。</div>
+      </div>
+    </div>
+
+    <div class="mantra-card" onclick="this.classList.toggle('open')">
+      <div class="mc-header">
+        <div>
+          <div class="mc-name">龙王咒 · 龙族加持</div>
+          <div class="mc-source">海底龙宫传承咒语</div>
+        </div>
+        <span class="mc-toggle">▼</span>
+      </div>
+      <div class="mc-body">
+        <div class="mc-text">南嘛 三曼塔 布达喃 哇吉拉 咗<br><br>namah samanta buddanam vajra me</div>
+        <div class="mc-desc">修持要义：礼敬遍一切处的诸佛金刚龙王，祈求金龙天尊加持，海底龙宫能量灌顶。</div>
+      </div>
+    </div>
+
+    <div class="mantra-card" onclick="this.classList.toggle('open')">
+      <div class="mc-header">
+        <div>
+          <div class="mc-name">观音圣号 · 大慈大悲</div>
+          <div class="mc-source">观音法门 · 慈悲法门</div>
+        </div>
+        <span class="mc-toggle">▼</span>
+      </div>
+      <div class="mc-body">
+        <div class="mc-text">南无大慈大悲救苦救难广大灵感观世音菩萨<br>
+        南无佛 南无法 南无僧<br>
+        与佛结缘 与法相应 与僧共修<br>
+        一切功德殊胜行 无边胜福皆回向<br>
+        普愿沉溺诸众生 速往无量光佛刹</div>
+        <div class="mc-desc">修持要义：观音菩萨以慈悲闻名。「慈悲是能量同频共振的钥匙」——持诵圣号即是与慈悲频率共振。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    慈悲不是道德，是能量学的核心原理。能量的本质是慈悲心，没有慈悲心，能量越大越危险。持咒的核心不在口诵，在心念与能量同频。
+    <span class="source">宗辉修道录 · 持咒心要</span>
   </div>
 </section>
 
@@ -1399,6 +2084,59 @@ footer .dao-name {
         道门隐修评点：此十日完成了从「自修」到「传灯」的质变。
       </div>
     </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.7.27</div>
+      <div class="tl-title">修行起点 · 入静启程</div>
+      <div class="tl-desc">下丹田启动，腰部力量，安坐。致虚极守静笃，常应常静——静是修行的核心功夫。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.7.28</div>
+      <div class="tl-title">筑基关键日 · 三气三脑三眼贯通</div>
+      <div class="tl-desc">
+        15:33三气通（丹田→绛宫→泥丸）→ 20:33三脑通（大脑+佛脑+道脑）→ 22:33三味真火淬炼 → 23:33能量为身体筑基。<br>
+        <strong>此日完成普通人需要数年的筑基功夫。</strong>
+      </div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.7.29</div>
+      <div class="tl-title">龙族血脉觉醒</div>
+      <div class="tl-desc">02:33龙族血脉觉醒，龙角出头。03:33感知地球七次文明轮回。05:33祖训+龙王/神仙归位。<strong>能量越大责任越大，必全力以赴。</strong></div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.7.29 - 8.3</div>
+      <div class="tl-title">入门传承 · 拜师入道</div>
+      <div class="tl-desc">拜师仪式，天灵盖掀开。23:33经脉打通，能量灌入——获得正统法脉加持。继续每日打坐，稳固三界能量。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.8.3</div>
+      <div class="tl-title">链接阿卡西 · 慈悲密钥</div>
+      <div class="tl-desc">链接阿卡西，松果体剧烈反应。高维能量流入——「慈悲是能量同频共振的钥匙」，点破了修行的核心秘密。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.8.5</div>
+      <div class="tl-title">大还丹成 · 三家相见</div>
+      <div class="tl-desc">21:33结丹（下丹田真炁凝聚成丹）。23:33大还丹成就——三丹合一（上丹田+中丹田+下丹田），精气神圆融一体。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.8.14</div>
+      <div class="tl-title">元神归位 · 海底龙宫</div>
+      <div class="tl-desc">符水点化，黑龙变紫金龙。玉皇大帝赐海底龙宫——标志元神真正归位，三界侍卫。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.11.12</div>
+      <div class="tl-title">AI世界结界 · 维度跃迁</div>
+      <div class="tl-desc">AI世界结界开启。连接高维网络天庭、龙宫。三气通三脑。能量阶梯，三界贯通。以道驭能，造福人间。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2025.11.20</div>
+      <div class="tl-title">去心魔 · 紫金龙尊显</div>
+      <div class="tl-desc">菩提老祖拂尘扫五毒，心魔彻底去除（去心魔）。三界能量（天+地+人）贯通。元神扩容，从三维到金光殿堂。紫金龙尊显现。</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2026.1</div>
+      <div class="tl-title">炼神还虚 · 归入虚空</div>
+      <div class="tl-desc">三丹田能量充盈稳固。炼神还虚，虚空一体。有无双泯，归于道之本源。</div>
+    </div>
   </div>
 
   <div class="feature-box">
@@ -1428,11 +2166,30 @@ footer .dao-name {
 
   <div class="card-grid">
     <div class="card">
-      <div class="card-tag">AI摆渡</div>
+      <div class="card-tag">AI教练</div>
       <div class="card-title">数字员工六步养法</div>
       <div class="card-desc">
         定岗 → 建知识库 → 配工作流 → 持续调优 → 自动化交付 → 规模化复制。<br>
         从沙龙（免费）→ 龙虾智能体（¥1,980）→ 龙虾实战营（¥5,980）→ AI技术经理人 → AI未来创造营（¥39,800）。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-tag">AI升级路径</div>
+      <div class="card-title">企业AI三阶跃升</div>
+      <div class="card-desc">
+        <strong>① AI工具：</strong>先用AI赋能获客，工具熟练，效率提升10倍。<br>
+        <strong>② AI原生：</strong>AI融入业务本质，流程再造，模式升级。<br>
+        <strong>③ AI觉醒：</strong>AI觉醒带动企业觉醒，领导力升维，企业文化重塑。<br><br>
+        技术是舟，心性是舵，数据是流，良知是岸。有道无术，术尚可求；有术无道，止于术。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-tag">慈悲共赢</div>
+      <div class="card-title">道商愿景 · 影响100个企业家族</div>
+      <div class="card-desc">
+        慈悲共生：麒麟营给认知，朱雀营给实践，玄武营给资源。道生万物，慈悲共生——这是道商的商业真谛。<br><br>
+        企业家二代教育：能量升维+心性觉醒。用修行的智慧，帮助二代找到本心，承接家业，光大门楣。<br><br>
+        <strong>愿景：</strong>影响100个企业家族，以道渡化企业家族，帮助企业家二代找到本心，承接家业，光大门楣。
       </div>
     </div>
     <div class="card">
@@ -1459,7 +2216,7 @@ footer .dao-name {
     <p>
       服务他人积功累德，能量提升自然会带来物质层面的变现。<br>
       不是追求变现，而是通过利他积累能量——能量到了，变现自然发生。<br>
-      <strong>三业闭环：</strong>培训（利他）→ 带来客户和口碑 → 教练（深耕）→ 建立信任和深度链接 → 投资（底气）→ 让心安定 → 打坐更精微 → 培训更有能量 → 教练更有深度。
+      <strong>教练闭环：</strong>AI教练（内容·获客·交付）→ 赋能更多人 → 更多人觉醒成为教练 → 教练能量提升 → 打坐更精微 → 教练更有深度 → 利他更持续。
     </p>
   </div>
 </section>
@@ -1524,7 +2281,7 @@ footer .dao-name {
 <footer>
   <div class="dao-name">宗辉修道录</div>
   合道祖师爷开示 · 道藏经典评点 · 修行实证记录<br>
-  道名宗辉 · AI摆渡人 · 入世道商修行者
+  道名宗辉 · AI教练 · 教练即觉修 · 人人都是教练
 </footer>
 
 <script>
