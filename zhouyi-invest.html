@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周易 · 玄学量化投资 | I Ching for Mystical Quant Investing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cinnabar: #a63a2e;
+  --jade: #4a7c59;
+  --jade-light: #6b9f7a;
+  --cream: #f5f0e6;
+  --cream-dark: #e8e0d0;
+  --paper: #faf6ef;
+  --void: #0d0c0a;
+  --void-light: #1a1814;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  line-height: 2;
+}
+html { overflow-x: hidden; }
+.en {
+  display: block;
+  margin-top: 6px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  font-size: 0.9em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(74,124,89,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,12,10,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+nav .brand {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+nav .brand a { color: var(--gold); text-decoration: none; }
+nav .brand small {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-left: 8px;
+  letter-spacing: 0.1em;
+}
+nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 101;
+}
+nav .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+nav .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+nav .hamburger.active span:nth-child(2) { opacity: 0; }
+nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+nav .nav-links a {
+  color: var(--cream-dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  opacity: 1.0;
+  white-space: nowrap;
+}
+nav .nav-links a:hover { color: var(--gold); opacity: 1; }
+nav .nav-links a .en { font-size: 0.7em; margin-top: 2px; }
+nav .nav-links .active a { color: var(--gold); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  z-index: 1;
+}
+.hero-badge {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0.7;
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 4px 16px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 24px;
+}
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  max-width: 680px;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Section ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.section h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.8rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section h2 .en { color: var(--gold-light); font-size: 1rem; margin-top: 8px; }
+.section-sub {
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  margin-bottom: 48px;
+  letter-spacing: 0.05em;
+}
+.section-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
+  margin: 0;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+.content h3 {
+  font-size: 1.15rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 56px 0 16px;
+}
+.content h3 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; }
+.content h4 {
+  font-size: 1rem;
+  color: var(--gold-light);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 36px 0 12px;
+}
+.content h4 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; opacity: 0.7; }
+.content h5 {
+  font-size: 0.9rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin: 24px 0 8px;
+  letter-spacing: 0.05em;
+}
+.content p { margin-bottom: 18px; }
+.content strong { color: var(--gold); font-weight: 600; }
+.content em { color: var(--gold-light); font-style: normal; }
+.content blockquote {
+  margin: 28px auto;
+  padding: 20px 26px;
+  border-left: 2px solid var(--gold);
+  background: rgba(201,168,76,0.05);
+  color: var(--cream-dark);
+  font-size: 0.95rem;
+  line-height: 2;
+}
+.content blockquote .en { opacity: 0.7; margin-top: 8px; }
+.content blockquote strong { color: var(--cream); }
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.88rem;
+}
+.content thead th {
+  color: var(--gold);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.content tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  vertical-align: top;
+}
+.content tbody tr:nth-child(even) { background: rgba(201,168,76,0.03); }
+.content pre {
+  background: rgba(13,12,10,0.6);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--gold-light);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 24px 0;
+}
+
+/* ── Feature box ── */
+.feature-box {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.feature-box-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+.feature-box-label::before { content: '◆'; font-size: 0.55rem; margin-right: 8px; }
+.feature-box p { margin-bottom: 10px; }
+.feature-box strong { color: var(--gold); font-weight: 600; }
+
+/* ── Quote block ── */
+.quote-block {
+  text-align: center;
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: 40px 32px;
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  line-height: 2.2;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.quote-block .source {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+}
+
+/* ── CTA ── */
+.cta-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 48px 0 16px;
+}
+.cta-link {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 2px;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+.cta-link:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Trigram cards (Module-specific) ── */
+.tri-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.tri-card {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-radius: 4px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+.tri-card:hover { border-color: rgba(201,168,76,0.4); }
+.tri-card .tri-sym {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+.tri-card .tri-name {
+  font-size: 0.95rem;
+  color: var(--cream);
+  letter-spacing: 0.1em;
+  display: block;
+}
+.tri-card .tri-mean {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--cream-dark);
+  opacity: 0.7;
+  margin-top: 6px;
+  line-height: 1.7;
+}
+
+/* ── Six-line stacks ── */
+.yao-pair {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 6px 0;
+}
+.yao-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 44px;
+  flex-shrink: 0;
+}
+.yao {
+  height: 6px;
+  border-radius: 2px;
+  background: var(--gold);
+  opacity: 0.85;
+}
+.yao.yin {
+  background: linear-gradient(90deg, var(--gold) 0 38%, transparent 38% 62%, var(--gold) 62% 100%);
+}
+.yao-label {
+  font-size: 0.9rem;
+  color: var(--cream);
+}
+.yao-label .en { font-size: 0.7rem; margin-top: 2px; }
+
+/* ── Flow steps ── */
+.flow {
+  counter-reset: step;
+  margin: 24px 0;
+}
+.flow-item {
+  position: relative;
+  padding: 18px 22px 18px 68px;
+  border-left: 1px solid rgba(201,168,76,0.2);
+  margin-left: 16px;
+}
+.flow-item::before {
+  counter-increment: step;
+  content: counter(step, cjk-ideographic);
+  position: absolute;
+  left: -16px;
+  top: 18px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--gold);
+  background: var(--void);
+}
+.flow-item strong { color: var(--gold); }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 40px 80px;
+  font-size: 0.85rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+footer .dao-name {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+/* ── Misc scrollbar / overflow ── */
+.content table, .content pre, .content ul { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.content table { display: block; max-width: 100%; }
+.content pre { white-space: pre; word-wrap: normal; }
+.content pre::-webkit-scrollbar, .content table::-webkit-scrollbar { height: 4px; }
+.content pre::-webkit-scrollbar-thumb, .content table::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  nav .hamburger { display: flex; }
+  nav .nav-links {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(320px, 80vw);
+    background: rgba(13,12,10,0.97);
+    flex-direction: column;
+    padding: 100px 32px 40px;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.4s var(--ease-smooth, ease);
+    overflow-y: auto;
+    align-items: flex-start;
+  }
+  nav .nav-links.open { transform: translateX(0); }
+  nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  nav .nav-links li a { display: block; padding: 14px 0; font-size: 0.95rem; }
+  nav .nav-links a .en { font-size: 0.8em; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero { min-height: 85vh; padding: 100px 20px 60px; }
+  .hero-sub { font-size: 0.88rem; }
+  .section { padding: 60px 20px; }
+  .section-divider { padding: 0 20px; }
+  .hero-meta { gap: 12px; font-size: 0.78rem; }
+  .tri-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  nav .brand { font-size: 1.1rem; }
+  nav .brand small { display: none; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero { padding: 80px 16px 40px; }
+  .hero-badge { font-size: 0.65rem; }
+  .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
+  .section h2 { font-size: 1.4rem; }
+  .content { font-size: 0.92rem; }
+  .content table { font-size: 0.78rem; }
+  .content thead th, .content tbody td { padding: 9px 10px; }
+  .tri-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .tri-card .tri-sym { font-size: 1.8rem; }
+  .quote-block { font-size: 0.9rem; padding: 30px 20px; }
+  .flow-item { padding-left: 56px; }
+}
+.section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="brand"><a href="index.html">宗辉修道录</a> <small>· 玄学量化</small></div>
+  <button class="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="#prelude">缘起<span class="en">Prelude</span></a></li>
+    <li><a href="#observe">观·内观为体<span class="en">Observe</span></a></li>
+    <li><a href="#hexagram">卦·市场卦象<span class="en">Hexagram</span></a></li>
+    <li><a href="#number">数·周期因子<span class="en">Number</span></a></li>
+    <li><a href="#divination">占·概率思维<span class="en">Divination</span></a></li>
+    <li><a href="#apply">用·落地框架<span class="en">Apply</span></a></li>
+    <li><a href="zhouyi-guilv.html">规律把握<span class="en">Grasping Patterns</span></a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">以打坐定慧为体 · 以周易卦象为用 · 以量化为术</div>
+  <h1>周易 · <em>玄学量化</em>投资</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    系辞云：「居则观其象而玩其辞，动则观其变而玩其占。」<br>
+    把市场翻译成卦象，把卦象编译成因子，把因子回测成策略——<br>
+    玄学不是迷信，是一套<strong>可证伪、可回测、可迭代</strong>的规律系统。<br>
+    道名宗辉 · 打坐修行者的量化观 · 2026年
+    <span class="en">The Book of Changes says: "At rest one contemplates the images and plays with the judgments; in action one contemplates the changes and plays with the divinations."<br>
+    Translate the market into hexagrams, compile hexagrams into factors, backtest factors into strategies —<br>
+    mysticism is not superstition, but a falsifiable, backtestable, iterable system of patterns.<br>
+    Dao name: Zonghui · A meditator's view of quantitative investing · 2026</span>
+  </p>
+  <div class="hero-meta">
+    <span>借术合道</span><span>·</span><span>卦象因子</span><span>·</span><span>五行轮动</span><span>·</span><span>变爻信号</span><span>·</span><span>概率思维</span>
+  </div>
+  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 缘起 ═══════════ -->
+<section class="section" id="prelude">
+  <div class="section-label">缘起<span class="en">Prelude</span></div>
+  <h2>为什么是周易？<span class="en">Why the Book of Changes?</span></h2>
+  <p class="section-sub">市场是红尘道场 · 投资即禅定<span class="en">The market is a worldly training ground · investing is dhyana</span></p>
+
+  <div class="content">
+    <p>
+      <strong>道是造物主，规律是道的运行机制。</strong>市场之所以能被人把握，不是因为它可以用公式穷尽，
+      而是因为它背后有一条恒常的、可观察的规律之流。玄学量化投资，就是把这条规律之流，用周易的符号系统
+      「编译」成可以回测、可以迭代的因子与策略。
+    </p>
+    <p>
+      在本站的修行坐标里，三要素为「培训·教练·投资 = 布施·持戒·禅定」。投资不是赚钱的旁门，
+      而是<strong>禅定的红尘化</strong>——每一笔盈亏都是一面镜子，照见的不是行情，是自己的贪嗔痴慢疑。
+      因此，玄学量化不是「用玄学算命赚钱」，而是<strong>以打坐为体、以卦象为用、以量化为术</strong>的完整修行。
+    </p>
+    <blockquote>
+      「易与天地准，故能弥纶天地之道。」——《周易·系辞上》
+      <span class="en">"The Changes accords with Heaven and Earth, and therefore can embrace and order the way of Heaven and Earth." — Xici Zhuan I</span>
+    </blockquote>
+    <p>
+      为什么要用量化？因为修行最怕「自欺」。打坐有实证为标准，规律把握也必须有<strong>证伪的检验</strong>——
+      回测就是现代语境下的「证」。一个卦象规律若不能在大样本中反复成立，那它只是巧合与心理安慰；
+      若能，它就是被证实的「象」。玄学量化的底线，是<strong>对规律诚实</strong>。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 观·内观为体 ═══════════ -->
+<section class="section" id="observe">
+  <div class="section-label">一、观 <span class="en">Observe</span></div>
+  <h2>以打坐内观为体<span class="en">Meditation is the substrate of all observation</span></h2>
+  <p class="section-sub">定生静，静生慧，慧乃能观<span class="en">Stillness gives birth to insight; insight sees</span></p>
+
+  <div class="content">
+    <p>
+      玄学量化的第一课，不是学会卦，而是<strong>学会看</strong>。散户看盘，看见的往往是自己的恐惧与贪婪：
+      涨时追高，跌时割肉，消息一来就心浮气躁。这不是市场没有规律，而是<strong>心没有定力</strong>，
+      看不透市场的「象」。
+    </p>
+    <p>
+      打坐修的是什么？修的是<strong>定</strong>。定而后静，静而后安，安而后能虑，虑而后能得。
+      定力一旦上身，再去看市场，K线的起伏就与打坐时观呼吸的起伏没有两样——都是<strong>象</strong>，
+      都是阴阳消息在时间里的显影。市场噪音即念头的翻腾；观市场如观念头，起灭不随，方见真相。
+    </p>
+    <blockquote>
+      「知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。」——《大学》
+      <span class="en">"Know where to rest, and you become settled; settled, you grow still; still, you become at ease; at ease, you can deliberate; deliberating, you attain." — The Great Learning</span>
+    </blockquote>
+    <div class="feature-box">
+      <div class="feature-box-label">修行者的量化纪律·第一条</div>
+      <p><strong>先定后看，不静不投。</strong>开盘之前，先打坐入定十分钟；心若不定，宁可不看盘。
+      入定再看，市场以「象」呈现；不入定看，市场以「幻」呈现。</p>
+    </div>
+    <p>
+      内观与外观同源。打坐中观气机的升降、念头的起灭、呼吸的潮汐，练的是同一份<strong>观照力</strong>。
+      这份观照力用到盘面上，就是看穿量价、情绪与周期的穿透力。
+      <em>观，是玄学量化的地基——没有地基，卦象只是玄学；有了地基，卦象才是科学。</em>
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 卦·市场卦象 ═══════════ -->
+<section class="section" id="hexagram">
+  <div class="section-label">二、卦 <span class="en">Hexagram</span></div>
+  <h2>把市场翻译成卦象<span class="en">Translating the market into hexagrams</span></h2>
+  <p class="section-sub">卦不是神秘预言，是一套状态编码<span class="en">Hexagrams are state encodings, not predictions</span></p>
+
+  <div class="content">
+    <p>
+      周易的底层，是<strong>阴阳二爻</strong>。用现代语言说，它是一套<b>二进制状态机</b>：三爻成卦（八卦），
+      六爻成卦（六十四卦），动爻（变爻）即状态转移的信号。
+      玄学量化不把卦当作预言，而把卦当作<strong>市场状态的压缩编码</strong>。
+    </p>
+    <h3>基本映射<span class="en">Basic mapping</span></h3>
+    <ul style="margin-left:1.4em;margin-bottom:18px;">
+      <li><strong>阳爻（—）＝多方占优</strong>，阴爻（- -）＝空方占优。</li>
+      <li><strong>下卦为体＝标的自身</strong>：基本面、内在动能、资金结构。</li>
+      <li><strong>上卦为用＝环境大势</strong>：宏观、周期、市场整体情绪。</li>
+      <li><strong>变爻＝转折信号</strong>：量能异动、事件冲击、情绪拐点。</li>
+    </ul>
+    <h3>八卦 · 市场八种状态<span class="en">Eight trigrams · eight market states</span></h3>
+    <div class="tri-grid">
+      <div class="tri-card"><span class="tri-sym">☰</span><span class="tri-name">乾 · 刚健</span><span class="tri-mean">强趋势 / 主升段</span></div>
+      <div class="tri-card"><span class="tri-sym">☷</span><span class="tri-name">坤 · 顺承</span><span class="tri-mean">低波动 / 盘整蓄势</span></div>
+      <div class="tri-card"><span class="tri-sym">☳</span><span class="tri-name">震 · 发动</span><span class="tri-mean">放量启动 / 突破</span></div>
+      <div class="tri-card"><span class="tri-sym">☴</span><span class="tri-name">巽 · 渐入</span><span class="tri-mean">温和渗透 / 慢牛</span></div>
+      <div class="tri-card"><span class="tri-sym">☵</span><span class="tri-name">坎 · 险陷</span><span class="tri-mean">深水回撤 / 风险区</span></div>
+      <div class="tri-card"><span class="tri-sym">☲</span><span class="tri-name">离 · 附丽</span><span class="tri-mean">高热度 / 情绪驱动</span></div>
+      <div class="tri-card"><span class="tri-sym">☶</span><span class="tri-name">艮 · 止阻</span><span class="tri-mean">滞涨 / 见顶横盘</span></div>
+      <div class="tri-card"><span class="tri-sym">☱</span><span class="tri-name">兑 · 悦泽</span><span class="tri-mean">情绪高潮 / 泡沫尾</span></div>
+    </div>
+    <p>
+      六十四卦即是这些状态的<strong>组合机</strong>。例如<strong>泰（地天泰）</strong>——坤上乾下，天地相交，
+      象征通泰、顺流；<strong>否（天地否）</strong>——乾上坤下，天地不交，象征堵塞、逆势。
+      一个简单的「阴阳相交则通、相背则塞」的规则，就把市场的<strong>量价配合</strong>说尽了：
+      量价相配（天地交）则趋势可续，量价背离（天地不交）则趋势难继。
+    </p>
+    <h3>乾卦六爻 · 一波行情的生命周期<span class="en">The six lines of Qian · one full market cycle</span></h3>
+    <table>
+      <thead>
+        <tr><th>爻</th><th>爻辞</th><th>行情对应</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>初九</td><td>潜龙勿用</td><td>底部蛰伏，主线未明，不宜动作</td></tr>
+        <tr><td>九二</td><td>见龙在田</td><td>初现强势，可以试探性建仓</td></tr>
+        <tr><td>九三</td><td>夕惕若厉</td><td>主升前的反复震荡，仓位管理关键期</td></tr>
+        <tr><td>九四</td><td>或跃在渊</td><td>突破临界，趋势将成，进可攻退可守</td></tr>
+        <tr><td>九五</td><td>飞龙在天</td><td>主升浪，趋势与情绪共振，持有为主</td></tr>
+        <tr><td>上九</td><td>亢龙有悔</td><td>亢极而衰，过热见顶，减仓离场</td></tr>
+      </tbody>
+    </table>
+    <p>
+      六十四卦的状态机价值在于：<strong>它强迫交易者回答「现在在哪一爻」</strong>。
+      大多数亏损，都源于把九二的行情当成九五来追，或在上九的位置幻想「飞龙在天」——
+      位错了，什么策略都是错的。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 数·周期因子 ═══════════ -->
+<section class="section" id="number">
+  <div class="section-label">三、数 <span class="en">Number</span></div>
+  <h2>周期与因子：河图洛书的量化翻译<span class="en">Cycles and factors: translating Hetu Luoshu into factors</span></h2>
+  <p class="section-sub">五行不是迷信，是行业轮动的传导网络<span class="en">Five elements are a network of sector rotation</span></p>
+
+  <div class="content">
+    <p>
+      周易的「数」，藏在河图、洛书、五行、干支里。它们共同描述一件事：<strong>规律在时间中如何循环</strong>。
+      玄学量化把这种循环翻译成现代量化的三件套——<strong>周期回归、因子暴露、轮动传导</strong>。
+    </p>
+    <h3>洛书九宫 · 九段周期<span class="en">Luoshu's nine palaces · nine-phase cycle</span></h3>
+    <p>
+      洛书九宫（戴九履一，左三右七，二四为肩，六八为足）是九数之循环。对应到市场，可视为<strong>九段式周期划分</strong>：
+      从蓄势、启动、加速、高潮、滞涨、回落、急跌、寻底到再度蓄势。玄学量化的做法，是先判定当前落在九宫之哪一宫，
+      再据此选择对应的仓位与策略——这与技术分析中的「周期定位」同构，只是多了九宫的<strong>结构记忆</strong>。
+    </p>
+    <h3>五行生克 · 板块轮动网络<span class="en">Five elements · sector rotation network</span></h3>
+    <table>
+      <thead>
+        <tr><th>五行</th><th>行业因子（示例映射）</th><th>量化含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>木 · 生发</td><td>成长科技、教育文化、新能源</td><td>趋势动量因子 · 弹性最大</td></tr>
+        <tr><td>火 · 光明</td><td>能源、传媒、消费热度</td><td>景气扩散因子 · 情绪温度</td></tr>
+        <tr><td>土 · 承载</td><td>地产、基建、银行、公用</td><td>低波动防御因子 · 压舱石</td></tr>
+        <tr><td>金 · 收敛</td><td>金属、制造、高端装备</td><td>价值质量因子 · 盈利兑现</td></tr>
+        <tr><td>水 · 润下</td><td>医药、食品饮料、运输、流动性</td><td>抗跌避险因子 · 存量博弈</td></tr>
+      </tbody>
+    </table>
+    <p>
+      五行生克的价值，不在那张映射表，而在<strong>传导关系</strong>：生为传导（木生火、火生土……），
+      克为约束（金克木、木克土……）。一个行业的景气会沿着生克网络传导到相邻行业——
+      这正是一个<strong>跨行业轮动因子</strong>的构造思路。需要特别说明：映射表是启发式的「构造假设」，
+      <strong>必须用数据证伪</strong>，哪张表被历史验证成立，哪张表才成为因子。玄学提供假设，量化负责检验。
+    </p>
+    <h3>干支周期 · 时间因子<span class="en">Heavenly stems and earthly branches · time factors</span></h3>
+    <p>
+      六十甲子是一个六十年的大周期，十二地支是十二时辰、十二月、十二年之循环。落到量化上，它们对应
+      <strong>日历效应与季节效应</strong>：月度、季度、年度的周期回归。时间因子的要点与卦象一致——
+      不是迷信「今年犯太岁」，而是<strong>把周期性写成可检验的假设</strong>，交给历史回测去裁决。
+    </p>
+    <div class="feature-box">
+      <div class="feature-box-label">玄学因子的量化底线</div>
+      <p>一切玄学因子（卦象、五行、干支）进入策略之前，必须通过三道检验：<br>
+      ① <strong>样本够大</strong>——不是三五个巧合案例；<br>
+      ② <strong>逻辑可述</strong>——能解释为什么这个信号会持续；<br>
+      ③ <strong>样本外验证</strong>——在未参与构造的数据里依然成立。<br>
+      三关不过，宁弃不用。对规律不诚实，就是对道不诚实。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 占·概率思维 ═══════════ -->
+<section class="section" id="divination">
+  <div class="section-label">四、占 <span class="en">Divination</span></div>
+  <h2>占筮即概率：变爻与贝叶斯<span class="en">Divination is probability: changing lines and Bayes</span></h2>
+  <p class="section-sub">卦不是预言，是状态＋转折的编码<span class="en">A hexagram is an encoding of state plus turning point</span></p>
+
+  <div class="content">
+    <p>
+      传统占筮，以「大衍之数五十，其用四十有九」起卦，三变成一爻，十八变成一卦。
+      这里最重要的，不是铜钱的纹路，而是<strong>整套流程内含的概率结构</strong>：每一次成爻，
+      其实是把一次随机观测编码成一个三态符号（少阳、老阳、少阴、老阴）。其中<strong>老阳、老阴为变爻</strong>，
+      即「物极必反」的转折记号。
+    </p>
+    <p>
+      放到量化语境，占筮与现代概率思想惊人同构：<br>
+      <strong>卦象＝条件概率下的市场状态分布</strong>；<br>
+      <strong>变爻＝波动率突变与事件风险</strong>——老阴变少阳、老阳变少阴，正是趋势反转的信号开关；<br>
+      <strong>多占取象＝多因子加权</strong>——重复观测、交叉验证，正是贝叶斯式的信念更新。
+    </p>
+    <blockquote>
+      「一阴一阳之谓道，继之者善也，成之者性也。」——《周易·系辞上》
+      <span class="en">"One yin, one yang — this is called the Dao. That which continues it is goodness; that which completes it is nature." — Xici Zhuan I</span>
+    </blockquote>
+    <p>
+      修行者如何对待占？<strong>善易者不占</strong>。不是说不用，而是不执——不把卦当命运的判决书。
+      卦给出的是<strong>状态与应对</strong>，不是答案。高手做应对，不做预测：预测是执，应对是觉。
+      这正与打坐一致：念起不随，是观；涨跌不惊，是定。占得乾卦而满仓，占得坤卦而清仓，
+      那叫被卦象牵着走，不是用卦象。
+    </p>
+    <div class="feature-box">
+      <div class="feature-box-label">修行者的量化纪律·第二条</div>
+      <p><strong>以概率代预言。</strong>每次出手前，先写下「如果错了，我在哪里止损」——
+      写不出来的仓位，就是赌；能写出来的仓位，才是测。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 用·落地框架 ═══════════ -->
+<section class="section" id="apply">
+  <div class="section-label">五、用 <span class="en">Apply</span></div>
+  <h2>一个最小可用的落地框架<span class="en">A minimal working framework</span></h2>
+  <p class="section-sub">三定一守：定周期 · 定状态 · 定变爻 · 守戒律<span class="en">Three determinations and one discipline</span></p>
+
+  <div class="content">
+    <div class="flow">
+      <div class="flow-item">
+        <strong>定周期（洛书·四象）</strong>——先问「现在是什么季节」：冬藏、春生、夏长、还是秋收？
+        <span class="en" style="font-size:0.85rem;opacity:0.7;">Determine the phase of the cycle first.</span>
+      </div>
+      <div class="flow-item">
+        <strong>定状态（八卦）</strong>——把当前市场编译成一个卦象状态：盘整、突破、亢奋、还是回落？
+        <span class="en" style="font-size:0.85rem;opacity:0.7;">Encode the current market state into a trigram.</span>
+      </div>
+      <div class="flow-item">
+        <strong>定变爻（变爻信号）</strong>——盯着转折信号：量能异动、事件冲击、情绪拐点。
+        <span class="en" style="font-size:0.85rem;opacity:0.7;">Watch for turning-point signals.</span>
+      </div>
+      <div class="flow-item">
+        <strong>守戒律（道门忠告）</strong>——盈亏同源，以道驭术，永不逆势重仓。
+        <span class="en" style="font-size:0.85rem;opacity:0.7;">Keep the precepts: discipline before technique.</span>
+      </div>
+    </div>
+
+    <h3>一天的量修流程<span class="en">A daily rhythm of cultivation-investing</span></h3>
+    <table>
+      <thead>
+        <tr><th>时段</th><th>打坐功课</th><th>量化功课</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>开盘前</td><td>入定十分钟，观呼吸潮汐</td><td>定周期、定状态，写下当日预案</td></tr>
+        <tr><td>盘中</td><td>念起即觉，情绪来即观</td><td>只执行预案，不动心念做临时决定</td></tr>
+        <tr><td>盘后</td><td>静坐复盘，观一日之得失</td><td>记录实盘与预案之差，积累回测样本</td></tr>
+      </tbody>
+    </table>
+    <p>
+      这个流程的价值，在于把<strong>打坐与投资合一</strong>：开盘前入定，是为了「先定后看」；
+      盘中念起即觉，是为了不被情绪带走；盘后复盘，是为了「对规律诚实」。
+      <em>打坐即回测，回测即打坐——修行与投资，原本是同一件事。</em>
+    </p>
+
+    <h3>四条道门忠告<span class="en">Four admonitions</span></h3>
+    <blockquote>
+      ① <strong>先定后看，不静不投。</strong>心不定，卦象皆幻。<br>
+      ② <strong>以小见大，轻仓验证。</strong>未经验证的规律，只配用最小的仓去试。<br>
+      ③ <strong>顺势而谋，不逆天时。</strong>天时在冬藏，就别急着播种。<br>
+      ④ <strong>功课回测，复盘即修。</strong>今日之失，正是明日之师的起点。
+    </blockquote>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 结语 ═══════════ -->
+<section class="section">
+  <div class="section-label">结语<span class="en">Conclusion</span></div>
+  <h2>借术合道<span class="en">Use technique to return to the Dao</span></h2>
+
+  <div class="content">
+    <p>
+      玄学量化的本质，是用<strong>象、数、理</strong>三阶，把握一条<strong>可证伪的规律</strong>：
+      观其象（卦象状态），穷其数（周期因子），明其理（阴阳消息）。
+      技术终将过时，模型终将被超越，而<strong>道恒常常在</strong>——市场会变，阴阳消长之理不变。
+    </p>
+    <p>
+      投资即禅定。盈亏不二，心若止水。守住定力，守住诚实，守住对规律的敬畏——
+      那盈利，不过是修行路上的副产品。
+    </p>
+
+    <div class="quote-block">
+      大道至简，衍化至繁。<br>
+      以象观之，以数度之，以理决之，以德守之。<br><br>
+      玄学是体，量化是用；打坐是根，策略是果。<br>
+      借术入道，终不为术所困。
+      <span class="source">—— 宗辉 · 打坐修行者的量化观</span>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="zhouyi-guilv.html" class="cta-link">周易 · 规律把握 →</a>
+      <a href="index.html" class="cta-link">返回首页</a>
+      <a href="dazuo.html" class="cta-link">六阶修行指南</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="dao-name">宗辉修道录</div>
+  周易 · 玄学量化投资 · 以打坐定慧为体 · 以卦象为用 · 以量化为术<br>
+  道名宗辉 · AI摆渡人 · 入世道商修行者
+  <span class="en">I Ching · Mystical Quantitative Investing · Dao name: Zonghui · AI ferryman<br>A worldly practitioner of Dao and commerce · 2026</span>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll observer ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.content > h3, .content > h4, .content > p, .content > blockquote, .content > table, .content > pre, .feature-box, .quote-block, .tri-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

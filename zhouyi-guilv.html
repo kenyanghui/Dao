@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周易 · 规律把握 | I Ching for Grasping Patterns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cinnabar: #a63a2e;
+  --jade: #4a7c59;
+  --jade-light: #6b9f7a;
+  --cream: #f5f0e6;
+  --cream-dark: #e8e0d0;
+  --paper: #faf6ef;
+  --void: #0d0c0a;
+  --void-light: #1a1814;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  line-height: 2;
+}
+html { overflow-x: hidden; }
+.en {
+  display: block;
+  margin-top: 6px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  font-size: 0.9em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(74,124,89,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,12,10,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+nav .brand {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+nav .brand a { color: var(--gold); text-decoration: none; }
+nav .brand small {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-left: 8px;
+  letter-spacing: 0.1em;
+}
+nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 101;
+}
+nav .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+nav .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+nav .hamburger.active span:nth-child(2) { opacity: 0; }
+nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+nav .nav-links a {
+  color: var(--cream-dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  opacity: 1.0;
+  white-space: nowrap;
+}
+nav .nav-links a:hover { color: var(--gold); opacity: 1; }
+nav .nav-links a .en { font-size: 0.7em; margin-top: 2px; }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  z-index: 1;
+}
+.hero-badge {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0.7;
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 4px 16px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 24px;
+}
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  max-width: 680px;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Section ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.section h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.8rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section h2 .en { color: var(--gold-light); font-size: 1rem; margin-top: 8px; }
+.section-sub {
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  margin-bottom: 48px;
+  letter-spacing: 0.05em;
+}
+.section-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
+  margin: 0;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+.content h3 {
+  font-size: 1.15rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 56px 0 16px;
+}
+.content h3 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; }
+.content h4 {
+  font-size: 1rem;
+  color: var(--gold-light);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 36px 0 12px;
+}
+.content h4 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; opacity: 0.7; }
+.content h5 {
+  font-size: 0.9rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin: 24px 0 8px;
+  letter-spacing: 0.05em;
+}
+.content p { margin-bottom: 18px; }
+.content strong { color: var(--gold); font-weight: 600; }
+.content em { color: var(--gold-light); font-style: normal; }
+.content blockquote {
+  margin: 28px auto;
+  padding: 20px 26px;
+  border-left: 2px solid var(--gold);
+  background: rgba(201,168,76,0.05);
+  color: var(--cream-dark);
+  font-size: 0.95rem;
+  line-height: 2;
+}
+.content blockquote .en { opacity: 0.7; margin-top: 8px; }
+.content blockquote strong { color: var(--cream); }
+.content ul { margin-left: 1.4em; margin-bottom: 18px; }
+.content li { margin-bottom: 6px; }
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.88rem;
+}
+.content thead th {
+  color: var(--gold);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.content tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  vertical-align: top;
+}
+.content tbody tr:nth-child(even) { background: rgba(201,168,76,0.03); }
+.content pre {
+  background: rgba(13,12,10,0.6);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--gold-light);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 24px 0;
+}
+
+/* ── Feature box ── */
+.feature-box {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.feature-box-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+.feature-box-label::before { content: '◆'; font-size: 0.55rem; margin-right: 8px; }
+.feature-box p { margin-bottom: 10px; }
+.feature-box strong { color: var(--gold); font-weight: 600; }
+
+/* ── Quote block ── */
+.quote-block {
+  text-align: center;
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: 40px 32px;
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  line-height: 2.2;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.quote-block .source {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+}
+
+/* ── CTA ── */
+.cta-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 48px 0 16px;
+}
+.cta-link {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 2px;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+.cta-link:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Six-line stacks ── */
+.yao-table { width: 100%; margin: 24px 0; }
+.yao-table .row {
+  display: grid;
+  grid-template-columns: 84px 44px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.yao-table .row.head {
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+.yao-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 44px;
+}
+.yao {
+  height: 6px;
+  border-radius: 2px;
+  background: var(--gold);
+  opacity: 0.85;
+}
+.yao.yin {
+  background: linear-gradient(90deg, var(--gold) 0 38%, transparent 38% 62%, var(--gold) 62% 100%);
+}
+.yao-name { font-size: 0.9rem; color: var(--cream); white-space: nowrap; }
+.yao-name .en { font-size: 0.7rem; margin-top: 2px; }
+.yao-mean { font-size: 0.88rem; color: var(--cream-dark); line-height: 1.8; }
+.yao-mean strong { color: var(--gold); font-weight: 600; }
+
+/* ── Four images row ── */
+.cycle-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 28px 0;
+}
+.cycle-cell {
+  text-align: center;
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-radius: 4px;
+  padding: 20px 12px;
+}
+.cycle-cell .c-ico { font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 6px; }
+.cycle-cell .c-name { color: var(--cream); font-size: 0.95rem; letter-spacing: 0.08em; display: block; }
+.cycle-cell .c-sub { display: block; font-size: 0.75rem; color: var(--cream-dark); opacity: 0.7; margin-top: 6px; line-height: 1.7; }
+
+/* ── Daily schedule ── */
+.sched { margin: 24px 0; }
+.sched-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.sched-item .t { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; white-space: nowrap; width: 64px; flex-shrink: 0; padding-top: 4px; }
+.sched-item .d { font-size: 0.92rem; color: var(--cream-dark); }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 40px 80px;
+  font-size: 0.85rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+footer .dao-name {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+/* ── Misc ── */
+.content table, .content pre, .content ul { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.content table { display: block; max-width: 100%; }
+.content pre { white-space: pre; word-wrap: normal; }
+.content pre::-webkit-scrollbar, .content table::-webkit-scrollbar { height: 4px; }
+.content pre::-webkit-scrollbar-thumb, .content table::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  nav .hamburger { display: flex; }
+  nav .nav-links {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(320px, 80vw);
+    background: rgba(13,12,10,0.97);
+    flex-direction: column;
+    padding: 100px 32px 40px;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    align-items: flex-start;
+  }
+  nav .nav-links.open { transform: translateX(0); }
+  nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  nav .nav-links li a { display: block; padding: 14px 0; font-size: 0.95rem; }
+  nav .nav-links a .en { font-size: 0.8em; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero { min-height: 85vh; padding: 100px 20px 60px; }
+  .hero-sub { font-size: 0.88rem; }
+  .section { padding: 60px 20px; }
+  .section-divider { padding: 0 20px; }
+  .hero-meta { gap: 12px; font-size: 0.78rem; }
+  .cycle-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  nav .brand { font-size: 1.1rem; }
+  nav .brand small { display: none; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero { padding: 80px 16px 40px; }
+  .hero-badge { font-size: 0.65rem; }
+  .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
+  .section h2 { font-size: 1.4rem; }
+  .content { font-size: 0.92rem; }
+  .content table { font-size: 0.78rem; }
+  .content thead th, .content tbody td { padding: 9px 10px; }
+  .yao-table .row { grid-template-columns: 64px 36px 1fr; gap: 10px; }
+  .cycle-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .quote-block { font-size: 0.9rem; padding: 30px 20px; }
+  .sched-item { gap: 12px; }
+}
+.section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="brand"><a href="index.html">宗辉修道录</a> <small>· 规律把握</small></div>
+  <button class="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="#yinyang">一阴一阳<span class="en">Yin-Yang</span></a></li>
+    <li><a href="#structure">三才四象<span class="en">Structure</span></a></li>
+    <li><a href="#six-lines">六爻时位<span class="en">Six Lines</span></a></li>
+    <li><a href="#ji">知几<span class="en">The Germ</span></a></li>
+    <li><a href="#no-divination">不测之测<span class="en">Non-Divination</span></a></li>
+    <li><a href="#practice">打坐观机<span class="en">Practice</span></a></li>
+    <li><a href="zhouyi-invest.html">玄学量化<span class="en">Quant</span></a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">打坐见几 · 观天之道 · 执天之行</div>
+  <h1>周易 · <em>规律把握</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    《阴符经》云：「观天之道，执天之行，尽矣。」<br>
+    规律不是被预测出来的，是被<strong>看见</strong>的。<br>
+    打坐修的，正是看见的能力——见几、见象、见时位。<br>
+    道名宗辉 · 以修为体，以易为用 · 2026年
+    <span class="en">"Observe the way of Heaven and grasp its operation — that is all there is." — Yin Fu Jing<br>
+    Patterns are not predicted; they are seen.<br>
+    Meditation cultivates exactly this capacity to see — the germ, the image, the time and position.<br>
+    Dao name: Zonghui · Cultivation as body, the Changes as function · 2026</span>
+  </p>
+  <div class="hero-meta">
+    <span>阴阳消长</span><span>·</span><span>四象周期</span><span>·</span><span>六爻时位</span><span>·</span><span>知几</span><span>·</span><span>不测之测</span>
+  </div>
+  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 一阴一阳 ═══════════ -->
+<section class="section" id="yinyang">
+  <div class="section-label">一、一阴一阳 <span class="en">Yin and Yang</span></div>
+  <h2>规律之母<span class="en">The mother of all patterns</span></h2>
+  <p class="section-sub">万物负阴而抱阳，冲气以为和<span class="en">All things carry yin and embrace yang</span></p>
+
+  <div class="content">
+    <p>
+      把握规律的第一步，不是掌握复杂的模型，而是认出<strong>那唯一的母规律：阴阳消长</strong>。
+      涨跌、冷暖、荣枯、兴衰、生灭——世间的一切变化，都是阴阳二气的此消彼长。
+      理解了阴阳，就理解了拐点：<strong>极阴则阳生，极阳则阴起。</strong>黎明前最黑，亢龙必生悔。
+    </p>
+    <p>
+      这一点，打坐中体会得最真切。静坐时观呼吸，一吸一呼即是阴阳；观念头，一起一灭即是阴阳；
+      观气机，一升一沉即是阴阳。身体里正在发生的，与市场上、四季里、朝代更替中所发生的，
+      <strong>是同一个道理</strong>。道一而已，故能以一阴一阳概之。
+    </p>
+    <blockquote>
+      「一阴一阳之谓道。」——《周易·系辞上》<br>
+      「万物负阴而抱阳，冲气以为和。」——《道德经》
+      <span class="en">"One yin, one yang — this is called the Dao." — Xici Zhuan I<br>
+      "All things carry yin and embrace yang; it is by the blending of breath that they are harmonized." — Daodejing</span>
+    </blockquote>
+    <p>
+      把握规律的第一项功夫，是<strong>给自己的处境做阴阳定位</strong>：这件事，此刻处在阴的哪一段、
+      阳的哪一段？是在「积阴待阳」的底部，还是在「阳极将返」的高处？
+      大多数失败，都是<strong>位置错位</strong>——把蓄势当爆发，把尾声当起点。
+    </p>
+    <div class="feature-box">
+      <div class="feature-box-label">打坐中的阴阳功课</div>
+      <p>每日静坐时，以呼吸为纲：观<strong>呼</strong>（阳施），观<strong>吸</strong>（阴收），
+      观两者之间那<strong>极短极微的转换点</strong>。久观之，能在念头将起未起处、气机将动未动处，
+      认出阴阳翻转的前兆——这正是「知几」的起点。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 三才四象五行 ═══════════ -->
+<section class="section" id="structure">
+  <div class="section-label">二、三才 · 四象 · 五行 <span class="en">Three Powers · Four Images · Five Elements</span></div>
+  <h2>规律的结构<span class="en">The structure of patterns</span></h2>
+  <p class="section-sub">从一维到多维的把握<span class="en">From one dimension to many</span></p>
+
+  <div class="content">
+    <h3>三才 · 天地人<span class="en">Three Powers: Heaven, Earth, Human</span></h3>
+    <p>
+      规律从来不是单线的。要把握它，须从三个维度同时定位：<br>
+      <strong>天（时）</strong>——大环境、大势、周期所在的阶段；<br>
+      <strong>地（位）</strong>——自身或标的所处的位置、层级、质地；<br>
+      <strong>人（势）</strong>——人心共振、群体情绪、合力方向。<br>
+      三才齐观，才叫「立体地看问题」；只盯其一，就叫「只见树木」。打坐中观照自身，恰是同一套三维：
+      观天时（当下的因缘）、观地位（自身的根器）、观人势（心念的趋向）。
+    </p>
+
+    <h3>四象 · 周期的四段<span class="en">Four Images: the four phases of a cycle</span></h3>
+    <p>
+      阴阳再分老少，即是四象：少阳、老阳、少阴、老阴。它们对应四季与一个完整周期的四段——
+      春生、夏长、秋收、冬藏。任何规律性运动，都可归入这四段之一。
+    </p>
+    <div class="cycle-row">
+      <div class="cycle-cell"><span class="c-ico">☀</span><span class="c-name">少阳 · 春生</span><span class="c-sub">发动 · 底部启动<br>风险收益比最优</span></div>
+      <div class="cycle-cell"><span class="c-ico">♨</span><span class="c-name">老阳 · 夏长</span><span class="c-sub">亢奋 · 主升加速<br>趋势与情绪共振</span></div>
+      <div class="cycle-cell"><span class="c-ico">☂</span><span class="c-name">少阴 · 秋收</span><span class="c-sub">回落 · 见顶回撤<br>兑现离场窗口</span></div>
+      <div class="cycle-cell"><span class="c-ico">❄</span><span class="c-name">老阴 · 冬藏</span><span class="c-sub">蓄势 · 底部磨底<br>积粮以待天时</span></div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>四象</th><th>四季</th><th>市场周期</th><th>打坐气机</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>少阳</td><td>春</td><td>底部启动，试仓建仓</td><td>晨起阳气初升，气机渐充</td></tr>
+        <tr><td>老阳</td><td>夏</td><td>主升亢奋，持有为主</td><td>日中气机全盛，最利久坐</td></tr>
+        <tr><td>少阴</td><td>秋</td><td>见顶回落，减仓避险</td><td>黄昏气机渐收，宜静宜敛</td></tr>
+        <tr><td>老阴</td><td>冬</td><td>底部蓄势，闭藏待时</td><td>深夜气沉入藏，安眠养精</td></tr>
+      </tbody>
+    </table>
+    <p>
+      四象的用处，是<strong>给「现在」定位</strong>。知道了处在冬藏，就不会急着要春花；
+      知道了处在老阳，就不会幻想长夏无尽。打坐中，气机也有四象之变——
+      观得自身气机的四象，便观得万物流转的四象，一以贯之。
+    </p>
+
+    <h3>五行 · 生克网络<span class="en">Five Elements: the network of mutual influence</span></h3>
+    <p>
+      五行不是五种物质，而是<strong>五种动能及其相互生克的关系网</strong>：木生火、火生土、土生金、金生水、水生木；
+      木克土、土克水、水克火、火克金、金克木。任何系统——行业之间、部门之间、身体脏腑之间——
+      都在这张网上互相传导、互相制约。
+    </p>
+    <p>
+      把握规律因此多了一层功夫：<strong>看传导，看反身性</strong>。一个变化不会孤立地停在原地，
+      它循着生克网络扩散开去，又可能反转回来影响源头。理解了这张网，就理解了「轮动」、
+      理解了「此消彼长」，也理解了打坐中为什么一处气通、全身随之。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 六爻时位 ═══════════ -->
+<section class="section" id="six-lines">
+  <div class="section-label">三、六爻 · 时位 <span class="en">Six Lines · Time and Position</span></div>
+  <h2>规律的生命周期<span class="en">The lifecycle of a pattern</span></h2>
+  <p class="section-sub">从初爻到上爻，是一个规律的一生<span class="en">From the first line to the top line: one complete life of a pattern</span></p>
+
+  <div class="content">
+    <p>
+      六十四卦由六爻组成。从下往上，六爻依次代表一个事物从萌芽到亢极的<strong>六个时位</strong>。
+      以乾卦为纲，看一个完整规律（或一波行情）的六段人生：
+    </p>
+
+    <div class="yao-table">
+      <div class="row head">
+        <div>爻</div>
+        <div>卦象</div>
+        <div>时位之义</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">上九<span class="en">Top</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>亢龙有悔</strong> —— 亢极则衰，物极必反。<br>过热的顶部，规律行将反转。</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">九五<span class="en">Fifth</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>飞龙在天</strong> —— 君位，趋势主升。<br>规律全盛，顺势者胜。</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">九四<span class="en">Fourth</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>或跃在渊</strong> —— 临渊一跃的临界。<br>突破前夜，进可攻退可守。</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">九三<span class="en">Third</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>夕惕若厉</strong> —— 行进中的险峻。<br>主升前的震荡，最考验定力。</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">九二<span class="en">Second</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>见龙在田</strong> —— 初现于野。<br>规律初显，可以试探、可以跟随。</div>
+      </div>
+      <div class="row">
+        <div class="yao-name">初九<span class="en">First</span></div>
+        <div class="yao-stack">
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+          <div class="yao"></div><div class="yao"></div><div class="yao"></div>
+        </div>
+        <div class="yao-mean"><strong>潜龙勿用</strong> —— 潜藏蓄力。<br>规律未成，妄动即是损耗。</div>
+      </div>
+    </div>
+
+    <p>
+      六爻的深意，不在记住爻辞，而在养成一个习惯——<strong>时时自问：我（或此事）现在在第几爻？</strong>
+      位置不同，该做之事完全不同：初爻宜养不宜动，五爻宜行不宜疑，上爻宜退不宜恋。
+      <em>把握规律的实质，是把握自己在此规律中的时与位。</em>
+    </p>
+    <p>
+      打坐中同样有六爻。气机的初起如初爻潜藏，通彻如五爻飞龙，散尽如上爻亢极——
+      一坐之间，就是一个完整的「小规律」。坐得多了，身体便成了最可靠的<strong>规律样本库</strong>，
+      一朝通晓，万物皆然。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 知几 ═══════════ -->
+<section class="section" id="ji">
+  <div class="section-label">四、知几 <span class="en">Knowing the Germ</span></div>
+  <h2>见微知著：规律的高阶能力<span class="en">Seeing the germ: the highest capacity for grasping patterns</span></h2>
+  <p class="section-sub">几者，动之微，吉之先见者也<span class="en">The germ is the subtle beginning of movement</span></p>
+
+  <div class="content">
+    <p>
+      把握规律，有低阶与高阶之分。低阶是<strong>事后归纳</strong>——行情走完了，才看懂它属于什么规律；
+      高阶是<strong>知几</strong>——在苗头将起未起之时，就已看见方向。
+    </p>
+    <blockquote>
+      「知几其神乎！君子上交不谄，下交不渎，其知几乎？几者，动之微，吉之先见者也。」——《周易·系辞下》
+      <span class="en">"Is not knowing the germ divine? The noble person, in dealing with those above, is not flattering; in dealing with those below, is not careless — is this not knowing the germ? The germ is the subtle beginning of movement, the first sign of good fortune." — Xici Zhuan II</span>
+    </blockquote>
+    <p>
+      「几」是什么？是<strong>动之微</strong>——趋势尚未成形前，那一丝将动未动的征兆。
+      市场里，它是风起于青萍之末的杠杆量；生活里，它是人心最初的偏移。
+      <strong>知几者，看得见「将起」，而非等到「已起」。</strong>
+    </p>
+    <p>
+      知几从何而来？不从聪明来，从<strong>静定清明</strong>来。念头将起未起处的那一瞬，正是「几」；
+      气机将动未动处的那一瞬，也正是「几」。打坐练的，就是在这最微细的地方保持<strong>觉而不随</strong>——
+      觉，则能见；不随，则不被带跑。这份功夫熟了，盘面上、人事上的「几」，
+      便能在同一个觉照里自然显现。
+    </p>
+    <div class="feature-box">
+      <div class="feature-box-label">见几次第 · 大学五步</div>
+      <p><strong>定 → 静 → 安 → 虑 → 得。</strong><br>
+      先有定力（不被外境牵走），而后得静（心水澄明），而后能安（安住当下），
+      而后能虑（明辨机微），而后能得（抓住那将起未起的一线）。
+      没有前四步，「虑」只是思虑纷飞；有了前四步，「虑」才是真正的知几。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 不测之测 ═══════════ -->
+<section class="section" id="no-divination">
+  <div class="section-label">五、不测之测 <span class="en">Non-Divination</span></div>
+  <h2>最高的把握，是不占<span class="en">The highest grasp is not to divine at all</span></h2>
+  <p class="section-sub">易无思也，无为也，寂然不动，感而遂通<span class="en">The Changes is without thought, without action, still and unmoving; touched, it penetrates all</span></p>
+
+  <div class="content">
+    <p>
+      善易者不占。这句话常被误解为「高人不用占卦」。其实更深的含义是：<strong>真正把握规律的人，
+      不需要「测」，因为他已经在规律之中。</strong>测，是隔着一段距离的观望；在，是与规律的同行。
+    </p>
+    <blockquote>
+      「易，无思也，无为也，寂然不动，感而遂通天下之故。」——《周易·系辞上》<br>
+      「神无方而易无体。」——《周易·系辞上》
+      <span class="en">"The Changes has no thought, no action; it is still and unmoving. Yet, when touched, it penetrates the causes of all things under Heaven." — Xici Zhuan I</span>
+    </blockquote>
+    <p>
+      打坐练的正是这种「不测之测」：<strong>不预设、不推算、不期待</strong>，只是澄然地觉照。
+      觉照到极致，事物的走势会自己在觉性中显现——不是算出来的，是<strong>感应出来的</strong>。
+      这与「感而遂通」同出一源。
+    </p>
+    <p>
+      落到具体的把握上，不测之测有三条心法：<br>
+      ① <strong>不预测点位，只应对状态。</strong>不问「明天涨还是跌」，只问「现在是什么象，我该如何应对」；<br>
+      ② <strong>不与规律较劲。</strong>规律不可被「算赢」，只能被「顺应」。顺应不是投降，是与道同行；<br>
+      ③ <strong>守谦。</strong>天道亏盈而益谦。自认把握不住全部，才是把握规律的开始。
+    </p>
+    <div class="feature-box">
+      <div class="feature-box-label">修行者的尺度</div>
+      <p><strong>「观天之道，执天之行，尽矣。」</strong>——《阴符经》<br>
+      把握规律不是掌握未来，而是<strong>依道而行</strong>。规律在手中，道在心中，
+      外无所惧，内无所执——此谓之得。</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 打坐观机 ═══════════ -->
+<section class="section" id="practice">
+  <div class="section-label">六、打坐观机 <span class="en">Meditation as Observing the Opportunity</span></div>
+  <h2>每日可修的把握之法<span class="en">A daily practice for grasping patterns</span></h2>
+  <p class="section-sub">观息 · 观念 · 观机 · 观象<span class="en">Observe the breath, the thoughts, the opportunity, the image</span></p>
+
+  <div class="content">
+    <p>
+      以上五章是理，此章是<strong>具体的修法</strong>。规律把握不是纯思辨，它有可日日复练的功夫——
+      四观：
+    </p>
+    <ul>
+      <li><strong>观息</strong>：数息入定，观呼吸之潮汐。一呼一吸即一阴一阳，观其起伏即观消息消长。</li>
+      <li><strong>观念</strong>：念头起灭而不随。观市场消息如观念头，起灭不随，方见其「几」。</li>
+      <li><strong>观机</strong>：静坐中观气机的升降开合，即观一个「小规律」的完整生命周期。</li>
+      <li><strong>观象</strong>：晨起观天色，暮观流云，天地万物皆可为师。象在眼前，规律即在眼前。</li>
+    </ul>
+
+    <h3>每日定课<span class="en">A daily practice schedule</span></h3>
+    <div class="sched">
+      <div class="sched-item">
+        <div class="t">晨</div>
+        <div class="d">观气象、观身心状态——先为一日定位：今天是冬藏、春生、还是夏长？据此安排一天的节奏。</div>
+      </div>
+      <div class="sched-item">
+        <div class="t">午</div>
+        <div class="d">观心：对镜自照，看有无妄念随境而转。妄念即失位，失位即看不见规律。</div>
+      </div>
+      <div class="sched-item">
+        <div class="t">暮</div>
+        <div class="d">复盘观象：今日所见之象、所历之时位，逐一回放。复盘即修，回测即坐。</div>
+      </div>
+      <div class="sched-item">
+        <div class="t">夜</div>
+        <div class="d">入定静坐：以息观机，以觉观微。夜最静，最利「知几」之功夫。</div>
+      </div>
+    </div>
+
+    <blockquote>
+      「打坐即回测，回测即打坐。」——把修行的觉照，日日用进规律的把握之中。<br>
+      观得呼吸，便观得涨跌；观得念头，便观得人心；观得气机，便观得周期。
+      一观到底，无二无别。
+    </blockquote>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 结语 ═══════════ -->
+<section class="section">
+  <div class="section-label">结语<span class="en">Conclusion</span></div>
+  <h2>规律可把握，因为道常在<span class="en">Patterns can be grasped, for the Dao is always present</span></h2>
+
+  <div class="content">
+    <p>
+      规律不会消失，因为<strong>道常在</strong>。变的是象，不变的是消息之机。
+      把握规律，不在预测未来，而在<strong>清明地活在当下</strong>——当下清明，则过去可鉴，未来可照。
+    </p>
+    <p>
+      愿以易为镜，以修为根：<strong>观天之道，执天之行；知几而应，顺势而为；不测之测，与道同行。</strong>
+      如此，则万事万物之规律，皆可为我所用，而终不为我用之所困。
+    </p>
+
+    <div class="quote-block">
+      天道亏盈而益谦，地道变盈而流谦。<br>
+      把握规律，从守谦开始；看清规律，从入定开始。<br><br>
+      一阴一阳之谓道，继之者善也。<br>
+      善继道者，规律自现。
+      <span class="source">——《周易·谦卦》彖传 有感 · 宗辉</span>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="zhouyi-invest.html" class="cta-link">周易 · 玄学量化投资 →</a>
+      <a href="index.html" class="cta-link">返回首页</a>
+      <a href="shiri-pingdian.html" class="cta-link">十日评点</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="dao-name">宗辉修道录</div>
+  周易 · 规律把握 · 以修为体 · 以易为用 · 观天之道 · 执天之行<br>
+  道名宗辉 · AI摆渡人 · 入世道商修行者
+  <span class="en">I Ching · Grasping Patterns · Dao name: Zonghui · AI ferryman<br>A worldly practitioner of Dao and commerce · 2026</span>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll observer ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.content > h3, .content > h4, .content > p, .content > blockquote, .content > table, .content > pre, .content > ul, .feature-box, .quote-block, .cycle-cell').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周易参同契 · 万古丹经王 | Zhouyi Cantong Qi · The King of Alchemical Classics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cinnabar: #a63a2e;
+  --jade: #4a7c59;
+  --jade-light: #6b9f7a;
+  --cream: #f5f0e6;
+  --cream-dark: #e8e0d0;
+  --paper: #faf6ef;
+  --void: #0d0c0a;
+  --void-light: #1a1814;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  line-height: 2;
+}
+html { overflow-x: hidden; }
+.en {
+  display: block;
+  margin-top: 6px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  font-size: 0.9em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(74,124,89,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,12,10,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+nav .brand {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+nav .brand a { color: inherit; text-decoration: none; }
+nav .brand small {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-left: 8px;
+  letter-spacing: 0.1em;
+}
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+nav .nav-links a {
+  color: var(--cream-dark);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+nav .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 101;
+}
+nav .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+nav .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+nav .hamburger.active span:nth-child(2) { opacity: 0; }
+nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  z-index: 1;
+}
+.hero-badge {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0.7;
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 4px 16px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 24px;
+}
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  max-width: 640px;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Section ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  scroll-margin-top: 80px;
+}
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.section h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.8rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section h2 .en { color: var(--gold-light); font-size: 1rem; margin-top: 8px; }
+.section-sub {
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  opacity: 0.5;
+  margin-bottom: 48px;
+  letter-spacing: 0.05em;
+}
+.section-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
+  margin: 0;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.content h3 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.4rem;
+  color: var(--cream);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 48px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.content h3 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; }
+.content h4 {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin: 36px 0 16px;
+  letter-spacing: 0.04em;
+}
+.content h4 .en { color: var(--gold-light); font-size: 0.8rem; margin-top: 4px; opacity: 0.7; }
+.content h5 {
+  font-size: 1rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin: 28px 0 12px;
+  letter-spacing: 0.04em;
+}
+.content p {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.74;
+  margin-bottom: 16px;
+  line-height: 2.1;
+}
+.content strong { color: var(--gold); font-weight: 600; }
+.content em { color: var(--gold-light); font-style: normal; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  background: rgba(201,168,76,0.04);
+  border-left: 2px solid var(--gold);
+  padding: 16px 22px;
+  margin: 24px 0;
+  font-size: 0.92rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 2;
+}
+.content blockquote .en { opacity: 0.7; margin-top: 8px; }
+.content blockquote strong { color: var(--cream); }
+
+/* ── Tables ── */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 0.88rem;
+}
+.content thead th {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.18);
+  padding: 12px 16px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+.content tbody td {
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 10px 16px;
+  color: var(--cream-dark);
+  opacity: 0.78;
+  line-height: 1.9;
+}
+.content tbody tr:nth-child(even) {
+  background: rgba(245,240,230,0.02);
+}
+
+/* ── Feature Box ── */
+.feature-box {
+  background: linear-gradient(135deg, rgba(74,124,89,0.06), rgba(201,168,76,0.04));
+  border: 1px solid rgba(74,124,89,0.2);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.feature-box-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  color: var(--jade);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feature-box-label::before { content: '◆'; font-size: 0.55rem; }
+.feature-box p {
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  line-height: 2;
+  opacity: 0.8;
+}
+.feature-box strong { color: var(--gold); font-weight: 600; }
+
+/* ── Quote Block ── */
+.quote-block {
+  background: rgba(201,168,76,0.04);
+  border-left: 2px solid var(--gold);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 2;
+  text-align: center;
+}
+.quote-block .source {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+/* ── CTA ── */
+.cta-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 48px 0;
+}
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.cta-link:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+}
+
+/* ── Scripture Reading Cards ── */
+.reading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+.reading-card {
+  background: rgba(201,168,76,0.03);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease-smooth, cubic-bezier(0.25, 0.46, 0.45, 0.94)), transform 0.4s;
+}
+.reading-card:hover {
+  border-color: rgba(201,168,76,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.reading-card .rc-header {
+  padding: 22px 24px 12px;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+  border-left: 3px solid var(--gold);
+}
+.reading-card .rc-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+.reading-card .rc-origin {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.05rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+.reading-card .rc-body {
+  padding: 16px 24px 22px;
+}
+.reading-card .rc-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--jade-light);
+  border: 1px solid rgba(74,124,89,0.25);
+  padding: 2px 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.reading-card .rc-interp {
+  font-size: 0.82rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 1.95;
+}
+.reading-card .rc-interp strong { color: var(--gold); font-weight: 600; }
+.reading-card .rc-practice {
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  opacity: 0.85;
+  line-height: 1.9;
+  border-left: 2px solid rgba(201,168,76,0.2);
+  padding-left: 12px;
+  margin-top: 12px;
+}
+.reading-card .rc-practice strong { color: var(--gold); font-weight: 600; }
+.reading-card .rc-full {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(201,168,76,0.06);
+}
+.reading-card .rc-full-toggle {
+  font-size: 0.72rem;
+  color: var(--jade);
+  opacity: 0.7;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.reading-card .rc-full-toggle:hover { opacity: 1; }
+.reading-card .rc-full-text {
+  font-size: 0.78rem;
+  color: var(--cream-dark);
+  opacity: 0.75;
+  line-height: 2;
+  margin-top: 10px;
+  display: none;
+  font-family: 'Noto Serif SC', serif;
+}
+.reading-card .rc-full-text.show { display: block; }
+
+/* ── Visual sections ── */
+.visual-section { max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; z-index: 1; position: relative; }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 40px;
+  border-top: 1px solid rgba(201,168,76,0.08);
+  font-size: 0.8rem;
+  color: var(--cream-dark);
+  opacity: 0.3;
+  letter-spacing: 0.1em;
+}
+footer a { color: var(--gold-dark); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* ── Responsive ── */
+.content table,
+.content pre,
+.content ul { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.content table { display: block; max-width: 100%; }
+.content pre::-webkit-scrollbar,
+.content table::-webkit-scrollbar { height: 4px; }
+.content pre::-webkit-scrollbar-thumb,
+.content table::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+@media (max-width: 960px) {
+  .hero h1 { font-size: 1.8rem; }
+  .content table { font-size: 0.8rem; }
+  .reading-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hero { min-height: 85vh; padding: 100px 20px 60px; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero-sub { font-size: 0.88rem; }
+  .section { padding: 56px 20px; }
+  .section h2 { font-size: 1.4rem; }
+  .content h3 { font-size: 1.2rem; margin: 36px 0 16px; }
+  .content h4 { font-size: 1rem; }
+  .content p { font-size: 0.88rem; }
+  .content table { font-size: 0.75rem; }
+  .feature-box { padding: 20px 18px; }
+  .section-divider { padding: 0 20px; }
+  .hero-meta { gap: 12px; font-size: 0.78rem; }
+  body { font-size: 17px; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.3rem; }
+  .section { padding: 48px 16px; }
+  .hero { padding: 80px 16px 40px; }
+  nav .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,12,10,0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  nav .nav-links.open { display: flex; }
+  nav .nav-links a {
+    font-size: 1rem;
+    opacity: 0.8;
+    padding: 12px 0;
+  }
+  nav .hamburger { display: flex; padding: 10px; }
+  .hero-meta { gap: 8px; font-size: 0.72rem; flex-wrap: wrap; }
+  .section-label { font-size: 0.65rem; }
+  .section h2 { font-size: 1.2rem; }
+  .content h3 { font-size: 1.1rem; }
+  .content h4 { font-size: 0.92rem; }
+  .reading-card .rc-origin { font-size: 0.95rem; }
+  .reading-card .rc-interp { font-size: 0.76rem; }
+  .reading-card .rc-practice { font-size: 0.74rem; }
+}
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+  .hero h1 { font-size: 1.1rem; }
+  .hero-badge { font-size: 0.65rem; padding: 3px 12px; }
+  .hero-sub { font-size: 0.82rem; }
+  .content p { font-size: 0.85rem; }
+  .content h3 { font-size: 1rem; }
+  .content h4 { font-size: 0.88rem; }
+  .content blockquote { font-size: 0.85rem; padding: 12px 16px; }
+  .content table { font-size: 0.68rem; }
+  .content table th,
+  .content table td { padding: 8px 10px; }
+  .feature-box-label { font-size: 0.65rem; }
+  .quote-block { font-size: 0.85rem; padding: 18px 20px; }
+  .cta-link { padding: 12px 20px; font-size: 0.82rem; }
+  footer { font-size: 0.65rem; padding: 24px 16px; }
+  .hero-meta { font-size: 0.65rem; flex-direction: column; align-items: center; gap: 4px; }
+  .hero-meta span:nth-child(even) { display: none; }
+  .hero-scroll { display: none; }
+  nav .brand { font-size: 1.1rem; }
+  nav .brand small { font-size: 0.65rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="brand"><a href="index.html">宗辉修道录</a> <small>· 周易参同契</small></div>
+  <button class="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="#overview">总论<span class="en">Overview</span></a></li>
+    <li><a href="#origin">三同之契<span class="en">Three Concordances</span></a></li>
+    <li><a href="#framework">乾坤坎离<span class="en">Trigrams</span></a></li>
+    <li><a href="#medicine">铅汞龙虎<span class="en">Lead &amp; Mercury</span></a></li>
+    <li><a href="#fire">炉鼎火候<span class="en">Furnace &amp; Fire</span></a></li>
+    <li><a href="#readings">章句注解<span class="en">Readings</span></a></li>
+    <li><a href="#practice">实证对照<span class="en">Practice</span></a></li>
+    <li><a href="boshu-daodejing.html">帛书道德经<span class="en">Silk Dao De Jing</span></a></li>
+    <li><a href="dazuo.html">六阶指南<span class="en">Six Stages</span></a></li>
+    <li><a href="shiri-pingdian.html">十日评点<span class="en">10-Day Review</span></a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">万古丹经王 · 内丹祖经<span class="en">King of Alchemical Classics · Founding Text of Inner Alchemy</span></div>
+  <h1>周易参同契<span class="en">Zhouyi Cantong Qi</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    东汉魏伯阳著 · 融《周易》卦象、黄老清静、炉火烧炼于一炉<br>
+    首次把外丹术语彻底转为内丹修证——以身体为炉鼎，以呼吸为火候，以精气神为药物<br>
+    是后世一切丹经的源头，也是打坐修行的理论总纲
+    <span class="en">Written by Wei Boyang of the Eastern Han · Unifying the I Ching hexagrams, Huang-Lao quietude, and furnace-fire alchemy<br>
+    The first text to fully turn external alchemy into inner cultivation — the body as furnace, breath as firing, and essence-qi-spirit as the medicines<br>
+    The source of all later alchemical classics and the theoretical root of sitting meditation</span>
+  </p>
+  <div class="hero-meta">
+    <span>乾坤坎离</span><span>·</span><span>铅汞龙虎</span><span>·</span><span>炉鼎火候</span><span>·</span><span>三五归一</span>
+  </div>
+  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 总论 ═══════════ -->
+<section class="section" id="overview">
+  <div class="section-label">总论<span class="en">Overview</span></div>
+  <h2>为什么打坐必须读《参同契》<span class="en">Why Every Meditator Must Read the Cantong Qi</span></h2>
+
+  <div class="content">
+    <p>
+      《周易参同契》，东汉魏伯阳（约 147 年前后）著，全书约六千余字，分上中下三篇。历代丹家称其为<strong>「万古丹经王」</strong>——不是因为它字数最多，而是因为它<strong>第一次系统地回答了三个问题</strong>：
+    </p>
+    <p>
+      <strong>身体里炼的是什么？</strong> 答：不是金属丹药，是精气神。<br>
+      <strong>用什么炼？</strong> 答：以神御气，以气养精。<br>
+      <strong>怎么掌握火候？</strong> 答：阴阳消息，如月之盈亏，如岁之循环。
+    </p>
+    <p>
+      在它之前，修行多被外丹炉火所笼罩；在它之后，一切内丹经典——《钟吕传道集》《悟真篇》《性命圭旨》——无不祖述此书。宗辉「33阶四阶段」中<strong>炼精化气、炼气化神、炼神还虚、炼虚合道</strong>的次第，其源头正在此经。
+    </p>
+    <p>
+      对打坐者而言，此书最珍贵的不是玄奥的卦象，而是它反复强调的一句口诀：<strong>「反者道之验，弱者德之柄。」</strong>——修行不是向外用力，而是向内、向柔、向静处收。
+    </p>
+
+    <blockquote>
+      《周易参同契》：「将欲养性，延命却期。审思后末，当虑其先。人所秉躯，体本一无。元精云布，因气托初。」
+      <span class="en">"To nurture one's nature and extend one's years, one must first ponder the beginning. The body we bear came from non-being; primordial essence spreads like clouds, resting first on qi."</span>
+    </blockquote>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 三同之契 ═══════════ -->
+<section class="section" id="origin">
+  <div class="section-label">一、参同之契<span class="en">The Three Concordances</span></div>
+  <h2>「参同契」三字如何解<span class="en">Unpacking the Title: Three Things Brought Into One</span></h2>
+
+  <div class="content">
+    <p>
+      「参同」者，<strong>三者参合而相通</strong>。魏伯阳自谓：此书乃大易、黄老、炉火三家之言，「三道由一，俱出径路」。这三者在修行层面本是同一件事，只是用了三种语言来说。
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>三家</th>
+          <th>核心主张</th>
+          <th>打坐对应</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>大易（周易）</strong></td>
+          <td>一阴一阳之谓道，卦象是气机消息的符号</td>
+          <td>打坐中呼吸的一进一出、身体的一收一放，皆是阴阳消息</td>
+        </tr>
+        <tr>
+          <td><strong>黄老（清静）</strong></td>
+          <td>致虚极，守静笃；归根曰静，静曰复命</td>
+          <td>入静是打坐第一义，静极才能见真意</td>
+        </tr>
+        <tr>
+          <td><strong>炉火（丹道）</strong></td>
+          <td>铅汞相合、龙虎交媾、文武火候</td>
+          <td>调息为火、守窍为鼎、精气神为药物</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      三者语言不同，所指实一。所以书名不叫「周易丹经」，而叫「参同契」——<strong>是把易理、道论、丹诀三者契合成一部书</strong>。读《参同契》的最高境界，不是记住卦名，而是明白：<strong>易经讲的是气的规律，黄老讲的是心的状态，炉火讲的是身的功夫，而打坐时三者同时发生。</strong>
+    </p>
+
+    <div class="feature-box">
+      <div class="feature-box-label">道门心要<span class="en">Essential Point</span></div>
+      <p>
+        宗辉实证「虚空合道」「道以振创造虚空」，正是「三同」在极高处的合一——<strong>理上通（易）、心上静（黄老）、身上验（炉火），三者不分家。</strong>
+        打坐时若只求「静」而不懂气机阴阳，是死静；若只练「气」而不修心性，是枯坐。参同契的智慧，正在于把三者拆开讲清楚，又收拢成一件事。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 乾坤坎离 ═══════════ -->
+<section class="section" id="framework">
+  <div class="section-label">二、乾坤坎离<span class="en">Heaven, Earth, Water, Fire</span></div>
+  <h2>以卦象看身体：炉鼎在何处<span class="en">The Body as Furnace: Where the Tripod Rests</span></h2>
+
+  <div class="content">
+    <p>
+      参同契开篇即言：<strong>「乾坤者，易之门户，众卦之父母。坎离匡郭，运毂正轴。」</strong>——乾坤是天地，是门户；坎离是水火，是运转的核心。落到打坐，这四个字各有实在所指：
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>卦</th>
+          <th>象</th>
+          <th>在身</th>
+          <th>打坐之要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>乾 ☰</td>
+          <td>天 · 阳</td>
+          <td>首（头部）</td>
+          <td>清阳之府，神之所居，不可昏沉</td>
+        </tr>
+        <tr>
+          <td>坤 ☷</td>
+          <td>地 · 阴</td>
+          <td>腹（下丹田）</td>
+          <td>厚德载物，精之所藏，是为鼎</td>
+        </tr>
+        <tr>
+          <td>坎 ☵</td>
+          <td>水 · 月</td>
+          <td>肾（水中之火）</td>
+          <td>真精所在，坎中一阳，即命门之火</td>
+        </tr>
+        <tr>
+          <td>离 ☲</td>
+          <td>火 · 日</td>
+          <td>心（火中之水）</td>
+          <td>识神所在，离中一阴，即性体之光</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      丹家所谓<strong>「取坎填离」</strong>，就是把坎中那一阳（真精之火）抽出，去补离中那一阴（心性之虚）——通俗说，就是<strong>让心火下降、肾水上升，水火既济</strong>。打坐时意守下丹田，正是「引火归元」；观想头顶光明，正是「烹炼元神」。一升一降之间，就是「运毂正轴」。
+    </p>
+
+    <blockquote>
+      《周易参同契》：「离己日光，坎戊月精。日月为易，刚柔相当。土王四季，罗络始终。」
+      <span class="en">"Li holds the sunlight of ji; Kan holds the moonlight of wu. Sun and moon make change; the firm and yielding correspond. Earth reigns over the four seasons, weaving through beginning and end."</span>
+    </blockquote>
+
+    <p>
+      中间的「土」（脾意）贯穿始终——这就是丹诀常说的<strong>「意守」</strong>：火候的把握，全在一念真意的维系，不执着、不放任、绵绵若存。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 铅汞龙虎 ═══════════ -->
+<section class="section" id="medicine">
+  <div class="section-label">三、铅汞龙虎<span class="en">Lead, Mercury, Dragon, Tiger</span></div>
+  <h2>外丹术语还原为内修精气神<span class="en">Translating Alchemical Terms into Inner Practice</span></h2>
+
+  <div class="content">
+    <p>
+      参同契最大胆的创举，是把外丹炉火中的「铅汞」「龙虎」「黄芽白雪」等术语，<strong>全部转指为身体内的精气神</strong>。这是后世一切内丹的起点。
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>外丹术语</th>
+          <th>内丹实指</th>
+          <th>现代通俗对应</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>铅</td>
+          <td>肾精 · 真精</td>
+          <td>生命的底层物质能量（精=原油）</td>
+        </tr>
+        <tr>
+          <td>汞</td>
+          <td>心神 · 元神</td>
+          <td>觉知与观照之力（神=光）</td>
+        </tr>
+        <tr>
+          <td>龙</td>
+          <td>元神（木火，易飞升）</td>
+          <td>躁动的念头、神识</td>
+        </tr>
+        <tr>
+          <td>虎</td>
+          <td>元气（金水，易下坠）</td>
+          <td>身体的气机、能量</td>
+        </tr>
+        <tr>
+          <td>黄芽</td>
+          <td>气化的初生之象</td>
+          <td>打坐时丹田初起的暖意、生机</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      丹诀说<strong>「降龙伏虎」</strong>，就是让元神（龙）不再外驰、让元气（虎）不再走漏，二者在丹田中交媾。宗辉 33 阶中「入静→入炁→入丹」的路径，正是此义的实证：<strong>先是念住（龙降），再是气定（虎伏），最后精气神三家相见、凝成大还丹。</strong>
+    </p>
+
+    <blockquote>
+      《周易参同契》：「丹砂木精，得金乃并。金水合处，木火为侣。四者混沌，列为龙虎。」
+      <span class="en">"Cinnabar is the essence of wood; it joins with metal. Metal and water meet; wood and fire pair. The four blend in chaos, arrayed as dragon and tiger."</span>
+    </blockquote>
+
+    <p>
+      五行攒簇、四象归元，最终落在一个「土」字上——<strong>土为真意，是神气交合的中枢</strong>。打坐时那一点「意」，既是火候，也是枢纽，是铅汞交合的媒介。
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 炉鼎火候 ═══════════ -->
+<section class="section" id="fire">
+  <div class="section-label">四、炉鼎火候<span class="en">Furnace, Tripod, and the Firing Times</span></div>
+  <h2>呼吸即火候，身体即丹房<span class="en">The Breath Is the Fire; the Body Is the Elixir Chamber</span></h2>
+
+  <div class="content">
+    <p>
+      参同契讲「火候」最细。所谓火候，就是<strong>何时用武火（深长急）、何时用文火（轻缓柔）、何时沐浴（静养）、何时退符（收功）</strong>。落到打坐，就是一套完整的调息与收放原则：
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>火候名目</th>
+          <th>丹诀含义</th>
+          <th>打坐操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>进阳火</td>
+          <td>阳气生发时以武火催动</td>
+          <td>初入坐时以鼻吸深长、意守丹田，助气发动</td>
+        </tr>
+        <tr>
+          <td>退阴符</td>
+          <td>阴气收敛时以文火温养</td>
+          <td>气机稳定后放轻呼吸、似有似无，唯存一念观照</td>
+        </tr>
+        <tr>
+          <td>沐浴</td>
+          <td>阴阳平衡时停止用力、静静涵养</td>
+          <td>定境中不呼不吸、不守不驰，如沐如浴</td>
+        </tr>
+        <tr>
+          <td>封固温养</td>
+          <td>丹成后以文火长养勿泄</td>
+          <td>收功前把气意归拢丹田，静坐片刻再缓缓起身</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      参同契以一月三十日、一日十二时、一年十二月来配火候的进退——这不是玄学，而是提醒：<strong>修行的节律要顺应天地阴阳，也要顺应自己当下的真实状态</strong>。精神足了就进火，疲惫了就退火，气机平了就沐浴。强求、猛进、蛮守，都是火候不对。
+    </p>
+
+    <blockquote>
+      《周易参同契》：「上德无为，不以察求；下德为之，其用不休。上闭则称有，下闭则称无。」
+      <span class="en">"Superior virtue does nothing, seeking not by examination; inferior virtue acts, its use never resting. Closed above, it is called having; closed below, it is called non-having."</span>
+    </blockquote>
+
+    <div class="feature-box">
+      <div class="feature-box-label">祖师开示相印<span class="en">Echo of the Patriarch's Teaching</span></div>
+      <p>
+        宗辉实践「修颗粒度，不开新方向」，与参同契火候观完全相印——<strong>火候不是找更高深的功法，而是把当下这一坐的火候调得更细</strong>：呼吸的边界、丹田温热的层次、念头生起的预兆。文火武火之间，就是颗粒度。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 视觉分隔 ═══════════ -->
+<div class="visual-section">
+  <img src="cover-image/daoxiu/stage5-hedao.jpg" alt="周易参同契 · 炼虚合道" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">以参同契之炉鼎，行打坐之实证 —— 炼虚合道<span class="en">Refining the Void and Uniting with the Dao</span></div>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 精选章句 ═══════════ -->
+<section class="section" id="readings">
+  <div class="section-label">五、精选章句 · 打坐注解<span class="en">Selected Passages with Meditation Commentary</span></div>
+  <h2>八句参同契，八段打坐功<span class="en">Eight Lines of Cantong Qi, Eight Practices of Meditation</span></h2>
+  <p class="section-sub">每句原文，配一段白话注解，一段打坐要点<span class="en">Each original line, with a plain-language note and a practice point</span></p>
+
+  <div class="reading-grid">
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 上篇</div>
+        <div class="rc-origin">乾坤者，易之门户，众卦之父母。坎离匡郭，运毂正轴。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">总纲</div>
+        <div class="rc-interp"><strong>注解：</strong>乾坤是天地、是门户，一切卦象由此而生；坎离是水火、是车轴，运转由此而始。整个宇宙的模型，就是身体。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>入坐先安「门户」——头正（乾）、身稳（坤），再调「车轴」——心火下降、肾水上升，水火交济，轴心（丹田）自然转动。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 上篇</div>
+        <div class="rc-origin">日月为易，刚柔相当。土王四季，罗络始终。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">阴阳</div>
+        <div class="rc-interp"><strong>注解：</strong>「易」字本身就是日月之象。一阴一阳的消长，就是变化的本质；而「土」（真意）贯穿四时，不离不弃。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>观呼吸不要观「节奏」，要观「阴阳」——吸是阳、呼是阴，一吸一呼就是一次日月循环。中间那个「知道的人在」不动，就是土、是真意。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 中篇</div>
+        <div class="rc-origin">丹砂木精，得金乃并。金水合处，木火为侣。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">五行</div>
+        <div class="rc-interp"><strong>注解：</strong>朱砂是木（肝）之精，须得金（肺气）才能相合；金与水相亲，木与火为伴——四象辗转相生，归于一处。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>五行本是五脏之气。打坐时「五脏皆安、各归其位」，气自然攒簇归元。不必刻意引气，<strong>身安则气归，气归则丹结</strong>。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 中篇</div>
+        <div class="rc-origin">知白守黑，神明自来。白者金精，黑者水基。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">守静</div>
+        <div class="rc-interp"><strong>注解：</strong>知晓光明（白），却安守在暗昧（黑）之处，神明自然降临。白是金之精（阳气），黑是水之基（阴精）——阴阳之本在此。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>这就是「致虚守静」的另一面。不追逐境界的光明，只安心守在丹田的静处。<strong>守得住黑，白才会来</strong>——静到极处，元神自明。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 中篇</div>
+        <div class="rc-origin">三五与一，天地至精。可以口诀，难以书传。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">归一</div>
+        <div class="rc-interp"><strong>注解：</strong>「三五与一」——五行之精（三五一十五，配精气神）最终归于「一」。这是天地间最精微的道理，只能口传心授，难以文字尽述。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>精气神三家、金木水火土五行，最终都要收摄归一。打坐的最后一段，把散在四肢五内的气意轻轻归拢到丹田——这就是「归」的实修。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 中篇</div>
+        <div class="rc-origin">呼吸相含育，伫息为夫妇。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">调息</div>
+        <div class="rc-interp"><strong>注解：</strong>一呼一吸相互含育，如阴阳相抱；当气息渐渐停驻（胎息），神气就如夫妇交合，浑然一体。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>调息的真义不是「控制呼吸」，而是让呼吸<strong>自自然然变深、变缓、变细，直至若有若无</strong>。到那时神与气合，才是真「夫妇」。强压呼吸，反成弊病。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 中篇</div>
+        <div class="rc-origin">上弦兑数八，下弦艮亦八。两弦合其精，乾坤体乃成。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">火候</div>
+        <div class="rc-interp"><strong>注解：</strong>初八上弦月、廿三下弦月，各得一半（八）。两半相合，才成圆满之月——喻阴阳各半、火候各半，方能丹成。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>修行贵在「得中」——<strong>用功一半，休息一半</strong>。猛练伤身，久坐不歇亦伤气。一坐之间，武火与沐浴交替；一坐之外，静修与生活平衡，皆是「两弦合精」。</div>
+      </div>
+    </div>
+
+    <div class="reading-card">
+      <div class="rc-header">
+        <div class="rc-num">参同契 · 下篇</div>
+        <div class="rc-origin">道之形象，真一难图。变而分布，各自独居。</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-tag">悟道</div>
+        <div class="rc-interp"><strong>注解：</strong>道的形象难以描画，「真一」（道之本）无法用图表达。它虽化现于万物，各自独立，却本是一个。</div>
+        <div class="rc-practice"><strong>打坐要点：</strong>不要在境界里「找图」——金光、神明、紫府，皆是「变而分布」的幻影。<strong>认那个不变的「真一」</strong>，才是宗辉「虚空合道」所证的本源。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    参同契者，辞寡而道大，言微而旨深。<br>
+    学者若能以打坐实证之，则此书无一字是虚言。<br><br>
+    乾坤者，天地也；坎离者，水火也；铅汞者，精气也；<br>
+    火候者，呼吸也；归根者，还虚也。
+    <span class="source">宗辉修道录 · 周易参同契读后</span>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 实证对照 ═══════════ -->
+<section class="section" id="practice">
+  <div class="section-label">六、实证对照<span class="en">Alignment with Direct Practice</span></div>
+  <h2>参同契要义 ↔ 33阶实证路径<span class="en">Cantong Qi Principles and the 33-Level Practice Path</span></h2>
+
+  <div class="content">
+    <p>
+      经典不是用来背的，是用来印证的。宗辉 33 阶四阶段的实证记录，处处与《参同契》相合：
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>参同契要义</th>
+          <th>宗辉实证阶段</th>
+          <th>对应体征</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>乾坤定位 · 坎离匡郭</td>
+          <td>入静 · 入坐（1–2阶）</td>
+          <td>头正身安，丹田启动，水火各归其位</td>
+        </tr>
+        <tr>
+          <td>铅汞相合 · 神气归根</td>
+          <td>入炁 · 入丹（3、9阶）</td>
+          <td>丹田真炁凝聚，三丹合一成大还丹</td>
+        </tr>
+        <tr>
+          <td>龙虎交媾 · 四象归元</td>
+          <td>入内 · 入性（8、10阶）</td>
+          <td>以慈悲为钥链接高维，精气神圆融一体</td>
+        </tr>
+        <tr>
+          <td>火候温养 · 沐浴封固</td>
+          <td>入定 · 入圆（7、15阶）</td>
+          <td>三静入定，法喜充满，气定神闲</td>
+        </tr>
+        <tr>
+          <td>归根返元 · 炼神还虚</td>
+          <td>入虚 · 入无（26–27阶）</td>
+          <td>元神淡化融入虚空，有无双泯</td>
+        </tr>
+        <tr>
+          <td>道之形象 · 真一难图</td>
+          <td>入圣（合道）（28阶）</td>
+          <td>虚空合道，看见本源，唯利他合天道</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="feature-box">
+      <div class="feature-box-label">实证之要 · 以经验功<span class="en">Verify the Work by the Classic</span></div>
+      <p>
+        《参同契》给打坐者最宝贵的礼物，是一把<strong>「照妖镜」</strong>：<br>
+        - 若你越坐越向外求境界 → 违背「知白守黑」，应回头守静<br>
+        - 若你越练越执着气感 → 违背「呼吸相含育」，应放轻呼吸<br>
+        - 若你越修越贪高深 → 违背「上弦下弦各半」，应回到平衡<br>
+        <br>
+        十个月实证之路，步步与经典对照，无一字虚言。
+      </p>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="index.html" class="cta-link">← 返回首页</a>
+    <a href="boshu-daodejing.html" class="cta-link">帛书道德经 →</a>
+    <a href="dazuo.html" class="cta-link">六阶修行指南</a>
+    <a href="shiri-pingdian.html" class="cta-link">十日评点</a>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ═══════════ 视觉收束 ═══════════ -->
+<div class="visual-section">
+  <img src="cover-image/daoxiu/33stages.jpg" alt="33阶实证路径" loading="lazy" style="width:100%;border-radius:4px;border:1px solid rgba(201,168,76,0.08);display:block;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+  <div style="text-align:center;font-size:0.75rem;color:var(--cream-dark);opacity:0.3;margin-top:12px;letter-spacing:0.2em;">三十三阶 · 四阶段 · 以参同契为纲 <span class="en">33 Levels · Four Phases · Rooted in the Cantong Qi</span></div>
+</div>
+
+<footer>
+  合道祖师爷开示 · 道藏经典评点 · 2026年<br>
+  道名宗辉 · AI摆渡人 · 入世道商修行者
+  <span class="en">Commentary on Daoist classics · 2026<br>Dao name: Zonghui · AI ferryman · A worldly practitioner of Dao and commerce</span><br>
+  <a href="index.html">首页</a> · <a href="cantongqi.html">周易参同契</a> · <a href="boshu-daodejing.html">帛书道德经</a> · <a href="dazuo.html">六阶指南</a> · <a href="shiri-pingdian.html">十日评点</a> · <a href="fo-dan.html">佛诞道评</a>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll-aware nav ──
+window.addEventListener('scroll', () => {
+  const n = document.querySelector('nav');
+  if (n) n.style.borderBottomColor = window.scrollY > 80 ? 'rgba(201,168,76,0.25)' : 'rgba(201,168,76,0.12)';
+}, { passive: true });
+
+// ── Reading card expand ──
+document.querySelectorAll('.rc-full-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.parentElement.nextElementSibling;
+    if (t.style.display === 'block') {
+      t.style.display = 'none';
+      btn.textContent = '展开全文 ▼';
+    } else {
+      t.style.display = 'block';
+      btn.textContent = '收起全文 ▲';
+    }
+  });
+});
+</script>
+</body>
+</html>
