@@ -116,6 +116,36 @@ nav .nav-links a {
 }
 nav .nav-links a:hover { color: var(--gold); opacity: 1; }
 
+/* ── 导航下拉菜单 ── */
+nav .nav-links li { position: relative; }
+nav .nav-links .dropdown-toggle .caret { font-size: 0.7em; margin-left: 2px; }
+nav .nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 150px;
+  padding: 8px 0;
+  background: rgba(18,16,13,0.98);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  list-style: none;
+  z-index: 200;
+}
+nav .nav-links .has-dropdown:hover .dropdown-menu { display: block; }
+nav .nav-links .dropdown-menu li { margin: 0; }
+nav .nav-links .dropdown-menu a {
+  display: block;
+  padding: 8px 18px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+nav .nav-links .dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
 /* ── Hero Background ── */
 .hero-bg {
   position: fixed;
@@ -945,6 +975,21 @@ footer .dao-name {
     padding: 8px 0;
   }
   nav .hamburger { display: flex; }
+  nav .nav-links .dropdown-menu {
+    display: block;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 6px 0 0;
+    min-width: 0;
+  }
+  nav .nav-links .dropdown-menu a {
+    font-size: 0.88rem;
+    padding: 7px 0;
+    opacity: 0.85;
+  }
+  nav .nav-links .dropdown-toggle .caret { display: none; }
   .full-image { height: 40vh; min-height: 260px; }
 }
 @media (max-width: 480px) {
@@ -1325,18 +1370,23 @@ footer .dao-name {
   <button class="hamburger" aria-label="菜单">
     <span></span><span></span><span></span>
   </button>
-  <ul class="nav-links">
+    <ul class="nav-links">
     <li><a href="#about">量化悟道</a></li>
+    <li><a href="https://kenyanghui.github.io/coach/" target="_blank">量化投资</a></li>
     <li><a href="family-office.html">家族办公室</a></li>
-    <li><a href="#record">实证纪要</a></li>
-	    <li><a href="#classics">道藏经典</a></li>
-	    <li><a href="#stages-33">33阶</a></li>
-	    <li><a href="xuanxue.html">玄学模块</a></li>
-	    <li><a href="zhouyi-invest.html">周易·量化</a></li>
-	    <li><a href="zhouyi-guilv.html">周易·规律</a></li>
-	    <li><a href="cantongqi.html">参同契</a></li>
-	    <li><a href="boshu-daodejing.html">帛书道德经</a></li>
-	    <li><a href="https://kenyanghui.github.io/coach/" target="_blank">量化投资工具</a></li>
+    <li class="has-dropdown">
+      <a href="#record" class="dropdown-toggle">道家修行 <span class="caret">▾</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#record">实证纪要</a></li>
+        <li><a href="#classics">道藏经典</a></li>
+        <li><a href="#stages-33">33阶</a></li>
+        <li><a href="xuanxue.html">玄学模块</a></li>
+        <li><a href="zhouyi-invest.html">周易·量化</a></li>
+        <li><a href="zhouyi-guilv.html">周易·规律</a></li>
+        <li><a href="cantongqi.html">参同契</a></li>
+        <li><a href="boshu-daodejing.html">帛书道德经</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
