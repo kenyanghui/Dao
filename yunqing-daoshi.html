@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云清道诗 · 道家修行解读 | Yunqing Dao Poems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0c0a;
+  --ink:#1a1714;
+  --cream:#ece5d4;
+  --cream-dark:#cbbfa5;
+  --gold:#c9a84c;
+  --gold-dark:#8a6d2f;
+  --jade:#7aa08a;
+  --ease-smooth:cubic-bezier(0.22,1,0.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Noto Serif SC',serif;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,168,76,0.10), transparent 60%),
+    radial-gradient(800px 500px at 90% 110%, rgba(122,160,138,0.06), transparent 60%),
+    var(--bg);
+}
+
+/* ── 导航 ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,12,10,0.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+}
+nav .brand{font-family:'Ma Shan Zheng',serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.15em;}
+nav .brand a{color:var(--gold);text-decoration:none;}
+nav .brand small{font-family:'Noto Serif SC',serif;font-size:0.75rem;opacity:0.75;margin-left:8px;letter-spacing:0.1em;}
+nav .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
+nav .nav-links a{color:var(--cream-dark);text-decoration:none;font-size:0.85rem;letter-spacing:0.05em;transition:color 0.3s;white-space:nowrap;}
+nav .nav-links a:hover{color:var(--gold);}
+nav .nav-links .active a{color:var(--gold);}
+nav .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:101;}
+nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:1px;}
+
+/* ── Hero ── */
+.hero{position:relative;padding:150px 24px 90px;text-align:center;max-width:960px;margin:0 auto;}
+.hero-badge{display:inline-block;font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:7px 20px;border-radius:30px;margin-bottom:28px;}
+.hero h1{font-family:'Ma Shan Zheng',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;color:var(--gold);letter-spacing:0.08em;line-height:1.2;}
+.hero h1 em{font-style:normal;color:var(--cream);font-family:'Noto Serif SC',serif;font-size:0.45em;letter-spacing:0.2em;display:block;margin-top:14px;}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:30px auto;opacity:0.6;}
+.hero-sub{color:var(--cream-dark);font-size:0.95rem;max-width:640px;margin:0 auto;letter-spacing:0.05em;}
+.hero-sub strong{color:var(--gold);font-weight:600;}
+.hero-meta{margin-top:26px;font-size:0.72rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
+
+/* ── 年份锚点 ── */
+.year-nav{max-width:960px;margin:0 auto 50px;padding:0 24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.year-nav a{color:var(--cream-dark);text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;padding:6px 16px;border:1px solid rgba(201,168,76,0.22);border-radius:24px;transition:all 0.3s;}
+.year-nav a:hover{color:var(--gold);border-color:var(--gold);}
+
+/* ── 年份区块 ── */
+.year{max-width:760px;margin:0 auto 40px;padding:0 24px;}
+.year-head{display:flex;align-items:baseline;gap:16px;margin:70px 0 8px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.18);}
+.year-head .y{font-family:'Ma Shan Zheng',serif;font-size:2.4rem;color:var(--gold);letter-spacing:0.06em;}
+.year-head .y-count{font-size:0.72rem;color:var(--cream-dark);opacity:0.6;letter-spacing:0.2em;}
+
+/* ── 诗卡 ── */
+.poem{
+  position:relative;padding:30px 30px 26px;margin:0 0 22px;
+  background:linear-gradient(180deg, rgba(201,168,76,0.05), rgba(201,168,76,0.015));
+  border:1px solid rgba(201,168,76,0.14);border-radius:8px;
+  transition:transform 0.4s var(--ease-smooth), border-color 0.4s, box-shadow 0.4s;
+}
+.poem:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.4);box-shadow:0 18px 50px rgba(0,0,0,0.4);}
+.poem-title{font-family:'Ma Shan Zheng',serif;font-size:1.6rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:14px;}
+.poem-body{font-family:'ZCOOL XiaoWei',serif;font-size:1.05rem;line-height:2.2;color:var(--cream);letter-spacing:0.06em;white-space:pre-line;}
+.poem-note{margin-top:10px;font-size:0.76rem;color:var(--cream-dark);opacity:0.65;text-align:right;letter-spacing:0.1em;}
+.poem-interp{
+  margin-top:16px;padding:14px 18px;border-left:2px solid var(--jade);
+  background:rgba(122,160,138,0.07);border-radius:0 6px 6px 0;
+  font-size:0.88rem;color:#d5e0d8;letter-spacing:0.03em;
+}
+.poem-interp strong{color:var(--jade);font-weight:600;letter-spacing:0.12em;}
+
+/* ── 早年偈语 ── */
+.verses-note{max-width:760px;margin:20px auto;padding:0 24px;font-size:0.82rem;color:var(--cream-dark);opacity:0.8;line-height:2;text-align:center;}
+.verses-note strong{color:var(--gold);}
+
+footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:60px;color:var(--cream-dark);font-size:0.8rem;letter-spacing:0.08em;line-height:2.2;}
+footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px;}
+
+@media (max-width:600px){
+  nav .nav-links{display:none;position:fixed;inset:0;background:rgba(13,12,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  nav .nav-links.open{display:flex;}
+  nav .nav-links a{font-size:1.1rem;}
+  nav .hamburger{display:flex;}
+  .hero{padding-top:120px;}
+  .poem{padding:22px 18px 20px;}
+  .poem-body{font-size:0.95rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="brand"><a href="index.html">玄龙堂</a> <small>· 云清道诗</small></div>
+  <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="dazuo.html">打坐实证<span class="en">Practice</span></a></li>
+    <li><a href="xiuxing-dianying.html">修行电影<span class="en">Movies</span></a></li>
+    <li><a href="#2025">2025</a></li>
+    <li><a href="#2023">2023</a></li>
+    <li><a href="#2022">2022</a></li>
+    <li><a href="#2021">2021</a></li>
+    <li><a href="#2020">2020</a></li>
+    <li><a href="#2019">2019</a></li>
+    <li><a href="#early">早年</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">云清道诗研习馆 · 道家修行解读</div>
+  <h1>云清道诗<em>道诗 · 修行解读 · 金丹要义</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    作者<strong>云清</strong>——宗辉之师，玄龙堂法脉。以诗载道，<strong>诗是外相，道是内功</strong>：<br>
+    每一首道诗，皆以打坐实证为根，藏<strong>金丹、玄关、阴阳、性命</strong>之机。<br>
+    此页逐首作「道家修行解读」，把诗中的意象译回实修功夫，供有缘同修参究。
+  </p>
+  <div class="hero-meta">道诗原创 · 云清 ／ 解读 · 宗辉实证系列 ／ 请引用注明出处</div>
+</section>
+
+<div class="year-nav">
+  <a href="#2025">2025</a><a href="#2023">2023</a><a href="#2022">2022</a><a href="#2021">2021</a><a href="#2020">2020</a><a href="#2019">2019</a><a href="#early">早年（2014–2018）</a>
+</div>
+
+<!-- ═══════════ 2025 ═══════════ -->
+<section class="year" id="2025">
+  <div class="year-head"><span class="y">2025年</span><span class="y-count">· 四十七首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《两忘情》</div>
+    <div class="poem-body">太上之音两忘情，痴男怨女任我行。
+轮回颠倒不醒悟，执念深种意难平。</div>
+    <div class="poem-note">—— 云清题《两忘情》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「两忘」即忘情忘我。太上之音，是入定后自心底升起的那一念清静；「痴男怨女任我行」的执念，正是打坐时要放下的牵缠。轮回颠倒，只因一念执着不放——守静笃，方出轮回。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玉阶登》</div>
+    <div class="poem-body">武当之巅长明灯，生生不息续道根。
+渡得有缘上法船，大罗仙宫玉阶登。</div>
+    <div class="poem-note">—— 云清题《玉阶登》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「长明灯」喻先天一炁常在，命功不息；「法船」「玉阶」喻度人与登真之阶。自度而后度人，接续道根——性命双修，层层上升，方有玉阶可登。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《王母诞》</div>
+    <div class="poem-body">王母慈悲护众生，蟠桃会上仙乐升。
+翩翩起舞贺圣诞，窈窕仙女醉声声。</div>
+    <div class="poem-note">—— 云清题《王母诞》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>西王母主西方金气，是「铅」之外象、先天真一之源。贺诞即调心入静，与金母慈光相应；「蟠桃」喻长生之果，须以慈悲护生为基，方能赴此仙会。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《莫迟犹》</div>
+    <div class="poem-body">少年不知白发愁，滚滚红尘逍遥游。
+涛涛江水有回路？下手速修莫迟犹。</div>
+    <div class="poem-note">—— 云清题《莫迟犹》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>江水东流不回头，喻岁月与精气一去难返。修行贵「下手速修」——莫待油尽灯枯再炼，趁精足气满，立即实修，方是惜时惜命。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《大黄庭》</div>
+    <div class="poem-body">肘后飞晶电闪鸣，阴阳交会醉无情。
+恍惚飘摇惊鸿瞥，仙音已至大黄庭。</div>
+    <div class="poem-note">—— 云清题《大黄庭》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「肘后飞晶」是河车运转、气过夹脊之象；「阴阳交会」「恍惚」是坎离既济、入定之候。大黄庭即上黄庭，喻气达泥丸、神光自现之境。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《观音诞》</div>
+    <div class="poem-body">慈航倒庄显悲心，普渡善众天下亲。
+缘来聚首莲花台，琼浆玉液粘彩巾。</div>
+    <div class="poem-note">—— 云清题《观音诞》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>观音是「慈悲」之内德，倒驾慈航即放下自我、回向众生。修行不是独善，须以悲心为舟——莲花台在自心清净处，利他即是利己。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《老君诞》</div>
+    <div class="poem-body">元元一炁化三清，太上道祖传道经。
+广渡天下善信人，紫霄宫中把法听。</div>
+    <div class="poem-note">—— 云清题《老君诞》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「元元一炁」即先天一炁，是万化之本。老君传《道德经》，讲「致虚极守静笃」——听法不在紫霄宫，在自心虚静处，一炁自化三清。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《土地公》</div>
+    <div class="poem-body">福德正神土地公，护佑一方显神功。
+待到功德圆满时，飞身一跃紫霄宫。</div>
+    <div class="poem-note">—— 云清题《土地公》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>土地公是「根基」之神，喻修行先安身、积德、固本。功德圆满方能飞升——命功之外，性功积德不可偏废，脚踏实地，方有飞跃之机。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《更甚尤》</div>
+    <div class="poem-body">人人都想上红楼，挥毫作墨封王侯。
+谁知深宫大院里，因果业力更甚尤。</div>
+    <div class="poem-note">—— 云清题《更甚尤》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「红楼」喻名利荣华，人人争逐；然深宫大院里的因果业力，比外相更重。修行要透过浮华见因果——心性不净，权位越高，业力越重。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《半边晴》</div>
+    <div class="poem-body">天清清又地灵灵，世间万物皆有情。
+太极弦中藏万法，半边风雨半边晴。</div>
+    <div class="poem-note">—— 云清题《半边晴》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「太极弦」即阴阳之枢，万法藏于其中。半边风雨半边晴，喻阴阳本一体、动静本一如——打坐观此弦，风来不惧，晴来不喜，守中即是道。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《功力厚》</div>
+    <div class="poem-body">吾身即是小宇宙，万化之显阴阳透。
+一念运起乾坤阵，方知大罗功力厚。</div>
+    <div class="poem-note">—— 云清题《功力厚》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>人身即小宇宙，与天地同构。修行功夫深浅，全在「一念」能否运起自身阴阳——炼精化气、炼气化神，功力厚者一念动而周身气机随，方知大罗非外求。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《桃花树》</div>
+    <div class="poem-body">来时不知去时路，贪恋红尘桃花树。
+此身不向今生度，更向何生能得度？</div>
+    <div class="poem-note">—— 云清题《桃花树》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「桃花树」喻红尘情欲。此生不度，更待何生——这是修行最切己的警策。放下贪恋，即在此身此世了脱，莫把修行推到不可知的来生。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玉皇诞》</div>
+    <div class="poem-body">高上玉皇大罗天，执掌三界千万仙。
+一念运起众星辰，赐福善信福万千。</div>
+    <div class="poem-note">—— 云清题《玉皇诞》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玉皇喻「元神主君」——人身小宇宙里那个统御万化之主。修行的目标，是让元神当家作主；一念动而周身气血如星辰应令，福亦随善念而生。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《年年年》</div>
+    <div class="poem-body">年年过年年年年，连连亲连连连连，
+旺旺加旺旺旺旺，钱钱生钱钱钱钱！</div>
+    <div class="poem-note">—— 云清题《年年年》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>以叠字游戏写年景，看似俗，实含「生生不息」之道——亲连、旺加、钱生，皆是一炁流转、愈转愈盛之象。修行要的就是这份「生生」：精化气、气化神，层层生发，绵绵不绝。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《是大补》</div>
+    <div class="poem-body">一箭射穿九重鼓，三家相见伏龙虎。
+黄婆擒来鼎内煮，原来此物是大补。</div>
+    <div class="poem-note">—— 云清题《是大补》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「三家相见」是精气神合会；「龙虎」是心肾、铅汞；「黄婆」是意，居中调燮；「鼎内煮」是进火烹炼。三宝合一、龙虎交媾，方得金丹大补——这是内丹要诀。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《灶君诞》</div>
+    <div class="poem-body">红红火火灶君诞，千家万户护良善。
+启奏众生因果事，乾坤朗朗光灿灿。</div>
+    <div class="poem-note">—— 云清题《灶君诞》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>灶君是「心火」与「家常日用」之神，记人间因果。修行在日用常行之间——心火要旺而不亢，善念要实而不虚，因果分明，心地自然朗朗。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《觅仙踪》</div>
+    <div class="poem-body">十字街头觅仙踪，灵山脚下不老松。
+参透此中玄妙机，任君南北与西东。</div>
+    <div class="poem-note">—— 云清题《觅仙踪》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>仙踪不在深山，在十字街头的日用之间；不老松是自性本真。参透「当下即是」之机，则东西南北皆道场——修行在红尘，不在避世。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《万世足》</div>
+    <div class="poem-body">鼎内一粒金丹熟，神光四溢香扑扑。
+七返九还千锤炼，当是仙粮万世足。</div>
+    <div class="poem-note">—— 云清题《万世足》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「七返九还」是内丹反复烹炼的功程，千锤百炼方得金丹成熟。修行的果实不在速成，在日复一日的实修火候——丹成则万世不饥，是谓长生之粮。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《不一般》</div>
+    <div class="poem-body">内经图中小周天，牛羊鹿车上三山。
+登上昆仑玉虚顶，此上风景不一般。</div>
+    <div class="poem-note">—— 云清题《不一般》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>《内经图》是小周天功法的图谱；牛车、羊车、鹿车喻运药过三关、上泥丸。气通三关、达于昆仑顶，神光现而境界开——此中风景，非亲修不能知。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《如是观》</div>
+    <div class="poem-body">太乙金华雾中山，一粒金丹在玄关。
+雷声隐隐彻虚空，原来应作如是观。</div>
+    <div class="poem-note">—— 云清题《如是观》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>《太乙金华宗旨》讲回光守中，金丹在玄关一窍。雷声隐隐，是玄关窍开、先天一炁发动之象；「如是观」即如实照见，不迎不拒——这是回光的核心功夫。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《九品现》</div>
+    <div class="poem-body">凡夫不识真人面，燕南赵北何须见。
+待到山河晏月清，莲台之上九品现。</div>
+    <div class="poem-note">—— 云清题《九品现》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>真人不假外求，凡夫不识只因向外驰求。修行到心地清明（山河晏月清），自性莲花自然现前——九品莲台是心性修证的果位，非外境所赐。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《大罗天》</div>
+    <div class="poem-body">东公西母一线牵，先天之炁鼎内煎。
+悟透阴阳乾坤道，眼前便是大罗天。</div>
+    <div class="poem-note">—— 云清题《大罗天》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>东公（木父）西母（金母）喻铅汞、坎离；先天一炁在鼎内煎炼，是坎离交媾、阴阳合一之功。悟透阴阳之道，大罗天不在天边，在眼前这一炉之内。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《福运见》</div>
+    <div class="poem-body">元元一旦又一旦，万象更新元炁现。
+山河大地紫气腾，万民同乐福运见。</div>
+    <div class="poem-note">—— 云清题《福运见》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「元元一旦」是冬至一阳来复、元炁复生的节律。修行顺此天地节律——一阳生时进火采药，则自身万象更新；紫气腾于山河，是外功内果相应的福报。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《任君行》</div>
+    <div class="poem-body">云淡风清江月明，波波未平波波平。
+一掌乾坤运日月，三界内外任君行。</div>
+    <div class="poem-note">—— 云清题《任君行》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「波波未平波波平」喻念头起灭、心绪起伏；云淡风清江月明，是心定的境界。「一掌乾坤」是定力成就后的自在——心若定，三界内外皆可任行。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《题冬至》</div>
+    <div class="poem-body">五行齐备生万物，元阳一炁运帷幄。
+参透阴阳造化机，福慧康寿自具足。</div>
+    <div class="poem-note">—— 云清《题冬至》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>冬至一阳生，是采药炼己的关键节令；元阳一炁居中运化五行。参透此阴阳造化之机，福慧康寿不求自得——顺天时修行，事半功倍。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《灌醍醐》</div>
+    <div class="poem-body">一点灵光便是符，一画开天演河图。
+参透个中阴阳理，大罗之上灌醍醐。</div>
+    <div class="poem-note">—— 云清题《灌醍醐》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一点灵光」是先天元神、玄关初开之兆，是「符」是「河图」之始。守住这一点灵光，参透阴阳升降，则真炁上达泥丸，如醍醐灌顶。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《风月清》</div>
+    <div class="poem-body">风云际会满天星，醍醐摇曳醉醺醺。
+证得紫灵当空坐，三界内外风月清。</div>
+    <div class="poem-note">—— 云清题《风月清》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「风云际会」「满天星」是气机周流、众窍齐开之象；「紫灵当空坐」是元神朗照。「风月清」是身心内外俱静的境界——妄念息，则乾坤自清。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《是重阳》</div>
+    <div class="poem-body">九九之数是重阳，山河大地皆吉祥。
+七返九转炼金丹，三界内外任飞翔。</div>
+    <div class="poem-note">—— 云清题《是重阳》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>重阳九九，阳数之极，喻纯阳之体；「七返九转」是炼尽阴质、复归纯阳的功程。内丹炼到纯阳，则脱胎神化、自在飞翔——重阳亦是「纯阳」之谶。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《渡世间》</div>
+    <div class="poem-body">七返九还大还丹，九年面壁禅示单。
+性命双修自了汉，渡了自己渡世间。</div>
+    <div class="poem-note">—— 云清题《渡世间》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「九年面壁」喻丹成后的温养与性功打磨；「性命双修」是自了之基。先自度，方能度人——渡自己、渡世间，是修行者由内而外、由命而性的完整路径。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《中秋节》</div>
+    <div class="poem-body">嫦娥娇饮桂花酒，醉舞翩翩腰似柳。
+吴刚树下独思量，岁岁今夕为谁酒？</div>
+    <div class="poem-note">—— 云清题《中秋节》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>月圆喻「金精圆满」、金丹之象；嫦娥喻元神、吴刚喻凡心。中秋观月，即是观自性之圆——「为谁酒」一问，点破：修行非为人，为的是那一轮本自圆明的自性。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《尽纯阳》</div>
+    <div class="poem-body">天地日月皆自强，周流不息道胎粮。
+阴阳匹配煮水火，一粒金丹尽纯阳。</div>
+    <div class="poem-note">—— 云清题《尽纯阳》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>天地日月自强不息，是道胎之粮；「阴阳匹配煮水火」是坎离既济。炼尽阴质、复归纯阳，金丹方成——纯阳不是外求，是阴阳合一后自然成就。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《送仙桥》</div>
+    <div class="poem-body">送仙桥上觅仙踪，巧遇木母与金公。
+太极炉内烹金丹，成就大罗不老松。</div>
+    <div class="poem-note">—— 云清题《送仙桥》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「木母」「金公」是铅汞、龙虎之别称；太极炉是身心之鼎。炼到木金交并、坎离既济，则成就不老之身——送仙桥即炼就纯阳、脱胎换骨之关口。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《青羊宫》</div>
+    <div class="poem-body">青羊来自天外天，背跨老老大罗仙。
+太上一粒金丹种，渡得缘人万万千。</div>
+    <div class="poem-note">—— 云清题青羊宫</div>
+    <div class="poem-interp"><strong>修行解读：</strong>青羊宫是老君圣迹，喻道法传承之地；「一粒金丹种」是法脉、是种子。修行者接了这颗种，勤加灌溉，方能开花结果、渡化有缘。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《寻师渡》</div>
+    <div class="poem-body">众生熙熙何处去，积功累德寻师渡。
+九紫点窍元神醒，通途大道回家路。</div>
+    <div class="poem-note">—— 云清题《寻师渡》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「九紫点窍」是明师点破玄关，元神方醒——修行有传承、有明师，点窍是登堂入室之钥。积功累德而后遇师，遇师而后回家——这是一条有次第的通途。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《大罗尊》</div>
+    <div class="poem-body">宇宙在手万化身，阴符经中舞乾坤。
+先天一粒金丹种，赫赫威名大罗尊。</div>
+    <div class="poem-note">—— 云清题《大罗尊》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>《阴符经》「宇宙在乎手，万化生乎身」，讲的正是人身小宇宙的修行；「先天一粒金丹种」是根本。炼得金丹，则宇宙在手、万化由己——大罗之尊由此而立。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《桂花间》</div>
+    <div class="poem-body">月满高楼风满天，嫦娥云上舞翩翩。
+欲知今夕是何年？吴刚醉卧桂花间。</div>
+    <div class="poem-note">—— 云清题《桂花间》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>月满、嫦娥、吴刚，皆是内景之外相：月圆是金精满，嫦娥舞是神气交融之妙，吴刚醉是凡心化入道境。「今夕何年」——入定之中，时空俱忘，只余一片清光。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《大道途》</div>
+    <div class="poem-body">一点灵光便是符，试问几人识河图？
+天地之数阴阳倒，乾坤失了大道途。</div>
+    <div class="poem-note">—— 云清题《大道途》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一点灵光」是河图洛书之根、先天之符，然识者稀；阴阳颠倒、乾坤失序，喻后世多失真传。修行要返本还源，从「倒着练」回到「顺先天」，方不迷大道途。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《向何去》</div>
+    <div class="poem-body">芸芸众生忙忙碌，几人识得回家路？
+大道殊途雾迷眼，情恨轮回向何去？</div>
+    <div class="poem-note">—— 云清题《向何去》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>众生忙忙碌碌，却少有人识「回家路」——回家的路，就是回归自性、回归先天。情恨轮回皆因迷眼，拨开迷雾、认得本心，方知何去何从。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《可有道》</div>
+    <div class="poem-body">万两黄金可有道？十字街头渡有缘。
+遇师点穿玄关窍，一粒金丹值几钱？</div>
+    <div class="poem-note">—— 云清题《可有道》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>黄金万两，买不来一个「道」字；玄关一窍，非明师点破不可得。一粒金丹，价值连城亦无法度量——道是无价，贵在得真传、遇明师。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《紫霄宫》</div>
+    <div class="poem-body">五行攒簇戊己中，二六时辰勤用功。
+待到一粒金丹成，方知云外紫霄宫。</div>
+    <div class="poem-note">—— 云清题紫霄宫</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「五行攒簇」是五气朝元；「戊己」是意土居中调和；「二六时辰」是昼夜不失的用功。五行合一、勤修不辍，金丹成时，方见紫霄——这是积功累行、水到渠成。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《醉仙翁》</div>
+    <div class="poem-body">一轮明月挂高空，先天一炁透黄中。
+三花聚顶朝宫阙，方是大罗醉仙翁。</div>
+    <div class="poem-note">—— 云清题《醉仙翁》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>明月是性光朗照，先天一炁透黄中（黄庭）是命功成就；「三花聚顶」是精气神三宝上朝泥丸。性光、炁足、三花聚，则大罗可期——醉仙之乐，是功成之乐。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《一念间》</div>
+    <div class="poem-body">一师一禅一洞天，生生了道大罗仙。
+乾坤常转演八卦，日月山河一念间。</div>
+    <div class="poem-note">—— 云清题《一念间》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一师一禅一洞天」，修行要义在专一；「日月山河一念间」，是定慧成就后的一念超然。乾坤虽大，不出此心一念——守得这一念，即守住了整个洞天。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《蟠桃宴》</div>
+    <div class="poem-body">三月初三蟠桃宴，玄天真武迎圣诞。
+三界内外皆喜乐，醉卧仙露金光灿。</div>
+    <div class="poem-note">—— 云清题蟠桃宴</div>
+    <div class="poem-interp"><strong>修行解读：</strong>三月初三真武圣诞、王母蟠桃，是道家重要节令；「蟠桃」喻长生之果、金丹之成。节令是外相，内里是提醒：顺天时、积功德，方能赴此长生之宴。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《无根树》</div>
+    <div class="poem-body">双脚泥泞难迈步，心中迷了回家路。
+只因众生难渡化，虚幻执恋无根树。</div>
+    <div class="poem-note">—— 云清题《无根树》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「无根树」喻执着于虚幻、无有实根的欲念（张至顺有《无根树》丹诀）。双脚泥泞是业力牵缠，心中迷路是心性不明——修行先拔无根之恋，方能迈步回家。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《拥娇娃》</div>
+    <div class="poem-body">朝辞仙君别天涯，暮卧南山饮晚霞。
+何日再续朱帘梦，罗缦声声拥娇娃。</div>
+    <div class="poem-note">—— 云清题《拥娇娃》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>借「仙君」「娇娃」写情，实是借情喻道：修行者亦有尘缘情思，关键在「别天涯」——放下情执，饮晚霞于南山。情而不执，方是修真者待情之道。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《归殿堂》</div>
+    <div class="poem-body">醉卧南山幽梦长，嫦娥宫中舞霓裳。
+情愫寄与天边月，仙君何日归殿堂？</div>
+    <div class="poem-note">—— 云清题归殿堂</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「归殿堂」是回归自性之殿、回归元神之堂。情愫寄月，是寄于清静；仙君归殿，是神还其舍。修行者即便涉世，也当常念归根复命，莫使心神外驰不返。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玄眼赞》</div>
+    <div class="poem-body">玄玄一眼含万法，天地日月尽其中。
+愚人不识个中妙，懵懵懂懂晨暮钟。</div>
+    <div class="poem-note">—— 云清题玄眼</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「玄眼」是慧眼、天眼，是开悟后照见万法之本的那只「眼」。天地日月尽收其中，喻见性后的圆明；愚人不识，则晨钟暮鼓亦是懵懂——修行要在开眼，而非徒敲木鱼。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2023 ═══════════ -->
+<section class="year" id="2023">
+  <div class="year-head"><span class="y">2023年</span><span class="y-count">· 九首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《题冬至》</div>
+    <div class="poem-body">一阳生发万象新，紫气东来风满巾。
+雷震大地天雨润，卦里乾坤屯满金。</div>
+    <div class="poem-note">—— 云清题冬至</div>
+    <div class="poem-interp"><strong>修行解读：</strong>冬至一阳来复，是内丹采药、进火的关键；「屯」卦是万物初生之象。修行者于此时节下手，顺一阳之机采药归炉，则万象更新、金丹有期。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《达摩意》</div>
+    <div class="poem-body">禅心一诀内外通，一轮明月挂高空。
+赤子之心利众生，莲台之上显神功。</div>
+    <div class="poem-note">—— 云清题达摩意</div>
+    <div class="poem-interp"><strong>修行解读：</strong>达摩西来意，是「明心见性」；明月挂空是性光朗照。「赤子之心」是修真之要——心如赤子则纯净，纯净则能利众生，莲台自然显现。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《透黄中》</div>
+    <div class="poem-body">玄关阵阵螺旋风，雷声隐隐震虚空。
+电光灼处寻真种，先天一炁透黄中。</div>
+    <div class="poem-note">—— 云清题《透黄中》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玄关窍开，如螺旋风起、雷声隐隐，是先天一炁发动之征；「电光灼处」正是采真种（先天之药）之时。守得此机，一炁自透黄中（中丹田）。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《嘱财神》</div>
+    <div class="poem-body">赵公山上有财神，招财进宝赐良人。
+嘱令担起国财担，执掌乾坤聚宝盆。</div>
+    <div class="poem-note">—— 云清题财神山</div>
+    <div class="poem-interp"><strong>修行解读：</strong>财神之「财」，在修行中是「法财侣地」之财，是成道资粮；「担起国财担」是发大愿、担大任。修行者不避财、不贪财，以财养道、以道驭财。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《金光洞》</div>
+    <div class="poem-body">金光洞内练长生，太乙真人掌明灯。
+阴鼎阳炉铅汞齐，金丹粒粒仙乐声。</div>
+    <div class="poem-note">—— 云清题金光洞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>金光洞是太乙真人（内丹祖师）之道场；「阴鼎阳炉铅汞齐」是内丹的火候与药物。炼得铅汞相合、炉火纯熟，则金丹粒粒、仙乐自鸣——这是丹道正脉。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《赞北斗》</div>
+    <div class="poem-body">北斗星君大神威，运转星斗绕紫微。
+积福延生护众生，功圆醉月共邀杯。</div>
+    <div class="poem-note">—— 云清赞北斗</div>
+    <div class="poem-interp"><strong>修行解读：</strong>北斗主生死、掌命籍，是「天心」「天枢」之外象。修行者拜斗，实是拜「自性之枢」——心定则斗转星移皆不乱，积福延生，功圆方有邀杯之乐。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《忆玄女》</div>
+    <div class="poem-body">声声步云梯，九天会玄女。
+醉问思君否？月落泪成溪。
+一念山河远，与卿各东西。
+待到南北统，共饮丹露期。</div>
+    <div class="poem-note">—— 云清题《忆玄女》</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玄女是「阴」之尊、是元神之对偶（阴阳相偶）。「步云梯」「会玄女」喻神气相合、阴阳交媾；「南北统」是坎离既济。此诗借情写丹，是内丹阴阳之道的诗化。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玉皇诞》</div>
+    <div class="poem-body">万古一帝玉皇尊，善护三界诲尊尊。
+运转乾坤日月星，万里河山万里春。</div>
+    <div class="poem-note">—— 云清贺玉皇诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玉皇喻元神、喻统御周身之主。修行使元神复位、主君当朝，则气血如日月星辰运转有序，身心如河山得春——主明则国安，神定则身和。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺新春》</div>
+    <div class="poem-body">花满山林月满天，福禄寿喜赐人间。
+待到山河大地统，闲庭信步紫云巅！</div>
+    <div class="poem-note">—— 云清贺癸卯春节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>花月满，喻精气神俱足；「山河大地统」喻身心调和、天人合一。修行到内外俱安，则闲庭信步亦在紫云巅——平常心即是道，平常处即是仙乡。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2022 ═══════════ -->
+<section class="year" id="2022">
+  <div class="year-head"><span class="y">2022年</span><span class="y-count">· 十五首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《闲庭步》</div>
+    <div class="poem-body">一炁化虚无，何言来与去。
+太初威神力，三界闲庭步。</div>
+    <div class="poem-note">—— 云清题闲庭步</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一炁化虚无」是炼虚合道之境，来去俱空；「太初威神力」是先天之能。修到合道，则三界任我闲庭信步——无来无去，是修行的究竟。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《偃月炉》</div>
+    <div class="poem-body">移去乾坤偃月炉，莲台直上紫云天。
+轻清一炁任往来，养个儿郎大罗仙。</div>
+    <div class="poem-note">—— 云清题下元节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「偃月炉」是下丹田之炉，取坎填离、移炉换鼎之地；「养个儿郎」是养圣胎（阳神）。轻清一炁往来自如，圣胎养成，便是大罗仙。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《照华夏》</div>
+    <div class="poem-body">一掌乾坤罩天下，任凭风高舞冬夏。
+四象阵中翻巨龙，光芒万丈照华夏！</div>
+    <div class="poem-note">—— 云清</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一掌乾坤」是定力、是掌中握道；「四象」是青龙白虎朱雀玄武，喻周身气机。四象调、巨龙（龙脉/阳气）翻，则光芒万丈——自身气盛，方能光照一方。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《更新相》</div>
+    <div class="poem-body">高峡出平湖，神女未抱恙？
+明月今又有，山河更新相。</div>
+    <div class="poem-note">—— 云清题中秋节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「高峡平湖」喻心境由险入平、由动入静；「山河更新相」是脱胎换骨。修行每上一层，身心山河便更新一次——月中观己，观的是这更新之相。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《是儿郎》</div>
+    <div class="poem-body">天作罗帐地作床，披星戴月紫云裳。
+醉卧清风任我狂，一点元阳是儿郎！</div>
+    <div class="poem-note">—— 云清题修元</div>
+    <div class="poem-interp"><strong>修行解读：</strong>天地为帐床，是修行者的豪迈与自在；「一点元阳」是先天真一、是真正的「儿郎」（圣胎）。守得这一点元阳不泄，便是修真男儿、顶天立地。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《地官诞》</div>
+    <div class="poem-body">因果方是大科学，宇内众生无漏缺。
+地官赦罪分善恶，积善正心祖孙乐。</div>
+    <div class="poem-note">—— 云清题中元节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「因果是大科学」，是道家的因果观——善恶有报、分毫不差。地官赦罪在自心悔过；积善正心，福及子孙。修行的根本，在正心、在积善。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《雷霆震》</div>
+    <div class="poem-body">雷声隐隐震虚空，先天一炁透黄中。
+金鞭挥舞惩恶魔，丹鼎之内烈火轰！</div>
+    <div class="poem-note">—— 云清贺雷神诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>雷声隐隐，是先天一炁发动、真阳上透之象；「金鞭惩恶魔」喻真阳剿灭身中阴邪、杂念。丹鼎烈火轰，是进火炼己、驱阴返阳的功夫。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《慈航渡》</div>
+    <div class="poem-body">慈航悲心观音诞，广修功德护良善。
+净瓶洒过天际线，摆渡良人登彼岸。</div>
+    <div class="poem-note">—— 云清贺观音诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>净瓶杨柳，洒的是慈悲甘露、清凉法水；彼岸是解脱。修行者以悲心为舟、功德为桨，自渡渡人——摆渡良人，即是摆渡自己。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《王灵官》</div>
+    <div class="poem-body">赫赫威灵三眼神，扬起金鞭惩恶人！
+朗朗乾坤清明地，大好河山大好人！</div>
+    <div class="poem-note">—— 云清赞威神灵官</div>
+    <div class="poem-interp"><strong>修行解读：</strong>王灵官是护法神，三眼观善恶、金鞭惩恶，喻修行者须有「护法之志」——护持正念、铲除心魔。心地清明，则乾坤朗朗，方有「大好河山大好人」。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《春风习》</div>
+    <div class="poem-body">三月杨柳铮铮力，横扫华夏大瘟疫！
+若问谁有此道功，武当之巅仙阵立。
+江河大地遭此劫，乌云压顶瘟魔急。
+雷霆万钧声声烈，还我山河春风习！</div>
+    <div class="poem-note">—— 云清题春风习</div>
+    <div class="poem-interp"><strong>修行解读：</strong>以「瘟疫」喻身中阴邪浊气、喻世间劫难；「武当仙阵」喻道法护世之力。修行者以道功扫浊、以正炁驱邪——内外皆如是，还身心一个「春风习」。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《龙抬头》</div>
+    <div class="poem-body">天龙八部显神通，巍巍华夏立大中。
+土地神祗壬寅兴，玄龙出令道化功！</div>
+    <div class="poem-note">—— 云清题二月二</div>
+    <div class="poem-interp"><strong>修行解读：</strong>二月二龙抬头，是阳气生发之节；「玄龙」是玄龙堂法脉之号，亦是身中真阳之龙。真阳抬头、阳气上腾，是采药进火之时——玄龙出令，即真阳当令。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《上元节》</div>
+    <div class="poem-body">紫微帝君化甘露，万里河山万里春。
+功圆德就步玉京，元元一炁大天尊。</div>
+    <div class="poem-note">—— 云清题元宵节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>紫微是众星之主、元神之象；「化甘露」是津液满口、醍醐灌顶之内景。功圆德就，步玉京、证天尊——由内丹而通天地，是修行之归宿。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《壬寅新》</div>
+    <div class="poem-body">壬癸灵蛇玄武将，龙腾虎跃万象新。
+天律昭昭佑良善，玄玄一念出宙心。</div>
+    <div class="poem-note">—— 云清题壬寅年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>壬癸玄武是北方水、是肾精肾水；龙腾虎跃是精气神俱动。守天律、行良善，则「玄玄一念」自出宙心——先天一念，是宇宙本心，是修行归根处。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《中洲立》</div>
+    <div class="poem-body">北蒙南台大一统，千年帝都中洲立。
+五湖四海朝中华，赫赫功勋皆归悉！</div>
+    <div class="poem-note">—— 云清题于2021隆冬</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「大一统」「中洲立」喻身心归一、五气朝元——中洲是中央戊己土，是意、是枢纽。五湖四海（四象五行）皆朝于中，是修行「守中」之果：归于一，方得全功。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺元旦》</div>
+    <div class="poem-body">乾坤交泰不老松，大千世界一掌中。
+元元之氣舞震旦，巍巍山河运运通。</div>
+    <div class="poem-note">—— 云清贺2022元旦</div>
+    <div class="poem-interp"><strong>修行解读：</strong>乾坤交泰，是阴阳和合、天地气交；「一掌中」是掌握大千的定力。元炁舞于震旦（东方），山河运通——身心气顺，则万事皆通。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2021 ═══════════ -->
+<section class="year" id="2021">
+  <div class="year-head"><span class="y">2021年</span><span class="y-count">· 十七首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《赞八塔》</div>
+    <div class="poem-body">惠能即文殊，此台即五台。
+妙成一切智，圆满一切事。</div>
+    <div class="poem-note">—— 云清题八塔</div>
+    <div class="poem-interp"><strong>修行解读：</strong>惠能如文殊，是「智慧」；此台即五台，是「当下即是」。修行要在智慧上成就——一切智、一切事，皆从明心见性中流出。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《冬至节》</div>
+    <div class="poem-body">一阳生起万物兴，乾隆鼎内炉火升。
+炼就一粒金丹种，道果成就任飞升。</div>
+    <div class="poem-note">—— 云清题冬至</div>
+    <div class="poem-interp"><strong>修行解读：</strong>一阳生，是采药之机；炉火升，是进火之候。于冬至阳气初动时下手炼己，炼就金丹之种，则道果可期——顺天时而修，是内丹要义。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《会三清》</div>
+    <div class="poem-body">千年明月千年心，孤舟泛波天河惊。
+巍巍玉京谁去往？大罗之上会三清。</div>
+    <div class="poem-note">—— 云清题会三清</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「千年明月千年心」，是那轮亘古不变的自性；「孤舟泛波」是独修之勇。玉京、三清，是修行极境——守得此心，终能于大罗之上，会三清、证本来。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《华光诞》</div>
+    <div class="poem-body">赫赫威名华光帝，手托金砖握长枪。
+五百灵官左右随，功德无量步未央！</div>
+    <div class="poem-note">—— 云清贺华光诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>华光帝三眼、持枪，喻「明察」与「决断」；五百灵官是护法。修行要有护法之威——明辨善恶、果断去妄，功德无量，方能步步未央、长生久视。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《又中秋》</div>
+    <div class="poem-body">镇守武当几多秋，岁岁中秋今中秋。
+玄武一呼万军应，天下一统乐悠悠！</div>
+    <div class="poem-note">—— 云清题中秋节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>镇守武当，喻坚守道场、坚守本心；「玄武一呼万军应」喻真武（元阳/肾精）号令周身气血。守得真阳，则身心一统、乐而悠悠。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《万世师》</div>
+    <div class="poem-body">万世师表今何在？一掌乾坤大道行。
+仁爱大儒家天下，功德无量利有情。</div>
+    <div class="poem-note">—— 云清题教师节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>万世师表，是「师」之德——传道、授业、解惑。修行路上，师是引路人；成道之后，当以师之德利有情。尊师重道，是道门第一义。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《无去来》</div>
+    <div class="poem-body">有相无相皆实相，无去无来即如来。
+混元一炁包万物，天地日月含三才。</div>
+    <div class="poem-note">—— 云清题中元节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「无去无来即如来」，是超越生灭的实相；混元一炁包万物，是先天一炁之广大。修行到「无去来」，则超脱生死——这是中元节对生死的最高观照。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玉梁上》</div>
+    <div class="poem-body">提起日月一壶煎，混沌乾坤一目然。
+幽幽清境玉梁上，大道虚无体乾乾。</div>
+    <div class="poem-note">—— 云清题玉梁上</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「日月一壶煎」是日魂月魄合炼、坎离交媾；「体乾乾」是纯阳刚健。炼到乾坤了然，则入幽幽清境——大道虚无，正是炼虚合道之境。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《武当赞》</div>
+    <div class="poem-body">武当在则华夏在，先天一炁紫云盖。
+混沌鸿蒙开天地，赫赫功勋传万代。</div>
+    <div class="poem-note">—— 云清赞武当</div>
+    <div class="poem-interp"><strong>修行解读：</strong>武当是真武道场，是「镇守」之象征；先天一炁是万物之本。修行者守此先天一炁，如武当镇守华夏——道场在，则道脉在、正气在。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《望明月》</div>
+    <div class="poem-body">达摩老祖西来意，一轮明月挂高空。
+日月常转乾坤定，方得青青不老松。</div>
+    <div class="poem-note">—— 云清题月全食</div>
+    <div class="poem-interp"><strong>修行解读：</strong>达摩西来意，是「明心」；明月挂空，是「见性」。日月常转、乾坤定，是性命双修到「常」——性光不灭，方得不老之松。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《财神诞》</div>
+    <div class="poem-body">赫赫威灵赵公明，五路财神度有情。
+人天福报世间法，法侣财地利修行。</div>
+    <div class="poem-note">—— 云清贺财神诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「法侣财地」是修行四资粮——财是其中之一，不可偏废。五路财神度有情，喻福报资粮广济；修行者以财养道，而非为财所役。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《真武诞》</div>
+    <div class="poem-body">玄天真武大慈心，脚踏龟蛇北斗星。
+造福三界利有情，功德圆满步玉京！</div>
+    <div class="poem-note">—— 云清题真武诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>真武踏龟蛇，喻降伏身心二魔、水火既济；北斗是命枢。真武之「真」，是元神；「武」是降伏之勇。降伏心魔，方能步玉京。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《老君诞》</div>
+    <div class="poem-body">太上一炁化三清，乾坤定位万物兴。
+功满德就任飞腾，群仙相邀步玉京。</div>
+    <div class="poem-note">—— 云清贺老君诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>一炁化三清，是先天一炁的三种显化（元始、灵宝、道德）；乾坤定位是天地有序。修行的终极，是复归这一炁——功满德就，自然飞腾。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《土地诞》</div>
+    <div class="poem-body">东方神龙抬头旺，国泰民安心欢畅。
+乾坤正位天运隆，土地神祗福浩荡！</div>
+    <div class="poem-note">—— 云清贺土地神</div>
+    <div class="poem-interp"><strong>修行解读：</strong>土地神是根基、是福德之基；龙抬头是阳气升。修行先固根本——根基稳、福德厚，方谈得上飞升；乾坤正位，是身心归正。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺元宵》</div>
+    <div class="poem-body">若问达摩西来意，一轮明月挂高空。
+修得福慧大圆满，君是青青不老松。</div>
+    <div class="poem-note">—— 云清贺元宵节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>明月是自性、是福慧圆满之相。元宵满月，正是观「自性之圆」之时——修得福慧俱足，如松常青，方是元宵的真义。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺新年》</div>
+    <div class="poem-body">一二三四五六七，斗牛女虚危室壁。
+太极宫中演四象，紫微赐福和风习。</div>
+    <div class="poem-note">—— 云清题辛丑正月初一</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一二三四五六七」是河图之数，斗牛女虚危室壁是二十八宿——天地之数、星宿之序。太极演四象，是阴阳化生——修行合此天地节律，方得紫微赐福。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《圣凡间》</div>
+    <div class="poem-body">朗朗乾坤一片天，日月常转圣凡间。
+识透阴阳玄妙理，太极之上大罗仙。</div>
+    <div class="poem-note">—— 云清题圣凡间</div>
+    <div class="poem-interp"><strong>修行解读：</strong>圣凡本一体，同处一片天；差别只在「识透阴阳」与否。识透阴阳之理，凡即是圣——太极之上，正是大罗仙境。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2020 ═══════════ -->
+<section class="year" id="2020">
+  <div class="year-head"><span class="y">2020年</span><span class="y-count">· 四十五首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《无极道》</div>
+    <div class="poem-body">日月轮转西又东，天下岂有不老松？
+欲归深山密林处，直证无极大道功。</div>
+    <div class="poem-note">—— 云清题观音出家日</div>
+    <div class="poem-interp"><strong>修行解读：</strong>日月轮转，是阴阳交替、岁月流逝；「不老松」是修真之果。「归深山」非避世，是收心返照——直证无极，方超日月轮转。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《今重阳》</div>
+    <div class="poem-body">岁岁九九今重阳，千年轮回谁端详？
+金丹妙诀炼无极，九霄之上乐洋洋。</div>
+    <div class="poem-note">—— 云清题庚子重阳</div>
+    <div class="poem-interp"><strong>修行解读：</strong>重阳是阳数至极，喻炼尽阴质、纯阳之体；「炼无极」是由太极返无极。金丹妙诀炼到纯阳，则超轮回、乐九霄。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《演禅心》</div>
+    <div class="poem-body">六祖谆谆演禅机，天律威威月明西。
+真心一点玄关窍，信步圆灵上天梯。</div>
+    <div class="poem-note">—— 云清题六祖禅</div>
+    <div class="poem-interp"><strong>修行解读：</strong>六祖禅机，是「直指人心、见性成佛」；「真心一点玄关窍」是禅道合参——真心即玄关。守此一点真心，则信步天梯、圆灵自现。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《种金钱》</div>
+    <div class="poem-body">神功运转太极弦，斑斓万象在目前。
+杳杳冥冥见大道，铁牛耕地种金钱。</div>
+    <div class="poem-note">—— 云清题种金钱</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「铁牛耕地」是丹经常喻，指真意下守丹田、勤耕不辍；「种金钱」是种下金丹之种。「杳杳冥冥」是入静之候——恍惚之中，大道自现。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《醉一宵》</div>
+    <div class="poem-body">清风明月玉兔邀，嫦娥仙子舞婀娇。
+此情千古当遗恨，吴刚把酒醉一宵。</div>
+    <div class="poem-note">—— 云清题吴刚醉</div>
+    <div class="poem-interp"><strong>修行解读：</strong>月宫嫦娥、吴刚，是「太阴」之内景；「千古遗恨」喻未成道之憾。修行要趁明月（性光）当空，勤修勿怠——莫待吴刚醉、错失良机。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《夫子笑》</div>
+    <div class="poem-body">至圣先师孔夫子，仁爱德行施华夏。
+孝善文化立根基，国强民富泽天下。</div>
+    <div class="poem-note">—— 云清题孔子诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>孔子讲仁爱孝善，是「人伦之基」；道家讲「忠孝神仙」，人伦亦是修行之基。行孝积善，是命功之外的大根器——根基不立，道业难成。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《七宿星》</div>
+    <div class="poem-body">日出东方一点红，七宿示现伟人东。
+为民立命大功绩，飞腾一跃化金龙。</div>
+    <div class="poem-note">—— 云清题七宿星</div>
+    <div class="poem-interp"><strong>修行解读：</strong>七宿（二十八宿东方苍龙七宿）示现，是「天时」；「为民立命」是「人和」。修行者顺天时、立大愿，为民请命，则飞腾化龙——大愿是成道之大助力。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《中元节》</div>
+    <div class="poem-body">中元地官功德大，赏功罚过安天下。
+三官同巡环宇间，日月乾坤星罗架。</div>
+    <div class="poem-note">—— 云清题地官诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>三官（天地水）主校戒罪福，是「因果」之外相。中元节提醒修行者：功过自校、善恶自审——心净则三官不罚，德厚则天地同安。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《红尘醉》</div>
+    <div class="poem-body">月上高楼红尘醉，情迷五蕴不知岁。
+玄关阵阵雷声彻，灵山之上三期会。</div>
+    <div class="poem-note">—— 云清题玄关阵</div>
+    <div class="poem-interp"><strong>修行解读：</strong>红尘醉、情迷五蕴，是凡夫之沉溺；「玄关雷声彻」是先天一炁发动，惊醒迷梦。修行如玄关之雷，震破五蕴之醉——醒来，方赴灵山之会。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《地神力》</div>
+    <div class="poem-body">六祖禅机度有缘，五土龙神驻殿前。
+丹心大道护三界，日月高悬体乾乾。</div>
+    <div class="poem-note">—— 云清题六祖寺</div>
+    <div class="poem-interp"><strong>修行解读：</strong>六祖禅机是「顿悟」，五土龙神是「护法」；「丹心大道」是性命双修。禅道合流，内修丹、外护法，则体乾乾、日月高悬。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《观音诞》</div>
+    <div class="poem-body">观音莲花遍法界，勤修功德灵珠现。
+一声圣号度有情，福慧圆满自性见。</div>
+    <div class="poem-note">—— 云清题观音成道</div>
+    <div class="poem-interp"><strong>修行解读：</strong>莲花遍法界，喻自性清净；「勤修功德灵珠现」是福慧双修、内丹外果。一声圣号、一念慈悲，度有情亦度己——自性见，则福慧圆满。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《卫正道》</div>
+    <div class="poem-body">龙盘虎踞白云端，百万雄师列两边。
+苦炼神功卫正道，功满德就听诏宣。</div>
+    <div class="poem-note">—— 云清题于立秋</div>
+    <div class="poem-interp"><strong>修行解读：</strong>龙盘虎踞，是身中龙虎（精气）安位；「百万雄师」是周身气血听令。苦炼神功、护卫正道，是修行者的担当——功满德就，方有「听诏」之期。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《不老松》</div>
+    <div class="poem-body">玄天之力大神通，神光弥罗环宇中。
+功满果圆阳神就，玉京之上不老松。</div>
+    <div class="poem-note">—— 云清题不老松</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「阳神就」是炼神还虚、出阳神之果；不老松是长生之喻。功满果圆、阳神成就，方是玉京不老松——这是内丹修行的最高果位。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《长明灯》</div>
+    <div class="poem-body">巍巍武当共神话，玄武坐镇安天下。
+祖师殿里长明灯，光芒万丈护华夏。</div>
+    <div class="poem-note">—— 云清题长明灯</div>
+    <div class="poem-interp"><strong>修行解读：</strong>祖师殿长明灯，是「法脉相续、灯灯不灭」之象。修行者续此灯——传承不绝，则道脉长明；守得心中这盏灯，则光芒万丈。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《太极云》</div>
+    <div class="poem-body">太极心动化阴阳，乾坤日月两茫茫。
+待到江河大一统，举杯邀月诉柔肠。</div>
+    <div class="poem-note">—— 云清题太极云</div>
+    <div class="poem-interp"><strong>修行解读：</strong>太极心动则阴阳分，是「一念生则万法起」；「江河大一统」喻身心归一、坎离既济。修行从「分」回到「统」，方能邀月诉怀、与道合一。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《端午节》</div>
+    <div class="poem-body">桃花仙子艾丛中，翩翩起舞裹香棕。
+今朝又逢端午节，时光匆匆凡尘共。</div>
+    <div class="poem-note">—— 云清题端午</div>
+    <div class="poem-interp"><strong>修行解读：</strong>端午是阳气最盛之日，艾草辟邪、香粽养身。修行者顺此纯阳之节，采阳、固阳、炼阳——时光匆匆，莫负这纯阳好时节。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《彩虹飞》</div>
+    <div class="poem-body">彩虹飞渡南粤天，白云之上大罗仙。
+金丹一粒藏世界，不羡鸳鸯只羡仙。</div>
+    <div class="poem-note">—— 云清题白云山彩虹</div>
+    <div class="poem-interp"><strong>修行解读：</strong>彩虹是「祥瑞」、是天人感应之象；「金丹一粒藏世界」是须弥纳于芥子。修行得此一粒金丹，则不羡红尘鸳鸯——只羡仙，是修行者的志向。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《伴青松》</div>
+    <div class="poem-body">荡魔祖师显神通，百万雄兵巡宇中。
+护国仙师今何在？幽幽清泉伴青松。</div>
+    <div class="poem-note">—— 云清题护国事</div>
+    <div class="poem-interp"><strong>修行解读：</strong>荡魔祖师是真武，喻降伏心魔、荡涤阴邪；「清泉伴青松」是清净之果。荡魔之后，心地如清泉、如青松——清静，是修行之归宿。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《彩虹颂》</div>
+    <div class="poem-body">白云之下彩虹共，紫微星君星从众。
+天宪施行真心动，横扫三界邪魔众！</div>
+    <div class="poem-note">—— 云清题白云山彩虹</div>
+    <div class="poem-interp"><strong>修行解读：</strong>紫微星君是众星之主、元神之君；「横扫邪魔」是正炁驱邪。修行以真炁荡涤身中阴邪，如紫微行令——正炁存，则邪魔自散。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《自飘渺》</div>
+    <div class="poem-body">白云峰上自飘渺，仙山有路勤为径。
+安炉设鼎烹水火，金丹药熟是大定。</div>
+    <div class="poem-note">—— 云清题白云山</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「勤为径」是修行之要——无勤无成；「安炉设鼎烹水火」是内丹下手。水火烹炼到丹熟，则入大定——勤与定，是丹道两翼。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《吕祖诞》</div>
+    <div class="poem-body">洞宾愿力大无边，欲渡凡人成神仙。
+摘花为凭阳神就，方外真有大罗仙。</div>
+    <div class="poem-note">—— 云清贺吕祖诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>吕祖是「渡人」之典范，发大愿渡尽凡人；「摘花为凭」喻阳神成就之证。修行者当效吕祖——自修成道，更发愿渡人。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺佛诞》</div>
+    <div class="poem-body">佛陀下世度众生，三教原本是一根。
+菩提路上一明灯，指引善信勤修真。</div>
+    <div class="poem-note">—— 云清贺佛诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「三教原本是一根」，是儒释道同源之见；菩提明灯是指路之灯。修行不拘门户，认的是「勤修真」这一根本——万法归一。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《演八卦》</div>
+    <div class="poem-body">伏羲倒庄演八卦，河图生成洛书化。
+识得阴阳玄妙理，去与仙师茶后话。</div>
+    <div class="poem-note">—— 云清题八卦玄机</div>
+    <div class="poem-interp"><strong>修行解读：</strong>伏羲演八卦、河图洛书，是「数理」之祖；识得阴阳之理，方能与仙师对话。修行要通易理——易道即天道，参透方入道门。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《忆母爱》</div>
+    <div class="poem-body">人生百味一碗中，面面俱到沐春风。
+环宇八方谁最大？母爱无边谁争锋！</div>
+    <div class="poem-note">—— 云清忆少年时母亲买的一碗面</div>
+    <div class="poem-interp"><strong>修行解读：</strong>一碗面里的母爱，是「至情」；道家讲「慈」，母爱是慈悲之根。修行者由孝亲而慈众生——孝为百行之源，亦是修性之基。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《武财神》</div>
+    <div class="poem-body">赫赫威风玄坛君，功德圆满武财神。
+金鞭黑虎巡三界，护持财宝赐良人。</div>
+    <div class="poem-note">—— 云清贺财神诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>武财神赵公明，金鞭黑虎，喻「以武护财」——财须正取、以德护之。修行者求「法财」，以正念护持，财为道用，方是真财神。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《说东西》</div>
+    <div class="poem-body">宇宙气运布四方，庚子流年巧乖张。
+东西运数大失衡，金木相拼声铿锵。</div>
+    <div class="poem-note">—— 云清题庚子流年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>庚子金水相生、东西失衡，是「流年气运」；金木相拼是五行生克。修行者观流年，是观天时——顺五行之运，方能趋吉避凶。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《真武诞》</div>
+    <div class="poem-body">玄天神通大无边，百万雄兵比钢坚。
+修炼圆满天机现，世界大同天下安。</div>
+    <div class="poem-note">—— 云清题真武诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>真武神通，是「玄天」之力——先天之力；「修炼圆满天机现」是功成之兆。修到圆满，则天机自现、天下大同——内圣而外王。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《观音诞》</div>
+    <div class="poem-body">大慈大悲观世音，循声显化传妙心。
+有缘善信若相应，福禄安康万象新。</div>
+    <div class="poem-note">—— 云清贺观音诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>观音循声救苦，是「慈悲相应」；修行者以诚心相应，则得加持。心诚则灵——「相应」二字，是修行与祖师、与道感应的关键。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《老君诞》</div>
+    <div class="poem-body">玄元一炁化三清，日月常转满天星。
+金丹一粒弥大宇，道德千言天地清。</div>
+    <div class="poem-note">—— 云清贺老君诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「道德千言」是老君《道德经》，是修行之纲；「金丹一粒弥大宇」是内丹之果。道德为纲、金丹为果——知行合一，方天地清。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《惊雷阵》</div>
+    <div class="poem-body">白云飘飘若醉仙，雷部诸君舞翩跹。
+若问今夕谁与共？太极炉旁排大千。</div>
+    <div class="poem-note">—— 云清题惊蛰</div>
+    <div class="poem-interp"><strong>修行解读：</strong>惊蛰雷动，是阳气生发、万物复苏之节；「太极炉旁排大千」喻一炉之内、万化生焉。修行顺此春雷之气，进火采药，如雷部催发。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《六祖诞》</div>
+    <div class="poem-body">慧能大师法无边，如如自性满人天。
+隐性埋名十五载，证得佛禅一指间。</div>
+    <div class="poem-note">—— 云清贺六祖诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>六祖隐修十五载，是「潜修」之范；「如如自性」是明心见性之果。修行要耐得住潜藏——大器晚成，一指之间，是十五年功夫的爆发。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《简与素》</div>
+    <div class="poem-body">人生至妙简与素，不为名利前后赴。
+清清一气贯内外，福寿康泰与君度。</div>
+    <div class="poem-note">—— 云清劝简与素</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「简与素」是养生、修道之要——少私寡欲；清清一气，是简素之后身心之态。不为名利所驱，一气贯通，福寿自来。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《土地诞》</div>
+    <div class="poem-body">一方土地一方人，一尊城隍一座城。
+龙腾华夏大地安，日月清灵显大能。</div>
+    <div class="poem-note">—— 云清贺土地诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>一方土地护一方人，喻「根基」与「方位」；城隍主一城。修行者各安其位、各守其根——根基稳、方位正，则大地安、大道通。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《修玄珠》</div>
+    <div class="poem-body">朝乘龙辇巡太虚，夕归三清玉神都。
+俯看众生如是苦，谆谆教导修玄珠。</div>
+    <div class="poem-note">—— 云清观众生题</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「玄珠」是金丹之别称（玄珠出离坎）；「巡太虚」「归神都」喻阳神出入。修行者见众生苦，当以「修玄珠」之法自度度人——玄珠是离苦之本。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《赞玄帝》</div>
+    <div class="poem-body">坐镇武当生慈悲，一口吞尽荆楚瘟。
+宏愿深深护华夏，试问天下谁与争？</div>
+    <div class="poem-note">—— 云清赞玄帝慈悲</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玄帝（真武）「吞瘟」，喻以正炁荡涤疫邪；宏愿护世，是慈悲之大用。修行者炼就纯阳正炁，方能护己护人、荡魔除瘟。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《白云湖》</div>
+    <div class="poem-body">白云之下白云湖，婀娜仙子戏莲芦。
+若问大道修仙事，太极宫中安鼎炉。</div>
+    <div class="poem-note">—— 云清题白云湖</div>
+    <div class="poem-interp"><strong>修行解读：</strong>白云湖、仙子莲芦，是清静之外境；「安鼎炉」是内丹下手。外境清静，正好安炉设鼎——修行择清净地，是助缘，非根本。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《玄武音》</div>
+    <div class="poem-body">六天教主玄武帝，荆楚大地显威灵。
+一声令下山河净，万民同乐步闲庭。</div>
+    <div class="poem-note">—— 云清题于公益讲座</div>
+    <div class="poem-interp"><strong>修行解读：</strong>玄武帝一声令下，山河净——喻元神行令、周身气机顺。修行者调身调息，如发号施令，令身心归一，则万民（万念）同乐。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《非坎离》</div>
+    <div class="poem-body">一呼一吸阴阳理，进火退符两相宜。
+若能凝神入气穴，金丹大道非坎离。</div>
+    <div class="poem-note">—— 云清题进火退符</div>
+    <div class="poem-interp"><strong>修行解读：</strong>一呼一吸，即是阴阳、即是火候；进火退符是调息之要。「凝神入气穴」是丹道核心功夫——神气合一，则超越坎离之相，金丹自成。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《天官诞》</div>
+    <div class="poem-body">天官赐福华夏地，国泰民安平安季。
+紫气升腾功德满，玉霄殿里排座次。</div>
+    <div class="poem-note">—— 云清贺天官诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>天官赐福，是「福德」；紫气升腾，是「功满」之象。修行积功累德，德满则紫气腾、座次排——功德是修行的资粮与阶位。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《金银花》</div>
+    <div class="poem-body">天降灵物金银花，祛毒除疫奇效佳。
+厚福之人作茶饮，解疫策里暗示它。</div>
+    <div class="poem-note">—— 云清示解疫策</div>
+    <div class="poem-interp"><strong>修行解读：</strong>金银花祛毒除疫，喻「清凉解毒」之法——身中有热毒、心火，当以清凉降之。修行调心，如金银花茶，清心火、解热毒，保一身安泰。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺春节》</div>
+    <div class="poem-body">黍子大如须弥山，金银珠玉供人天。
+国强民富盛世华，君民同乐百花间。</div>
+    <div class="poem-note">—— 云清贺庚子春节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「黍子大如须弥」是芥纳须弥、一粒含万法之妙；金银珠玉是福德之相。修行者观一粒粟而知大千——心量广大，则福报广大。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《中宫住》</div>
+    <div class="poem-body">不在坎离颠倒间，何须搬弄汞和铅。
+真心一点中宫住，养就灵童成金仙。</div>
+    <div class="poem-note">—— 云清题于白云山</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「中宫」是黄庭、是意土；「真心一点中宫住」是守中、是凝神。不执坎离铅汞之相，但守中宫一点真心，则灵童（圣胎）养成、金仙可期。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《藏大千》</div>
+    <div class="poem-body">太虚之中有真意，一粒金丹藏大千。
+若问阴阳大道理，灵童挥手一指间。</div>
+    <div class="poem-note">—— 云清题于白云山间</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「太虚有真意」，是炼虚合道之境；「一粒金丹藏大千」是金丹之广大。金丹成，则阴阳之道在挥手一指间——大道至简，尽在一粒金丹。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《灶君诞》</div>
+    <div class="poem-body">灶君功德大无边，食禄烟火布人间。
+奏报天帝万千事，福德衍庆玉京天。</div>
+    <div class="poem-note">—— 云清贺灶君诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>灶君司人间烟火、录人间善恶——修行在日用之间，一举一动皆有记录。常存敬畏、常行善事，则福德衍庆、上达玉京。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《月正西》</div>
+    <div class="poem-body">赫赫红日照东蓬，风动水行月正西。
+手握乾坤日月天，飞腾直上大罗仙。</div>
+    <div class="poem-note">—— 云清题于腊月十五</div>
+    <div class="poem-interp"><strong>修行解读：</strong>日出东、月正西，是阴阳对举、日月同辉；「手握乾坤」是掌握阴阳之权。修行者调和阴阳、把握火候，方能飞腾大罗。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2019 ═══════════ -->
+<section class="year" id="2019">
+  <div class="year-head"><span class="y">2019年</span><span class="y-count">· 四十一首</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《贺元旦》</div>
+    <div class="poem-body">一元震旦福绵绵，国泰民安富贵全。
+万众创新国运强，紫气升腾云呈祥！</div>
+    <div class="poem-note">—— 云清贺2020元旦</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「一元震旦」是元炁初动、万象更新；紫气东来是祥瑞。修行者于岁首，正是「一元复始」——重整身心、再起炉灶之时。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《步玉京》</div>
+    <div class="poem-body">云淡孤影风月清，玄关一窍是天心。
+朗朗云梯今又是，功果圆满步玉京。</div>
+    <div class="poem-note">—— 云清题于万丽湖畔</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「玄关一窍是天心」，点出玄关即天心、即道心；云淡风清是入静之境。守得玄关，功果圆满，自能步玉京——玄关是修行之枢。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《煮先天》</div>
+    <div class="poem-body">皇极金丹粒粒坚，半升铛内煮先天。
+白云之上玄天诀，证得大罗上上仙。</div>
+    <div class="poem-note">—— 云清题于白云寺</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「半升铛内煮先天」是内丹之喻——铛是炉鼎，煮的是先天一炁；皇极金丹是极境之果。于铛内煮先天，是「一炁还元」的功夫。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《三元会》</div>
+    <div class="poem-body">三元宫里众仙家，三花聚顶乐哈哈。
+勤修金丹广利他，太极一弦清静家。</div>
+    <div class="poem-note">—— 云清贺三元建宫一千七百年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「三花聚顶」是精气神三宝上朝泥丸，是内丹成象；「勤修金丹广利他」是自度度人。太极一弦、清静为家——清静是修行者永恒的家。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《转法轮》</div>
+    <div class="poem-body">六祖转动大法轮，宏愿救度善良魂。
+金光普照三摩地，法性圆满丹珠纯。</div>
+    <div class="poem-note">—— 云清题于六祖寺</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「法轮」喻周天运转、法脉相续；「三摩地」是定境；「丹珠纯」是内丹纯净。法性圆满与丹珠纯熟是一体——禅定与内丹，同归一真。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《映晚红》</div>
+    <div class="poem-body">仙道贵生众生同，生生不息映晚红。
+待到月圆星满空，嫦娥弄酒醉腮红。</div>
+    <div class="poem-note">—— 云清题于珠江畔</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「仙道贵生」是道家核心——贵生、重生、养生；「生生不息」是一炁流转。修行以贵生为本，养得生生不息，则如晚红之盛、月圆之美。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《水官诞》</div>
+    <div class="poem-body">天一生水地六成，水官解厄显威能。
+赐福善众福禄旺，功德圆满任飞腾。</div>
+    <div class="poem-note">—— 云清题于下元节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「天一生水」是河图之数，水为先天之精；水官解厄，是「水德」之济。修行者养肾水、惜元精，如得水官之解——精足则厄散、福来。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《辨龙脉》</div>
+    <div class="poem-body">山有来龙骨脉畅，窝钳乳突细辨量。
+砂水穴位阴阳抱，真心方得福禄旺。</div>
+    <div class="poem-note">—— 云清题于贞山</div>
+    <div class="poem-interp"><strong>修行解读：</strong>风水辨龙脉、点穴，与修行「安炉立鼎、寻气穴」同构——寻得真穴，方能藏风聚气。修行如点穴，须辨明自身「气穴」，凝神入之，方得福禄。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《渡金鳞》</div>
+    <div class="poem-body">秋波片片渡金鳞，龙盘虎踞千层树。
+水天一色瑞炁聚，福禄绵长大财富。</div>
+    <div class="poem-note">—— 云清题于万丽湖</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「渡金鳞」是放生、是慈悲利他；龙盘虎踞是身中龙虎安位。放生积德、内炼龙虎，外功内果并行——福禄绵长，由此而生。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《三眼佛》</div>
+    <div class="poem-body">华光三眼显威灵，千里顺风护坛庭。
+功成身就赴紫霄，琼浆一壶叙前情。</div>
+    <div class="poem-note">—— 云清贺华光诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>华光三眼，是「天眼、慧眼、法眼」之象，喻见地通透；护坛是护法。修行开三眼、护正法，功成赴紫霄——见地是修行的眼睛。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《鱼龙诀》</div>
+    <div class="poem-body">鱼游浅水绿莲间，恍如彩云大醉仙。
+待到修行果圆满，化作金龙上九天。</div>
+    <div class="poem-note">—— 云清题于放生</div>
+    <div class="poem-interp"><strong>修行解读：</strong>鱼游浅水，喻凡夫在尘；「化作金龙」是鱼跃龙门、脱胎换骨。放生见鱼，悟「化龙」之理——修行圆满，方能由鱼化龙、上九天。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《九皇会》</div>
+    <div class="poem-body">九皇会上会众仙，大罗天境不夜天。
+论功行赏排座次，三界内外朗朗天。</div>
+    <div class="poem-note">—— 云清题于九皇会</div>
+    <div class="poem-interp"><strong>修行解读：</strong>九皇是北斗九星、掌生死；「论功行赏排座次」是功果有差。修行如赴九皇会——积功累德，座次自高；大罗不夜天，是成就之境。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《戏莲芦》</div>
+    <div class="poem-body">峨凰嶂上仙女湖，婀娜蹁跹戏莲芦。
+借问仙子今何在？大罗天宫弄醍醐。</div>
+    <div class="poem-note">—— 云清题于仙女湖</div>
+    <div class="poem-interp"><strong>修行解读：</strong>仙女戏莲，是清静之美；「弄醍醐」是炼津化气、醍醐灌顶之内景。修行到身心清凉，如戏莲芦之自在——醍醐之乐，在定境之中。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《贺中秋》</div>
+    <div class="poem-body">岁岁中秋今中秋，月德星君功千秋。
+银光遍洒福德地，千重功果千重修。</div>
+    <div class="poem-note">—— 云清贺中秋</div>
+    <div class="poem-interp"><strong>修行解读：</strong>月德星君，是太阴之德；「千重功果千重修」是功不唐捐、层层精进。中秋满月，正是观「性光圆满」之时——修无止境，千重方满。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《醉花丛》</div>
+    <div class="poem-body">我自深山醉花丛，混混沌沌无身容。
+太极一弦曼妙理，无内无外是大同。</div>
+    <div class="poem-note">—— 云清题于白云山下</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「混混沌沌无身容」是忘身、入定之态；「无内无外是大同」是物我两忘、天人合一。太极一弦，正是这无内外之境——定深，则大同。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《无量光》</div>
+    <div class="poem-body">诸佛愿力渡众生，无量光照遍虚空。
+善行善力利三界，皆有大道无上功。</div>
+    <div class="poem-note">—— 云清题于六祖寺</div>
+    <div class="poem-interp"><strong>修行解读：</strong>无量光是佛之愿力、是性光之广大；「善行善力」是外功。修行以性光普照、以善行利世——内外俱照，方有无上之功。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《地官诞》</div>
+    <div class="poem-body">中元地官功德大，赫赫威灵护华夏。
+大地清宁万物丰，祥云升腾北都宫。</div>
+    <div class="poem-note">—— 云清题于中元节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>地官主校罪福、安大地；「大地清宁万物丰」是地气安、生机旺。修行者心地清宁，则身中万物丰——心安，则身安、物丰。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《七夕节》</div>
+    <div class="poem-body">牛女二宿侍玄武，各掌星盘擂天鼓。
+情根暗生天河会，几时悟得大道语？</div>
+    <div class="poem-note">—— 云清题于七夕</div>
+    <div class="poem-interp"><strong>修行解读：</strong>牛女二宿，是阴阳之对、坎离之象；天河会是阴阳相会。修行者观七夕，悟阴阳交会之机——「几时悟大道」，是借此一问自省。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《朗朗天》</div>
+    <div class="poem-body">万刃兵途一念间，乾坤交泰朗朗天。
+三界内外无怨敌，人人皆做大罗仙。</div>
+    <div class="poem-note">—— 云清于八.一</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「万刃兵途一念间」是念头即战场——一念正，则化干戈；「无怨敌」是慈悲至极。心无怨敌，则乾坤朗朗、人人可成仙。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《体乾乾》</div>
+    <div class="poem-body">玄玄一眼透三界，无中生有五行全。
+天人合一体乾乾，白云之上任悠闲。</div>
+    <div class="poem-note">—— 贺遂宁白云观刘真人诞辰</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「玄玄一眼」是慧眼、是天眼；「无中生有」是先天一炁化五行；「天人合一」是修行极致。体乾乾，是纯阳刚健——至此任悠闲。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《观音诞》</div>
+    <div class="poem-body">慈航真人驾法船，普度众生四部洲。
+功德圆满登无极，好助弥勒把圆收。</div>
+    <div class="poem-note">—— 贺观音诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>慈航法船，是度人之舟；「登无极」是由太极返无极、究竟之境。修行自度度人，功满登无极——助弥勒收圆，是渡化之大愿。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《莲花生》</div>
+    <div class="poem-body">殊胜邬金西北隅，为度众生莲花生。
+显密经论大圆满，三身成就指路灯。</div>
+    <div class="poem-note">—— 贺莲师诞</div>
+    <div class="poem-interp"><strong>修行解读：</strong>莲花生大士，是「大圆满」之祖；「三身成就」是法报化三身。修行者参三身、证圆满——法身清净、报身庄严、化身度众。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《谁今是》</div>
+    <div class="poem-body">朗朗乾坤天地兴，云淡孤影风月清。
+遥问天尊谁今是？紫薇垣中一颗星。</div>
+    <div class="poem-note">—— 云清题于己亥六月初五</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「谁今是」是参「我是谁」——修行者最终要认清真我；「紫微垣中一颗星」喻人人本是真星、本自光明。认星归位，即是修行。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《紫云巅》</div>
+    <div class="poem-body">气贯山河日月天，岁月弹指一挥间。
+惟有金丹最的端，生生不息紫云巅。</div>
+    <div class="poem-note">—— 云清.勉金丹修士</div>
+    <div class="poem-interp"><strong>修行解读：</strong>岁月弹指，惟金丹是「最的端」（最真切）；「生生不息」是金丹之效。修行者当以此为勉——一切外物皆虚，惟有金丹实修，方能生生不息。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《转玄盘》</div>
+    <div class="poem-body">神丹运转八卦盘，诸事历历在目前。
+先天一炁炼无极，方知此是非等闲。</div>
+    <div class="poem-note">—— 云清题于夏至日</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「神丹运转八卦盘」是金丹与易理相合——丹成则万象历历；「先天一炁炼无极」是由有为返无为。至此方知大道非等闲。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《升丹火》</div>
+    <div class="poem-body">夏至艳阳高升时，内外景至丹药贵。
+八卦炉内猛添火，炼就一粒齐天岁。</div>
+    <div class="poem-note">—— 云清勉同修</div>
+    <div class="poem-interp"><strong>修行解读：</strong>夏至阳至极，是采药、进火之最佳时；「八卦炉内猛添火」是进阳火之喻。修行顺天时添火，炼就齐天金丹——火候是丹道关键。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《关帝诞》</div>
+    <div class="poem-body">关公古佛乘愿来，忠肝义胆显威灵。
+护国安民佑善信，功德圆满升紫庭。</div>
+    <div class="poem-note">—— 云清.贺关帝诞辰</div>
+    <div class="poem-interp"><strong>修行解读：</strong>关公之「忠义」是浩然正气；忠肝义胆，是修行者的气节。修行养正气、行忠义，则威灵自显、功德圆满。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《三昧火》</div>
+    <div class="poem-body">圣人呼吸踵为根，金门生起三昧火。
+热浪升腾达九窍，炼化阴质成道果。</div>
+    <div class="poem-note">—— 云清原创于2019.05.15</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「呼吸踵为根」是踵息、是胎息之基；「三昧火」是炼化阴质之火。以三昧真火炼化身中阴浊，方能成道果——这是内丹炼精化气的实修。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《端午节》</div>
+    <div class="poem-body">五月初五阳气旺，莘莘学子前途畅。
+争做国之栋梁材，太平盛世征程上。</div>
+    <div class="poem-note">—— 云清</div>
+    <div class="poem-interp"><strong>修行解读：</strong>端午阳气正旺，是「纯阳」之节；学子求前途，是「立志」。修行者亦当立志——立纯阳之志、栋梁之志，方有前程。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《吕祖诞》</div>
+    <div class="poem-body">孚佑帝君黄粱梦，入山终南拜离权。
+道成显化度众生，无量功德福绵绵。</div>
+    <div class="poem-note">—— 云清.吕祖诞记</div>
+    <div class="poem-interp"><strong>修行解读：</strong>吕祖黄粱一梦，看破功名；入山拜师，是弃儒入道。修行者当如吕祖——看破红尘梦幻，寻师求道，方有黄粱梦醒之悟。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《浴佛节》</div>
+    <div class="poem-body">慈悲喜舍西与东，空有不二法弦中。
+功德圆满福慧衍，入世出世皆圆通。</div>
+    <div class="poem-note">—— 云清.佛诞记</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「空有不二」是佛道共证之中道；「入世出世皆圆通」是修行者的圆融。修行不执空、不著有，出入自在，方为圆通。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《渡原人》</div>
+    <div class="poem-body">万缘散尽山水间，光耀金丹不夜天。
+燕南赵北传大道，渡得原人万万千。</div>
+    <div class="poem-note">—— 云清</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「万缘散尽」是放下万缘、入山水清修；「光耀金丹」是丹成放光。燕南赵北传道，是度人之行——自修成，而后广度原人。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《寻龙穴》</div>
+    <div class="poem-body">玄眼四象风水阵，主穴灵神运四象。
+次穴齐力发灵能，以保有缘永畅旺。</div>
+    <div class="poem-note">—— 云清.寻龙点穴记</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「玄眼四象」是开慧眼、运四象之风水功夫；主穴、次穴是格局。修行如点穴——寻得自身真穴（玄关），则灵神运四象、灵气自畅旺。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《致立夏》</div>
+    <div class="poem-body">乾坤坎离朗朗天，欲拒还迎一线牵。
+识得火候至妙理，任君遨游天地间。</div>
+    <div class="poem-note">—— 云清.于立夏节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「乾坤坎离」是四正卦、是内丹四象；「欲拒还迎一线牵」是火候之微。「识得火候至妙理」——火候是丹道最难、最妙处，识得则任遨游。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《致青年》</div>
+    <div class="poem-body">坎离正位日当空，黄婆媒妁戊己中。
+漫卷珠帘羞答答，生个圣儿无上功。</div>
+    <div class="poem-note">—— 云清.寄语青年节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「坎离正位」是心肾相交；「黄婆媒妁」是意土调和；「生个圣儿」是养圣胎。此诗以婚媒喻丹道，是「三家相见结圣胎」的妙喻。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《劳动者》</div>
+    <div class="poem-body">金丹运转太极弦，两仪四象八卦全。
+六爻密布星罗上，参透阴阳体乾乾。</div>
+    <div class="poem-note">—— 云清.贺劳动节</div>
+    <div class="poem-interp"><strong>修行解读：</strong>金丹运转、两仪四象八卦，是易理与丹道合一；「参透阴阳」是修行核心。修行如劳动，须日日精进、参透阴阳，方体乾乾。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《海军节》</div>
+    <div class="poem-body">我自风云日月狂，遨游太虚星作裳。
+先天一炁丹为食，醉卧南山北斗场。</div>
+    <div class="poem-note">—— 贺海军节 ／ 云清原创</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「遨游太虚」「星作裳」是阳神出游、与星为伴之境；「丹为食」是金丹已成。修到阳神成就，方能遨游太虚、醉卧北斗——这是炼神还虚之果。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《忆嫦娥》</div>
+    <div class="poem-body">风卷白云花无住，孤影山头林下渡。
+待到花好月圆时，嫦娥应与吴刚诉。</div>
+    <div class="poem-note">—— 云清原创</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「花无住」是无住、无执着；「孤影山头」是独修之清苦。待到花好月圆（功成），方有嫦娥吴刚之会——修行耐得住孤清，方得月圆。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《两岸统》</div>
+    <div class="poem-body">龟蛇相向战纷飞，一河相隔两岸分。
+待到鹊桥相通时，牛郎织女本同根。</div>
+    <div class="poem-note">—— 云清原创</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「龟蛇相向」是真武之象、是水火之合；「一河相隔」是坎离未交。待到鹊桥通（既济），方知牛女本同根——坎离本是一，分离即迷，合之即道。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《听鸟声》</div>
+    <div class="poem-body">鸟鸣晨晓花儿俏，惊觉一瞥春风到。
+禅院钟声惊行人，菩提路上弥勒笑。</div>
+    <div class="poem-note">—— 云清原创</div>
+    <div class="poem-interp"><strong>修行解读：</strong>鸟鸣、钟声，皆是「惊醒」之机——于日常中蓦然一瞥，见春风（生机）、见弥勒（自性）。修行在处处留心，处处可悟。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《育圣儿》</div>
+    <div class="poem-body">八卦炉内火正酣，大器晚成运周天。
+木公金母太极弦，养就圣儿上云巅。</div>
+    <div class="poem-note">—— 云清</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「八卦炉内火正酣」是进火炼药；「木公金母」是铅汞；「养就圣儿」是养圣胎、育阳神。大器晚成、周天运转——内丹养胎，是修行的深功。</div>
+  </div>
+</section>
+
+<!-- ═══════════ 早年 ═══════════ -->
+<section class="year" id="early">
+  <div class="year-head"><span class="y">早年</span><span class="y-count">· 2014–2018 偈语节选</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《戊戌年冬至》</div>
+    <div class="poem-body">禅绕西山月，易转八卦图。
+一阳生万物，道显阴阳鱼。</div>
+    <div class="poem-note">—— 戊戌年冬至</div>
+    <div class="poem-interp"><strong>修行解读：</strong>冬至一阳生，是采药之候；「道显阴阳鱼」是太极之象。禅与易、月与卦，皆归一阳来复——修行于此节下手，正是顺天时。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《戊戌三伏》</div>
+    <div class="poem-body">伏羲为济世，倒庄露天机。
+姬昌寒窗里，七载苦苦推。
+先天后天立，谁人辨得真。
+天心玄盘转，方得悟本真。</div>
+    <div class="poem-note">—— 云清题于戊戌三伏</div>
+    <div class="poem-interp"><strong>修行解读：</strong>伏羲、文王演易，立先天后天之卦；「天心玄盘转」是运化之枢。修行辨先天后天、悟天心，方得本真——易理是修行的地图。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《菩提本有树》</div>
+    <div class="poem-body">菩提本有树，明镜亦是台。
+菩提乃明镜，非台非非台。</div>
+    <div class="poem-note">—— 云清 · 2015年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>化用六祖、神秀两偈——树与台、有与无，皆不执着；「菩提乃明镜」是空有不二。修行破两边、立中道，方见本来面目。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《又和一首》</div>
+    <div class="poem-body">身有无根树，自性明镜悬。
+智慧元神现，哪有去与来。</div>
+    <div class="poem-note">—— 云清 · 2015年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「身有无根树」是肉身虚妄；「自性明镜悬」是真我不动；「哪有去与来」是超越生死。智慧元神现，去来俱空——此是见性之语。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《雷声隐隐》</div>
+    <div class="poem-body">雷声隐隐震虚空，电光灼处寻真种。
+遇师点破玄关窍，证的当来紫金身。</div>
+    <div class="poem-note">—— 云清 · 2014年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>雷声隐隐、电光灼处，是玄关初开、先天一炁发动之征；「遇师点窍」是传承之要。真种、玄关、紫金身——此是内丹修证的一条主线。</div>
+  </div>
+
+  <div class="poem">
+    <div class="poem-title">《夜悟》</div>
+    <div class="poem-body">勇猛精进，心住一处，身在暗夜，亦见红日。
+光芒万丈，有情众生，各悟玄窍！</div>
+    <div class="poem-note">—— 云清 · 2014年</div>
+    <div class="poem-interp"><strong>修行解读：</strong>「心住一处」是系心一缘、是入定之基；「暗夜见红日」是定中见性光。勇猛精进，方能各悟玄窍——定力是见道的前提。</div>
+  </div>
+</section>
+
+<div class="verses-note">
+  <strong>说明：</strong>云清早年（2014–2018）尚有大量随缘偈语与放生、节庆纪事诗，多为即兴之作，此页仅选录六首有代表性的道诗并作修行解读。
+  全部诗词皆为<strong>云清原创</strong>，如需引用，请注明出处。
+</div>
+
+<footer>
+  <div class="dao-name">玄龙堂 · 云清道诗</div>
+  诗以载道 · 道在诗中 · 金丹玄关 · 性命双修<br>
+  作者云清 · 解读归于宗辉实证系列 · 请引用注明出处<br>
+  <a href="index.html" style="color:var(--gold-dark);text-decoration:none;">返回首页</a> ·
+  <a href="dazuo.html" style="color:var(--gold-dark);text-decoration:none;">打坐实证</a>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll reveal ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.poem').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
