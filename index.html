@@ -1139,6 +1139,18 @@ footer .dao-name {
   overflow: hidden;
   transition: border-color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
 }
+.scripture-card .sc-cover {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+  transition: opacity 0.4s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+}
+.scripture-card:hover .sc-cover {
+  opacity: 1;
+  transform: scale(1.02);
+}
 .scripture-card:hover {
   border-color: rgba(201,168,76,0.25);
   transform: translateY(-3px);
@@ -1842,6 +1854,7 @@ footer .dao-name {
 
   <div class="scripture-grid">
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-daodejing.png" alt="道德经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #C9A96E;">
         <div class="sc-num">道家群经之首</div>
         <div class="sc-title">道德经</div>
@@ -1871,6 +1884,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-xinjing.png" alt="般若波罗蜜多心经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #85D8C8;">
         <div class="sc-num">般若经之精要</div>
         <div class="sc-title">般若波罗蜜多心经</div>
@@ -1898,6 +1912,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-qingjing.png" alt="太上老君说常清静经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #FFD700;">
         <div class="sc-num">日常修持之根</div>
         <div class="sc-title">太上老君说常清静经</div>
@@ -1923,6 +1938,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-huanting.png" alt="黄庭内景玉经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #4FC3F7;">
         <div class="sc-num">上清派 · 存神之祖</div>
         <div class="sc-title">黄庭内景玉经</div>
@@ -1978,6 +1994,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-yuhuang.png" alt="高上玉皇心印妙经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #FFB6C1;">
         <div class="sc-num">神霄派核心</div>
         <div class="sc-title">高上玉皇心印妙经</div>
@@ -2003,6 +2020,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-jingang.png" alt="金刚般若波罗蜜经" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #E8C98A;">
         <div class="sc-num">禅宗核心经典</div>
         <div class="sc-title">金刚般若波罗蜜经</div>
@@ -2165,6 +2183,7 @@ footer .dao-name {
     </div>
 
     <div class="scripture-card">
+      <img class="sc-cover" src="cover-image/daoxiu-classic/classic-zhonglu.png" alt="钟吕传道集" loading="lazy">
       <div class="sc-header" style="border-left:3px solid #A1887F;">
         <div class="sc-num">内丹祖法 · 钟吕问答</div>
         <div class="sc-title">钟吕传道集</div>
