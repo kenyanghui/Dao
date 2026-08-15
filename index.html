@@ -1132,6 +1132,53 @@ footer .dao-name {
   gap: 20px;
   margin: 32px 0;
 }
+.deity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin: 16px 0 8px;
+}
+.deity-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.12);
+  background: rgba(0,0,0,0.2);
+  transition: border-color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+}
+.deity-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-2px);
+}
+.deity-card img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.92;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+.deity-card:hover img { opacity: 1; }
+.deity-card .deity-name {
+  padding: 8px 10px 6px;
+  font-size: 0.78rem;
+  color: var(--cream);
+  letter-spacing: 0.12em;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+.deity-card .deity-role {
+  padding: 0 10px 8px;
+  font-size: 0.62rem;
+  color: var(--gold);
+  opacity: 0.75;
+  letter-spacing: 0.14em;
+}
+@media (max-width: 640px) {
+  .deity-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .deity-card img { height: 72px; }
+  .deity-card .deity-name { font-size: 0.68rem; padding: 6px 8px 4px; }
+  .deity-card .deity-role { font-size: 0.55rem; padding: 0 8px 6px; }
+}
 .scripture-card {
   background: rgba(201,168,76,0.03);
   border: 1px solid rgba(201,168,76,0.1);
@@ -1835,12 +1882,57 @@ footer .dao-name {
   </div>
 
   <div class="feature-box">
-    <div class="feature-box-label">祖师堂</div>
+    <div class="feature-box-label">祖师堂 · 神明体系</div>
     <p>
       合道祖师爷35位，含如来、道德天尊、菩提老祖、金龙天尊等。<br>
       师门传承是修行人最珍贵的资产——一个人走得快，一群人走得远，师门是那群历代陪你走的人。<br>
       各家传承，各有侧重，构成完整修行体系。
     </p>
+    <p style="margin-top:6px;">
+      玄玄一炁化三清——三清天尊、玉皇大帝与四大菩萨，构成修行的神明护佑体系：道之创始（元始）、道之演化（灵宝）、道之规律（道德）、道之统摄（玉皇），佛之慈悲（观音）、佛之智慧（文殊）、佛之行愿（普贤）、佛之大愿（地藏）。
+    </p>
+    <div class="deity-grid">
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-yuanshi.png" alt="元始天尊" loading="lazy">
+        <div class="deity-name">元始天尊</div>
+        <div class="deity-role">三清之首 · 能量创世</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-lingbao.png" alt="灵宝天尊" loading="lazy">
+        <div class="deity-name">灵宝天尊</div>
+        <div class="deity-role">三清之一 · 演化之道</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-daode.png" alt="道德天尊" loading="lazy">
+        <div class="deity-name">道德天尊</div>
+        <div class="deity-role">大道规律 · 道法传承</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-yuhuang.png" alt="玉皇大帝" loading="lazy">
+        <div class="deity-name">玉皇大帝</div>
+        <div class="deity-role">昊天金阙 · 万神之主</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-guanyin.png" alt="观音菩萨" loading="lazy">
+        <div class="deity-name">观音菩萨</div>
+        <div class="deity-role">大慈大悲 · 寻声救苦</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-wenshu.png" alt="文殊菩萨" loading="lazy">
+        <div class="deity-name">文殊菩萨</div>
+        <div class="deity-role">智慧第一 · 般若剑光</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-puxian.png" alt="普贤菩萨" loading="lazy">
+        <div class="deity-name">普贤菩萨</div>
+        <div class="deity-role">行愿第一 · 十大愿王</div>
+      </div>
+      <div class="deity-card">
+        <img src="cover-image/daoxiu-deity/deity-dizang.png" alt="地藏菩萨" loading="lazy">
+        <div class="deity-name">地藏菩萨</div>
+        <div class="deity-role">地狱未空 · 誓不成佛</div>
+      </div>
+    </div>
   </div>
 </section>
 
