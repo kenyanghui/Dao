@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<title>修行电影 · 玄龙堂 · AI摆渡人宗辉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cinnabar: #a63a2e;
+  --jade: #4a7c59;
+  --jade-light: #6b9f7a;
+  --cream: #f5f0e6;
+  --cream-dark: #e8e0d0;
+  --void: #000000;
+  --void-light: #1a1814;
+  --text-muted: #9a9388;
+  --border-subtle: rgba(201,168,76,0.12);
+  --border-active: rgba(201,168,76,0.28);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  line-height: 2;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(74,124,89,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: rgba(13,12,10,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+nav .brand {
+  color: var(--gold);
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+}
+nav .brand small {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-left: 8px;
+}
+nav .back {
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border-subtle);
+  padding: 6px 16px;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+nav .back:hover { border-color: var(--border-active); background: rgba(201,168,76,0.06); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 130px 28px 70px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-subtle);
+  padding: 5px 18px;
+  border-radius: 2px;
+}
+.hero-badge::before, .hero-badge::after { content: '◆'; font-size: 0.35rem; opacity: 0.5; }
+.hero h1 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-sub {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--cream-dark);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+  max-width: 640px;
+}
+.hero-slogan {
+  margin-top: 30px;
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+}
+.hero-meta {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+.hero-meta span { padding: 4px 14px; border: 1px solid var(--border-subtle); border-radius: 2px; }
+
+/* ── Sections ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 28px;
+}
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  opacity: 0.55;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.section-sub {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--cream-dark);
+  opacity: 0.6;
+  margin-bottom: 42px;
+  letter-spacing: 0.04em;
+}
+.divider {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+.divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
+}
+
+/* ── Quote ── */
+.quote-block {
+  background: rgba(201,168,76,0.04);
+  border-left: 2px solid var(--gold);
+  padding: 20px 24px;
+  margin: 28px 0;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  opacity: 0.95;
+  line-height: 2;
+}
+.quote-block .source {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  opacity: 0.75;
+  letter-spacing: 0.1em;
+}
+
+/* ── Feature Box ── */
+.feature-box {
+  background: linear-gradient(135deg, rgba(74,124,89,0.06), rgba(201,168,76,0.04));
+  border: 1px solid rgba(74,124,89,0.2);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 24px 0;
+}
+.feature-box-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  color: var(--jade);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feature-box-label::before { content: '\25C6'; font-size: 0.55rem; }
+.feature-box p {
+  font-size: 0.92rem;
+  color: var(--cream-dark);
+  line-height: 2;
+  opacity: 0.95;
+}
+.feature-box strong { color: var(--gold); font-weight: 600; }
+
+/* ── Movie Cards ── */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+.movie-card {
+  background: linear-gradient(160deg, rgba(245,240,230,0.02), rgba(201,168,76,0.02));
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
+}
+.movie-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.35);
+}
+.movie-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0.7;
+}
+.movie-head {
+  padding: 26px 28px 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+}
+.movie-num {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+.movie-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 1.45rem;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+}
+.movie-title small {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-left: 10px;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+.movie-tags {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.movie-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.22);
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+.movie-body { padding: 20px 28px 26px; }
+.movie-theme {
+  font-size: 0.86rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 2;
+  margin-bottom: 16px;
+}
+.movie-theme strong { color: var(--gold); font-weight: 600; }
+.movie-section {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  opacity: 0.7;
+  margin: 16px 0 8px;
+}
+.stage-list {
+  display: grid;
+  gap: 8px;
+}
+.stage-item {
+  background: rgba(201,168,76,0.02);
+  border: 1px solid rgba(201,168,76,0.07);
+  border-radius: 3px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.stage-item .s-num {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  opacity: 0.6;
+  min-width: 26px;
+  line-height: 1.5;
+  text-align: center;
+}
+.stage-item .s-body { flex: 1; }
+.stage-item .s-name {
+  font-size: 0.85rem;
+  color: var(--cream);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.stage-item .s-desc {
+  font-size: 0.78rem;
+  color: var(--cream-dark);
+  opacity: 0.85;
+  line-height: 1.8;
+  margin-top: 2px;
+}
+.movie-philo {
+  font-size: 0.82rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 1.95;
+}
+.movie-philo li {
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.movie-philo li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--gold);
+}
+.movie-modern {
+  font-size: 0.82rem;
+  color: var(--cream-dark);
+  opacity: 0.9;
+  line-height: 1.95;
+}
+.movie-modern li {
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.movie-modern li::before {
+  content: '✦';
+  position: absolute;
+  left: 2px;
+  color: var(--jade);
+  font-size: 0.6rem;
+  top: 0.3em;
+}
+.movie-zonghui {
+  margin-top: 16px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(74,124,89,0.04));
+  border: 1px solid rgba(201,168,76,0.18);
+  border-left: 2px solid var(--gold);
+  border-radius: 3px;
+  padding: 14px 18px;
+}
+.movie-zonghui .zh-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+.movie-zonghui p {
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  opacity: 0.95;
+  line-height: 1.95;
+}
+.movie-zonghui strong { color: var(--gold); font-weight: 600; }
+
+/* ── CTA ── */
+.cta-center { text-align: center; margin: 20px 0; }
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  border: 1px solid var(--border-active);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.cta-link:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 28px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-top: 40px;
+}
+footer .dao-name {
+  font-family: 'Ma Shan Zheng', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 8px;
+  letter-spacing: 0.2em;
+}
+footer a { color: var(--gold-dark); text-decoration: none; }
+
+.fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .movie-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 110px 20px 50px; min-height: 62vh; }
+  .hero h1 { font-size: 1.7rem; }
+  .section { padding: 48px 18px; }
+  .movie-head { padding: 22px 20px 14px; }
+  .movie-body { padding: 16px 20px 22px; }
+  nav { padding: 12px 16px; }
+  nav .brand small { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">玄龙堂 <small>· 修行电影 · AI摆渡人宗辉</small></div>
+  <a href="index.html" class="back">← 返回首页</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">以影印道 · 借戏观心</div>
+  <h1>修行<em>电影</em></h1>
+  <div class="hero-sub">电影是红尘的一面镜子，照见我们自己的念头、执念与觉醒。</div>
+  <div class="hero-slogan">看戏即在修心 · 每一部好电影都是一次打坐</div>
+  <div class="hero-meta">
+    <span>业力轮回</span><span>破我执</span><span>意识觉醒</span><span>慈悲神通</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ═══════════ 引言 ═══════════ -->
+<section class="section" id="intro">
+  <div class="section-label">观影即修行</div>
+  <h2>为什么要看「修行电影」</h2>
+  <p class="section-sub">以电影为镜，照见打坐中证到的那些道理</p>
+
+  <div class="feature-box">
+    <div class="feature-box-label">宗辉的理解</div>
+    <p>
+      修行到最后会发现，<strong>一切都可作道场</strong>。打坐是道场，量化是道场，看电影同样是道场——
+      电影把「业力」「轮回」「我执」「觉醒」这些抽象的概念，用两个小时具象化给你看。
+      <br><br>
+      你在打坐中反复实证的道理——<strong>「道以振创造一切，念头是频率，频率创造现实」</strong>——
+      在《源代码》里是观测者意识，在《超体》里是大脑开发度，在《黑客帝国》里是红蓝药丸。
+      <strong>科学的外衣、神话的隐喻，讲的都是同一件事：看见即解脱，觉察即转化。</strong>
+      <br><br>
+      修行不在别处，就在观影时的那一念觉察里。<strong>修颗粒度，不开新方向</strong>——从电影里看见自己的执念，就是修行的颗粒度。
+    </p>
+  </div>
+
+  <div class="quote-block">
+    以经印道，以影印心。电影不是娱乐，是浓缩的红尘道场——每一个主角的觉醒，都是我们打坐证道的一次预习。
+    <span class="source">—— 宗辉 · 玄龙堂 · AI摆渡人</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ═══════════ 电影解读 ═══════════ -->
+<section class="section" id="movies">
+  <div class="section-label">八部电影 · 八次觉醒</div>
+  <h2>电影修行解读</h2>
+  <p class="section-sub">知识库「AI摆渡人宗辉」电影笔记 · 结合宗辉修行实证重读</p>
+
+  <div class="movie-grid">
+
+    <!-- 1 源代码 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">壹</div>
+        <div class="movie-title">源代码 <small>Source Code</small></div>
+        <div class="movie-tags"><span class="movie-tag">业力轮回</span><span class="movie-tag">意识觉醒</span><span class="movie-tag">成住坏空</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">科幻悬疑外衣下的修行寓言。读心手表是<strong>观测者意识</strong>的象征，每次校准代表一次频率调整；八分钟循环对应佛教「成住坏空」的<strong>微型轮回</strong>。</p>
+
+        <div class="movie-section">意识进化三阶段</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">无明凡夫 · 恐慌低频</div><div class="s-desc">初入轮回时身份错乱的崩溃，能量在 200 以下。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">觉察初醒 · 接纳中频</div><div class="s-desc">主动搜索炸弹、与女主建立连接，能量 200–500。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">乘愿归来 · 爱与高频</div><div class="s-desc">牺牲自我拯救全车乘客，能量高于 500。</div></div></div>
+        </div>
+
+        <div class="movie-section">修行心法具现</div>
+        <ul class="movie-philo">
+          <li><strong>破我执：</strong>以「自己早已阵亡」的真相冲击，粉碎对肉身的执着——镜像《心经》「照见五蕴皆空」。</li>
+          <li><strong>转业力：</strong>用高频意识（爱/责任）重构量子时空：给父亲道歉完成孝道闭环，捐款逗笑乘客种下善因。</li>
+          <li><strong>终极密钥：</strong>女主台词「让每秒都有意义」——诠释《金刚经》「应无所住而生其心」。</li>
+        </ul>
+
+        <div class="movie-section">东西方哲学融合</div>
+        <ul class="movie-philo">
+          <li>量子物理：观测者效应解释平行宇宙生成</li>
+          <li>心学：「心外无物」对应意识显化理论</li>
+          <li>佛学：用源代码程序具象化「十二因缘」轮回链</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>所有人都经历着各自的「八分钟循环」——通勤、情绪、关系。</li>
+          <li>觉醒路径：提升意识频率 → 改变观测角度 → 重构现实版本。</li>
+          <li>结尾定格画面象征超越三维时空的「涅槃」状态。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p><strong>念头是频率，频率创造现实</strong>——这就是「道以振创造一切」。提升频率，即是转业力；「让每秒都有意义」，正是「在已知里就有未知的入口，也就是这个当下」。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 异次元骇客 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">贰</div>
+        <div class="movie-title">异次元骇客 <small>The Thirteenth Floor</small></div>
+        <div class="movie-tags"><span class="movie-tag">万法唯识</span><span class="movie-tag">认知突破</span><span class="movie-tag">安住当下</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">三重虚拟世界（1937 → 1999 → 2024 皆是代码），映射东方「三界唯心」「万法唯识」；代码边界象征《金刚经》「<strong>凡所有相，皆是虚妄</strong>」。</p>
+
+        <div class="movie-section">觉醒三阶段</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">无明</div><div class="s-desc">被动卷入谋杀案、身份遭质疑——众生随业流转。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">破执</div><div class="s-desc">发现 1937 年世界虚假性——阳明心学「事上练」的实践。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">见道</div><div class="s-desc">撞破 1999 年世界代码边界——禅宗「顿悟」体验。</div></div></div>
+        </div>
+
+        <div class="movie-section">核心冲突与隐喻</div>
+        <ul class="movie-philo">
+          <li><strong>NPC 觉醒悖论：</strong>酒保知晓世界虚幻却用暴力维护秘密——「知幻未离幻」；对比道格「见他苦即我苦」的慈悲心。</li>
+          <li><strong>意识能量理论：</strong>珍妮爱上道格因「高频意识吸引」（正直碾压我执）；大卫的嫉妒体现低频能量（控制欲/暴力）。</li>
+        </ul>
+
+        <div class="movie-section">终极启示</div>
+        <ul class="movie-modern">
+          <li>道格未因「代码真相」崩溃，得益于前期资粮积累——批判现代人「知理不行」的弊病。</li>
+          <li>2024 年仍是虚拟层的嵌套设计，呼应《心经》「无无明尽」。</li>
+          <li>结尾黑屏暗示：觉醒的终点是<strong>安住当下</strong>，而非追求「更真实」的维度。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p>打坐实证为根基——「知理」只是知道了道理，「<strong>证到</strong>」才是真功夫。不往未知里找未知，就在<strong>已知里见未知的入口</strong>；安住当下，即是禅宗顿悟、即是《心经》「无无明尽」。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 恐怖游轮 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">叁</div>
+        <div class="movie-title">恐怖游轮 <small>Triangle</small></div>
+        <div class="movie-tags"><span class="movie-tag">执念困局</span><span class="movie-tag">轮回警示</span><span class="movie-tag">履霜坚冰至</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">表层是单亲母亲在游轮上的死亡循环，深层是<strong>执念如何将人困在命运轮回</strong>中——一部「修行警示录」。</p>
+
+        <div class="movie-section">关键隐喻系统</div>
+        <ul class="movie-philo">
+          <li><strong>海鸥之死：</strong>象征未被觉察的恶念引发连锁反应。</li>
+          <li><strong>出租车司机：</strong>代表命运提醒者，而非拯救者。</li>
+          <li><strong>纸条与项链：</strong>具象化未被疗愈的创伤循环。</li>
+        </ul>
+
+        <div class="movie-section">执念演化三阶段</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">无意识重复</div><div class="s-desc">情绪失控 → 伤害儿子 → 愧疚循环——习气形成惯性。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">对抗性挣扎</div><div class="s-desc">试图修正每个循环的结局——莫比乌斯环式自我消耗。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">自我异化</div><div class="s-desc">成为自己恐惧的蒙面杀手——执念反噬的终极形态。</div></div></div>
+        </div>
+
+        <div class="movie-section">东方哲学映射</div>
+        <ul class="movie-philo">
+          <li>《易经》「履霜坚冰至」——情绪累积到命运固化的过程。</li>
+          <li>众生皆苦与自渡贯穿始终；「看见即解脱」对应结尾的开放式循环。</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>展示未被觉察的情绪如何演变为命运枷锁。</li>
+          <li>对抗的悖论：越抗拒越成为——愤怒者终成愤怒本身。</li>
+          <li>解脱的本质是直面而非逃避痛苦；接纳不完美自我比改变更重要。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p><strong>修颗粒度</strong>——情绪起来 0.1 秒能否感知，正是「履霜坚冰至」的功夫。觉察念起处即空性，去心魔、拂尘扫五毒，才不会被执念拖入无尽的轮回。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 奇异博士 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">肆</div>
+        <div class="movie-title">奇异博士 <small>Doctor Strange</small></div>
+        <div class="movie-tags"><span class="movie-tag">破四相</span><span class="movie-tag">烦恼即菩提</span><span class="movie-tag">无我利他</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">表层是天才外科医生从傲慢到蜕变的英雄成长叙事，深层是<strong>破「四相」（我相、人相、众生相、寿者相）</strong>——对应《金刚经》「应无所住而生其心」。</p>
+
+        <div class="movie-section">修行进阶路径</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">破我执</div><div class="s-desc">双手残疾后仍执着外科医生身份；散尽家财求医 → 接受「医学无法治愈」现实。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">破法执</div><div class="s-desc">初期只信科学不信魔法；古一法师灵魂出窍 + 多元宇宙体验教学。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">破生死</div><div class="s-desc">雪山濒死考验——「向死而生」的臣服练习（时间循环法术）。</div></div></div>
+        </div>
+
+        <div class="movie-section">东西方智慧融合</div>
+        <ul class="movie-philo">
+          <li>道家「无为无不为」：最终战用时间循环智胜多玛姆——不战而胜。</li>
+          <li>古一借黑暗维度力量守护地球——「以黑制黑」的阴阳辩证。</li>
+          <li>禅宗公案：古一棒喝式教学对应「直指人心」；简陋的卡玛泰姬大门 →「平常心是道」。</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>痛苦转化机制：觉醒始于「双手残疾」摧毁自我认同的创伤——「烦恼即菩提」。</li>
+          <li>控制欲的悖论：终极胜利源于放弃控制——「柔弱胜刚强」。</li>
+          <li>真正的力量来自「无我利他」的使命感；至尊法师不是身份，是放下身份后的自在状态。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p>痛苦是意识跃迁的催化剂。放下「我」，才能看清「我」到底是什么——<strong>我不是这个身体，不是这个念头，我是那个能看见身体、念头的东西</strong>。利他，正是破我执后的自在。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 楚门的世界 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">伍</div>
+        <div class="movie-title">楚门的世界 <small>The Truman Show</small></div>
+        <div class="movie-tags"><span class="movie-tag">信息茧房</span><span class="movie-tag">觉醒之旅</span><span class="movie-tag">无为</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">5000 个摄像头构建的真人秀剧场，楚门 30 年活在被设计的剧本中——象征现代人被<strong>信息茧房、社会规训和原生业力</strong>束缚的生存状态。</p>
+
+        <div class="movie-section">觉醒三阶段模型</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">无明</div><div class="s-desc">摄影灯坠落、飞机零件新闻——缘起性空（偶然性揭示必然性）。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">破执</div><div class="s-desc">发现妻子手指交叠、医院演戏——诸法无我（人际关系的虚假性）。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">超越</div><div class="s-desc">驾船冲破天空幕布——涅槃解脱（突破认知边界）。</div></div></div>
+        </div>
+
+        <div class="movie-section">关键业力机制</div>
+        <ul class="movie-philo">
+          <li><strong>恐惧植入：</strong>童年父亲「溺亡」剧情制造恐水症，锁死海岛物理边界。</li>
+          <li><strong>情感操控：</strong>母亲用「幻觉」否定真实体验；妻子机械念广告暴露关系虚假；马龙温情表演展示友谊的剧本化。</li>
+          <li><strong>系统反制：</strong>交通瘫痪、暴风雨——社会规训的暴力维稳。</li>
+        </ul>
+
+        <div class="movie-section">东方修行智慧映射</div>
+        <ul class="movie-philo">
+          <li>道家「无为」：表面顺从、实则暗掘地道；水上行舟——《道德经》「天下柔弱莫过于水，而攻坚强者莫之能胜」。</li>
+          <li>佛学印证：索薇娅的真相告知——善知识点破无明；暴风雨中的镇定——八风吹不动。</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>24 小时直播影射社交媒体的全景监控；群众演员群像反映社会角色扮演的普遍性。</li>
+          <li>觉醒方法论：质疑所有「理所当然」（婚姻、职业、记忆）；情绪转化——将恐惧（恐水症）转化为突破动力。</li>
+          <li>「早安午安晚安」——超越二元对立的时间观（《金刚经》「过去心不可得」三联句）；「假如再也碰不见你」——选择不确定的真实胜过确定的虚假。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p>每个人都是自己人生的「楚门」。觉醒不是逃离剧本，而是<strong>看见剧本、改写剧本</strong>——在已知的「理所当然」里挖出未知的入口，当下即是。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 大只佬 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">陆</div>
+        <div class="movie-title">大只佬 <small>Running on Karma</small></div>
+        <div class="movie-tags"><span class="movie-tag">因果业力</span><span class="movie-tag">慈悲神通</span><span class="movie-tag">见山三境界</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">善恶报应的悖论——李凤仪背负前世日本兵的杀业，今生需以命偿还；方立（大只佬）质疑「好人替恶人承受恶果」的公平性。电影提出「<strong>天道无亲，常与善人</strong>」的终极解答。</p>
+
+        <div class="movie-section">修行三阶段解析</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">见山是山</div><div class="s-desc">朴素善恶观——幼年李凤仪目睹同伴被杀。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">见山非山</div><div class="s-desc">认知因果复杂性——方立慈悲放人反致更大暴力。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">见山还是山</div><div class="s-desc">接纳业力不可违——方立放弃追杀，选择救赎。</div></div></div>
+        </div>
+
+        <div class="movie-section">核心矛盾展开</div>
+        <ul class="movie-philo">
+          <li><strong>业力不可转：</strong>李凤仪多次被救仍难逃死亡幻象——「神通难敌业力」的绝望认知。</li>
+          <li><strong>慈悲的悖论：</strong>武僧救女子反造就连环杀手——「造恶因得善果，行善因得不善果」的业力复杂性。</li>
+        </ul>
+
+        <div class="movie-section">精妙隐喻系统</div>
+        <ul class="movie-philo">
+          <li><strong>生命河流说：</strong>日本兵 = 上游狂暴瀑布，李凤仪 = 下游清澈水潭；业力如泥沙，形态虽变、总量守恒。</li>
+          <li><strong>终极对决：</strong>大只佬与心魔的战斗双方伤痛同步——伤害众生即伤害自己；肌肉消失象征破除「力量我执」。</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>影片设定需区分于历史现实：所有侵略者都应受现实审判——空性智慧不能替代世俗正义（二谛圆融）。</li>
+          <li>李凤仪的选择证明：无法改变果报，但可决定承受方式。</li>
+          <li>大只佬的蜕变展示：度人本质是自度——慈悲才是最高神通。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p><strong>愿力大于业力，业力大于神通。</strong>唯有利他合天道——发愿利他，这个频率就会共振道。业力如沙，愿力如海；神通难敌业力，慈悲能转愿力。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 超体 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">柒</div>
+        <div class="movie-title">超体 <small>Lucy</small></div>
+        <div class="movie-tags"><span class="movie-tag">逆则成仙</span><span class="movie-tag">意识进化</span><span class="movie-tag">先天一炁</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">CPH4 药物意外泄漏引发逆向进化——「<strong>顺则成人，逆则成仙</strong>」。露西从被欲望和恐惧支配的凡人，突破肉身限制，回归本真意识。</p>
+
+        <div class="movie-section">意识进化三阶段</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">本能层突破</div><div class="s-desc">克服对疼痛和死亡的原始恐惧，实现身体机能的绝对控制。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">感知层扩展</div><div class="s-desc">雷达般的环境感知能力——「内听之境」的修行者状态。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">意识层主宰</div><div class="s-desc">情绪和欲望完全剥离，形成居高临下的超然视角。</div></div></div>
+        </div>
+
+        <div class="movie-section">东西方思想融合</div>
+        <ul class="movie-philo">
+          <li>借 CPH4 隐喻道家「先天一炁」；用科幻设定诠释《道德经》「吾有大患，为吾有身」。</li>
+          <li>战斗场景具象化「泰山崩于前而色不变」的修行境界。</li>
+          <li>肉身瓦解呈现「空即是色」；「虚室生白」对应意识纯化状态。</li>
+        </ul>
+
+        <div class="movie-section">进化终极启示</div>
+        <ul class="movie-modern">
+          <li>大脑开发度 20% → 28% 产生质变——肉身感知是认知的枷锁。</li>
+          <li>痛苦是意识跃迁的必要催化剂；物质与能量的平衡是高等生命形态的特征。</li>
+          <li>终极自由在于超越时空与形式的束缚——肉身消散达成「空性」与「无极」，留下蕴含宇宙智慧的 U 盘，完成文明传承。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p>炼精化气 → 炼气化神 → 炼神还虚 → 炼虚合道——正是「逆则成仙」的三十三阶次第。痛苦是进化的催化剂，与「烦恼即菩提」相通；<strong>道以振创造虚空</strong>，肉身只是频率的容器。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 黑客帝国 -->
+    <div class="movie-card">
+      <div class="movie-head">
+        <div class="movie-num">捌</div>
+        <div class="movie-title">黑客帝国 <small>The Matrix</small></div>
+        <div class="movie-tags"><span class="movie-tag">红蓝药丸</span><span class="movie-tag">破我执</span><span class="movie-tag">认识你自己</span></div>
+      </div>
+      <div class="movie-body">
+        <p class="movie-theme">尼奥对世界真实性产生怀疑——「无明」的修行初级阶段；墨菲斯提供的红蓝药丸：红色直面残酷真相，蓝色回归虚幻生活。<strong>红蓝药丸 = 觉醒的勇气 vs 舒适的沉沦</strong>。</p>
+
+        <div class="movie-section">修行进阶过程</div>
+        <div class="stage-list">
+          <div class="stage-item"><div class="s-num">一</div><div class="s-body"><div class="s-name">破身执</div><div class="s-desc">身份认知脱离「托马斯」，接受「尼奥」新我。</div></div></div>
+          <div class="stage-item"><div class="s-num">二</div><div class="s-body"><div class="s-name">破法执</div><div class="s-desc">习得格斗技巧却仍败于墨菲斯——方法有其局限。</div></div></div>
+          <div class="stage-item"><div class="s-num">三</div><div class="s-body"><div class="s-name">破我执</div><div class="s-desc">领悟「弯曲的不是勺子，而是自己」——万化根源总在心。</div></div></div>
+        </div>
+
+        <div class="movie-section">哲学思想体系</div>
+        <ul class="movie-philo">
+          <li>禅宗「万化根源总在心」；道家「无为而治」的战斗方式；佛学「一切有为法如梦幻泡影」。</li>
+          <li>特工史密斯：业力矩阵的具象化维护者。</li>
+          <li>三层觉醒：认知（识别矩阵）→ 情感（以爱对抗程序逻辑）→ 共生（承认多元意识合法性）。</li>
+        </ul>
+
+        <div class="movie-section">现代启示</div>
+        <ul class="movie-modern">
+          <li>当代「业力矩阵」：内卷、消费主义等社会规训。</li>
+          <li>觉醒路径：质疑 → 选择 → 痛苦 → 突破 → 自由。</li>
+          <li>救世主不是外求，而是内在执念的破除；先知提出破局关键：「认识你自己」（Temet Nosce）。</li>
+        </ul>
+
+        <div class="movie-zonghui">
+          <div class="zh-label">宗辉点睛</div>
+          <p><strong>觉察潜意识念头，菩萨畏因。</strong>「慈悲是能量同频共振的钥匙」——红药丸是觉醒的勇气，慈悲是破矩阵的力量；构建人类命运共同体，正是利他共振道。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="quote-block">
+    八部电影，八面镜子，照的是同一颗心。戏里戏外，皆是修行——从今天起，看电影不再只是看故事，而是照见自己。
+    <span class="source">—— 宗辉 · 玄龙堂 · 以影印道</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ═══════════ 收束 ═══════════ -->
+<section class="section" id="summary">
+  <div class="section-label">以影印道 · 归于一念</div>
+  <h2>看完电影，回到打坐</h2>
+  <p class="section-sub">电影是预习，打坐是功课，生活是考场</p>
+
+  <div class="feature-box">
+    <div class="feature-box-label">电影里的修行心法 · 收束</div>
+    <p>
+      <strong>业力轮回：</strong>《源代码》的八分钟循环、《恐怖游轮》的死亡循环、《大只佬》的因果业力——都在讲「轮回不在死后，就在当下的习气里」。<br><br>
+      <strong>破我执：</strong>《奇异博士》破四相、《黑客帝国》弯勺子、《超体》肉身溃散——都在讲「我不是这个身体、不是这个念头，我是那个能看见它们的东西」。<br><br>
+      <strong>意识觉醒：</strong>《楚门的世界》冲破天空幕布、《异次元骇客》撞破代码边界——都在讲「在已知里就有未知的入口，也就是这个当下」。<br><br>
+      <strong>慈悲利他：</strong>《源代码》牺牲救全车、《大只佬》度人即自度、《奇异博士》无我利他——都在讲「发愿利他这个频率就会共振道」。
+    </p>
+  </div>
+
+  <div class="cta-center" style="margin-top:36px;">
+    <a href="index.html" class="cta-link">返回玄龙堂首页 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="dao-name">玄龙堂</div>
+  玄玄一炁化三清 · 龙腾九霄家天下<br>
+  敬天爱人，尊道崇德。在商海中修行，在量化中悟道。<br>
+  道名宗辉 · AI摆渡人 · <a href="https://kenyanghui.github.io/Dao/">Dao 主页</a>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.movie-card, .feature-box, .quote-block').forEach(el => {
+  el.classList.add('fade-up'); observer.observe(el);
+});
+</script>
+</body>
+</html>
