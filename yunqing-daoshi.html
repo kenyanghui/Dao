@@ -61,6 +61,40 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .hero-sub strong{color:var(--gold);font-weight:600;}
 .hero-meta{margin-top:26px;font-size:0.72rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
 
+/* ── 题壁 · 菩提树 ── */
+.featured-poem{max-width:760px;margin:-20px auto 64px;padding:0 24px;}
+.featured-poem-inner{
+  position:relative;text-align:center;padding:52px 44px 42px;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(201,168,76,0.09), transparent 72%),
+    linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+  border:1px solid rgba(201,168,76,0.3);border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+.featured-poem-inner::before,
+.featured-poem-inner::after{
+  content:'';position:absolute;width:26px;height:26px;opacity:0.6;
+  border-color:var(--gold);border-style:solid;
+}
+.featured-poem-inner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:10px 0 0 0;}
+.featured-poem-inner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 10px 0;}
+.fp-caption{font-size:0.66rem;letter-spacing:0.42em;color:var(--gold);opacity:0.7;margin-bottom:22px;}
+.fp-title{font-family:'Ma Shan Zheng',serif;font-size:2.3rem;color:var(--gold);letter-spacing:0.14em;margin-bottom:10px;font-weight:400;}
+.fp-sub{font-size:0.7rem;color:var(--cream-dark);opacity:0.55;letter-spacing:0.28em;margin-bottom:30px;}
+.fp-body{
+  font-family:'Ma Shan Zheng',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);
+  line-height:2.15;color:var(--cream);letter-spacing:0.14em;white-space:pre-line;
+}
+.fp-body em{font-style:normal;color:var(--gold-light);}
+.fp-line{width:44px;height:1px;background:var(--gold);margin:26px auto;opacity:0.5;}
+.fp-note{font-size:0.82rem;color:var(--gold-light);letter-spacing:0.2em;}
+@media (max-width:600px){
+  .featured-poem-inner{padding:38px 22px 30px;}
+  .fp-title{font-size:1.9rem;}
+  .fp-body{font-size:1.2rem;}
+  .fp-caption{letter-spacing:0.3em;}
+}
+
 /* ── 年份锚点 ── */
 .year-nav{max-width:960px;margin:0 auto 50px;padding:0 24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
 .year-nav a{color:var(--cream-dark);text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;padding:6px 16px;border:1px solid rgba(201,168,76,0.22);border-radius:24px;transition:all 0.3s;}
@@ -139,6 +173,42 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     此页逐首作「道家修行解读」，把诗中的意象译回实修功夫，供有缘同修参究。
   </p>
   <div class="hero-meta">道诗原创 · 云清 ／ 解读 · 宗辉实证系列 ／ 请引用注明出处</div>
+</section>
+
+<!-- ═══════════ 题壁 · 菩提树 ═══════════ -->
+<section class="featured-poem">
+  <div class="featured-poem-inner">
+    <div class="fp-caption">云清 题壁 · 置顶</div>
+    <h2 class="fp-title">《菩提树》</h2>
+    <div class="fp-sub">慧能偈语之后 · 一重翻转 · 不落有无</div>
+    <div class="fp-body">菩提本有树，
+明镜亦是台。
+菩提即明镜，
+非台非非台。</div>
+    <div class="fp-line"></div>
+    <div class="fp-note">—— 云清题《菩提树》</div>
+  </div>
+</section>
+
+<!-- ═══════════ 置顶 · 云清道诗 ═══════════ -->
+<section class="featured-poem">
+  <div class="featured-poem-inner">
+    <div class="fp-caption">云清 题壁 · 置顶 · 关键道诗</div>
+    <h2 class="fp-title">云清道诗</h2>
+    <div class="fp-sub">伏羲演卦 · 先天后天 · 六十四卦圆满之后 · 明「未济」之义</div>
+    <div class="fp-body">伏羲为济世，倒庄露天机。
+姬昌寒窗里，七载苦苦推。
+八史安八位，位位奥妙深。
+先天后天立，谁人辨得真。
+天心玄盘转，方得悟本真。
+自古讲圆满，六十四卦全。
+末后是「未济」，背道而驰焉？
+谁识个中妙，传汝先天道。
+云清以此题，坐等高人到。
+戊戌三伏里，我自仰天笑！</div>
+    <div class="fp-line"></div>
+    <div class="fp-note">—— 云清题于戊戌三伏</div>
+  </div>
 </section>
 
 <div class="year-nav">
@@ -1728,8 +1798,14 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-title">《戊戌三伏》</div>
     <div class="poem-body">伏羲为济世，倒庄露天机。
 姬昌寒窗里，七载苦苦推。
+八史安八位，位位奥妙深。
 先天后天立，谁人辨得真。
-天心玄盘转，方得悟本真。</div>
+天心玄盘转，方得悟本真。
+自古讲圆满，六十四卦全。
+末后是「未济」，背道而驰焉？
+谁识个中妙，传汝先天道。
+云清以此题，坐等高人到。
+戊戌三伏里，我自仰天笑！</div>
     <div class="poem-note">—— 云清题于戊戌三伏</div>
     <div class="poem-interp"><strong>修行解读：</strong>伏羲、文王演易，立先天后天之卦；「天心玄盘转」是运化之枢。修行辨先天后天、悟天心，方得本真——易理是修行的地图。</div>
   </div>
