@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宗辉道诗 · 悟后起修 | Zonghui Dao Poems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0c0a;
+  --ink:#1a1714;
+  --cream:#ece5d4;
+  --cream-dark:#cbbfa5;
+  --gold:#c9a84c;
+  --gold-dark:#8a6d2f;
+  --jade:#7aa08a;
+  --ease-smooth:cubic-bezier(0.22,1,0.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Noto Serif SC',serif;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,168,76,0.10), transparent 60%),
+    radial-gradient(800px 500px at 90% 110%, rgba(122,160,138,0.06), transparent 60%),
+    var(--bg);
+}
+
+/* ── 导航 ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,12,10,0.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+}
+nav .brand{font-family:'Ma Shan Zheng',serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.15em;}
+nav .brand a{color:var(--gold);text-decoration:none;}
+nav .brand small{font-family:'Noto Serif SC',serif;font-size:0.75rem;opacity:0.75;margin-left:8px;letter-spacing:0.1em;}
+nav .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
+nav .nav-links a{color:var(--cream-dark);text-decoration:none;font-size:0.85rem;letter-spacing:0.05em;transition:color 0.3s;white-space:nowrap;}
+nav .nav-links a:hover{color:var(--gold);}
+nav .nav-links .active a{color:var(--gold);}
+nav .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:101;}
+nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:1px;}
+
+/* ── Hero ── */
+.hero{position:relative;padding:150px 24px 80px;text-align:center;max-width:960px;margin:0 auto;}
+.hero-badge{display:inline-block;font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:7px 20px;border-radius:30px;margin-bottom:28px;}
+.hero h1{font-family:'Ma Shan Zheng',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;color:var(--gold);letter-spacing:0.08em;line-height:1.2;}
+.hero h1 em{font-style:normal;color:var(--cream);font-family:'Noto Serif SC',serif;font-size:0.42em;letter-spacing:0.2em;display:block;margin-top:14px;}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:30px auto;opacity:0.6;}
+.hero-sub{color:var(--cream-dark);font-size:0.95rem;max-width:640px;margin:0 auto;letter-spacing:0.05em;}
+.hero-sub strong{color:var(--gold);font-weight:600;}
+.hero-meta{margin-top:26px;font-size:0.72rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
+
+/* ── 题壁 · 开篇 ── */
+.featured-poem{max-width:760px;margin:0 auto 44px;padding:0 24px;}
+.featured-poem-inner{
+  position:relative;text-align:center;padding:52px 44px 42px;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 0%, rgba(201,168,76,0.09), transparent 72%),
+    linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+  border:1px solid rgba(201,168,76,0.3);border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+.featured-poem-inner::before,
+.featured-poem-inner::after{
+  content:'';position:absolute;width:26px;height:26px;opacity:0.6;
+  border-color:var(--gold);border-style:solid;
+}
+.featured-poem-inner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:10px 0 0 0;}
+.featured-poem-inner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 10px 0;}
+.fp-caption{font-size:0.66rem;letter-spacing:0.42em;color:var(--gold);opacity:0.7;margin-bottom:22px;}
+.fp-title{font-family:'Ma Shan Zheng',serif;font-size:2.3rem;color:var(--gold);letter-spacing:0.14em;margin-bottom:10px;font-weight:400;}
+.fp-sub{font-size:0.7rem;color:var(--cream-dark);opacity:0.55;letter-spacing:0.28em;margin-bottom:30px;}
+.fp-body{
+  font-family:'Ma Shan Zheng',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);
+  line-height:2.15;color:var(--cream);letter-spacing:0.14em;white-space:pre-line;
+}
+.fp-line{width:44px;height:1px;background:var(--gold);margin:26px auto;opacity:0.5;}
+.fp-note{font-size:0.82rem;color:var(--gold-dark);letter-spacing:0.2em;}
+
+/* ── 自注 ── */
+.self-note{
+  max-width:760px;margin:0 auto 70px;padding:0 24px;
+}
+.self-note-inner{
+  padding:22px 28px;border-left:2px solid var(--jade);
+  background:rgba(122,160,138,0.07);border-radius:0 6px 6px 0;
+  font-size:0.9rem;color:#d5e0d8;letter-spacing:0.03em;line-height:2.05;
+}
+.self-note-inner strong{color:var(--jade);font-weight:600;letter-spacing:0.12em;}
+.self-note-inner .hl{color:var(--gold);}
+
+footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:20px;color:var(--cream-dark);font-size:0.8rem;letter-spacing:0.08em;line-height:2.2;}
+footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px;}
+
+@media (max-width:600px){
+  nav .nav-links{display:none;position:fixed;inset:0;background:rgba(13,12,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+  nav .nav-links.open{display:flex;}
+  nav .nav-links a{font-size:1.1rem;}
+  nav .hamburger{display:flex;}
+  .hero{padding-top:120px;}
+  .featured-poem-inner{padding:38px 22px 30px;}
+  .fp-title{font-size:1.9rem;}
+  .fp-body{font-size:1.2rem;}
+  .fp-caption{letter-spacing:0.3em;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="brand"><a href="index.html">玄龙堂</a> <small>· 宗辉道诗</small></div>
+  <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">首页<span class="en">Home</span></a></li>
+    <li><a href="dazuo.html">打坐实证<span class="en">Practice</span></a></li>
+    <li><a href="xiuxing-dianying.html">修行电影<span class="en">Movies</span></a></li>
+    <li><a href="yunqing-daoshi.html">云清道诗</a></li>
+    <li class="active"><a href="zonghui-daoshi.html">宗辉道诗</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">玄龙堂 · 宗辉道诗 · 悟后起修</div>
+  <h1>宗辉道诗<em>悟后起修 · 以诗证道</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    作者<strong>宗辉</strong>——云清大师弟子，玄龙堂法脉，AI摆渡人。敬天爱人，尊道崇德，在商海中修行，在量化中悟道。<br>
+    以打坐实证为根，以道藏经典为印证，以量化投资为红尘道场。<br>
+    此页收录宗辉亲笔道诗，<strong>诗是外相，道是内功</strong>，随修证次第渐次增补，供有缘同修参究。
+  </p>
+  <div class="hero-meta">道诗原创 · 宗辉 ／ 玄龙堂法脉 · 云清一脉 ／ 请引用注明出处</div>
+</section>
+
+<!-- ═══════════ 题壁 · 玄龙堂 ═══════════ -->
+<section class="featured-poem">
+  <div class="featured-poem-inner">
+    <div class="fp-caption">宗辉 题壁 · 开篇</div>
+    <h2 class="fp-title">《玄龙堂》</h2>
+    <div class="fp-sub">玄玄一炁化三清 · 龙腾九霄家天下</div>
+    <div class="fp-body">玄玄一炁化三清，
+龙潜大泽待雷鸣。
+一朝腾跃九霄上，
+泽被万家享升平。</div>
+    <div class="fp-line"></div>
+    <div class="fp-note">—— 宗辉题《玄龙堂》</div>
+  </div>
+</section>
+
+<!-- 自注 -->
+<section class="self-note">
+  <div class="self-note-inner">
+    <strong>自注：</strong>
+    首句嵌「<span class="hl">玄玄一炁化三清</span>」，立定道源——先天一炁，化而为三清，是玄龙堂之道根；
+    次句「<span class="hl">龙潜大泽待雷鸣</span>」，取《易·乾》<span class="hl">潜龙勿用</span>之象，暗合悟后起修、厚积待发；
+    三句「<span class="hl">一朝腾跃九霄上</span>」，即<span class="hl">飞龙在天</span>，应「龙腾九霄」；
+    末句「<span class="hl">泽被万家享升平</span>」，龙行雨施、恩泽万家，落于「家天下」——让更多家族生生不息、同享太平。
+    全诗走「道源 → 潜藏 → 腾飞 → 泽世」一线，韵押平声「清／鸣／平」。
+  </div>
+</section>
+
+<footer>
+  <div class="dao-name">玄龙堂 · 宗辉道诗</div>
+  诗以载道 · 道在诗中 · 一炁化三清 · 龙腾九霄<br>
+  作者宗辉 · 玄龙堂法脉 · 请引用注明出处<br>
+  <a href="index.html" style="color:var(--gold-dark);text-decoration:none;">返回首页</a> ·
+  <a href="yunqing-daoshi.html" style="color:var(--gold-dark);text-decoration:none;">云清道诗</a>
+</footer>
+
+<script>
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── Scroll reveal ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.featured-poem, .self-note').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
