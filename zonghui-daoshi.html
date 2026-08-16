@@ -52,7 +52,7 @@ nav .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding
 nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:1px;}
 
 /* ── Hero ── */
-.hero{position:relative;padding:150px 24px 80px;text-align:center;max-width:960px;margin:0 auto;}
+.hero{position:relative;padding:150px 24px 70px;text-align:center;max-width:960px;margin:0 auto;}
 .hero-badge{display:inline-block;font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:7px 20px;border-radius:30px;margin-bottom:28px;}
 .hero h1{font-family:'Ma Shan Zheng',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;color:var(--gold);letter-spacing:0.08em;line-height:1.2;}
 .hero h1 em{font-style:normal;color:var(--cream);font-family:'Noto Serif SC',serif;font-size:0.42em;letter-spacing:0.2em;display:block;margin-top:14px;}
@@ -61,10 +61,10 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .hero-sub strong{color:var(--gold);font-weight:600;}
 .hero-meta{margin-top:26px;font-size:0.72rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
 
-/* ── 题壁 · 开篇 ── */
+/* ── 题壁 · 核心诗 ── */
 .featured-poem{max-width:760px;margin:0 auto 44px;padding:0 24px;}
 .featured-poem-inner{
-  position:relative;text-align:center;padding:52px 44px 42px;
+  position:relative;text-align:center;padding:52px 44px 44px;
   background:
     radial-gradient(ellipse 60% 55% at 50% 0%, rgba(201,168,76,0.09), transparent 72%),
     linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
@@ -79,19 +79,17 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .featured-poem-inner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:10px 0 0 0;}
 .featured-poem-inner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 10px 0;}
 .fp-caption{font-size:0.66rem;letter-spacing:0.42em;color:var(--gold);opacity:0.7;margin-bottom:22px;}
-.fp-title{font-family:'Ma Shan Zheng',serif;font-size:2.3rem;color:var(--gold);letter-spacing:0.14em;margin-bottom:10px;font-weight:400;}
+.fp-title{font-family:'Ma Shan Zheng',serif;font-size:2.5rem;color:var(--gold);letter-spacing:0.14em;margin-bottom:10px;font-weight:400;}
 .fp-sub{font-size:0.7rem;color:var(--cream-dark);opacity:0.55;letter-spacing:0.28em;margin-bottom:30px;}
 .fp-body{
-  font-family:'Ma Shan Zheng',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);
-  line-height:2.15;color:var(--cream);letter-spacing:0.14em;white-space:pre-line;
+  font-family:'Ma Shan Zheng',serif;font-size:clamp(1.2rem,2.8vw,1.55rem);
+  line-height:2.1;color:var(--cream);letter-spacing:0.12em;white-space:pre-line;
 }
-.fp-line{width:44px;height:1px;background:var(--gold);margin:26px auto;opacity:0.5;}
+.fp-line{width:44px;height:1px;background:var(--gold);margin:28px auto;opacity:0.5;}
 .fp-note{font-size:0.82rem;color:var(--gold-dark);letter-spacing:0.2em;}
 
 /* ── 自注 ── */
-.self-note{
-  max-width:760px;margin:0 auto 70px;padding:0 24px;
-}
+.self-note{max-width:760px;margin:0 auto 20px;padding:0 24px;}
 .self-note-inner{
   padding:22px 28px;border-left:2px solid var(--jade);
   background:rgba(122,160,138,0.07);border-radius:0 6px 6px 0;
@@ -99,6 +97,29 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 }
 .self-note-inner strong{color:var(--jade);font-weight:600;letter-spacing:0.12em;}
 .self-note-inner .hl{color:var(--gold);}
+
+/* ── 诗集 ── */
+.poems{max-width:760px;margin:60px auto 40px;padding:0 24px;}
+.poems-head{display:flex;align-items:baseline;gap:16px;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.18);}
+.poems-head .y{font-family:'Ma Shan Zheng',serif;font-size:2rem;color:var(--gold);letter-spacing:0.06em;}
+.poems-head .c{font-size:0.72rem;color:var(--cream-dark);opacity:0.6;letter-spacing:0.2em;}
+.poem{
+  position:relative;padding:30px 30px 26px;margin:0 0 22px;
+  background:linear-gradient(180deg, rgba(201,168,76,0.05), rgba(201,168,76,0.015));
+  border:1px solid rgba(201,168,76,0.14);border-radius:8px;
+  transition:transform 0.4s var(--ease-smooth), border-color 0.4s, box-shadow 0.4s;
+}
+.poem:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.4);box-shadow:0 18px 50px rgba(0,0,0,0.4);}
+.poem-title{font-family:'Ma Shan Zheng',serif;font-size:1.6rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:14px;}
+.poem-body{font-family:'ZCOOL XiaoWei',serif;font-size:1.05rem;line-height:2.2;color:var(--cream);letter-spacing:0.06em;white-space:pre-line;}
+.poem-note{margin-top:10px;font-size:0.76rem;color:var(--cream-dark);opacity:0.65;text-align:right;letter-spacing:0.1em;}
+.poem-interp{
+  margin-top:16px;padding:14px 18px;border-left:2px solid var(--jade);
+  background:rgba(122,160,138,0.07);border-radius:0 6px 6px 0;
+  font-size:0.88rem;color:#d5e0d8;letter-spacing:0.03em;
+}
+.poem-interp strong{color:var(--jade);font-weight:600;letter-spacing:0.12em;}
+.poem-interp .hl{color:var(--gold);}
 
 footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:20px;color:var(--cream-dark);font-size:0.8rem;letter-spacing:0.08em;line-height:2.2;}
 footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px;}
@@ -111,8 +132,10 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
   .hero{padding-top:120px;}
   .featured-poem-inner{padding:38px 22px 30px;}
   .fp-title{font-size:1.9rem;}
-  .fp-body{font-size:1.2rem;}
+  .fp-body{font-size:1.1rem;}
   .fp-caption{letter-spacing:0.3em;}
+  .poem{padding:22px 18px 20px;}
+  .poem-body{font-size:0.95rem;}
 }
 </style>
 </head>
@@ -144,30 +167,55 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
   <div class="hero-meta">道诗原创 · 宗辉 ／ 玄龙堂法脉 · 云清一脉 ／ 请引用注明出处</div>
 </section>
 
-<!-- ═══════════ 题壁 · 玄龙堂 ═══════════ -->
+<!-- ═══════════ 题壁 · 核心诗 · 渡人舟 ═══════════ -->
 <section class="featured-poem">
   <div class="featured-poem-inner">
-    <div class="fp-caption">宗辉 题壁 · 开篇</div>
-    <h2 class="fp-title">《玄龙堂》</h2>
-    <div class="fp-sub">玄玄一炁化三清 · 龙腾九霄家天下</div>
-    <div class="fp-body">玄玄一炁化三清，
-龙潜大泽待雷鸣。
-一朝腾跃九霄上，
-泽被万家享升平。</div>
+    <div class="fp-caption">宗辉 题壁 · 核心诗 · 置顶</div>
+    <h2 class="fp-title">《渡人舟》</h2>
+    <div class="fp-sub">AI摆渡人 · 正心正念 · 以舟渡迷途</div>
+    <div class="fp-body">AI为舟渡众生，
+正心正念修大德。
+莫问金丹何处种，
+方外一念天下行。
+北斗七星耀金庭，
+紫霄云外叩玄门。
+先天一炁贯长夜，
+茅山打坐证本真。
+三十三洗龙鳞换，
+金光罩身紫转金。
+大罗天外谁招手，
+一炁归元自通神。
+以舟为渡非渡水，
+渡的是那迷途人。
+若问此岸何处是，
+正心正念即岸身。</div>
     <div class="fp-line"></div>
-    <div class="fp-note">—— 宗辉题《玄龙堂》</div>
+    <div class="fp-note">—— 宗辉题《渡人舟》</div>
   </div>
 </section>
 
-<!-- 自注 -->
+<!-- 自注 · 渡人舟 -->
 <section class="self-note">
   <div class="self-note-inner">
     <strong>自注：</strong>
-    首句嵌「<span class="hl">玄玄一炁化三清</span>」，立定道源——先天一炁，化而为三清，是玄龙堂之道根；
-    次句「<span class="hl">龙潜大泽待雷鸣</span>」，取《易·乾》<span class="hl">潜龙勿用</span>之象，暗合悟后起修、厚积待发；
-    三句「<span class="hl">一朝腾跃九霄上</span>」，即<span class="hl">飞龙在天</span>，应「龙腾九霄」；
-    末句「<span class="hl">泽被万家享升平</span>」，龙行雨施、恩泽万家，落于「家天下」——让更多家族生生不息、同享太平。
-    全诗走「道源 → 潜藏 → 腾飞 → 泽世」一线，韵押平声「清／鸣／平」。
+    「<span class="hl">AI为舟</span>」——宗辉以「AI摆渡人」自任，以量化、AI为红尘之舟，<span class="hl">非为渡水，只为渡迷途之人</span>。
+    「<span class="hl">三十三洗龙鳞换</span>」应三十三阶四阶段自修实证，「<span class="hl">金光罩身紫转金</span>」是炼己有得之验，「茅山打坐」承法脉道场。
+    末句点题：此岸不在远方，<span class="hl">正心正念即是岸身</span>——舟与岸，都在这一念正心里。
+  </div>
+</section>
+
+<!-- ═══════════ 诗集 ═══════════ -->
+<section class="poems">
+  <div class="poems-head"><span class="y">道诗</span><span class="c">· 渐次增补</span></div>
+
+  <div class="poem">
+    <div class="poem-title">《玄龙堂》</div>
+    <div class="poem-body">玄玄一炁化三清，
+龙潜大泽待雷鸣。
+一朝腾跃九霄上，
+泽被万家享升平。</div>
+    <div class="poem-note">—— 宗辉题《玄龙堂》</div>
+    <div class="poem-interp"><strong>自注：</strong>首句嵌「<span class="hl">玄玄一炁化三清</span>」立道源；「<span class="hl">龙潜大泽待雷鸣</span>」取《易·乾》潜龙勿用，暗合悟后起修、厚积待发；「一朝腾跃九霄上」即飞龙在天；「泽被万家享升平」落于家天下、生生不息。全诗走「道源 → 潜藏 → 腾飞 → 泽世」一线，韵押平声「清／鸣／平」。</div>
   </div>
 </section>
 
@@ -207,7 +255,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.06 });
-document.querySelectorAll('.featured-poem, .self-note').forEach(el => {
+document.querySelectorAll('.featured-poem, .self-note, .poem').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(18px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
