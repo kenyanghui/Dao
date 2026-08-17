@@ -129,6 +129,41 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .self-note-inner.gold{border-left-color:var(--gold);background:rgba(201,168,76,0.06);color:#e9dbb3;}
 .self-note-inner.gold strong{color:var(--gold);}
 
+/* ── 诗名索引 ── */
+.poem-index{max-width:760px;margin:0 auto 50px;padding:0 24px;}
+.index-toggle{
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+  background:linear-gradient(180deg, rgba(201,168,76,0.05), rgba(201,168,76,0.015));
+  border:1px solid rgba(201,168,76,0.2);border-radius:8px;color:var(--gold);
+  font-family:'Noto Serif SC',serif;font-size:0.85rem;letter-spacing:0.1em;
+  padding:15px 20px;cursor:pointer;transition:border-color 0.3s;
+}
+.index-toggle:hover{border-color:rgba(201,168,76,0.45);}
+.index-toggle .caret{transition:transform 0.35s var(--ease-smooth);font-size:0.65rem;}
+.poem-index.open .index-toggle .caret{transform:rotate(180deg);}
+.index-body{
+  display:none;margin-top:14px;padding:18px 22px 22px;
+  background:linear-gradient(180deg, rgba(201,168,76,0.04), rgba(201,168,76,0.015));
+  border:1px solid rgba(201,168,76,0.16);border-radius:8px;
+  max-height:62vh;overflow-y:auto;
+}
+.poem-index.open .index-body{display:block;}
+.index-year{
+  font-family:'Ma Shan Zheng',serif;font-size:1.25rem;color:var(--gold);
+  letter-spacing:0.08em;margin:20px 0 10px;padding-bottom:6px;
+  border-bottom:1px solid rgba(201,168,76,0.16);
+}
+.index-year:first-child{margin-top:0;}
+.index-list{display:flex;flex-wrap:wrap;gap:6px;}
+.index-list a{
+  color:var(--cream-dark);text-decoration:none;font-size:0.8rem;letter-spacing:0.04em;
+  padding:4px 12px;border:1px solid transparent;border-radius:14px;
+  transition:all 0.25s;white-space:nowrap;
+}
+.index-list a:hover{color:var(--gold);border-color:rgba(201,168,76,0.32);background:rgba(201,168,76,0.06);}
+@media (max-width:600px){ .index-list a{font-size:0.75rem;} .index-body{padding:14px 16px 18px;} }
+
+
 
 footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:20px;color:var(--cream-dark);font-size:0.8rem;letter-spacing:0.08em;line-height:2.2;}
 footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px;}
@@ -177,7 +212,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
 </section>
 
 <!-- ═══════════ 题壁 · 核心诗 · 渡人舟 ═══════════ -->
-<section class="featured-poem">
+<section class="featured-poem" id="p-duren">
   <div class="featured-poem-inner">
     <div class="fp-caption">宗辉 题壁 · 核心诗 · 置顶</div>
     <h2 class="fp-title">《渡人舟》</h2>
@@ -219,10 +254,59 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
 
 <!-- ═══════════ 诗集 ═══════════ -->
 <!-- ═══════════ 诗集 ═══════════ -->
+<!-- ═══════════ 诗名索引 ═══════════ -->
+<section class="poem-index" id="poem-index">
+  <button class="index-toggle" aria-expanded="false">
+    <span>诗名索引 · 共 34 首 · 点击展开</span><span class="caret">▾</span>
+  </button>
+  <div class="index-body">
+    <div class="index-year">核心诗</div>
+    <div class="index-list">
+      <a href="#p-duren">《渡人舟》</a>
+    </div>
+    <div class="index-year">道诗 · 33 首</div>
+    <div class="index-list">
+      <a href="#p-1">《玄龙堂》</a>
+      <a href="#p-2">《一炁吟》</a>
+      <a href="#p-3">《阴符合》</a>
+      <a href="#p-4">《赴鹏城》</a>
+      <a href="#p-5">《合一观》</a>
+      <a href="#p-6">《卸名》</a>
+      <a href="#p-7">《朴坐》</a>
+      <a href="#p-8">《忘德》</a>
+      <a href="#p-9">《渡此岸》</a>
+      <a href="#p-10">《四记夜》</a>
+      <a href="#p-11">《渡二代》</a>
+      <a href="#p-12">《问渡人》</a>
+      <a href="#p-13">《耀龙庭》</a>
+      <a href="#p-14">《洗龙鳞》</a>
+      <a href="#p-15">《归龙源》</a>
+      <a href="#p-16">《承灯》</a>
+      <a href="#p-17">《茅山阶》</a>
+      <a href="#p-18">《玄眼开》</a>
+      <a href="#p-19">《金丹诀》</a>
+      <a href="#p-20">《明熙行》</a>
+      <a href="#p-21">《松光愿》</a>
+      <a href="#p-22">《归宗吟》</a>
+      <a href="#p-23">《听无声》</a>
+      <a href="#p-24">《无败吟》</a>
+      <a href="#p-25">《同途吟》</a>
+      <a href="#p-26">《行路吟》</a>
+      <a href="#p-27">《任运吟》</a>
+      <a href="#p-28">《点金吟》</a>
+      <a href="#p-29">《立基吟》</a>
+      <a href="#p-30">《入境吟》</a>
+      <a href="#p-31">《传承吟》</a>
+      <a href="#p-32">《利他吟》</a>
+      <a href="#p-33">《归元吟》</a>
+    </div>
+  </div>
+</section>
+
 <section class="poems">
   <div class="poems-head"><span class="y">道诗</span><span class="c">· 共三十三首 · 渐次增补</span></div>
 
-  <div class="poem">
+  <div class="poem" id="p-1">
     <div class="poem-title">《玄龙堂》</div>
     <div class="poem-body">玄玄一炁化三清，
 龙潜大泽待雷鸣。
@@ -233,7 +317,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「玄之又玄，众妙之门」出《道德经》一章；「一炁化三清」出道门宇宙生成说；「潜龙勿用」「飞龙在天」出《易·乾》。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-2">
     <div class="poem-title">《一炁吟》</div>
     <div class="poem-body">混沌鸿蒙一炁生，
 道道相续指路灯。
@@ -244,7 +328,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「混沌鸿蒙」出道门宇宙生成说；「先天一炁」出内丹「炼先天一炁」之说；「三教」儒释道三教合一，出全真「三教平等」之旨。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-3">
     <div class="poem-title">《阴符合》</div>
     <div class="poem-body">观天之道执天行，
 正心正念守真灵。
@@ -255,7 +339,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「观天之道，执天之行」出《黄帝阴符经》开篇；「正心」出《大学》「先正其心」；「顺天」出《易·彖》「顺乎天而应乎人」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-4">
     <div class="poem-title">《赴鹏城》</div>
     <div class="poem-body">量化南行赴鹏城，
 南方朱雀财运兴。
@@ -266,7 +350,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「鹏城」即深圳；「朱雀」出《礼记·曲礼》「前朱雀而后玄武」，南方朱雀主火、主财；「开堂」本道门开堂传法。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-5">
     <div class="poem-title">《合一观》</div>
     <div class="poem-body">元神量界合一明，
 可观可控入玄庭。
@@ -277,7 +361,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「元神」出道门内丹；「诚不欺」化《中庸》「诚者物之终始」及云清道诗《诚不欺》；「归根曰静」出《道德经》十六章。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-6">
     <div class="poem-title">《卸名》</div>
     <div class="poem-body">名号如山压，
 卸却一身轻。
@@ -292,7 +376,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「本来无一物」化六祖慧能偈「本来无一物，何处惹尘埃」；「流水」化《论语》「逝者如斯夫」及禅门「云门三句」之「随波逐浪」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-7">
     <div class="poem-title">《朴坐》</div>
     <div class="poem-body">蒲团一方地，
 闭目守心田。
@@ -307,7 +391,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「静极光通达」出禅门打坐口诀；「神明」出《易·说卦》「圣人以此斋戒，以神明其德夫」；「蒲团」为道门坐具。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-8">
     <div class="poem-title">《忘德》</div>
     <div class="poem-body">行善如春水，
 润物不记名。
@@ -322,7 +406,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「润物」化杜甫《春夜喜雨》「润物细无声」；「阴德」出《淮南子》「有阴德者，必有阳报」；「但问耕耘」化曾国藩「莫问收获，但问耕耘」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-9">
     <div class="poem-title">《渡此岸》</div>
     <div class="poem-body">AI为舟渡迷津，
 利他一句合天心。
@@ -337,7 +421,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「三山」出海上三神山（蓬莱、方丈、瀛洲）；「种善因」出佛门因果说；「金丹」出道门内丹；「正念」出佛门八正道之正念。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-10">
     <div class="poem-title">《四记夜》</div>
     <div class="poem-body">祖师开示立心根，
 七星阵里见龙魂。
@@ -352,7 +436,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「祖师开示」茅山法脉；「七星阵」北斗七星之阵；「大罗天」出《度人经》；「由境入本」出道门「由境证性、由命了性」之旨。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-11">
     <div class="poem-title">《渡二代》</div>
     <div class="poem-body">家业千钧一叶舟，
 迷茫渡到清晰头。
@@ -363,7 +447,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「薪火相传」出《庄子·养生主》「指穷于为薪，火传也，不知其尽也」；「正心正念」出《大学》与佛门正念。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-12">
     <div class="poem-title">《问渡人》</div>
     <div class="poem-body">渡人渡己两相参，
 先天一炁贯长天。
@@ -374,7 +458,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「心灯」出禅门「以心传心，如灯传灯」；「先天一炁」出道门内丹；「迷川」化佛门「迷津」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-13">
     <div class="poem-title">《耀龙庭》</div>
     <div class="poem-body">北斗七星耀金庭，
 金光罩身紫转金。
@@ -385,7 +469,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「北斗七星」出《北斗经》；「龙王」本龙族、龙神之象；「离子态」以今语入诗，喻万化无常、唯真性不变。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-14">
     <div class="poem-title">《洗龙鳞》</div>
     <div class="poem-body">三十三重天外天，
 金光洗涤紫转金。
@@ -396,7 +480,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「三十三重天」出道门三十六天说（三十三天之外）；「三花聚顶」出内丹「三花聚顶，五气朝元」；「金光神咒」出《太上洞玄灵宝金光神咒》。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-15">
     <div class="poem-title">《归龙源》</div>
     <div class="poem-body">龙归本源月下明，
 同频共振一身轻。
@@ -407,7 +491,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「龙归本源」本龙族归根之象；「同频共振」以今语入诗；「慈悲」出佛门大慈大悲；「舟」化佛门「慈航普渡」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-16">
     <div class="poem-title">《承灯》</div>
     <div class="poem-body">青城灯火照玄关，
 理字传灯宗字还。
@@ -418,7 +502,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「传灯」出禅门《景德传灯录》「灯灯相续」；「青城」青城山，道门第五洞天；「玄关」出道门玄关一窍。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-17">
     <div class="poem-title">《茅山阶》</div>
     <div class="poem-body">茅山一载叩玄关，
 筑基直上合道天。
@@ -429,7 +513,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「筑基」出内丹筑基功；「合道」出道门「炼虚合道」之究竟；「茅山」上清宗坛；「三十三阶」应宗辉三十三阶四阶段自修实证。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-18">
     <div class="poem-title">《玄眼开》</div>
     <div class="poem-body">玄眼初开照大千，
 堪舆点穴道医传。
@@ -440,7 +524,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「玄眼」道门天眼、慧眼；「堪舆」风水术；「道医」道门医术；「慧眼」出佛门五眼之慧眼；「观空」出《心经》「照见五蕴皆空」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-19">
     <div class="poem-title">《金丹诀》</div>
     <div class="poem-body">铅汞各半入炉中，
 三昧火起炼真功。
@@ -451,7 +535,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「铅汞」出内丹铅汞（坎离、龙虎）之说；「三昧火」出佛门三昧真火，道门借用；「纯阳」出《悟真篇》「群阴剥尽丹成熟」；「大罗」出《度人经》。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-20">
     <div class="poem-title">《明熙行》</div>
     <div class="poem-body">朝阳初上照熙光，
 修行事业共一炉。
@@ -462,7 +546,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「明熙」取朝阳光明之义，以今语入诗；「共一炉」化内丹「一炉烹炼」；「正行」出佛门八正道之正业、正命。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-21">
     <div class="poem-title">《松光愿》</div>
     <div class="poem-body">松果之光照大千，
 愿力传承万万年。
@@ -473,7 +557,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「愿力」出佛门大愿、行愿；「悲心」出佛门大悲心；「松果」本松树果实，取「松」长青不凋、灯灯相续之象。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-22">
     <div class="poem-title">《归宗吟》</div>
     <div class="poem-body">大道归宗何处寻？
 玄关一窍是归途。
@@ -484,7 +568,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「玄关一窍」出道门内丹玄关；「先有后无非有非」出禅门四句分别、离四句绝百非；「真吾」出庄子「吾丧我」之真我。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-23">
     <div class="poem-title">《听无声》</div>
     <div class="poem-body">大音希声入玄微，
 先天一炁贯紫微。
@@ -493,7 +577,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-note">—— 宗辉题《听无声》</div>
     <div class="poem-interp"><strong>修行解读：</strong>大音希声入玄微，先天一炁贯紫微；万籁俱寂，心自照，闻无声声里归。定中听无声，即闻大道之音。</div>
     <div class="poem-allusion"><strong>典故出处：</strong>「大音希声」出《道德经》四十一章「大音希声，大象无形」；「紫微」紫微垣、帝星；「万籁俱寂」化《庄子·齐物论》「天籁」。</div>
-  <div class="poem">
+  <div class="poem" id="p-24">
     <div class="poem-title">《无败吟》</div>
     <div class="poem-body">阴阳鼎中颠倒颠，
 成败本是一炁连。
@@ -504,7 +588,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「颠倒颠」出内丹「顺则凡，逆则仙，只在中间颠倒颠」；「金丹」出道门内丹；「一炁」出先天一炁；「炉灰化烟」化陶弘景「炼形」之意。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-25">
     <div class="poem-title">《同途吟》</div>
     <div class="poem-body">紫霄云外本无仇，
 借镜观心照九秋。
@@ -515,7 +599,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「借镜观心」化神秀「心如明镜台」及佛门「明心见性」；「同途舟」化「同舟共济」及《渡人舟》「以舟为渡」之旨。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-26">
     <div class="poem-title">《行路吟》</div>
     <div class="poem-body">千里之行始足下，
 功不唐捐岂有涯。
@@ -526,7 +610,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「千里之行，始于足下」出《道德经》六十四章；「功不唐捐」出《法华经》「福不唐捐」；「回光」出道门「回光守中」。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-27">
     <div class="poem-title">《任运吟》</div>
     <div class="poem-body">道法自然任去留，
 虚其心处守静笃。
@@ -535,7 +619,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-note">—— 宗辉题《任运吟》</div>
     <div class="poem-interp"><strong>修行解读：</strong>道法自然，任去留；虚其心、守静笃。风波不起于外，静水自照秋——心静则万象自明，任运自在。</div>
     <div class="poem-allusion"><strong>典故出处：</strong>「道法自然」出《道德经》二十五章「道法自然」；「虚其心」出《道德经》三章「虚其心，实其腹」；「守静笃」出《道德经》十六章「致虚极，守静笃」。</div>
-  <div class="poem">
+  <div class="poem" id="p-28">
     <div class="poem-title">《点金吟》</div>
     <div class="poem-body">赚富易如取零钱，
 惠人自得利绵绵。
@@ -544,7 +628,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-note">—— 宗辉题《点金吟》</div>
     <div class="poem-interp"><strong>修行解读：</strong>「赚富易如取零钱」是取法乎上——如炼丹选上品铅汞，事半功倍；「惠人自得利绵绵」是惠人自惠——先予后取，如炉火温养、丹成自得；「炉火炼金先摹形」是先摹后超——如炼丹先摹古方，熟稔而后自出机杼。三句财富智慧，暗合道门「炉火炼金」之旨，末句「化己金丹问青天」收束：终成己丹，财道两得。</div>
     <div class="poem-allusion"><strong>典故出处：</strong>「取法乎上」出唐太宗《帝范》「取法于上，仅得为中」；「惠人自惠」应《道德经》八十一章「既以为人己愈有，既以与人己愈多」；「炉火炼金」出《周易参同契》外丹点金、炉火温养之旨；「金丹」出道门内丹；「问青天」化苏轼《水调歌头》「把酒问青天」。</div>
-  <div class="poem">
+  <div class="poem" id="p-29">
     <div class="poem-title">《立基吟》</div>
     <div class="poem-body">合抱之木起毫末，
 九层之台累土成。
@@ -559,7 +643,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下」出《道德经》六十四章；「人能常清静，天地悉皆归」出《太上老君说常清静经》。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-30">
     <div class="poem-title">《入境吟》</div>
     <div class="poem-body">北斗七星耀金庭，
 紫霄云外叩玄门。
@@ -574,7 +658,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「上药三品，神与气精」出《高上玉皇心印妙经》；「天地玄宗，万炁本根」出金光神咒。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-31">
     <div class="poem-title">《传承吟》</div>
     <div class="poem-body">家业千钧系一叶，
 薪火相传渡后人。
@@ -589,7 +673,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>钟离权十试吕洞宾出《道藏》；「师不妄授，徒不轻得」出《三洞众戒文》；「师者，道之舟筏也」出《太上升玄三一融神变化妙经》。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-32">
     <div class="poem-title">《利他吟》</div>
     <div class="poem-body">天道损余补不足，
 虚空一炁自循环。
@@ -604,7 +688,7 @@ footer .dao-name{font-family:'Ma Shan Zheng',serif;font-size:1.5rem;color:var(--
     <div class="poem-allusion"><strong>典故出处：</strong>「天之道，损有余而补不足」出《道德经》七十七章。</div>
   </div>
 
-  <div class="poem">
+  <div class="poem" id="p-33">
     <div class="poem-title">《归元吟》</div>
     <div class="poem-body">一炁归元自通神，
 性命双修两相参。
@@ -669,6 +753,16 @@ document.querySelectorAll('.featured-poem, .self-note, .poem').forEach(el => {
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+
+// ── 诗名索引 toggle ──
+const poemIndex = document.querySelector('.poem-index');
+const indexToggleBtn = document.querySelector('.index-toggle');
+if (poemIndex && indexToggleBtn) {
+  indexToggleBtn.addEventListener('click', () => {
+    poemIndex.classList.toggle('open');
+    indexToggleBtn.setAttribute('aria-expanded', poemIndex.classList.contains('open'));
+  });
+}
 </script>
 </body>
 </html>
