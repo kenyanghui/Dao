@@ -23,10 +23,10 @@ body {
   background: var(--void);
   color: var(--cream);
   font-family: 'Noto Serif SC', serif;
-  font-size:26px;
+  font-size:1rem;
   line-height: 2;
 }
-html { overflow-x: hidden; scroll-behavior: smooth; font-size: 26px; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: 16px; }
 .en {
   display: block;
   margin-top: 6px;
