@@ -14,13 +14,13 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 26px; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   background: var(--void);
   color: var(--cream);
   font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
-  font-size:26px;
+  font-size:1rem;
   line-height: 2;
   overflow-x: hidden;
 }
@@ -939,7 +939,7 @@ footer .dao-name {
   nav { padding: 0 16px; }
   nav .brand { font-size: 1.1rem; }
   nav .brand small { font-size:0.9rem; }
-  body { font-size:26px; }
+  body { font-size:1rem; }
   .section-divider { padding: 0 20px; }
   .full-image { height: 50vh; min-height: 300px; }
   .infographic { padding: 0 20px; }
