@@ -197,7 +197,9 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
   overflow:hidden;border:1px solid rgba(201,168,76,0.28);border-radius:8px;
   background:#e9e1cf;box-shadow:0 18px 46px rgba(0,0,0,0.32);
 }
+.poem-card-original{display:block;cursor:zoom-in;}
 .poem-card-frame img{display:block;width:100%;height:auto;}
+.poem-card-hint{margin-top:10px;color:var(--cream-dark);font-size:0.78rem;letter-spacing:0.08em;}
 .poem-card-download{margin-top:12px;}
 .featured-poem .poem-card-tools{margin-top:26px;}
 
@@ -5274,7 +5276,7 @@ async function copyMoments(button, path) {
 }
 
 function attachCardTools(container, key, title) {
-  const imagePath = `${cardAssetRoot}/${key}.webp`;
+  const imagePath = `${cardAssetRoot}/${key}.png`;
   const momentsPath = `${cardAssetRoot}/${key}.txt`;
   const panelId = `poem-card-${key}-${++cardInstance}`;
   const tools = document.createElement('div');
@@ -5308,12 +5310,24 @@ function attachCardTools(container, key, title) {
   image.alt = `云清大师道诗荐赏《${title}》完整知识长图`;
   image.loading = 'lazy';
   image.decoding = 'async';
-  frame.appendChild(image);
+
+  const originalLink = document.createElement('a');
+  originalLink.className = 'poem-card-original';
+  originalLink.href = imagePath;
+  originalLink.target = '_blank';
+  originalLink.rel = 'noopener';
+  originalLink.title = '点击查看高清原图';
+  originalLink.appendChild(image);
+  frame.appendChild(originalLink);
+
+  const hint = document.createElement('div');
+  hint.className = 'poem-card-hint';
+  hint.textContent = '点击长图可放大查看高清原图';
 
   const download = document.createElement('a');
   download.className = 'poem-card-download';
   download.href = imagePath;
-  download.download = `云清大师道诗荐赏-${title}.webp`;
+  download.download = `云清大师道诗荐赏-${title}.png`;
   download.textContent = '下载完整长图';
 
   toggle.addEventListener('click', () => {
@@ -5325,7 +5339,7 @@ function attachCardTools(container, key, title) {
   });
 
   actions.append(toggle, copy);
-  panel.append(frame, download);
+  panel.append(frame, hint, download);
   tools.append(actions, panel);
   container.appendChild(tools);
 }
