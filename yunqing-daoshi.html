@@ -173,6 +173,34 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .poem-allusion strong{color:var(--gold);font-weight:600;letter-spacing:0.1em;}
 .poem-allusion .al-cite{color:var(--gold);font-weight:500;}
 .poem-allusion .al-classic{color:#b8cfc0;}
+
+/* ── 2026 道诗知识卡片 ── */
+.poem-card-tools{
+  margin-top:18px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.16);
+}
+.poem-card-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.poem-card-button,.poem-card-download{
+  display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 16px;
+  border:1px solid rgba(201,168,76,0.42);border-radius:999px;
+  background:rgba(201,168,76,0.08);color:var(--gold-light);
+  font:inherit;font-size:0.86rem;letter-spacing:0.08em;text-decoration:none;cursor:pointer;
+  transition:background 0.25s,border-color 0.25s,color 0.25s,transform 0.25s;
+}
+.poem-card-button:hover,.poem-card-download:hover{
+  background:rgba(201,168,76,0.16);border-color:var(--gold);color:#fff6d5;transform:translateY(-1px);
+}
+.poem-card-button:focus-visible,.poem-card-download:focus-visible{outline:2px solid var(--jade);outline-offset:3px;}
+.poem-card-button.copy{border-color:rgba(122,160,138,0.5);background:rgba(122,160,138,0.09);color:#cfe2d5;}
+.poem-card-panel{margin-top:16px;text-align:center;}
+.poem-card-panel[hidden]{display:none;}
+.poem-card-frame{
+  overflow:hidden;border:1px solid rgba(201,168,76,0.28);border-radius:8px;
+  background:#e9e1cf;box-shadow:0 18px 46px rgba(0,0,0,0.32);
+}
+.poem-card-frame img{display:block;width:100%;height:auto;}
+.poem-card-download{margin-top:12px;}
+.featured-poem .poem-card-tools{margin-top:26px;}
+
 /* ── 早年偈语 ── */
 .verses-note{max-width:760px;margin:20px auto;padding:0 24px;font-size:0.82rem;color:var(--cream-dark);opacity:0.8;line-height:2;text-align:center;}
 .verses-note strong{color:var(--gold);}
@@ -188,6 +216,8 @@ footer .dao-name{font-family:'Zhi Mang Xing','Ma Shan Zheng',serif;font-size:1.5
   .hero{padding-top:120px;}
   .poem{padding:22px 18px 20px;}
   .poem-body{font-size:1.2rem;}
+  .poem-card-actions{display:grid;grid-template-columns:1fr;}
+  .poem-card-button{width:100%;}
 }
 </style>
 </head>
@@ -228,7 +258,7 @@ footer .dao-name{font-family:'Zhi Mang Xing','Ma Shan Zheng',serif;font-size:1.5
 </section>
 
 <!-- ═══════════ 题壁 · 菩提树 ═══════════ -->
-<section class="featured-poem">
+<section class="featured-poem" data-card-key="2026-10">
   <div class="featured-poem-inner">
     <div class="fp-caption">云清 题壁 · 置顶</div>
     <h2 class="fp-title">《菩提树》</h2>
@@ -243,7 +273,7 @@ footer .dao-name{font-family:'Zhi Mang Xing','Ma Shan Zheng',serif;font-size:1.5
 </section>
 
 <!-- ═══════════ 置顶 · 云清道诗 ═══════════ -->
-<section class="featured-poem">
+<section class="featured-poem" data-card-key="core">
   <div class="featured-poem-inner">
     <div class="fp-caption">云清 题壁 · 置顶 · 关键道诗</div>
     <h2 class="fp-title">云清道诗</h2>
@@ -5200,6 +5230,117 @@ if (poemIndex && indexToggleBtn) {
     indexToggleBtn.setAttribute('aria-expanded', poemIndex.classList.contains('open'));
   });
 }
+
+// ── 2026 知识长图与朋友圈配文 ──
+const cardAssetRoot = 'assets/yunqing-2026-cards';
+let cardInstance = 0;
+
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  if (!copied) throw new Error('copy failed');
+}
+
+async function copyMoments(button, path) {
+  const originalLabel = button.dataset.originalLabel || button.textContent;
+  button.dataset.originalLabel = originalLabel;
+  button.disabled = true;
+  try {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = await response.text();
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      fallbackCopy(text);
+    }
+    button.textContent = '已复制，可直接发圈';
+  } catch (error) {
+    button.textContent = '复制失败，请重试';
+    console.error('朋友圈配文复制失败', error);
+  } finally {
+    window.setTimeout(() => {
+      button.textContent = originalLabel;
+      button.disabled = false;
+    }, 1800);
+  }
+}
+
+function attachCardTools(container, key, title) {
+  const imagePath = `${cardAssetRoot}/${key}.webp`;
+  const momentsPath = `${cardAssetRoot}/${key}.txt`;
+  const panelId = `poem-card-${key}-${++cardInstance}`;
+  const tools = document.createElement('div');
+  tools.className = 'poem-card-tools';
+
+  const actions = document.createElement('div');
+  actions.className = 'poem-card-actions';
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'poem-card-button';
+  toggle.textContent = '展开完整知识长图';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-controls', panelId);
+
+  const copy = document.createElement('button');
+  copy.type = 'button';
+  copy.className = 'poem-card-button copy';
+  copy.textContent = '复制朋友圈配文';
+  copy.addEventListener('click', () => copyMoments(copy, momentsPath));
+
+  const panel = document.createElement('div');
+  panel.id = panelId;
+  panel.className = 'poem-card-panel';
+  panel.hidden = true;
+
+  const frame = document.createElement('div');
+  frame.className = 'poem-card-frame';
+  const image = document.createElement('img');
+  image.dataset.src = imagePath;
+  image.alt = `云清大师道诗荐赏《${title}》完整知识长图`;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  frame.appendChild(image);
+
+  const download = document.createElement('a');
+  download.className = 'poem-card-download';
+  download.href = imagePath;
+  download.download = `云清大师道诗荐赏-${title}.webp`;
+  download.textContent = '下载完整长图';
+
+  toggle.addEventListener('click', () => {
+    const willOpen = panel.hidden;
+    panel.hidden = !willOpen;
+    toggle.setAttribute('aria-expanded', String(willOpen));
+    toggle.textContent = willOpen ? '收起完整知识长图' : '展开完整知识长图';
+    if (willOpen && !image.src) image.src = image.dataset.src;
+  });
+
+  actions.append(toggle, copy);
+  panel.append(frame, download);
+  tools.append(actions, panel);
+  container.appendChild(tools);
+}
+
+document.querySelectorAll('.featured-poem[data-card-key]').forEach(featured => {
+  const container = featured.querySelector('.featured-poem-inner');
+  const title = featured.querySelector('.fp-title')?.textContent.trim().replace(/[《》]/g, '') || '云清道诗';
+  attachCardTools(container, featured.dataset.cardKey, title);
+});
+
+document.querySelectorAll('.year[id="2026"] .poem[id^="p-2026-"]').forEach(poem => {
+  const number = poem.id.split('-').pop().padStart(2, '0');
+  const title = poem.querySelector('.poem-title')?.textContent.trim().replace(/[《》]/g, '') || `第${number}首`;
+  attachCardTools(poem, `2026-${number}`, title);
+});
 
 // ── Scroll reveal ──
 const observer = new IntersectionObserver((entries) => {
