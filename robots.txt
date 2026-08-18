@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kenyanghui.github.io/Dao/sitemap.xml

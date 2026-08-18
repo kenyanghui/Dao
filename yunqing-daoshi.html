@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>云清道诗 · 道家修行解读 | Yunqing Dao Poems</title>
+<meta name="description" content="云清道诗历年作品汇编与道家修行解读，在诗句中观照自然、心性与修行次第。">
+<link rel="canonical" href="https://kenyanghui.github.io/Dao/yunqing-daoshi.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="云清道诗 · 道家修行解读">
+<meta property="og:description" content="在历年道诗中观照自然、心性与修行。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://kenyanghui.github.io/Dao/cover-image/daoxiu/ancestor-gold.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Long+Cang&family=Zhi+Mang+Xing&family=Liu+Jian+Mao+Cao&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +25,7 @@
   --ease-smooth:cubic-bezier(0.22,1,0.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;font-size:20px;}
 body{
   background:var(--bg);
   color:var(--cream);
@@ -43,9 +50,9 @@ nav{
 }
 nav .brand{font-family:'Ma Shan Zheng','Long Cang','Zhi Mang Xing',serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.15em;}
 nav .brand a{color:var(--gold);text-decoration:none;}
-nav .brand small{font-family:'Noto Serif SC','LXGW WenKai',serif;font-size:0.75rem;opacity:0.75;margin-left:8px;letter-spacing:0.1em;}
+nav .brand small{font-family:'Noto Serif SC','LXGW WenKai',serif;font-size:0.88rem;opacity:0.75;margin-left:8px;letter-spacing:0.1em;}
 nav .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
-nav .nav-links a{color:var(--cream-dark);text-decoration:none;font-size:0.85rem;letter-spacing:0.05em;transition:color 0.3s;white-space:nowrap;}
+nav .nav-links a{color:var(--cream-dark);text-decoration:none;font-size:0.96rem;letter-spacing:0.05em;transition:color 0.3s;white-space:nowrap;}
 nav .nav-links a:hover{color:var(--gold);}
 nav .nav-links .active a{color:var(--gold);}
 nav .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:101;}
@@ -53,13 +60,13 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 
 /* ── Hero ── */
 .hero{position:relative;padding:150px 24px 90px;text-align:center;max-width:960px;margin:0 auto;}
-.hero-badge{display:inline-block;font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:7px 20px;border-radius:30px;margin-bottom:28px;}
+.hero-badge{display:inline-block;font-size:0.84rem;letter-spacing:0.35em;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:7px 20px;border-radius:30px;margin-bottom:28px;}
 .hero h1{font-family:'Ma Shan Zheng','Long Cang','Zhi Mang Xing',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;color:var(--gold);letter-spacing:0.08em;line-height:1.2;}
 .hero h1 em{font-style:normal;color:var(--cream);font-family:'Noto Serif SC','LXGW WenKai',serif;font-size:0.45em;letter-spacing:0.2em;display:block;margin-top:14px;}
 .hero-divider{width:60px;height:1px;background:var(--gold);margin:30px auto;opacity:0.6;}
-.hero-sub{color:var(--cream-dark);font-size:0.95rem;max-width:640px;margin:0 auto;letter-spacing:0.05em;}
+.hero-sub{color:var(--cream-dark);font-size:1.05rem;max-width:640px;margin:0 auto;letter-spacing:0.05em;}
 .hero-sub strong{color:var(--gold);font-weight:600;}
-.hero-meta{margin-top:26px;font-size:0.72rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
+.hero-meta{margin-top:26px;font-size:0.86rem;color:var(--cream-dark);opacity:0.75;letter-spacing:0.18em;}
 
 /* ── 诗名索引 ── */
 .poem-index{max-width:760px;margin:0 auto 50px;padding:0 24px;}
@@ -67,11 +74,11 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
   display:flex;align-items:center;justify-content:space-between;width:100%;
   background:linear-gradient(180deg, rgba(201,168,76,0.05), rgba(201,168,76,0.015));
   border:1px solid rgba(201,168,76,0.2);border-radius:8px;color:var(--gold);
-  font-family:'Noto Serif SC','LXGW WenKai',serif;font-size:0.85rem;letter-spacing:0.1em;
+  font-family:'Noto Serif SC','LXGW WenKai',serif;font-size:0.96rem;letter-spacing:0.1em;
   padding:15px 20px;cursor:pointer;transition:border-color 0.3s;
 }
 .index-toggle:hover{border-color:rgba(201,168,76,0.45);}
-.index-toggle .caret{transition:transform 0.35s var(--ease-smooth);font-size:0.65rem;}
+.index-toggle .caret{transition:transform 0.35s var(--ease-smooth);font-size:0.8rem;}
 .poem-index.open .index-toggle .caret{transform:rotate(180deg);}
 .index-body{
   display:none;margin-top:14px;padding:18px 22px 22px;
@@ -88,23 +95,23 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .index-year:first-child{margin-top:0;}
 .index-list{display:flex;flex-wrap:wrap;gap:6px;}
 .index-list a{
-  color:var(--cream-dark);text-decoration:none;font-size:0.8rem;letter-spacing:0.04em;
+  color:var(--cream-dark);text-decoration:none;font-size:0.92rem;letter-spacing:0.04em;
   padding:4px 12px;border:1px solid transparent;border-radius:14px;
   transition:all 0.25s;white-space:nowrap;
 }
 .index-list a:hover{color:var(--gold);border-color:rgba(201,168,76,0.32);background:rgba(201,168,76,0.06);}
-@media (max-width:600px){ .index-list a{font-size:0.75rem;} .index-body{padding:14px 16px 18px;} }
+@media (max-width:600px){ .index-list a{font-size:0.88rem;} .index-body{padding:14px 16px 18px;} }
 
 /* ── 年份锚点 ── */
 .year-nav{max-width:960px;margin:0 auto 50px;padding:0 24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
-.year-nav a{color:var(--cream-dark);text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;padding:6px 16px;border:1px solid rgba(201,168,76,0.22);border-radius:24px;transition:all 0.3s;}
+.year-nav a{color:var(--cream-dark);text-decoration:none;font-size:0.92rem;letter-spacing:0.12em;padding:6px 16px;border:1px solid rgba(201,168,76,0.22);border-radius:24px;transition:all 0.3s;}
 .year-nav a:hover{color:var(--gold);border-color:var(--gold);}
 
 /* ── 年份区块 ── */
 .year{max-width:760px;margin:0 auto 40px;padding:0 24px;}
 .year-head{display:flex;align-items:baseline;gap:16px;margin:70px 0 8px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.18);}
 .year-head .y{font-family:'Ma Shan Zheng','Long Cang','Zhi Mang Xing',serif;font-size:2.4rem;color:var(--gold);letter-spacing:0.06em;}
-.year-head .y-count{font-size:0.72rem;color:var(--cream-dark);opacity:0.6;letter-spacing:0.2em;}
+.year-head .y-count{font-size:0.86rem;color:var(--cream-dark);opacity:0.6;letter-spacing:0.2em;}
 
 /* ── 诗卡 ── */
 .poem{
@@ -116,7 +123,7 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .poem:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.4);box-shadow:0 18px 50px rgba(0,0,0,0.4);}
 .poem-title{font-family:'Ma Shan Zheng','Long Cang','Zhi Mang Xing',serif;font-size:2.3rem;color:var(--gold);letter-spacing:0.12em;margin-bottom:18px;text-align:center;}
 .poem-body{font-family:'ZCOOL XiaoWei','ZCOOL QingKe HuangYou',serif;font-size:clamp(1.45rem,3vw,1.9rem);line-height:2.4;color:var(--cream);letter-spacing:0.08em;white-space:pre-line;text-align:center;}
-.poem-note{margin-top:16px;font-size:0.92rem;color:var(--cream-dark);opacity:0.7;text-align:center;letter-spacing:0.12em;}
+.poem-note{margin-top:16px;font-size:1.02rem;color:var(--cream-dark);opacity:0.7;text-align:center;letter-spacing:0.12em;}
 .poem-interp{
   margin-top:16px;padding:14px 18px;border-left:2px solid var(--jade);
   background:rgba(122,160,138,0.07);border-radius:0 6px 6px 0;
@@ -147,16 +154,16 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 }
 .featured-poem-inner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:10px 0 0 0;}
 .featured-poem-inner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 10px 0;}
-.fp-caption{font-size:0.66rem;letter-spacing:0.42em;color:var(--gold);opacity:0.7;margin-bottom:22px;}
+.fp-caption{font-size:0.8rem;letter-spacing:0.42em;color:var(--gold);opacity:0.7;margin-bottom:22px;}
 .fp-title{font-family:'Liu Jian Mao Cao','Ma Shan Zheng',serif;font-size:2.3rem;color:var(--gold);letter-spacing:0.14em;margin-bottom:10px;font-weight:400;}
-.fp-sub{font-size:0.7rem;color:var(--cream-dark);opacity:0.55;letter-spacing:0.28em;margin-bottom:30px;}
+.fp-sub{font-size:0.84rem;color:var(--cream-dark);opacity:0.55;letter-spacing:0.28em;margin-bottom:30px;}
 .fp-body{
   font-family:'Ma Shan Zheng','Long Cang','Zhi Mang Xing',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);
   line-height:2.15;color:var(--cream);letter-spacing:0.14em;white-space:pre-line;
 }
 .fp-body em{font-style:normal;color:var(--gold-light);}
 .fp-line{width:44px;height:1px;background:var(--gold);margin:26px auto;opacity:0.5;}
-.fp-note{font-size:0.82rem;color:var(--gold-light);letter-spacing:0.2em;}
+.fp-note{font-size:0.94rem;color:var(--gold-light);letter-spacing:0.2em;}
 @media (max-width:600px){
   .featured-poem-inner{padding:38px 22px 30px;}
   .fp-title{font-size:1.9rem;}
@@ -183,7 +190,7 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
   display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 16px;
   border:1px solid rgba(201,168,76,0.42);border-radius:999px;
   background:rgba(201,168,76,0.08);color:var(--gold-light);
-  font:inherit;font-size:0.86rem;letter-spacing:0.08em;text-decoration:none;cursor:pointer;
+  font:inherit;font-size:0.97rem;letter-spacing:0.08em;text-decoration:none;cursor:pointer;
   transition:background 0.25s,border-color 0.25s,color 0.25s,transform 0.25s;
 }
 .poem-card-button:hover,.poem-card-download:hover{
@@ -199,15 +206,15 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 }
 .poem-card-original{display:block;cursor:zoom-in;}
 .poem-card-frame img{display:block;width:100%;height:auto;}
-.poem-card-hint{margin-top:10px;color:var(--cream-dark);font-size:0.78rem;letter-spacing:0.08em;}
+.poem-card-hint{margin-top:10px;color:var(--cream-dark);font-size:0.9rem;letter-spacing:0.08em;}
 .poem-card-download{margin-top:12px;}
 .featured-poem .poem-card-tools{margin-top:26px;}
 
 /* ── 早年偈语 ── */
-.verses-note{max-width:760px;margin:20px auto;padding:0 24px;font-size:0.82rem;color:var(--cream-dark);opacity:0.8;line-height:2;text-align:center;}
+.verses-note{max-width:760px;margin:20px auto;padding:0 24px;font-size:0.94rem;color:var(--cream-dark);opacity:0.8;line-height:2;text-align:center;}
 .verses-note strong{color:var(--gold);}
 
-footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:60px;color:var(--cream-dark);font-size:0.8rem;letter-spacing:0.08em;line-height:2.2;}
+footer{text-align:center;padding:70px 24px 50px;border-top:1px solid rgba(201,168,76,0.12);margin-top:60px;color:var(--cream-dark);font-size:0.92rem;letter-spacing:0.08em;line-height:2.2;}
 footer .dao-name{font-family:'Zhi Mang Xing','Ma Shan Zheng',serif;font-size:1.5rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px;}
 
 @media (max-width:600px){
