@@ -20,7 +20,7 @@ body {
   background: var(--void);
   color: var(--cream);
   font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
-  font-size: 20px;
+  font-size:26px;
   line-height: 2;
   overflow-x: hidden;
 }
@@ -84,7 +84,7 @@ nav .brand {
 }
 nav .brand small {
   font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
-  font-size: 0.88rem;
+  font-size:0.98rem;
   opacity: 0.75;
   margin-left: 8px;
   letter-spacing: 0.1em;
@@ -99,7 +99,7 @@ nav .nav-links {
 nav .nav-links a {
   color: var(--cream-dark);
   text-decoration: none;
-  font-size: 0.96rem;
+  font-size:1.06rem;
   letter-spacing: 0.05em;
   transition: color 0.3s;
   opacity: 1.0;
@@ -129,7 +129,7 @@ nav .nav-links .dropdown-menu li { margin: 0; }
 nav .nav-links .dropdown-menu a {
   display: block;
   padding: 8px 18px;
-  font-size: 0.94rem;
+  font-size:1.04rem;
   white-space: nowrap;
 }
 nav .nav-links .dropdown-menu a:hover {
@@ -174,7 +174,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   z-index: 1;
 }
 .hero-badge {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--gold);
@@ -202,7 +202,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin: 0 auto 24px;
 }
 .hero-sub {
-  font-size: 1.05rem;
+  font-size:1.15rem;
   color: var(--cream-dark);
   opacity: 0.9;
   max-width: 640px;
@@ -221,7 +221,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 .hero-meta {
   display: flex;
   gap: 24px;
-  font-size: 0.96rem;
+  font-size:1.06rem;
   color: var(--gold);
   opacity: 0.75;
   letter-spacing: 0.1em;
@@ -247,7 +247,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .section-alt .section { padding: 80px 40px; }
 .section-label {
-  font-size: 0.88rem;
+  font-size:0.98rem;
   letter-spacing: 0.35em;
   color: var(--gold);
   opacity: 0.95;
@@ -376,7 +376,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .card-tag {
   display: inline-block;
-  font-size: 0.84rem;
+  font-size:0.94rem;
   letter-spacing: 0.15em;
   color: var(--gold);
   border: 1px solid rgba(201,168,76,0.2);
@@ -385,21 +385,21 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin-bottom: 12px;
 }
 .card-title {
-  font-size: 1.05rem;
+  font-size:1.15rem;
   color: var(--cream);
   margin-bottom: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 .card-desc {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--cream-dark);
   opacity: 1.0;
   line-height: 2;
 }
 .card-desc strong { color: var(--gold); font-weight: 600; }
 .card-quote {
-  font-size: 0.96rem;
+  font-size:1.06rem;
   color: var(--gold-light);
   opacity: 1.0;
   font-style: italic;
@@ -418,7 +418,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin: 24px 0;
 }
 .feature-box-label {
-  font-size: 0.88rem;
+  font-size:0.98rem;
   letter-spacing: 0.28em;
   color: var(--jade);
   margin-bottom: 12px;
@@ -426,7 +426,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   align-items: center;
   gap: 8px;
 }
-.feature-box-label::before { content: '\25C6'; font-size: 0.72rem; }
+.feature-box-label::before { content: '\25C6'; font-size:0.82rem; }
 .feature-box p {
   font-size: 0.95rem;
   color: var(--cream-dark);
@@ -465,27 +465,27 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin-bottom: 10px;
 }
 .pillar-title {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream);
   letter-spacing: 0.08em;
   margin-bottom: 4px;
   font-weight: 600;
 }
 .pillar-sub {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cinnabar);
   opacity: 0.88;
   letter-spacing: 0.05em;
   margin-bottom: 12px;
 }
 .pillar-desc {
-  font-size: 0.99rem;
+  font-size:1.09rem;
   color: var(--cream-dark);
   opacity: 1.0;
   line-height: 2;
 }
 .pillar-quote {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--gold-light);
   opacity: 0.95;
   font-style: italic;
@@ -526,7 +526,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   border: 2px solid rgba(201,168,76,0.2);
 }
 .tl-date {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--gold);
   opacity: 0.95;
   letter-spacing: 0.1em;
@@ -539,7 +539,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin-bottom: 8px;
 }
 .tl-desc {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream-dark);
   opacity: 1.0;
   line-height: 2;
@@ -560,7 +560,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 .quote-block .source {
   display: block;
   margin-top: 8px;
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--gold);
   opacity: 0.75;
   letter-spacing: 0.1em;
@@ -576,7 +576,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   text-align: center;
 }
 .featured-guide .fg-label {
-  font-size: 0.84rem;
+  font-size:0.94rem;
   letter-spacing: 0.35em;
   color: var(--gold);
   opacity: 0.55;
@@ -591,7 +591,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin-bottom: 8px;
 }
 .featured-guide .fg-sub {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream-dark);
   opacity: 0.5;
   margin-bottom: 32px;
@@ -626,13 +626,13 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   line-height: 1;
 }
 .featured-guide .fg-stage .name {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream);
   margin-top: 4px;
   letter-spacing: 0.05em;
 }
 .featured-guide .fg-stage .en {
-  font-size: 0.74rem;
+  font-size:0.84rem;
   color: var(--cream-dark);
   opacity: 0.4;
   margin-top: 1px;
@@ -640,7 +640,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 .featured-guide .fg-desc {
   max-width: 600px;
   margin: 0 auto 28px;
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream-dark);
   opacity: 0.6;
   line-height: 2;
@@ -653,7 +653,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   border: 1px solid rgba(201,168,76,0.35);
   color: var(--gold);
   text-decoration: none;
-  font-size: 0.96rem;
+  font-size:1.06rem;
   letter-spacing: 0.18em;
   border-radius: 2px;
   transition: all 0.3s;
@@ -663,7 +663,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   border-color: var(--gold);
 }
 .featured-guide .fg-cta .arrow {
-  font-size: 0.76rem;
+  font-size:0.86rem;
   transition: transform 0.3s;
 }
 .featured-guide .fg-cta:hover .arrow {
@@ -674,18 +674,18 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   .featured-guide { padding: 40px 20px; }
   .featured-guide h2 { font-size: 1.2rem; }
   .featured-guide .fg-stage { min-width: 85px; padding: 10px 12px; }
-  .featured-guide .fg-stage .name { font-size: 0.84rem; }
-  .featured-guide .fg-cta { padding: 12px 24px; font-size: 0.9rem; }
+  .featured-guide .fg-stage .name { font-size:0.94rem; }
+  .featured-guide .fg-cta { padding: 12px 24px; font-size:1rem; }
 }
 @media (max-width: 480px) {
   .featured-guide { padding: 30px 14px; }
-  .featured-guide h2 { font-size: 1rem; }
-  .featured-guide .fg-sub { font-size: 0.9rem; margin-bottom: 20px; }
+  .featured-guide h2 { font-size:1.1rem; }
+  .featured-guide .fg-sub { font-size:1rem; margin-bottom: 20px; }
   .featured-guide .fg-stage { min-width: 70px; padding: 8px 8px; }
-  .featured-guide .fg-stage .name { font-size: 0.78rem; }
+  .featured-guide .fg-stage .name { font-size:0.88rem; }
   .featured-guide .fg-stage .en { display: none; }
-  .featured-guide .fg-desc { font-size: 0.9rem; }
-  .featured-guide .fg-cta { padding: 10px 18px; font-size: 0.86rem; }
+  .featured-guide .fg-desc { font-size:1rem; }
+  .featured-guide .fg-cta { padding: 10px 18px; font-size:0.96rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -730,7 +730,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--cream-dark);
   opacity: 1.0;
   letter-spacing: 0.2em;
@@ -749,7 +749,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .stage-4 .s4-sub {
   text-align: center;
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--cream-dark);
   opacity: 0.75;
   letter-spacing: 0.15em;
@@ -772,14 +772,14 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .stage-4 .s4-body { flex: 1; }
 .stage-4 .s4-name {
-  font-size: 1rem;
+  font-size:1.1rem;
   color: var(--gold);
   font-weight: 600;
   letter-spacing: 0.05em;
 }
 .stage-4 .s4-en {
   display: block;
-  font-size: 0.8rem;
+  font-size:0.9rem;
   color: var(--cream-dark);
   opacity: 0.75;
   font-weight: 400;
@@ -787,7 +787,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   margin-top: 1px;
 }
 .stage-4 .s4-keys {
-  font-size: 0.88rem;
+  font-size:0.98rem;
   color: var(--cream-dark);
   opacity: 0.95;
   line-height: 1.7;
@@ -806,7 +806,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .pillar-3 .p3-sub {
   text-align: center;
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--cream-dark);
   opacity: 0.75;
   letter-spacing: 0.12em;
@@ -835,7 +835,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   letter-spacing: 0.06em;
 }
 .pillar-3 .p3-name small {
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--cinnabar);
   opacity: 1.0;
   font-weight: 400;
@@ -843,21 +843,21 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .pillar-3 .p3-en {
   display: block;
-  font-size: 0.78rem;
+  font-size:0.88rem;
   color: var(--cream-dark);
   opacity: 0.75;
   font-weight: 400;
   letter-spacing: 0.05em;
 }
 .pillar-3 .p3-desc {
-  font-size: 0.88rem;
+  font-size:0.98rem;
   color: var(--cream-dark);
   opacity: 0.95;
   line-height: 1.7;
   margin-top: 2px;
 }
 .pillar-3 .p3-quote {
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--gold-light);
   opacity: 0.75;
   font-style: italic;
@@ -865,7 +865,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
 }
 .pillar-3 .p3-footer {
   text-align: center;
-  font-size: 0.84rem;
+  font-size:0.94rem;
   color: var(--cream-dark);
   opacity: 1.0;
   letter-spacing: 0.1em;
@@ -881,7 +881,7 @@ nav .nav-links li:first-child .dropdown-menu { left: 0; right: auto; }
   border: 1px solid rgba(201,168,76,0.35);
   color: var(--gold);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size:1rem;
   letter-spacing: 0.18em;
   border-radius: 2px;
   transition: all 0.3s var(--ease-smooth);
@@ -899,7 +899,7 @@ footer {
   text-align: center;
   padding: 40px;
   border-top: 1px solid rgba(201,168,76,0.08);
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--cream-dark);
   opacity: 0.95;
   letter-spacing: 0.1em;
@@ -927,9 +927,9 @@ footer .dao-name {
     min-height: 90vh;
     padding: 100px 20px 60px;
   }
-  .hero-sub { font-size: 0.9rem; }
+  .hero-sub { font-size:1rem; }
   .hero-tagline { font-size: 1.2rem; }
-  .hero-meta { gap: 8px; font-size: 0.86rem; }
+  .hero-meta { gap: 8px; font-size:0.96rem; }
   .feature-box { padding: 20px 18px; }
   .card { padding: 22px 18px 20px; }
   .pillar-card { padding: 24px 16px; }
@@ -938,23 +938,23 @@ footer .dao-name {
   .quote-block { padding: 16px 18px; }
   nav { padding: 0 16px; }
   nav .brand { font-size: 1.1rem; }
-  nav .brand small { font-size: 0.8rem; }
-  body { font-size: 20px; }
+  nav .brand small { font-size:0.9rem; }
+  body { font-size:26px; }
   .section-divider { padding: 0 20px; }
   .full-image { height: 50vh; min-height: 300px; }
   .infographic { padding: 0 20px; }
   .infographic-overlay { padding: 24px 20px; }
   .stage-4 { padding: 36px 20px; }
   .pillar-3 { padding: 30px 20px; }
-  .stage-4 .s4-title { font-size: 1rem; }
+  .stage-4 .s4-title { font-size:1.1rem; }
   .stage-4 .s4-num { font-size: 1.3rem; width: 28px; }
-  .stage-4 .s4-name { font-size: 0.96rem; }
-  .stage-4 .s4-keys { font-size: 0.8rem; }
-  .pillar-3 .p3-title { font-size: 1rem; }
-  .pillar-3 .p3-name { font-size: 0.94rem; }
-  .pillar-3 .p3-desc { font-size: 0.8rem; }
+  .stage-4 .s4-name { font-size:1.06rem; }
+  .stage-4 .s4-keys { font-size:0.9rem; }
+  .pillar-3 .p3-title { font-size:1.1rem; }
+  .pillar-3 .p3-name { font-size:1.04rem; }
+  .pillar-3 .p3-desc { font-size:0.9rem; }
   .pillar-3 .p3-icon { font-size: 1.2rem; width: 24px; }
-  .pillar-3 .p3-footer { font-size: 0.76rem; }
+  .pillar-3 .p3-footer { font-size:0.86rem; }
 }
 @media (max-width: 600px) {
   nav .nav-links {
@@ -986,7 +986,7 @@ footer .dao-name {
     min-width: 0;
   }
   nav .nav-links .dropdown-menu a {
-    font-size: 0.99rem;
+    font-size:1.09rem;
     padding: 7px 0;
     opacity: 0.85;
   }
@@ -995,33 +995,33 @@ footer .dao-name {
 }
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.4rem; }
-  .hero-badge { font-size: 0.8rem; padding: 3px 12px; }
-  .hero-sub { font-size: 0.96rem; }
-  .section-label { font-size: 0.8rem; }
+  .hero-badge { font-size:0.9rem; padding: 3px 12px; }
+  .hero-sub { font-size:1.06rem; }
+  .section-label { font-size:0.9rem; }
   .section h2 { font-size: 1.2rem; }
-  .section-sub { font-size: 0.94rem; }
-  body { font-size: 18px; }
-  .card-title { font-size: 0.92rem; }
-  .card-desc { font-size: 0.96rem; }
-  .pillar-title { font-size: 0.94rem; }
-  .pillar-desc { font-size: 0.94rem; }
-  .hero-meta { gap: 6px; font-size: 0.8rem; flex-direction: column; align-items: center; }
+  .section-sub { font-size:1.04rem; }
+  body { font-size:22px; }
+  .card-title { font-size:1.02rem; }
+  .card-desc { font-size:1.06rem; }
+  .pillar-title { font-size:1.04rem; }
+  .pillar-desc { font-size:1.04rem; }
+  .hero-meta { gap: 6px; font-size:0.9rem; flex-direction: column; align-items: center; }
   .hero-meta span:nth-child(even) { display: none; }
-  .feature-box-label { font-size: 0.8rem; }
-  .cta-link { padding: 12px 20px; font-size: 0.94rem; }
-  footer { font-size: 0.8rem; padding: 24px 16px; }
+  .feature-box-label { font-size:0.9rem; }
+  .cta-link { padding: 12px 20px; font-size:1.04rem; }
+  footer { font-size:0.9rem; padding: 24px 16px; }
   .full-image { height: 35vh; min-height: 220px; }
   .full-image .overlay-text { font-size: 1.2rem; }
   .infographic { padding: 0 14px; }
   .infographic-overlay { padding: 16px 12px; }
   .stage-4 { padding: 24px 14px; gap: 4px; }
   .pillar-3 { padding: 20px 14px; }
-  .stage-4 .s4-title { font-size: 0.96rem; }
+  .stage-4 .s4-title { font-size:1.06rem; }
   .stage-4 .s4-num { display: none; }
-  .stage-4 .s4-name { font-size: 0.88rem; }
-  .pillar-3 .p3-title { font-size: 0.96rem; }
+  .stage-4 .s4-name { font-size:0.98rem; }
+  .pillar-3 .p3-title { font-size:1.06rem; }
   .pillar-3 .p3-icon { display: none; }
-  .pillar-3 .p3-name { font-size: 0.86rem; }
+  .pillar-3 .p3-name { font-size:0.96rem; }
 }
 
 /* ── 33 Stages Grid ── */
@@ -1050,21 +1050,21 @@ footer .dao-name {
   margin-bottom: 4px;
 }
 .stage-phase-card .phase-sub {
-  font-size: 0.86rem;
+  font-size:0.96rem;
   color: var(--cream-dark);
   opacity: 0.6;
   letter-spacing: 0.1em;
   margin-bottom: 12px;
 }
 .stage-phase-card .phase-key {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--gold-light);
   opacity: 0.85;
   line-height: 1.8;
   margin-bottom: 6px;
 }
 .stage-phase-card .phase-practice {
-  font-size: 0.88rem;
+  font-size:0.98rem;
   color: var(--cream-dark);
   opacity: 0.75;
   font-style: italic;
@@ -1100,27 +1100,27 @@ footer .dao-name {
 }
 .stage-item .s-body { flex: 1; }
 .stage-item .s-name {
-  font-size: 0.99rem;
+  font-size:1.09rem;
   color: var(--cream);
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 .stage-item .s-pinyin {
-  font-size: 0.8rem;
+  font-size:0.9rem;
   color: var(--cream-dark);
   opacity: 0.5;
   margin-left: 4px;
   font-weight: 400;
 }
 .stage-item .s-desc {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream-dark);
   opacity: 0.85;
   line-height: 1.6;
   margin-top: 2px;
 }
 .stage-item .s-date {
-  font-size: 0.72rem;
+  font-size:0.82rem;
   color: var(--gold);
   opacity: 0.25;
   margin-top: 2px;
@@ -1162,14 +1162,14 @@ footer .dao-name {
 .deity-card:hover img { opacity: 1; }
 .deity-card .deity-name {
   padding: 8px 10px 6px;
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream);
   letter-spacing: 0.12em;
   font-family: 'ZCOOL XiaoWei', 'ZCOOL QingKe HuangYou', serif;
 }
 .deity-card .deity-role {
   padding: 0 10px 8px;
-  font-size: 0.78rem;
+  font-size:0.88rem;
   color: var(--gold);
   opacity: 0.75;
   letter-spacing: 0.14em;
@@ -1177,8 +1177,8 @@ footer .dao-name {
 @media (max-width: 640px) {
   .deity-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .deity-card img { height: 72px; }
-  .deity-card .deity-name { font-size: 0.82rem; padding: 6px 8px 4px; }
-  .deity-card .deity-role { font-size: 0.72rem; padding: 0 8px 6px; }
+  .deity-card .deity-name { font-size:0.92rem; padding: 6px 8px 4px; }
+  .deity-card .deity-role { font-size:0.82rem; padding: 0 8px 6px; }
 }
 .scripture-card {
   background: rgba(201,168,76,0.03);
@@ -1209,7 +1209,7 @@ footer .dao-name {
   border-bottom: 1px solid rgba(201,168,76,0.06);
 }
 .scripture-card .sc-num {
-  font-size: 0.8rem;
+  font-size:0.9rem;
   letter-spacing: 0.3em;
   color: var(--gold);
   opacity: 0.7;
@@ -1222,7 +1222,7 @@ footer .dao-name {
   letter-spacing: 0.05em;
 }
 .scripture-card .sc-sub {
-  font-size: 0.86rem;
+  font-size:0.96rem;
   color: var(--cream-dark);
   opacity: 0.55;
   margin-top: 4px;
@@ -1231,7 +1231,7 @@ footer .dao-name {
   padding: 16px 24px 22px;
 }
 .scripture-card .sc-quote {
-  font-size: 0.94rem;
+  font-size:1.04rem;
   color: var(--gold-light);
   line-height: 1.9;
   border-left: 2px solid rgba(201,168,76,0.2);
@@ -1240,7 +1240,7 @@ footer .dao-name {
   font-family: 'Long Cang', 'Noto Serif SC', serif;
 }
 .scripture-card .sc-interp {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--cream-dark);
   opacity: 0.9;
   line-height: 1.9;
@@ -1255,7 +1255,7 @@ footer .dao-name {
   border-top: 1px solid rgba(201,168,76,0.06);
 }
 .scripture-card .sc-full-toggle {
-  font-size: 0.86rem;
+  font-size:0.96rem;
   color: var(--jade);
   opacity: 0.7;
   cursor: pointer;
@@ -1266,7 +1266,7 @@ footer .dao-name {
 }
 .scripture-card .sc-full-toggle:hover { opacity: 1; }
 .scripture-card .sc-full-text {
-  font-size: 0.92rem;
+  font-size:1.02rem;
   color: var(--cream-dark);
   opacity: 0.7;
   line-height: 2;
@@ -1305,7 +1305,7 @@ footer .dao-name {
   letter-spacing: 0.04em;
 }
 .mantra-card .mc-source {
-  font-size: 0.8rem;
+  font-size:0.9rem;
   color: var(--gold);
   opacity: 0.6;
   letter-spacing: 0.15em;
@@ -1314,7 +1314,7 @@ footer .dao-name {
 .mantra-card .mc-toggle {
   color: var(--gold);
   opacity: 0.5;
-  font-size: 0.92rem;
+  font-size:1.02rem;
   transition: transform 0.3s;
 }
 .mantra-card.open .mc-toggle { transform: rotate(180deg); }
@@ -1326,14 +1326,14 @@ footer .dao-name {
 }
 .mantra-card.open .mc-body { display: block; }
 .mantra-card .mc-text {
-  font-size: 0.94rem;
+  font-size:1.04rem;
   color: var(--cream-dark);
   line-height: 2;
   font-family: 'Long Cang', 'Noto Serif SC', serif;
   white-space: pre-wrap;
 }
 .mantra-card .mc-desc {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--gold-light);
   opacity: 0.6;
   margin-top: 8px;
@@ -1378,20 +1378,20 @@ footer .dao-name {
   box-shadow: 0 0 10px rgba(166,58,46,0.5);
 }
 .records-tl .rt-date {
-  font-size: 0.86rem;
+  font-size:0.96rem;
   color: var(--gold);
   opacity: 0.8;
   letter-spacing: 0.08em;
   margin-bottom: 3px;
 }
 .records-tl .rt-title {
-  font-size: 0.9rem;
+  font-size:1rem;
   color: var(--cream);
   font-weight: 600;
   margin-bottom: 4px;
 }
 .records-tl .rt-desc {
-  font-size: 0.94rem;
+  font-size:1.04rem;
   color: var(--cream-dark);
   opacity: 0.9;
   line-height: 1.8;
@@ -1404,11 +1404,11 @@ footer .dao-name {
 }
 @media (max-width: 768px) {
   .stage-item { padding: 12px 14px; }
-  .stage-item .s-name { font-size: 0.94rem; }
-  .stage-item .s-desc { font-size: 0.86rem; }
+  .stage-item .s-name { font-size:1.04rem; }
+  .stage-item .s-desc { font-size:0.96rem; }
   .scripture-card .sc-body { padding: 14px 16px 18px; }
-  .scripture-card .sc-quote { font-size: 0.9rem; }
-  .scripture-card .sc-interp { font-size: 0.88rem; }
+  .scripture-card .sc-quote { font-size:1rem; }
+  .scripture-card .sc-interp { font-size:0.98rem; }
   .mantra-card { padding: 16px 18px; }
 }
 @media (max-width: 480px) {
