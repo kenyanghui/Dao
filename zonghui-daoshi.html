@@ -136,6 +136,35 @@ nav .hamburger span{display:block;width:24px;height:2px;background:var(--gold);b
 .self-note-inner.gold{border-left-color:var(--gold);background:rgba(201,168,76,0.06);color:#e9dbb3;}
 .self-note-inner.gold strong{color:var(--gold);}
 
+/* ── 道诗知识长图与朋友圈配文 ── */
+.poem-card-tools{
+  margin-top:18px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.16);
+}
+.poem-card-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.poem-card-button,.poem-card-download{
+  display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 16px;
+  border:1px solid rgba(201,168,76,0.42);border-radius:999px;
+  background:rgba(201,168,76,0.08);color:#ead99c;
+  font:inherit;font-size:1.07rem;letter-spacing:0.08em;text-decoration:none;cursor:pointer;
+  transition:background 0.25s,border-color 0.25s,color 0.25s,transform 0.25s;
+}
+.poem-card-button:hover,.poem-card-download:hover{
+  background:rgba(201,168,76,0.16);border-color:var(--gold);color:#fff6d5;transform:translateY(-1px);
+}
+.poem-card-button:focus-visible,.poem-card-download:focus-visible{outline:2px solid var(--jade);outline-offset:3px;}
+.poem-card-button.copy{border-color:rgba(122,160,138,0.5);background:rgba(122,160,138,0.09);color:#cfe2d5;}
+.poem-card-panel{margin-top:16px;text-align:center;}
+.poem-card-panel[hidden]{display:none;}
+.poem-card-frame{
+  overflow:hidden;border:1px solid rgba(201,168,76,0.28);border-radius:8px;
+  background:#e5ebe8;box-shadow:0 18px 46px rgba(0,0,0,0.32);
+}
+.poem-card-original{display:block;cursor:zoom-in;}
+.poem-card-frame img{display:block;width:100%;height:auto;}
+.poem-card-hint{margin-top:10px;color:var(--cream-dark);font-size:1rem;letter-spacing:0.08em;}
+.poem-card-download{margin-top:12px;}
+.featured-poem .poem-card-tools{margin-top:26px;}
+
 /* ── 诗名索引 ── */
 .poem-index{max-width:760px;margin:0 auto 50px;padding:0 24px;}
 .index-toggle{
@@ -187,6 +216,8 @@ footer .dao-name{font-family:'Zhi Mang Xing','Ma Shan Zheng',serif;font-size:1.5
   .fp-caption{letter-spacing:0.3em;}
   .poem{padding:22px 18px 20px;}
   .poem-body{font-size:1.2rem;}
+  .poem-card-actions{display:grid;grid-template-columns:1fr;}
+  .poem-card-button{width:100%;}
 }
 </style>
 </head>
@@ -1256,6 +1287,130 @@ if (hamburger) {
     });
   });
 }
+
+// ── 知识长图与朋友圈配文 ──
+const cardAssetRoot = 'assets/zonghui-daoshi-cards';
+let cardInstance = 0;
+
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  if (!copied) throw new Error('copy failed');
+}
+
+async function copyMoments(button, path) {
+  const originalLabel = button.dataset.originalLabel || button.textContent;
+  button.dataset.originalLabel = originalLabel;
+  button.disabled = true;
+  try {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = await response.text();
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      fallbackCopy(text);
+    }
+    button.textContent = '已复制，可直接发圈';
+  } catch (error) {
+    button.textContent = '复制失败，请重试';
+    console.error('朋友圈配文复制失败', error);
+  } finally {
+    window.setTimeout(() => {
+      button.textContent = originalLabel;
+      button.disabled = false;
+    }, 1800);
+  }
+}
+
+function attachCardTools(container, key, title) {
+  const imagePath = `${cardAssetRoot}/${key}.png`;
+  const momentsPath = `${cardAssetRoot}/${key}.txt`;
+  const panelId = `poem-card-${key}-${++cardInstance}`;
+  const tools = document.createElement('div');
+  tools.className = 'poem-card-tools';
+
+  const actions = document.createElement('div');
+  actions.className = 'poem-card-actions';
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'poem-card-button';
+  toggle.textContent = '展开完整知识长图';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-controls', panelId);
+
+  const copy = document.createElement('button');
+  copy.type = 'button';
+  copy.className = 'poem-card-button copy';
+  copy.textContent = '复制朋友圈配文';
+  copy.addEventListener('click', () => copyMoments(copy, momentsPath));
+
+  const panel = document.createElement('div');
+  panel.id = panelId;
+  panel.className = 'poem-card-panel';
+  panel.hidden = true;
+
+  const frame = document.createElement('div');
+  frame.className = 'poem-card-frame';
+  const image = document.createElement('img');
+  image.dataset.src = imagePath;
+  image.alt = `宗辉道诗习作荐赏《${title}》完整知识长图`;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+
+  const originalLink = document.createElement('a');
+  originalLink.className = 'poem-card-original';
+  originalLink.href = imagePath;
+  originalLink.target = '_blank';
+  originalLink.rel = 'noopener';
+  originalLink.title = '点击查看高清原图';
+  originalLink.appendChild(image);
+  frame.appendChild(originalLink);
+
+  const hint = document.createElement('div');
+  hint.className = 'poem-card-hint';
+  hint.textContent = '点击长图可放大查看高清原图';
+
+  const download = document.createElement('a');
+  download.className = 'poem-card-download';
+  download.href = imagePath;
+  download.download = `宗辉道诗习作荐赏-${title}.png`;
+  download.textContent = '下载完整长图';
+
+  toggle.addEventListener('click', () => {
+    const willOpen = panel.hidden;
+    panel.hidden = !willOpen;
+    toggle.setAttribute('aria-expanded', String(willOpen));
+    toggle.textContent = willOpen ? '收起完整知识长图' : '展开完整知识长图';
+    if (willOpen && !image.src) image.src = image.dataset.src;
+  });
+
+  actions.append(toggle, copy);
+  panel.append(frame, hint, download);
+  tools.append(actions, panel);
+  container.appendChild(tools);
+}
+
+document.querySelectorAll('.featured-poem[id^="p-"]').forEach(featured => {
+  const container = featured.querySelector('.featured-poem-inner');
+  const key = featured.id.replace(/^p-/, '');
+  const title = featured.querySelector('.fp-title')?.textContent.trim().replace(/[《》]/g, '') || '宗辉道诗';
+  if (container) attachCardTools(container, key, title);
+});
+
+document.querySelectorAll('.poem[id^="p-"]').forEach(poem => {
+  const key = poem.id.replace(/^p-/, '').padStart(2, '0');
+  const title = poem.querySelector('.poem-title')?.textContent.trim().replace(/[《》]/g, '') || `第${key}首`;
+  attachCardTools(poem, key, title);
+});
 
 // ── Scroll reveal ──
 const observer = new IntersectionObserver((entries) => {
