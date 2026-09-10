@@ -33,13 +33,11 @@
 body {
   background: var(--void);
   color: var(--cream);
-  font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
   font-size:26px;
   line-height: 2;
 }
 html { overflow-x: hidden; font-size:26px;}
 .en {
-  display: block;
   margin-top: 6px;
   color: var(--cream-dark);
   opacity: 0.78;
@@ -48,74 +46,52 @@ html { overflow-x: hidden; font-size:26px;}
   letter-spacing: 0.02em;
 }
 body::before {
-  content: '';
-  position: fixed;
   inset: 0;
-  background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 100%, rgba(74,124,89,0.05) 0%, transparent 50%);
-  pointer-events: none;
   z-index: 0;
 }
 
 /* ── Navigation ── */
 nav {
-  position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 0 max(40px, env(safe-area-inset-left)) 0 max(40px, env(safe-area-inset-right));
   height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: rgba(13,12,10,0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201,168,76,0.12);
 }
 nav .brand {
-  font-family: 'Ma Shan Zheng', 'Long Cang', 'Zhi Mang Xing', serif;
   font-size: 1.3rem;
   color: var(--gold);
   letter-spacing: 0.15em;
 }
 nav .brand a { color: inherit; text-decoration: none; }
 nav .brand small {
-  font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
   font-size:0.98rem;
   opacity: 0.5;
   margin-left: 8px;
   letter-spacing: 0.1em;
 }
 nav .nav-links {
-  display: flex;
   gap: 20px;
-  list-style: none;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 nav .nav-links a {
   color: var(--cream-dark);
-  text-decoration: none;
   font-size:1.04rem;
   letter-spacing: 0.05em;
   transition: color 0.3s;
   opacity: 0.65;
-  white-space: nowrap;
 }
 nav .nav-links a:hover { color: var(--gold); opacity: 1; }
 
 nav .hamburger {
-  display: none;
-  flex-direction: column;
   gap: 5px;
-  cursor: pointer;
   padding: 6px;
-  background: none;
-  border: none;
   z-index: 101;
 }
 nav .hamburger span {
-  display: block;
   width: 24px;
   height: 2px;
   background: var(--gold);
@@ -128,20 +104,13 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 
 /* ── Hero ── */
 .hero {
-  position: relative;
   min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   padding: 120px 40px 80px;
   z-index: 1;
 }
 .hero-badge {
   font-size:1rem;
   letter-spacing: 0.4em;
-  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
   opacity: 0.7;
@@ -150,7 +119,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   border-radius: 2px;
 }
 .hero h1 {
-  font-family: 'ZCOOL XiaoWei', 'ZCOOL QingKe HuangYou', serif;
   font-size: clamp(2rem, 5vw, 3.6rem);
   color: var(--cream);
   font-weight: 400;
@@ -174,24 +142,17 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   line-height: 2;
 }
 .hero-meta {
-  display: flex;
   gap: 24px;
   font-size:1.06rem;
   color: var(--gold);
   opacity: 0.4;
   letter-spacing: 0.1em;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-top: 16px;
 }
 .hero-scroll {
-  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 8px;
   color: var(--gold);
   opacity: 0.35;
@@ -200,7 +161,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   animation: float 2.5s ease-in-out infinite;
 }
 .hero-scroll::after {
-  content: '';
   width: 1px;
   height: 40px;
   background: linear-gradient(to bottom, var(--gold), transparent);
@@ -212,7 +172,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 
 /* ── Section ── */
 .section {
-  position: relative;
   z-index: 1;
   max-width: 960px;
   margin: 0 auto;
@@ -224,20 +183,16 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   color: var(--gold);
   opacity: 0.55;
   margin-bottom: 28px;
-  text-align: center;
 }
 .section h2 {
-  font-family: 'ZCOOL XiaoWei', 'ZCOOL QingKe HuangYou', serif;
   font-size: 1.8rem;
   color: var(--cream);
   font-weight: 400;
   letter-spacing: 0.1em;
-  text-align: center;
   margin-bottom: 16px;
 }
 .section h2 .en { color: var(--gold-light); font-size:1.1rem; margin-top: 8px; }
 .section-sub {
-  text-align: center;
   font-size:1.02rem;
   color: var(--cream-dark);
   opacity: 0.5;
@@ -248,11 +203,9 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px;
-  position: relative;
   z-index: 1;
 }
 .section-divider hr {
-  border: none;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent);
   margin: 0;
@@ -262,11 +215,9 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 .content {
   max-width: 860px;
   margin: 0 auto;
-  position: relative;
   z-index: 1;
 }
 .content h3 {
-  font-family: 'ZCOOL XiaoWei', 'ZCOOL QingKe HuangYou', serif;
   font-size: 1.4rem;
   color: var(--cream);
   font-weight: 400;
@@ -318,7 +269,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 /* ── Tables ── */
 .content table {
   width: 100%;
-  border-collapse: collapse;
   margin: 28px 0;
   font-size:1.09rem;
 }
@@ -329,7 +279,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   color: var(--gold);
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-align: left;
 }
 .content tbody td {
   border: 1px solid rgba(201,168,76,0.1);
@@ -351,7 +300,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   margin: 24px 0;
   font-size:1.06rem;
   line-height: 1.8;
-  overflow-x: auto;
   color: var(--cream-dark);
 }
 
@@ -368,8 +316,6 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   letter-spacing: 0.28em;
   color: var(--jade);
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
   gap: 8px;
 }
 .feature-box-label::before { content: '◆'; font-size:0.82rem; }
@@ -391,10 +337,8 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
   color: var(--gold-light);
   opacity: 0.85;
   line-height: 2;
-  text-align: center;
 }
 .quote-block .source {
-  display: block;
   margin-top: 8px;
   font-size:1rem;
   color: var(--gold);
@@ -404,20 +348,14 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 
 /* ── CTA ── */
 .cta-wrap {
-  display: flex;
   gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
   margin: 48px 0;
 }
 .cta-link {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   padding: 14px 32px;
   border: 1px solid rgba(201,168,76,0.35);
   color: var(--gold);
-  text-decoration: none;
   font-size:1rem;
   letter-spacing: 0.18em;
   border-radius: 2px;
@@ -430,9 +368,7 @@ nav .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5p
 
 /* ── Footer ── */
 footer {
-  position: relative;
   z-index: 1;
-  text-align: center;
   padding: 40px 40px;
   border-top: 1px solid rgba(201,168,76,0.08);
   font-size:1.02rem;
@@ -479,13 +415,8 @@ footer {
   .hero { padding: 80px 16px 40px; }
   .content pre { font-size:0.96rem; padding: 12px; }
   nav .nav-links {
-    display: none;
-    position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(13,12,10,0.97);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 20px;
     z-index: 100;
     backdrop-filter: blur(12px);
@@ -540,67 +471,66 @@ footer {
   </button>
   <ul class="nav-links">
     <li><a href="index.html">首页</a></li>
-    <li><a href="#overview">总论<span class="en">Overview</span></a></li>
-    <li><a href="#guan">观天之道<span class="en">Observing</span></a></li>
-    <li><a href="#wuzei">天有五贼<span class="en">Five Thieves</span></a></li>
-    <li><a href="#xinji">心为机枢<span class="en">Heart as Pivot</span></a></li>
-    <li><a href="#sanyao">九窍三要<span class="en">Three Essentials</span></a></li>
-    <li><a href="#zhijing">至静之道<span class="en">Utmost Stillness</span></a></li>
-    <li><a href="#sha">天生天杀<span class="en">Killing</span></a></li>
-    <li><a href="#dao">三盗既宜<span class="en">Stealing</span></a></li>
-    <li><a href="#shengsi">生死双根<span class="en">Life & Death</span></a></li>
-    <li><a href="#yin">以经印道<span class="en">Scripture & Proof</span></a></li>
-    <li><a href="dazuo.html">六阶指南<span class="en">Six Stages</span></a></li>
+    <li><a href="#overview">总论</a></li>
+    <li><a href="#guan">观天之道</a></li>
+    <li><a href="#wuzei">天有五贼</a></li>
+    <li><a href="#xinji">心为机枢</a></li>
+    <li><a href="#sanyao">九窍三要</a></li>
+    <li><a href="#zhijing">至静之道</a></li>
+    <li><a href="#sha">天生天杀</a></li>
+    <li><a href="#dao">三盗既宜</a></li>
+    <li><a href="#shengsi">生死双根</a></li>
+    <li><a href="#yin">以经印道</a></li>
+    <li><a href="dazuo.html">六阶指南</a></li>
   </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">道藏经典 · 打坐实证<span class="en">Daoist Scripture · Meditative Proof</span></div>
-  <h1>黄帝阴符经 · 打坐实证<span class="en">Yin Fu Jing Through the Lens of Sitting Meditation</span></h1>
+  <div class="hero-badge">道藏经典 · 打坐实证</div>
+  <h1>黄帝阴符经 · 打坐实证</h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">
     观天之道，执天之行，尽矣。<br>
     一部讲透「天机」的经典，从打坐实证的角度，一句句重新读懂。
-    <span class="en">Observe the Way of Heaven, hold to Heaven's practice — that is all.<br>
-    An ancient scripture of celestial mechanism, re-read line by line from the perspective of meditative practice.</span>
+    
   </p>
   <div class="hero-meta">
     <span>观天之道</span><span>·</span><span>天有五贼</span><span>·</span><span>九窍三要</span><span>·</span><span>至静之道</span>
   </div>
-  <div class="hero-scroll">向下探索<span class="en">Scroll to explore</span></div>
+  <div class="hero-scroll">向下探索</div>
 </section>
 
 <div class="section-divider"><hr></div>
 
 <!-- ═══════════ 总论 ═══════════ -->
 <section class="section" id="overview">
-  <div class="section-label">总论<span class="en">Overview</span></div>
-  <h2>为什么从打坐读阴符经<span class="en">Why Read Yin Fu Jing Through Sitting</span></h2>
+  <div class="section-label">总论</div>
+  <h2>为什么从打坐读阴符经</h2>
 
   <div class="content">
     <p>
       《黄帝阴符经》篇幅极短，却号称「<strong>百字经</strong>」，历代注家逾百家。它不讲仪轨、不列次第，通篇只讲一个东西——<strong>「机」</strong>：天机、时机、心机、杀机。
-      <span class="en">The <em>Huangdi Yinfu Jing</em> is extremely short, yet it has gathered over a hundred commentaries through history. It teaches no ritual and lists no stages; throughout, it speaks of only one thing — the <strong>mechanism (ji)</strong>: the mechanism of Heaven, of time, of the heart, of killing.</span>
+      
     </p>
     <p>
       网站既有的四阶段体系，是<strong>「修」</strong>的路径；六阶指南，是<strong>「证」</strong>的手册。而阴符经给的，是这一切背后那一句总纲——<strong>「观天之道，执天之行」</strong>。若把四阶段、三十三阶放在这句话里对照，会发现它们正是「执天之行」的展开。
-      <span class="en">The site's four-stage system is the path of <strong>practice (xiu)</strong>; the six-stage guide is the manual of <strong>proof (zheng)</strong>. What the Yin Fu Jing offers is the one-line synopsis behind it all — <strong>"Observe the Way of Heaven, hold to Heaven's practice."</strong> Set against this sentence, the four stages and thirty-three steps are precisely the unfolding of "holding to Heaven's practice."</span>
+      
     </p>
     <p>
       所以这一篇，不是重复讲打坐方法，而是把宗辉实证过的打坐体验，放回这部「天机之经」里，逐一印证——<strong>经不是用来背的，是用来印证的。</strong>
-      <span class="en">So this page does not repeat meditation technique. It sets the sitting experiences Zonghui has personally proven back into this scripture of celestial mechanism, verifying them one by one — <strong>scriptures are not for reciting; they are for proving against.</strong></span>
+      
     </p>
 
     <blockquote>
       观天之道，执天之行，尽矣。<br>
       一切道理，都在这九个字里。
-      <span class="en">Observe the Way of Heaven, hold to Heaven's practice — that is all. Every teaching is contained in these nine characters.</span>
+      
     </blockquote>
 
     <p>
       下文从八个面向逐句解读：<strong>观</strong>、<strong>贼</strong>、<strong>机</strong>、<strong>要</strong>、<strong>静</strong>、<strong>杀</strong>、<strong>盗</strong>、<strong>反</strong>——每一个字，都能对应到打坐中的具体实证。
-      <span class="en">Below, the scripture is read through eight facets: observing, thieves, mechanism, essentials, stillness, killing, stealing, and reversal — each character corresponding to a concrete experience in sitting meditation.</span>
+      
     </p>
   </div>
 </section>
@@ -609,33 +539,33 @@ footer {
 
 <!-- ═══════════ 观 ═══════════ -->
 <section class="section" id="guan">
-  <div class="section-label">其一 · 观<span class="en">One · Observing</span></div>
-  <h2>观天之道 · 打坐即观<span class="en">Observing the Way of Heaven: Sitting Is Observing</span></h2>
+  <div class="section-label">其一 · 观</div>
+  <h2>观天之道 · 打坐即观</h2>
 
   <div class="content">
     <blockquote>
       观天之道，执天之行，尽矣。
-      <span class="en">Observe the Way of Heaven, hold to Heaven's practice — that is all.</span>
+      
     </blockquote>
 
     <p>
       「观」是阴符经的第一个字，也是打坐的第一个动作。但观不是看——<strong>看是对着外物，观是回到自身。</strong>闭上眼，观呼吸、观气脉、观念头、观那个能观的东西。
-      <span class="en">"Observing" is the first word of the Yin Fu Jing, and the first act of sitting meditation. But to observe is not to look — <strong>looking faces outward, observing returns inward.</strong> With eyes closed, one observes the breath, the qi channels, the thoughts, and that which does the observing.</span>
+      
     </p>
     <p>
       这正与《道德经》第十六章相合：<strong>「致虚极，守静笃，万物并作，吾以观复。」</strong>万物并作是「天之道」，吾以观复是「观」。打坐中身静心静，看见念头生起又复归，正是「观复」。
-      <span class="en">This matches Chapter 16 of the <em>Daode Jing</em>: <strong>"Attain utter vacuity; guard deep stillness. The ten thousand things arise together; I observe their return."</strong> The ten thousand things arising is "the Way of Heaven"; observing their return is "observing." In sitting, body and mind settle, thoughts arise and return to the root — this is observing the return.</span>
+      
     </p>
     <p>
       宗辉打坐体验中的「观」，不只是看见念头——更是一层层向内：观能量、观三丹田、观虚空。<strong>观到极处，看见虚空背后是道，道是造物主。</strong>这便是「观天之道」的实证顶点。
-      <span class="en">Zonghui's "observing" in sitting is not merely watching thoughts — it goes inward layer by layer: observing energy, observing the three elixir fields, observing the void. <strong>Observed to its limit, one sees that behind the void lies the Dao; the Dao is the creator.</strong> This is the apex of "observing the Way of Heaven."</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应首页「精气神道·四阶段」的<strong>炼神还虚</strong>阶段，以及六阶指南第四阶「虚空合道」——2026年4月25日宗辉证悟「意念从元神进入虚空，看见虚空背后就是道」。观天之道，至此实证。
-        <span class="en">Corresponds to the <strong>Returning Spirit to Emptiness</strong> stage of the four-stage system on the homepage, and Stage Four "Union with the Void" of the six-stage guide — on April 25, 2026, Zonghui realized: "Intention entered the void from original spirit, and behind the void I saw the Dao." Observing the Way of Heaven, thus proven.</span>
+        
       </p>
     </div>
   </div>
@@ -645,34 +575,34 @@ footer {
 
 <!-- ═══════════ 贼 ═══════════ -->
 <section class="section" id="wuzei">
-  <div class="section-label">其二 · 贼<span class="en">Two · Thieves</span></div>
-  <h2>天有五贼 · 身即宇宙<span class="en">Heaven Has Five Thieves: The Body Is the Universe</span></h2>
+  <div class="section-label">其二 · 贼</div>
+  <h2>天有五贼 · 身即宇宙</h2>
 
   <div class="content">
     <blockquote>
       天有五贼，见之者昌。五贼在心，施行于天。<br>
       宇宙在乎手，万化生乎身。
-      <span class="en">Heaven has five thieves; seeing them brings prosperity. The five thieves dwell in the heart; they are enacted across Heaven. The universe rests in the hand; ten thousand transformations arise from the body.</span>
+      
     </blockquote>
 
     <p>
       「五贼」历代多解为<strong>五行</strong>——金木水火土。五行相生相克，是「贼」：生我者窃我之机，克我者夺我之能。但阴符经说，五贼<strong>「在心」</strong>。
-      <span class="en">"The five thieves" are traditionally read as the <strong>five elements</strong> — metal, wood, water, fire, earth. Their generation and conquest is "thieving": what generates me steals my mechanism, what overcomes me seizes my power. But the scripture says the five thieves dwell <strong>in the heart</strong>.</span>
+      
     </p>
     <p>
       打坐实证最直观的印证，就在下一句——<strong>「宇宙在乎手，万化生乎身」</strong>。这话若从文字上读，是夸张；在打坐中读，是如实。当三丹田贯通、气行周天，身体的每一个毛孔都成了宇宙的毛孔，体内的「万化」——气血、五行、神气——全在自身之中流转。
-      <span class="en">The most direct proof of this in sitting is the very next line — <strong>"The universe rests in the hand; ten thousand transformations arise from the body."</strong> Read as text, this is hyperbole; read in sitting, it is exact. When the three elixir fields are linked and qi circulates through the whole body, every pore becomes a pore of the cosmos; the "ten thousand transformations" — qi, blood, the five elements, spirit — all circulate within the self.</span>
+      
     </p>
     <p>
       这就是网站黄庭经卡片所说的「三丹田贯通，为内丹修炼根基」。<strong>外看是五贼行于天，内观是五行炼于身。</strong>看见身内五行运转，即是「见之者昌」。
-      <span class="en">This is what the Huangting Jing card on the homepage calls "the three elixir fields linked, the foundation of inner alchemy." <strong>Seen outward, the five thieves enact across Heaven; observed inward, the five elements refine within the body.</strong> To see the five elements turning within the body is "seeing them brings prosperity."</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应首页「道藏经典」黄庭经卡片之「三丹田贯通」、精气神道之<strong>炼精化气</strong>阶段。六阶指南第一阶段「入门筑基」——身发暖、坐得稳，正是「万化生乎身」的初证。
-        <span class="en">Corresponds to the Huangting Jing card's "three elixir fields linked," and the <strong>Refining Essence into Qi</strong> stage. Stage One "Laying the Foundation" of the six-stage guide — body warming, sitting steadily — is the first proof of "transformations arise from the body."</span>
+        
       </p>
     </div>
   </div>
@@ -682,33 +612,33 @@ footer {
 
 <!-- ═══════════ 机 ═══════════ -->
 <section class="section" id="xinji">
-  <div class="section-label">其三 · 机<span class="en">Three · Mechanism</span></div>
-  <h2>天性人也 · 心为机枢<span class="en">Heaven's Nature Is Human: The Heart Is the Pivot</span></h2>
+  <div class="section-label">其三 · 机</div>
+  <h2>天性人也 · 心为机枢</h2>
 
   <div class="content">
     <blockquote>
       天性，人也；人心，机也。立天之道，以定人也。
-      <span class="en">Heaven's nature is the human; the human heart is the mechanism. Establish the Way of Heaven to settle the human.</span>
+      
     </blockquote>
 
     <p>
       阴符经说人的本性即是天性，而人心是那个「机」——<strong>机关、扳机、枢机</strong>。整个修行，不过是在调这个机。
-      <span class="en">The Yin Fu Jing says human nature is Heaven's nature, and the human heart is the mechanism — <strong>the trigger, the pivot</strong>. All of cultivation is nothing more than adjusting this mechanism.</span>
+      
     </p>
     <p>
       打坐中体会最深的就是这一点：念头起来的那一瞬间，就是「机」动。念起是机，看见念起也是机。<strong>修行的功夫，不在压念，而在看见念起的那一刹那。</strong>「立天之道」——回到天性本来清静，念头自然就定了。
-      <span class="en">What is felt most deeply in sitting is precisely this: the instant a thought arises is the mechanism stirring. Arising of a thought is mechanism; seeing the arising is also mechanism. <strong>The practice is not to suppress thoughts, but to catch the instant they arise.</strong> "Establishing the Way of Heaven" — returning to nature's original stillness, thoughts settle of themselves.</span>
+      
     </p>
     <p>
       这正是网站心经卡片所记宗辉证悟「<strong>念起处即空性</strong>」——念起处，就是机枢所在；能看见它，就触到了天性。
-      <span class="en">This is exactly Zonghui's realization recorded on the Heart Sutra card — "<strong>where the thought arises is emptiness itself</strong>" — the arising point is where the pivot lies; to see it is to touch Heaven's nature.</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应心经卡片之「念起处即空性」，与精气神道<strong>炼气化神</strong>阶段「身静→心静→神静」中的「心静」。调机即调心，心静则机定。
-        <span class="en">Corresponds to the Heart Sutra card's "where the thought arises is emptiness," and the "body-still → heart-still → spirit-still" of the <strong>Refining Qi into Spirit</strong> stage. Adjusting the mechanism is adjusting the heart; when the heart is still, the mechanism is fixed.</span>
+        
       </p>
     </div>
   </div>
@@ -718,34 +648,34 @@ footer {
 
 <!-- ═══════════ 要 ═══════════ -->
 <section class="section" id="sanyao">
-  <div class="section-label">其四 · 要<span class="en">Four · Essentials</span></div>
-  <h2>九窍之邪 · 在乎三要<span class="en">The Nine Apertures' Disturbance Lies in the Three Essentials</span></h2>
+  <div class="section-label">其四 · 要</div>
+  <h2>九窍之邪 · 在乎三要</h2>
 
   <div class="content">
     <blockquote>
       九窍之邪，在乎三要，可以动静。<br>
       瞽者善听，聋者善视。绝利一源，用师十倍；三返昼夜，用师万倍。
-      <span class="en">The disturbance of the nine apertures lies in the three essentials, through which one may move or be still. The blind hear well; the deaf see well. Sever profit from a single source — power tenfold; return three times day and night — power ten-thousandfold.</span>
+      
     </blockquote>
 
     <p>
       「三要」指<strong>耳目口</strong>。九窍之邪，全都从这三个口子进来。这是阴符经里最接近「打坐操作手册」的一句——也是整部经最实用的一句。
-      <span class="en">"The three essentials" are the <strong>ears, eyes, and mouth</strong>. All disturbance of the nine apertures enters through these three openings. This is the line closest to a "sitting manual" in the entire scripture — and its most practical one.</span>
+      
     </p>
     <p>
       打坐的第一功夫，就是<strong>收视、返听、闭口</strong>：目光内收不追逐外物，耳朵从外面收回来听内在的声音，舌抵上颚、口不言语。三要一守，九窍之邪自然止息。这比任何高深的丹道术语都更根本——<strong>你连耳目口都收不住，谈什么炼精化气？</strong>
-      <span class="en">The first work of sitting is <strong>gathering the gaze, reversing the hearing, and closing the mouth</strong>: the eyes turn inward without chasing outer things, the ears return to listen to the inner sound, the tongue rests at the palate and speech ceases. Guard the three essentials and the disturbance of the nine apertures settles by itself. This is more fundamental than any lofty alchemical term — <strong>if you cannot even contain ear, eye, and mouth, what refinement of essence into qi can you speak of?</strong></span>
+      
     </p>
     <p>
       「瞽者善听，聋者善视」是绝妙的比喻：<strong>瞎了，听觉就通了；聋了，视觉就通了。</strong>在打坐中主动「绝」掉外放的一源，内在本已具足的感知就会被放大。三静入定里的「神静」，正是从这个「绝利一源」里出来的。
-      <span class="en">"The blind hear well; the deaf see well" is a marvelous metaphor: <strong>blinded, hearing opens; deafened, sight opens.</strong> In sitting, when one actively severs the outward-flowing source, the inner perception that is already complete becomes amplified. The "spirit-still" of entering the three stillnesses emerges precisely from this "severing profit from a single source."</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应精气神道<strong>炼气化神</strong>之「三静入定」与<strong>通三眼</strong>（天眼观能量→慧眼看透本质→法眼提炼大道）。收视返听、绝利一源，正是通三眼的内观前提。也对应三十三阶之「入静」。
-        <span class="en">Corresponds to "entering the three stillnesses" and "opening the three eyes" (celestial eye seeing energy → wisdom eye seeing essence → dharma eye extracting the Dao) in <strong>Refining Qi into Spirit</strong>. Gathering the gaze, reversing the hearing, and severing a single source are precisely the prerequisites for opening the three eyes in inner observation. Also corresponds to "entering stillness" among the thirty-three steps.</span>
+        
       </p>
     </div>
   </div>
@@ -755,34 +685,34 @@ footer {
 
 <!-- ═══════════ 静 ═══════════ -->
 <section class="section" id="zhijing">
-  <div class="section-label">其五 · 静<span class="en">Five · Stillness</span></div>
-  <h2>至静之道 · 入静入定<span class="en">The Way of Utmost Stillness: Entering Stillness and Samadhi</span></h2>
+  <div class="section-label">其五 · 静</div>
+  <h2>至静之道 · 入静入定</h2>
 
   <div class="content">
     <blockquote>
       自然之道静，故天地万物生。<br>
       至静之道，律历所不能契。
-      <span class="en">The Way of nature is still; therefore Heaven, Earth, and the ten thousand things are born. The Way of utmost stillness — even calendar and measure cannot match it.</span>
+      
     </blockquote>
 
     <p>
       这是阴符经点破天机核心的一句：<strong>静，是天地的源头。</strong>万物从静中生出，也终将归于静。打坐不是追求静，而是回到那个本来就静的源头。
-      <span class="en">This line unveils the core of celestial mechanism: <strong>stillness is the source of Heaven and Earth.</strong> All things are born from stillness and return to it. Sitting does not pursue stillness; it returns to the source that was always still.</span>
+      
     </p>
     <p>
       「至静之道，律历所不能契」——最深的静，是任何刻度、历法、语言都无法度量的。打坐到极处，身静、心静、神静，进入一个时间失效的状态：<strong>没有时间感，没有空间感，只有「在」。</strong>这种状态，文字契不上，因为它本来就是文字出现之前的东西。
-      <span class="en">"The Way of utmost stillness — calendar and measure cannot match it": the deepest stillness cannot be measured by any scale, calendar, or language. Sitting to its extreme, body-still, heart-still, spirit-still, one enters a state where time fails: <strong>no sense of time, no sense of space, only "being."</strong> This state cannot be matched by words, because it is what existed before words arose.</span>
+      
     </p>
     <p>
       网站的虚空合道实证，正是这句话的落地：<strong>静到极致，虚空现前；虚空背后，即是道。</strong>「律历所不能契」，在实证里就是「言语道断」。
-      <span class="en">The site's union-with-the-void realization is precisely this line landing on the ground: <strong>stillness to its limit, the void appears; behind the void, the Dao.</strong> "Calendar and measure cannot match it" is, in practice, "words are cut off and the Way is severed."</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应精气神道<strong>炼神还虚</strong>阶段之「三静入定」与<strong>2026年4月25日虚空合道</strong>实证。也呼应《太上老君说常清静经》「人能常清静，天地悉皆归」——清静经卡片已在首页。
-        <span class="en">Corresponds to "entering the three stillnesses" in <strong>Returning Spirit to Emptiness</strong> and the <strong>April 25, 2026 union-with-the-void</strong> realization. Also echoes the Qingjing Jing — "If one can be ever clear and still, Heaven and Earth gather and return" — already on the homepage.</span>
+        
       </p>
     </div>
   </div>
@@ -792,34 +722,34 @@ footer {
 
 <!-- ═══════════ 杀 ═══════════ -->
 <section class="section" id="sha">
-  <div class="section-label">其六 · 杀<span class="en">Six · Killing</span></div>
-  <h2>天生天杀 · 破旧立新<span class="en">Born of Heaven, Killed of Heaven: Breaking the Old</span></h2>
+  <div class="section-label">其六 · 杀</div>
+  <h2>天生天杀 · 破旧立新</h2>
 
   <div class="content">
     <blockquote>
       天发杀机，移星易宿；地发杀机，龙蛇起陆；人发杀机，天地反覆；天人合发，万化定基。<br>
       火生于木，祸发必克；奸生于国，时动必溃。知之修炼，谓之圣人。
-      <span class="en">When Heaven releases its killing mechanism, stars shift and lodges change; when Earth releases it, dragons and serpents rise from the land; when the human releases it, Heaven and Earth turn over; when Heaven and the human release together, the foundation of ten thousand transformations is fixed. Fire is born of wood, and its calamity, when it breaks, must be overcome; treachery is born in a state, and its ruin comes when the time moves. To know this and cultivate — that is called the sage.</span>
+      
     </blockquote>
 
     <p>
       阴符经的「杀机」不好懂，也最容易被误解。它讲的不是伤人，而是<strong>天地万物运行的清理机制</strong>——旧的不去，新的不生。
-      <span class="en">The "killing mechanism" of the Yin Fu Jing is hard to grasp and easily misunderstood. It is not about harming others, but about <strong>the cleaning mechanism by which Heaven and Earth run all things</strong> — if the old does not go, the new cannot be born.</span>
+      
     </p>
     <p>
       在打坐里，这个「杀」就是<strong>炼精化气的质变点</strong>。气行到淤堵处，会有痛、有痒、有排异反应——那就是「地发杀机，龙蛇起陆」：体内的「龙蛇」（气机）被逼起来，冲开堵塞。身体重、念头乱、旧习惯被连根拔起，都是「人发杀机」在清场。
-      <span class="en">In sitting, this "killing" is the <strong>point of qualitative change in refining essence into qi</strong>. Where qi moves into blockage, there is pain, itching, and discharge — that is "Earth releases its killing mechanism; dragons and serpents rise from the land": the body's "dragons and serpents" (qi mechanisms) are driven up to break through obstructions. A heavy body, turbulent thoughts, old habits uprooted — all are the "human killing mechanism" clearing the ground.</span>
+      
     </p>
     <p>
       所以打坐有瓶颈期不是坏事——<strong>那是杀机在起，旧的自己正在被更新。</strong>「知之修炼，谓之圣人」：知道这个规律，顺着它修炼，不逃避、不对抗，就叫圣人。
-      <span class="en">So a plateau in sitting is not a bad thing — <strong>it is the killing mechanism rising, the old self being renewed.</strong> "To know this and cultivate — that is called the sage": knowing this law and cultivating along it, neither fleeing nor fighting, is the sage.</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应三十三阶之「入修」「入命」阶段的身心质变，以及六阶指南第五阶「炼虚合道」中的三要素定法——放下旧的修行惯性，确立新的法脉。
-        <span class="en">Corresponds to the physical-mental transformations of "entering practice" and "entering destiny" among the thirty-three steps, and the establishment of the three essentials in Stage Five of the six-stage guide — letting go of old practice habits to establish a new lineage.</span>
+        
       </p>
     </div>
   </div>
@@ -829,34 +759,34 @@ footer {
 
 <!-- ═══════════ 盗 ═══════════ -->
 <section class="section" id="dao">
-  <div class="section-label">其七 · 盗<span class="en">Seven · Stealing</span></div>
-  <h2>三盗既宜 · 盗天地之机<span class="en">When the Three Stealings Are in Harmony: Stealing Heaven's Mechanism</span></h2>
+  <div class="section-label">其七 · 盗</div>
+  <h2>三盗既宜 · 盗天地之机</h2>
 
   <div class="content">
     <blockquote>
       天地，万物之盗；万物，人之盗；人，万物之盗。三盗既宜，三才既安。<br>
       食其时，百骸理；动其机，万化安。
-      <span class="en">Heaven and Earth steal from the ten thousand things; the ten thousand things steal from the human; the human steals from the ten thousand things. When the three stealings are in harmony, the three powers are at peace. Eat at the right time and the hundred bones are ordered; move the mechanism and the ten thousand transformations are at peace.</span>
+      
     </blockquote>
 
     <p>
       「盗」是阴符经里最意味深长的字。天地养育万物，也取万物之精；人靠万物存活，也反过来滋养万物。所谓三盗，其实是<strong>宇宙的交换循环</strong>——没有谁能只取不给。
-      <span class="en">"Stealing" is the most meaningful character in the Yin Fu Jing. Heaven and Earth nourish all things, and also take their essence; humans live by the ten thousand things and in turn nourish them. The three stealings are in fact <strong>the universe's cycle of exchange</strong> — nothing takes without giving.</span>
+      
     </p>
     <p>
       打坐实证里最清晰的一条交换，就是<strong>呼吸与气脉</strong>：吸气取天之精，呼气还地之机。「食其时，百骸理」——顺着呼吸的节律、顺着身体的时辰，气血自然理顺。强求、贪取、逆时而动，就是「三盗不宜」，百骸必乱。
-      <span class="en">The clearest exchange proven in sitting is <strong>breath and qi channels</strong>: the inhale takes Heaven's essence, the exhale returns Earth's mechanism. "Eat at the right time and the hundred bones are ordered" — following the rhythm of the breath and the body's hours, qi and blood order themselves. Forcing, grasping, or moving against the time is "the three stealings unharmonious" — the hundred bones must fall into disorder.</span>
+      
     </p>
     <p>
       这也正是网站道商理念的宇宙观底座：<strong>「服务他人积功累德」</strong>不是单方面的付出，而是「人，万物之盗」的均衡——你在取，也在还；取是利他给的，还是修来的。交换循环走通了，人就是安定的。
-      <span class="en">This is also the cosmic foundation of the site's Dao-merchant ethos: <strong>"serving others accumulates merit"</strong> is not one-way giving but the balance of "the human steals from the ten thousand things" — you take and you return; what you take, others give, and what you give back, you cultivate. When the cycle of exchange runs through, the person is at peace.</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应首页道商区「能量即变现底层」——服务他人积功累德，能量提升自然变现。取与还的循环，即「三盗既宜，三才既安」。
-        <span class="en">Corresponds to the "energy as the foundation of manifestation" in the Dao-merchant section — serving others accumulates merit, and risen energy naturally manifests. The cycle of taking and returning is "the three stealings in harmony, the three powers at peace."</span>
+        
       </p>
     </div>
   </div>
@@ -866,33 +796,33 @@ footer {
 
 <!-- ═══════════ 反 ═══════════ -->
 <section class="section" id="shengsi">
-  <div class="section-label">其八 · 反<span class="en">Eight · Reversal</span></div>
-  <h2>生者死之根 · 性命双修<span class="en">Life Is the Root of Death: Dual Cultivation of Nature and Destiny</span></h2>
+  <div class="section-label">其八 · 反</div>
+  <h2>生者死之根 · 性命双修</h2>
 
   <div class="content">
     <blockquote>
       生者死之根，死者生之根。恩生于害，害生于恩。
-      <span class="en">Life is the root of death; death is the root of life. Grace is born of harm; harm is born of grace.</span>
+      
     </blockquote>
 
     <p>
       阴符经的最终智慧，是一个大反转：<strong>生从死里来，死从生里来。</strong>这不是悲观，而是道家「逆则仙」的总纲——顺则生人生物，逆则成仙成佛。
-      <span class="en">The final wisdom of the Yin Fu Jing is a great reversal: <strong>life comes from death, death from life.</strong> This is not pessimism but the synopsis of the Daoist "reverse — and become an immortal": following forward, beings are born; reversing, one becomes an immortal or a Buddha.</span>
+      
     </p>
     <p>
       打坐的整个次第，就是一次「逆」：<strong>炼精化气，是把向下流走的精逆回来；炼气化神，是把向外散失的气逆回来；炼神还虚，是把执着于「我」的神逆回虚空。</strong>每一次质变，旧的「我」死一次，新的「我」生一次。从筑基到合道的三十三阶，本质是一条逆行的路。
-      <span class="en">The entire sequence of sitting is one "reversal": <strong>refining essence into qi reverses the essence that flows downward; refining qi into spirit reverses the qi that disperses outward; refining spirit into emptiness reverses the spirit attached to "I" back into the void.</strong> At every qualitative change, the old "I" dies once and a new "I" is born. The thirty-three steps from foundation to union are, in essence, one reversed path.</span>
+      
     </p>
     <p>
       所以修行人不怕死——不是不怕那个物理的终结，而是<strong>每天都让旧的自己在打坐里死一次</strong>。恩生于害：那些最难受的排病反应、最痛的瓶颈期，恰恰是新生的恩。知道这个道理再去修，阴符经八个面向就全部贯通了。
-      <span class="en">So the cultivator does not fear death — not the physical end, but <strong>letting the old self die a little each day in sitting</strong>. Grace is born of harm: the most uncomfortable discharges and the most painful plateaus are precisely the grace of new birth. Knowing this and then cultivating, the eight facets of the Yin Fu Jing are fully threaded through.</span>
+      
     </p>
 
     <div class="feature-box">
-      <div class="feature-box-label">与网站印证<span class="en">Cross-reference</span></div>
+      <div class="feature-box-label">与网站印证</div>
       <p>
         对应三十三阶之「入圆」「入归」与精气神道<strong>炼虚合道</strong>阶段——道法自然、利他是必选项。也呼应六阶指南第五阶「炼虚合道」：修行即生活，生活即修行。
-        <span class="en">Corresponds to "entering completeness" and "entering return" among the thirty-three steps and the <strong>Union with the Dao</strong> stage — nature follows the Dao, and benefiting others is essential. Also echoes Stage Five "Uniting with the Dao": practice is life, life is practice.</span>
+        
       </p>
     </div>
   </div>
@@ -902,13 +832,13 @@ footer {
 
 <!-- ═══════════ 以经印道 ═══════════ -->
 <section class="section" id="yin">
-  <div class="section-label">以经印道<span class="en">Scripture & Proof</span></div>
-  <h2>一部天机之经 · 一张实证地图<span class="en">A Scripture of Celestial Mechanism, a Map of Proof</span></h2>
+  <div class="section-label">以经印道</div>
+  <h2>一部天机之经 · 一张实证地图</h2>
 
   <div class="content">
     <p>
       把八个面向合起来看，阴符经其实给了打坐一张完整的实证地图：
-      <span class="en">Putting the eight facets together, the Yin Fu Jing offers sitting meditation a complete map of proof:</span>
+      
     </p>
 
     <table>
@@ -982,7 +912,7 @@ footer {
 <footer>
   道藏经典 · 阴符经打坐实证 · 2026年<br>
   道名宗辉 · AI摆渡人 · 以经印道
-  <span class="en">Daoist scripture · Yin Fu Jing through sitting practice · 2026<br>Dao name: Zonghui · AI ferryman · Proving scriptures through practice</span>
+  
 </footer>
 
 <script>
