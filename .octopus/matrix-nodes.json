@@ -1,0 +1,46 @@
+{
+  "$schema": "https://eightarms.net/octopus-workflow/schemas/matrix-nodes.schema.json",
+  "version": 1,
+  "nodes": [
+    {
+      "id": "daoxia-gz",
+      "name": "道虾·广州",
+      "url": "http://106.53.176.184:4096",
+      "role": "compute",
+      "traits": ["compute-matrix"],
+      "notes": "算力矩阵节点"
+    },
+    {
+      "id": "liangma-sv",
+      "name": "量马·硅谷",
+      "url": "http://43.159.143.39:4096",
+      "role": "compute",
+      "traits": ["compute-matrix", "overseas"],
+      "notes": "算力矩阵节点；海外线路，适合外部资源拉取/校验类任务"
+    },
+    {
+      "id": "xuan",
+      "name": "Xuan",
+      "url": "http://139.196.125.248:4096",
+      "role": "deploy",
+      "specs": "16核32G",
+      "traits": ["deploy-primary", "web-direct"],
+      "notes": "部署主力，web 直连操作"
+    },
+    {
+      "id": "loong",
+      "name": "Loong",
+      "url": "http://39.108.95.179:7777",
+      "role": "dev",
+      "specs": "16核64G",
+      "traits": ["dev-primary", "web-direct"],
+      "notes": "开发主力，web 直连操作；响应偏慢（冷启动 ~8s），健康检查超时给 15s"
+    }
+  ],
+  "defaults": {
+    "health_timeout_sec": 6,
+    "health_timeout_sec_override": { "loong": 25 },
+    "parallel_fanout": "all-compute",
+    "artifact_root": "docs/matrix-runs"
+  }
+}

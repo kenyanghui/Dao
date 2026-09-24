@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>道诗卡集 · 玄龙堂</title>
+<meta name="description" content="玄龙堂道诗卡集：宗辉六十签与云清 2026 五十签，每签含道诗、量化寓言、一悟一问一行。">
+<link rel="canonical" href="https://xuanlongtang.github.io/cards.html">
+<meta property="og:title" content="道诗卡集 · 玄龙堂">
+<meta property="og:description" content="宗辉六十签与云清 2026 五十签，每签含道诗、量化寓言、一悟一问一行。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/home.css">
+<link rel="stylesheet" href="assets/cards.css">
+</head>
+<body class="cards-page">
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="brand">玄龙堂</a>
+    <button class="hamburger" aria-label="菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="index.html#daily">今日一签</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="cards-header">
+  <div class="section-label">卡集</div>
+  <h1 class="cards-title">道诗卡集</h1>
+  <p class="cards-sub">点卡片看卡面 · 再点展开签文与一悟一问一行</p>
+  <div class="deck-tabs" id="deck-tabs">
+    <button class="deck-tab active" data-deck="all">全部</button>
+    <button class="deck-tab" data-deck="zonghui">宗辉 · 六十签</button>
+    <button class="deck-tab" data-deck="yunqing2026">云清 2026 · 五十签</button>
+  </div>
+</header>
+
+<main class="cards-main">
+  <section class="deck-section" id="zonghui">
+    <h2 class="deck-title">宗辉 · 道诗六十篇</h2>
+    <div class="cards-grid" id="grid-zonghui"></div>
+  </section>
+  <section class="deck-section" id="yunqing2026">
+    <h2 class="deck-title">云清 · 2026 道诗五十篇</h2>
+    <div class="cards-grid" id="grid-yunqing2026"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="dao-name">玄龙堂</div>
+  <p>道诗为镜 · 量化为场 · 修心为本</p>
+</footer>
+
+<dialog class="card-dialog" id="card-dialog">
+  <button class="dialog-close" id="dialog-close" aria-label="关闭">✕</button>
+  <div class="dialog-body" id="dialog-body"></div>
+</dialog>
+
+<script src="assets/cards.js"></script>
+</body>
+</html>

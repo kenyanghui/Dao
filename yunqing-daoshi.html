@@ -5283,7 +5283,7 @@ async function copyMoments(button, path) {
 }
 
 function attachCardTools(container, key, title) {
-  const imagePath = `${cardAssetRoot}/${key}.png`;
+  const imagePath = `${cardAssetRoot}/${key}.jpg`;
   const momentsPath = `${cardAssetRoot}/${key}.txt`;
   const panelId = `poem-card-${key}-${++cardInstance}`;
   const tools = document.createElement('div');
@@ -5334,7 +5334,7 @@ function attachCardTools(container, key, title) {
   const download = document.createElement('a');
   download.className = 'poem-card-download';
   download.href = imagePath;
-  download.download = `云清大师道诗荐赏-${title}.png`;
+  download.download = `云清大师道诗荐赏-${title}.jpg`;
   download.textContent = '下载完整长图';
 
   toggle.addEventListener('click', () => {

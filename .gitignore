@@ -1,3 +1,4 @@
 .baoyu-skills/
 # 本地 Vite 原型，当前主站直接部署根目录静态文件
 dao-cultivation/
+.original-png-backup/

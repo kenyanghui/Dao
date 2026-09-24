@@ -1,0 +1,217 @@
+/* ── Cards page ── */
+.cards-page { background: var(--void); }
+
+.cards-header {
+  text-align: center;
+  padding: 120px 20px 40px;
+}
+
+.cards-title {
+  font-family: 'Ma Shan Zheng', 'Zhi Mang Xing', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin: 12px 0 8px;
+}
+
+.cards-sub {
+  color: var(--cream-dark);
+  opacity: 0.75;
+  letter-spacing: 0.08em;
+}
+
+.deck-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.deck-tab {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--cream-dark);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 8px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.deck-tab:hover { border-color: var(--gold); color: var(--gold); }
+
+.deck-tab.active {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.cards-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+.deck-section { scroll-margin-top: 90px; }
+
+.deck-title {
+  font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  margin: 48px 0 20px;
+  padding-left: 14px;
+  border-left: 3px solid var(--gold-dim, rgba(201, 168, 76, 0.5));
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.card-item {
+  background: var(--void-light, rgba(20, 18, 14, 0.65));
+  border: 1px solid rgba(201, 168, 76, 0.16);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-smooth), border-color 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth);
+  text-align: left;
+}
+
+.card-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 168, 76, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.card-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1080 / 3400;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-item .card-item-bar {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.card-item .card-item-title {
+  font-family: 'Noto Serif SC', serif;
+  color: var(--cream, #ece4d4);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.card-item .card-item-num {
+  color: var(--gold);
+  opacity: 0.7;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* ── Dialog ── */
+.card-dialog {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 14px;
+  background: var(--void, #14120e);
+  color: var(--cream, #ece4d4);
+  padding: 0;
+  max-width: min(560px, 92vw);
+  max-height: 86vh;
+  width: 92vw;
+}
+
+.card-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.dialog-close:hover { opacity: 1; }
+
+.dialog-body {
+  overflow-y: auto;
+  max-height: 86vh;
+  padding: 26px 28px 34px;
+}
+
+.dialog-body img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.dialog-deck {
+  color: var(--gold);
+  opacity: 0.75;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+
+.dialog-title {
+  font-family: 'Ma Shan Zheng', 'Zhi Mang Xing', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.dialog-poem {
+  font-family: 'Noto Serif SC', serif;
+  white-space: pre-wrap;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: var(--cream, #ece4d4);
+  border-left: 2px solid rgba(201, 168, 76, 0.4);
+  padding-left: 14px;
+  margin: 14px 0 18px;
+}
+
+.dialog-quote {
+  color: var(--jade-light, #9ec9b4);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.dialog-section-label {
+  color: var(--gold);
+  opacity: 0.8;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  margin: 16px 0 6px;
+}
+
+.dialog-text {
+  line-height: 1.9;
+  font-size: 0.96rem;
+  color: var(--cream-dark, #c9bfa8);
+}
+
+@media (max-width: 640px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .dialog-body { padding: 20px 18px 28px; }
+}
